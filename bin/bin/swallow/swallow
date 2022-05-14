@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+
+
+### greppers (vim as main editor)
+#################################
+
+echo "$*" | grep "\.ar\." && {
+    xhide xterm -e "${EDITOR:=vim}" "$*" &
+    exit
+}
+
+echo "$1" | grep "\.sent$" && {
+    xhide sent "$1" &
+    exit
+}
+
+
+
+
+### mime-type opener (mpv, sxiv, zathura, shfm, vim)
+####################################################
+
+case $(file --mime-type "$*" -bL) in
+    audio/*)
+        FILE=$*
+        echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
+        mpv "$FILE"
+        ;;
+    video/*)
+        xhide "mpv --force-window '$*'"
+        ;;
+    application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
+        xhide "zathura '$*'"
+        ;;
+    image/*)
+        xhide "~/.config/sxiv/supersxiv '$*'"
+        ;;
+    inode/directory)
+        shfm "$*"
+        ;;
+    *)
+        vim "$*"
+        ;;
+esac

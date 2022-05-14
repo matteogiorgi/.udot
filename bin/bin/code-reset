@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# This script sets the default settings
+# and default keybindings for vscode and vscodium
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+printf "${RED}%s${NC}\n" "Choose an editor"
+echo "1 code"
+echo "2 codium"
+printf "${RED}%s${NC} " "Enter an index (1-2):"
+
+
+while read response; do
+    case $response in
+        1)
+            FOLDER="Code"
+            NAME="code"
+            break
+            ;;
+        2)
+            FOLDER="VSCodium"
+            NAME="codium"
+            break
+            ;;
+        *)
+            printf "${RED}%s${NC} " "Enter an index (1-2):"
+            ;;
+    esac
+done
+
+
+if [[ ! -x "$(command -v $NAME)" ]]; then
+    printf "${YLW}%s${RED}%s${NC}\n" "$NAME" " is not installed"
+    exit 0
+fi
+
+
+printf "${RED}%s${YLW}%s${RED}%s${NC} " "Are you sure you want to reset " "$NAME" " settings and keybindings? (Y/n)"
+while read response; do
+    case $response in
+        "y" | "Y" | "yes" | "Yes")
+            break
+            ;;
+        *)
+            printf "${YLW}%s${NC}\n" "Ok, you still got your confs."
+            exit 0
+            ;;
+    esac
+done
+
+
+cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
+{
+    "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "window.menuBarVisibility": "toggle",
+    "window.restoreWindows": "none",
+    "editor.fontFamily": "'UbuntuMono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 12,
+    "editor.guides.indentation": false,
+    "editor.minimap.enabled": false,
+    "editor.folding": false,
+    "editor.cursorBlinking": "solid",
+    "editor.renderLineHighlight": "none",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.activityBar.visible": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 20,
+}
+EOF
+
+cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
+{
+}
+EOF
+
+
+printf "${YLW}%s${NC}\n" "Done."
+
+unset RED
+unset YLW
+unset NC
+unset FOLDER
+unset NAME
+unset response

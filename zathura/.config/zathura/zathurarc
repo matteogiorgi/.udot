@@ -1,0 +1,58 @@
+### Startup options
+###################
+
+set adjust-open width
+set recolor false
+
+set font "mononoki Nerd Font 9"
+set first-page-column 2
+set show-scrollbars
+set smooth-scroll true
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+map <C-i> recolor
+
+
+
+
+### Color theme
+###############
+
+set notification-error-bg   "#F66151"
+set notification-error-fg   "#171421"
+set notification-warning-bg "#E9AD0C"
+set notification-warning-fg "#171421"
+set notification-bg         "#D0CFCC"
+set notification-fg         "#171421"
+
+set completion-bg           "#171421"
+set completion-fg           "#5E5C64"
+set completion-group-bg     "#171421"
+set completion-group-fg     "#5E5C64"
+set completion-highlight-bg "#171421"
+set completion-highlight-fg "#E9AD0C"
+
+set index-bg                "#D0CFCC"
+set index-fg                "#171421"
+set index-active-bg         "#D0CFCC"
+set index-active-fg         "#171421"
+
+set inputbar-bg             "#171421"
+set inputbar-fg             "#FFFFFF"
+set statusbar-bg            "#171421"
+set statusbar-fg            "#FFFFFF"
+
+set highlight-color         "#ff9500"
+set highlight-active-color  "#ad7fa8"
+
+set default-bg              "#D0CFCC"
+set default-fg              "#171421"
+
+set render-loading          true
+set render-loading-fg       "#171421"
+set render-loading-bg       "#D0CFCC"
+
+set recolor-darkcolor       "#D0CFCC"
+set recolor-lightcolor      "#171421"

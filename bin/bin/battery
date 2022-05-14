@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# SET ALIASES FOR SECURITY
+alias echo="/usr/bin/echo" cat="/usr/bin/cat"
+
+
+# DETERMINE POWER SUPPLY
+SYS_POWER_SUPPLY_DIR="/sys/class/power_supply"
+
+
+# ATTEMPT TO FIND BAT0 AND BAT1.
+if [ -e $SYS_POWER_SUPPLY_DIR/BAT0 ]
+then
+    battery="BAT0"
+elif [ -e $SYS_POWER_SUPPLY_DIR/BAT1 ]
+then
+    battery="BAT1"
+fi
+
+
+# EXIT IF NO BATTERY IS FOUND.
+[[ -z $battery ]] && echo "WTF?" && exit 2
+battery_path="$SYS_POWER_SUPPLY_DIR/$battery"
+! [ -e $battery_path  ] && echo "'$battery' not found." && exit 2
+
+
+# ACCESS POWER SUPPLY'S LEVEL AND STATUS
+if [ -e $battery_path/capacity ]
+then
+    level=$(cat $battery_path/capacity)
+else
+    echo "No $battery's level."
+    exit 3
+fi
+if [ -e $battery_path/status ]
+then
+    state=$(cat $battery_path/status)
+else
+    echo "No $battery's status."
+    state="Discharging"
+fi
+
+
+# PRINT LEVEL
+echo "$level"
+
+
+# UNALIAS & EXIT
+unalias echo cat
+exit 0

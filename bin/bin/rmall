@@ -1,0 +1,41 @@
+#!/bin/bash
+
+exec 3>&2 2>/dev/null
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+for arg in "$@"; do
+	list=$(find *.$arg)
+	if [[ $list == ""  ]]; then
+		printf "${YLW}%s${RED}%s${YLW}%s${NC}\n" "No file with" " .$arg " "extention found in $PWD"
+		continue
+	fi
+	printf "${RED}%s${YLW}%s${NC}\n" ".$arg " "files:"
+	for file in $list; do
+		echo $file
+	done
+	printf "${YLW}%s${NC} " "Are you sure you wanna delete them? (Y/n)"
+
+	while read response; do
+		case $response in
+			"y" | "Y" | "yes" | "Yes")
+                rm *.$arg
+                printf "$list\nremoved\n"
+                break
+                ;;
+
+			"n" | "N" | "no" | "No" | "")
+                printf "No file removed\n"
+                break
+                ;;
+
+			*)
+                printf "${YLW}%s${NC}\n" "You need to answare y(yes) or n(no)"
+                ;;
+		esac
+	done
+done
+
+echo -e "${YLW}Done.${NC}"
+exit 0
