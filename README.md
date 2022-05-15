@@ -1,4 +1,4 @@
-# Micro-Dotfiles
+# Ubuntu-Dotfiles
 
 These repo contains a minimal configuration of my dotfiles, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are ment to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
 
@@ -11,7 +11,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - sxhkd        (independent keybindings)
 - polybar      (statusbar)
 - dmenu        (suckless menu)
-- slock        (suckless lockscreen)
 
 - st           (rustmade terminal)
 - xterm        (x11 terminal)
@@ -30,6 +29,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - arandr       (gui xrandr interface)
 - lxappearance (gtk appearance)
 - qt5ct        (qt appearance)
+- pavucontrol  (pulseaudio gui)
 - blueman      (bluetooth connections)
 - nm           (networkmanager)
 
@@ -38,6 +38,8 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - wamerican    (/usr/share/dict collection)
 - xdo          (perform action on windows)
 - feh          (image viewer)
+- ripgrep
+- xbacklight
 
 
 

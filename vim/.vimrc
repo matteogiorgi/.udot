@@ -150,7 +150,7 @@ augroup overlengthtoggle
     autocmd!
     autocmd InsertEnter *
                 \ if &filetype !=? 'markdown' && &filetype !=? 'markdown.pandoc' && &filetype !=? 'pandoc' |
-                \     let &colorcolumn = '81,'.join(range(81,999),',') |
+                \     let &colorcolumn = '121,'.join(range(121,999),',') |
                 \ endif
     autocmd InsertLeave *
                 \ if &filetype !=? 'markdown' && &filetype !=? 'markdown.pandoc' && &filetype !=? 'pandoc' |

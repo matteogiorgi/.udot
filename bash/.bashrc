@@ -146,6 +146,10 @@ export EDITOR="vim"
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
 
+# fzf exports (remember to install ripgrep)
+export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
+export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+
 # special Haskell exports (curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh)
 export GHCUP_BIN="$HOME/.ghcup/bin"
 export CABAL_BIN="$HOME/.cabal/bin"
@@ -162,8 +166,19 @@ export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -
 export TOUCHPADID="GXTP7863:00 27C6:01E0 Touchpad"
 export WACOMID="Wacom One by Wacom M Pen stylus"
 
-# fetch os-info
-$HOME/bin/pfetch
+
+
+
+### Source some shit
+#####################
+
+# pfetch
+[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+
+# fzf
+[[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
+[[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
+[[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
 
 
 
