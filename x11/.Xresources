@@ -16,8 +16,8 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
 
 XTerm*renderFont: true
-XTerm*faceName: xft:mononoki Nerd Font
-XTerm*faceSize: 8.5
+XTerm*faceName: xft:Ubuntu Mono
+XTerm*faceSize: 10
 XTerm*utf8: 2
 XTerm*locale: true
 XTerm*loginshell: true
@@ -47,8 +47,8 @@ XTerm*cursorColor: #171421
 !!!!!!!!!!!!!!!!
 
 UXTerm*renderFont: true
-UXTerm*faceName: xft:mononoki Nerd Font
-UXTerm*faceSize: 8.5
+UXTerm*faceName: xft:Ubuntu Mono
+UXTerm*faceSize: 10
 UXTerm*utf8: 2
 UXTerm*locale: true
 UXTerm*loginshell: true
@@ -79,7 +79,7 @@ UXTerm*cursorColor: #171421
 
 Sxiv.background: #D0CFCC
 Sxiv.foreground: #171421
-Sxiv.font: mononoki Nerd Font:style=regular:size=8.5
+Sxiv.font: Ubuntu Mono:style=Regular:size=10
 
 
 

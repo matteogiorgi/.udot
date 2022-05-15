@@ -28,6 +28,8 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - sxiv         (image viewer)
 
 - arandr       (gui xrandr interface)
+- lxappearance (gtk appearance)
+- qt5ct        (qt appearance)
 - blueman      (bluetooth connections)
 - nm           (networkmanager)
 
@@ -36,3 +38,14 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - wamerican    (/usr/share/dict collection)
 - xdo          (perform action on windows)
 - feh          (image viewer)
+
+
+
+
+## Remember to install the followings
+
+- make
+- gcc
+- libx11-dev
+- libxinerama-dev
+- libxft-dev

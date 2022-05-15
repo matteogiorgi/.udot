@@ -61,21 +61,3 @@
 !/st/win.h
 !/st/x.c
 !/st/x.c.orig
-
-
-
-
-### SLOCK
-#########
-
-/slock/*
-!/slock/arg.h
-!/slock/config.def.h
-!/slock/config.mk
-!/slock/explicit_bzero.c
-!/slock/LICENSE
-!/slock/Makefile
-!/slock/README.md
-!/slock/slock.1
-!/slock/slock.c
-!/slock/util.h
