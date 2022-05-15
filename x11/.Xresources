@@ -23,8 +23,8 @@ XTerm*locale: true
 XTerm*loginshell: true
 XTerm*savelines: 16384
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-XTerm*background: #FFFFFF
-XTerm*foreground: #171421
+XTerm*background: #000000
+XTerm*foreground: #FFFFFF
 XTerm*fullscreen: never
 
 XTerm.vt100.metaSendsEscape: true
@@ -38,7 +38,7 @@ XTerm.vt100.translations: #override \n\
 XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
 XTerm*cursorOffTime: 250
-XTerm*cursorColor: #171421
+XTerm*cursorColor: #FFFFFF
 
 
 
@@ -54,8 +54,8 @@ UXTerm*locale: true
 UXTerm*loginshell: true
 UXTerm*savelines: 16384
 UXTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-UXTerm*background: #FFFFFF
-UXTerm*foreground: #171421
+UXTerm*background: #000000
+UXTerm*foreground: #FFFFFF
 UXTerm*fullscreen: never
 
 UXTerm.vt100.metaSendsEscape: true
@@ -69,7 +69,7 @@ UXTerm.vt100.translations: #override \n\
 UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
 UXTerm*cursorOffTime: 250
-UXTerm*cursorColor: #171421
+UXTerm*cursorColor: #FFFFFF
 
 
 
@@ -77,40 +77,40 @@ UXTerm*cursorColor: #171421
 !!! sxiv config
 !!!!!!!!!!!!!!!
 
-Sxiv.background: #D0CFCC
-Sxiv.foreground: #171421
+Sxiv.background: #E5E5E5
+Sxiv.foreground: #000000
 Sxiv.font: Ubuntu Mono:style=Regular:size=10
 
 
 
 
-!!! Gnome palette
+!!! XTerm palette
 !!!!!!!!!!!!!!!!!
 
-*.background: #ffffff
-*.foreground: #171421
+*.background: #000000
+*.foreground: #FFFFFF
 
 ! black
-*.color0:     #171421
-*.color8:     #5E5C64
-! red
-*.color1:     #C01C28
-*.color9:     #F66151
-! green
-*.color2:     #26A269
-*.color10:    #33D17A
-! yellow
-*.color3:     #A2734C
-*.color11:    #E9AD0C
-! blue
-*.color4:     #12488B
-*.color12:    #2A7BDE
-! magenta
-*.color5:     #A347BA
-*.color13:    #C061CB
-! cyan
-*.color6:     #2AA1B3
-*.color14:    #33C7DE
-! white
-*.color7:     #D0CFCC
+*.color0:     #000000
+*.color8:     #7F7F7F
+! red         
+*.color1:     #CD0000
+*.color9:     #FF0000
+! green       
+*.color2:     #00CD00
+*.color10:    #00FF00
+! yellow      
+*.color3:     #CDCD00
+*.color11:    #FFFF00
+! blue        
+*.color4:     #0000EE
+*.color12:    #5C5CFF
+! magenta     
+*.color5:     #CD00CD
+*.color13:    #FF00FF
+! cyan        
+*.color6:     #00CDCD
+*.color14:    #00FFFF
+! white       
+*.color7:     #E5E5E5
 *.color15:    #FFFFFF

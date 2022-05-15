@@ -158,6 +158,10 @@ export GOPATH_BIN="$HOME/go/bin"
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$GHCUP_BIN:$CABAL_BIN:$EMACS_BIN:$CARGO_BIN:$GOPATH_BIN"
 
+# check the name of your touchpad and tablet with `xinput`
+export TOUCHPADID="GXTP7863:00 27C6:01E0 Touchpad"
+export WACOMID="Wacom One by Wacom M Pen stylus"
+
 # fetch os-info
 $HOME/bin/pfetch
 
@@ -173,8 +177,7 @@ function xtouchpad () {
         echo "specify if you want to enable (1) or disable (0) your touchpad"
         return
     fi
-    TOUCH=$(xinput | grep Touchpad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
-    [[ $TOUCH == "" ]] && TOUCH=$(xinput | grep TouchPad | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     xinput set-prop $TOUCH "Device Enabled" $1
 }
 
@@ -184,12 +187,12 @@ function xwacom-output () {
     if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
         [[ $1 -eq 2 ]] && MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
     fi
-    xinput map-to-output $(xinput | grep "M Pen stylus" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
+    xinput map-to-output $(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
 }
 
 # Rotate Wacom input (xsetwacom needed)
 function xwacom-rotate () {
-    local XWACOMID=$(xinput | grep "M Pen stylus" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    local XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     if (( $# == 0 )); then
         xsetwacom --set $XWACOMID Rotate half
         return

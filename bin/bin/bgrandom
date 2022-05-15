@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 
 WALLPAPERS="$HOME/Pictures/wallpapers"
-
-cd $WALLPAPERS
-for walldir in wallogo*; do
-    rand=$((1+$RANDOM%10))
-    if [[ -z $pic || $rand -gt 5 ]]; then
-        pic=$walldir/$(/usr/bin/ls -l $walldir | awk '{if (NR!=1) print $9}' | sort -R | tail -1)
-    fi
-done
-
+pic=$WALLPAPERS/$(/usr/bin/ls -l $WALLPAPERS | awk '{if (NR!=1) print $9}' | sort -R | tail -1)
 feh --bg-fill $pic
-cd - 1>/dev/null

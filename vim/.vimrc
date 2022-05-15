@@ -65,7 +65,7 @@ endif
 
 " Syntax{{{
 syntax on
-set background=light
+set background=dark
 colorscheme hemisu
 filetype plugin indent on
 "}}}
