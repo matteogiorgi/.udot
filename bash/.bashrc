@@ -173,7 +173,7 @@ export WACOMID="Wacom One by Wacom M Pen stylus"
 #####################
 
 # pfetch
-[[ -f $HOME/bin/pfetch ]] && $HOME/bin/pfetch
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 
 # fzf
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
@@ -186,13 +186,19 @@ export WACOMID="Wacom One by Wacom M Pen stylus"
 ## FUNCTIONS
 ############
 
+# select a wallpaper
+function chwall () {
+    local WALLP="$HOME/Pictures/wallpapers"
+    xhide sxiv -t $WALLP/*
+}
+
 # enable/disable touchpad
 function xtouchpad () {
     if (( $# == 0 )); then
         echo "specify if you want to enable (1) or disable (0) your touchpad"
         return
     fi
-    TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    local TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     xinput set-prop $TOUCH "Device Enabled" $1
 }
 

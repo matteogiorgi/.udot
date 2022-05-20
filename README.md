@@ -13,10 +13,10 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - dmenu        (suckless menu)
 
 - st           (rustmade terminal)
-- xterm        (x11 terminal)
+- (u)xterm     (x11 terminal)
 - bash         (bourne again shell)
 - tmux         (terminal multiplexer)
-- vim          (vi improved)
+- vim(gtk3)    (vi improved)
 
 - git          (version control)
 - atool        (archive manager)
@@ -32,6 +32,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - pavucontrol  (pulseaudio gui)
 - blueman      (bluetooth connections)
 - nm           (networkmanager)
+- netsurf(gtk) (minimal web-browser)
 
 - stow         (symlink manager)
 - xclip        (x11 selections interface)

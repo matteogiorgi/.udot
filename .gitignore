@@ -61,3 +61,12 @@
 !/st/win.h
 !/st/x.c
 !/st/x.c.orig
+
+
+
+
+### WALLPAPERS
+##############
+
+/wallp/Pictures/*
+!/wallp/Pictures/wallp

@@ -4,7 +4,7 @@ export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 hc() { herbstclient "$@" ; }
 hc emit_hook reload
-xsetroot -solid '#44475a'
+xsetroot -solid '#0000EE'
 
 
 
@@ -23,7 +23,6 @@ hc keybind $Mod-Shift-r reload
 
 # my programs
 hc keybind $Mod-Shift-x spawn xkill
-hc keybind $Mod-Shift-b spawn bgrandom
 hc keybind $Mod-Return  spawn $Term
 hc keybind Alt-Return   spawn dm-run
 hc keybind Alt-q        spawn dm-quit

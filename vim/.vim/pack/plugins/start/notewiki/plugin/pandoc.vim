@@ -1,6 +1,6 @@
 " notewiki-plugin location
 if !exists('$plugged')
-    let $plugged = 'plugged'
+    let $plugged = 'pack/plugins/start'
 endif
 "}}}
 
@@ -18,11 +18,7 @@ function! s:NotePandoc() abort
         let l:pandoc = l:prefix . '/pandoc'
         let $pandoc = fnamemodify(l:pandoc, ':p')
         if !isdirectory($pandoc)
-            if has('nvim')
-                !cp -R $HOME/.config/nvim/$plugged/vim-notewiki/pandoc $prefix
-            else
-                !cp -R $HOME/.vim/$plugged/vim-notewiki/pandoc $prefix
-            endif
+            !cp -R $HOME/.vim/$plugged/notewiki/pandoc $prefix
         endif
         !$pandoc/assets/makenote %:t:r
     else

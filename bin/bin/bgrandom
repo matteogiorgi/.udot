@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-WALLPAPERS="$HOME/Pictures/wallpapers"
-pic=$WALLPAPERS/$(/usr/bin/ls -l $WALLPAPERS | awk '{if (NR!=1) print $9}' | sort -R | tail -1)
-feh --bg-fill $pic
