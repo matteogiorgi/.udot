@@ -9,6 +9,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 - stow            (symlink manager)
 - i3-wm           (tiling window-manager)
+- i3lock          (i3-wm lockscreen)
 - dmenu           (suckless menu)
 - arandr          (gui xrandr interface)
 - autorandr       (automate randr layouts)

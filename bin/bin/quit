@@ -8,9 +8,12 @@ kill_apps() {
     done < <(wmctrl -l | awk '{print $1}')
 }
 
-choice=$(echo -e "Logout\nReboot\nShutdown" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
+choice=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -m $MONITOR | cut -d ':' -f 1)
 
 case "$choice" in
+    Lock)
+        i3lock --color=285577
+        ;;
     Logout)
         kill_apps
         kill $(pgrep X) &

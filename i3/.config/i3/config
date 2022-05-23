@@ -191,7 +191,8 @@ bar {
 }
 
 # Other keybindings
-bindsym $mod+Shift+b exec "sxiv -t ~/Pictures/bgrnd/*"
+bindsym $mod+q exec "quit"
+bindsym $mod+b exec "sxiv -t ~/Pictures/bgrnd/*"
 
 # Autostart confs
 exec autorandr --load home
