@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # This is just the xinitrc file to use as argument for startx if you don't have
-# a login manager. It only launches bspwm (`exec bspwm` or `/usr/bin/bspwm start`)
-# because all the startup programs are taken care in ~/.config/bspwm/bspwmrc.
+# a login manager. It only launches i3 (`exec i3` or `/usr/bin/i3 start`)
+# because all the startup programs are taken care in ~/.config/i3/config.
 
 
 
@@ -20,4 +20,4 @@ systemctl --user import-environment DISPLAY
 ## START WM
 ###########
 
-exec herbstluftwm 2>~/.herbstluftwm.err
+exec i3 2>~/.i3.err

@@ -23,6 +23,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - git             (version control)
 - atool           (archive manager)
 - trash-cli       (trash utility)
+. htop            (process viewer)
 
 - mpv             (media player)
 - zathura         (document viewer)
