@@ -186,14 +186,8 @@ export WACOMID="Wacom One by Wacom M Pen stylus"
 ## FUNCTIONS
 ############
 
-# select a wallpaper
-function chwall () {
-    local WALLP="$HOME/Pictures/wallpapers"
-    xhide sxiv -t $WALLP/*
-}
-
 # enable/disable touchpad
-function xtouchpad () {
+function xtouch () {
     if (( $# == 0 )); then
         echo "specify if you want to enable (1) or disable (0) your touchpad"
         return
@@ -203,16 +197,16 @@ function xtouchpad () {
 }
 
 # set input to a single monitor (check output monitor with xrandr)
-function xwacom-output () {
+function woutput () {
     local MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
-    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
         [[ $1 -eq 2 ]] && MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
     fi
     xinput map-to-output $(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
 }
 
 # Rotate Wacom input (xsetwacom needed)
-function xwacom-rotate () {
+function wrotate () {
     local XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     if (( $# == 0 )); then
         xsetwacom --set $XWACOMID Rotate half
@@ -238,7 +232,7 @@ function xwacom-rotate () {
 }
 
 # Cycle through keyboard layout
-function key-layout () {
+function klayout () {
     case $(setxkbmap -print | awk -F"+" '/xkb_symbols/ {print $2}') in
         "gb")
             setxkbmap -layout it
@@ -329,7 +323,7 @@ alias unstow="stow -D"
 
 # xresources and keyboard aliases
 alias xload="xrdb ~/.Xresources"
-alias key-swap="xmodmap ~/.Xmodmap"
+alias kswap="xmodmap ~/.Xmodmap"
 
 # other aliases
 alias background="feh --bg-fill "

@@ -7,40 +7,35 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## Workflow utilities
 
-- herbstluftwm (tiling window-manager)
-- sxhkd        (independent keybindings)
-- polybar      (statusbar)
-- dmenu        (suckless menu)
+- stow            (symlink manager)
+- i3-wm           (tiling window-manager)
+- dmenu           (suckless menu)
+- arandr          (gui xrandr interface)
+- autorandr       (automate randr layouts)
 
-- st           (rustmade terminal)
-- (u)xterm     (x11 terminal)
-- bash         (bourne again shell)
-- tmux         (terminal multiplexer)
-- vim(gtk3)    (vi improved)
+- st              (rustmade terminal)
+- xterm           (x11 terminal)
+- bash            (bourne again shell)
+- tmux            (terminal multiplexer)
+- vim(gtk3)       (vi improved)
 
-- git          (version control)
-- atool        (archive manager)
-- trash-cli    (trash utility)
+- git             (version control)
+- atool           (archive manager)
+- trash-cli       (trash utility)
 
-- mpv          (media player)
-- zathura      (document viewer)
-- sxiv         (image viewer)
+- mpv             (media player)
+- zathura         (document viewer)
+- sxiv            (image viewer)
 
-- arandr       (gui xrandr interface)
-- lxappearance (gtk appearance)
-- qt5ct        (qt appearance)
-- pavucontrol  (pulseaudio gui)
-- blueman      (bluetooth connections)
-- nm           (networkmanager)
-- netsurf(gtk) (minimal web-browser)
+- blueman         (bluetooth connections)
+- networkmanager  (nm-applet)
+- netsurf(gtk)    (minimal web-browser)
 
-- stow         (symlink manager)
-- xclip        (x11 selections interface)
-- wamerican    (/usr/share/dict collection)
-- xdo          (perform action on windows)
-- feh          (image viewer)
-- ripgrep
-- xbacklight
+- xclip           (x11 selections interface)
+- wamerican       (/usr/share/dict collection)
+- xdo             (perform action on windows)
+- feh             (image viewer)
+- ripgrep         (a better grep)
 
 
 
