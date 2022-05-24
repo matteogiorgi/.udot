@@ -24,6 +24,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - atool           (archive manager)
 - trash-cli       (trash utility)
 . htop            (process viewer)
+. calcurse        (tui organizer)
 
 - mpv             (media player)
 - zathura         (document viewer)

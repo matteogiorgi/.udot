@@ -196,7 +196,6 @@ bindsym $mod+q exec "quit"
 bindsym $mod+b exec "sxiv -t ~/Pictures/bgrnd/*"
 
 # Autostart confs
-exec autorandr --load home
+exec autorandr --load home && ~/.fehbg
 exec setxkbmap -layout it
 exec xmodmap ~/.Xmodmap
-exec ~/.fehbg
