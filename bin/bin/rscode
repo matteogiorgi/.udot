@@ -9,8 +9,8 @@ NC='\033[0m'
 
 
 printf "${RED}%s${NC}\n" "Choose an editor"
-echo "1 code"
-echo "2 codium"
+printf "%s${YLW}%s${NC}\n" "  (1) " "code"
+printf "%s${YLW}%s${NC}\n" "  (2) " "codium"
 printf "${RED}%s${NC} " "Enter an index (1-2):"
 
 
@@ -39,7 +39,7 @@ if [[ ! -x "$(command -v $NAME)" ]]; then
 fi
 
 
-printf "${RED}%s${YLW}%s${RED}%s${NC} " "Are you sure you want to reset " "$NAME" " settings and keybindings? (Y/n)"
+printf "${RED}%s${YLW}%s${RED}%s${NC} " "Reset " "$NAME" " settings? (Y/n)"
 while read response; do
     case $response in
         "y" | "Y" | "yes" | "Yes")

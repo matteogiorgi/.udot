@@ -180,20 +180,22 @@ xnoremap K :move '<-2<CR>gv=gv
 xnoremap J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
-nnoremap <silent><Left> :tabprevious<CR>
-nnoremap <silent><Right> :tabnext<CR>
-nnoremap <silent><S-Left> :tabmove -1<cr>
-nnoremap <silent><S-Right> :tabmove +1<cr>
+nnoremap <silent><C-h> :tabprevious<CR>
+nnoremap <silent><C-l> :tabnext<CR>
+nnoremap <silent><C-Left> :tabmove -1<cr>
+nnoremap <silent><C-Right> :tabmove +1<cr>
+nnoremap <silent><C-Down> :$tabmove<cr>
+nnoremap <silent><C-Up> :0tabmove<cr>
 nnoremap <silent>Y y$
 tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><Tab> :wincmd w<cr>
 nnoremap <silent><Backspace> :bprevious<cr>
-nnoremap <silent><Up> {
-nnoremap <silent><Down> }
-nnoremap <silent><C-h> :vertical resize -5<CR>
-nnoremap <silent><C-l> :vertical resize +5<CR>
-nnoremap <silent><C-j> :resize -5<CR>
-nnoremap <silent><C-k> :resize +5<CR>
+nnoremap <silent><C-j> }
+nnoremap <silent><C-k> {
+nnoremap <silent><Left> :vertical resize -5<CR>
+nnoremap <silent><Right> :vertical resize +5<CR>
+nnoremap <silent><Down> :resize -5<CR>
+nnoremap <silent><Up> :resize +5<CR>
 nnoremap <leader>a :Explore<CR>
 nnoremap <leader>s :%s///gc<Left><Left><Left>
 xnoremap <leader>s :s///gc<Left><Left><Left>

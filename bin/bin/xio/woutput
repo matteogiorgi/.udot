@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# colors
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+printf "${RED}%s${NC}\n" "Choose wacom monitor"
+printf "%s${YLW}%s${NC}\n" "  (1) " "master"
+printf "%s${YLW}%s${NC}\n" "  (2) " "slave"
+printf "${RED}%s${NC} " "Enter an index (1-2):"
+
+
+while read response; do
+    if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
+        printf "${YLW}%s${NC}\n" "Wacom not conected"
+        exit 1
+    fi
+
+    case $response in
+        1)
+            MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+            printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " " master"
+            break
+            ;;
+        2)
+            if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
+                MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+                printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "slave"
+            else
+                printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "No " "slave" " detected"
+            fi
+            break
+            ;;
+        *)
+            printf "${RED}%s${NC} " "Enter an index (1-2):"
+            ;;
+    esac
+done
+
+xinput map-to-output $(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
+
+
+unset RED
+unset YLW
+unset NC
+unset MONITOR
+unset response

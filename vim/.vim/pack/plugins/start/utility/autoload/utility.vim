@@ -45,6 +45,7 @@ function! utility#WinMove(key)
             wincmd s
         endif
         exec 'wincmd '.a:key
+        exec 'Explore'
     endif
     return bufname('%')
 endfunction

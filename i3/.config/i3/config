@@ -38,8 +38,8 @@ exec --no-startup-id blueman-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -109,7 +109,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+b focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -187,13 +187,14 @@ bindsym $mod+r mode "resize"
 bar {
         font pango:Ubuntu Mono 9
         position top
+        separator_symbol "::"
         tray_output primary
         status_command i3status
 }
 
 # Other keybindings
-bindsym $mod+q exec "quit"
-bindsym $mod+b exec "sxiv -t ~/Pictures/bgrnd/*"
+bindsym $mod+o exec "llrs"
+bindsym $mod+p exec "sxiv -t ~/Pictures/bgrnd/*"
 
 # Autostart confs
 exec autorandr --load home && ~/.fehbg
