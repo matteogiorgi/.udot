@@ -196,7 +196,7 @@ bar {
 bindsym $mod+o exec "llrs"
 bindsym $mod+p exec "sxiv -t ~/Pictures/bgrnd/*"
 
-# Autostart confs
-exec autorandr --load home && ~/.fehbg
+# Autostart confs (save monitor config as mono/dual with autorandr)
+exec autorandr --load mono && ~/.fehbg
 exec setxkbmap -layout it
 exec xmodmap ~/.Xmodmap

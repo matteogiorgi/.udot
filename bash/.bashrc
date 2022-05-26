@@ -261,6 +261,10 @@ alias unstow="stow -D"
 alias xload="xrdb ~/.Xresources"
 alias kswap="xmodmap ~/.Xmodmap"
 
+# xrandr aliases
+alias xmono="autorandr --load mono"
+alias xdual="autorandr --load dual"
+
 # other aliases
-alias background="feh --bg-fill "
+alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
