@@ -5,6 +5,9 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 
 
+<img align="right" width="160" src="mona.gif">
+
+
 ## Workflow utilities
 
 
