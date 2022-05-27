@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+# save monitor config as dual/mono with autorandr
+if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]]; then
+    autorandr --load dual
+else
+    autorandr --load mono
+fi
+
+# restore wallpaper
+~/.fehbg

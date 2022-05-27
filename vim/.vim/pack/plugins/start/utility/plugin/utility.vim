@@ -13,6 +13,7 @@ command! -nargs=* -complete=file -bang Rename call utility#Rename(<q-args>, '<ba
 
 
 nnoremap <silent>' :ToggleAccent<CR>
+nnoremap <silent>^ :call utility#Background()<CR>
 nnoremap <C-w>h :call utility#WinMove('h')<CR>
 nnoremap <C-w>j :call utility#WinMove('j')<CR>
 nnoremap <C-w>k :call utility#WinMove('k')<CR>
