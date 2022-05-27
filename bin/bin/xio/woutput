@@ -21,7 +21,7 @@ while read response; do
     case $response in
         1)
             MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
-            printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " " master"
+            printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "master"
             break
             ;;
         2)

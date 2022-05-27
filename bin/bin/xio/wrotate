@@ -25,18 +25,22 @@ while read response; do
     case $response in
         1)
             ROTATION="none"
+            printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "0°"
             break
             ;;
         2)
             ROTATION="ccw"
+            printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "90°"
             break
             ;;
         3)
             ROTATION="half"
+            printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "180°"
             break
             ;;
         4)
             ROTATION="cw"
+            printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "270°"
             break
             ;;
         *)
