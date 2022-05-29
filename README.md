@@ -59,6 +59,8 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - wamerican      (/usr/share/dict collection)
 - xdo            (perform action on windows)
 - feh            (image viewer)
+- pandoc         (markup converter)
+- texlive        (tex live metapackage)
 
 
 ### and some more

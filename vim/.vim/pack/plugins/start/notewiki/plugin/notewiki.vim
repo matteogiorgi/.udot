@@ -4,7 +4,7 @@ let $beamerpages = fnamemodify('~/notewiki/beamer', ':p')
 let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
 if !exists('g:notebrowser')
-    let g:notebrowser = 'chromium'  "xdg-open, st -e fff
+    let g:notebrowser = 'chromium --new-window'  "xdg-open
 endif
 
 

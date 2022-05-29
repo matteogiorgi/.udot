@@ -195,6 +195,8 @@ bar {
 # Other keybindings
 bindsym $mod+o exec "llrs"
 bindsym $mod+p exec "sxiv -t ~/Pictures/bgrnd/*"
+bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
+bindsym $mod+m move workspace to output next
 
 # Autostart confs
 exec ~/.config/i3/i3mon
