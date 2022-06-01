@@ -95,6 +95,7 @@ bindsym $mod+u split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
+workspace_layout tabbed
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
@@ -192,11 +193,18 @@ bar {
         status_command i3status
 }
 
+# Scratchpads
+for_window [instance="scratchpad"] floating enable
+for_window [instance="scratchpad"] resize set 1000 800
+for_window [instance="scratchpad"] move scratchpad
+exec --no-startup-id st -n scratchpad -e tmux
+
 # Other keybindings
 bindsym $mod+o exec "llrs"
 bindsym $mod+p exec "sxiv -t ~/Pictures/bgrnd/*"
 bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $mod+m move workspace to output next
+bindsym $mod+t [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 
 # Autostart confs
 exec ~/.config/i3/i3mon

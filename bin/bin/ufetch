@@ -6,7 +6,7 @@
 
 # user is already defined
 host="$(hostname)"
-os='Linux'	# I'd just like to interject for a moment...
+os='GNU/Linux'	# I'd just like to interject for a moment...
 kernel="$(uname -sr)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)

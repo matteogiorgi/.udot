@@ -210,3 +210,8 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 "}}}
+
+
+" Autocorrections{{{
+" ab autoc lorem ipsum dolor sit amet ...
+"}}}
