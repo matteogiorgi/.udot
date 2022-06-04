@@ -99,6 +99,7 @@ set autochdir
 set hidden
 set updatetime=4000  " 300,4000
 set timeoutlen=4000  " 300,4000
+set ttimeoutlen=0    " -1,0,100
 set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
