@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 
-id=$(xdo id)
-xdo hide
-sh -c "$*" >/dev/null 2>&1
-xdo show "$id"
+
+### old way
+###########
+
+# id=$(xdo id)
+# xdo hide
+# sh -c "$*" >/dev/null 2>&1
+# xdo show "$id"
+
+
+### new way
+###########
+
+sh -c "$*" & disown >/dev/null 2>&1

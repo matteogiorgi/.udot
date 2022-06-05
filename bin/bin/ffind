@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 if [[ -f /bin/fzf ]]; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+    export FZF_DEFAULT_COMMAND='rg --hidden -g "!.git" --sort-files --files --null 2>/dev/null | xargs -0 dirname | uniq'
     FILES="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
     [[ ! -z "$FILES" ]] && exec swallow $FILES
 else
     echo "fzf not installed"
 fi
+
+unset FILES
+unset DIRECTORY

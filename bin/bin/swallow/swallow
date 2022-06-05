@@ -37,6 +37,7 @@ case $(file --mime-type "$*" -bL) in
         ;;
     inode/directory)
         fff "$*"
+        cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
         ;;
     *)
         vim "$*"
