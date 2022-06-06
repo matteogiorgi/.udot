@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 
-### old way
-###########
+### open and swallow
+####################
 
 # id=$(xdo id)
 # xdo hide
@@ -10,7 +10,7 @@
 # xdo show "$id"
 
 
-### new way
-###########
+### just open
+#############
 
 sh -c "$*" & disown >/dev/null 2>&1
