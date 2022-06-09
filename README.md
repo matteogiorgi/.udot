@@ -6,8 +6,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 ## Workflow utilities
 
 <img align="right" width="160" src="ubuntu.png">
-<!-- -->
-<img align="right" width="160" src="mona.gif">
 
 
 ### window manager related
@@ -80,6 +78,8 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 
 ## Xterm palette
+
+<img align="right" width="160" src="mona.gif">
 
 I used the following palette throughout the all sysconfig.
 
