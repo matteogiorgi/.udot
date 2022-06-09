@@ -4,10 +4,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 
 <img align="left" width="160" src="ubuntu.png">
-<img align="right" width="160" src="mona.gif">
-
-
----
+<img align="right" width="160" src="mona.gif">\
 
 
 ## Workflow utilities
