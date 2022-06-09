@@ -200,7 +200,7 @@ for_window [instance="scratchpad"] move scratchpad
 exec --no-startup-id st -n scratchpad -e tmux
 
 # Other keybindings
-bindsym $mod+o exec "llrs"
+bindsym $mod+o exec "loresh"
 bindsym $mod+p exec "sxiv -t ~/Pictures/bgrnd/*"
 bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $mod+m move workspace to output next

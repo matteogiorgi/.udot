@@ -46,13 +46,13 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - sxiv           (image viewer)
 
 
-### usefull applet
+### usefull applets
 
 - blueman        (bt applet)
 - networkmanager (nm applet)
 
 
-### other tools
+### other stuff
 
 - xclip          (x11 selections interface)
 - ripgrep        (a better grep)
@@ -61,6 +61,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - feh            (image viewer)
 - pandoc         (markup converter)
 - texlive        (tex live metapackage)
+- fonts-ubuntu   (pretty decent font family)
 
 
 ### and some more
