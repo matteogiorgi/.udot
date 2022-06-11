@@ -58,7 +58,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": false,
     "telemetry.telemetryLevel": "off",
-    "window.menuBarVisibility": "toggle",
+    "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
     "editor.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontLigatures": true,
@@ -75,7 +75,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.scrollbar.verticalScrollbarSize": 0,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Monokai",
-    "workbench.activityBar.visible": false,
+    "workbench.activityBar.visible": true,
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
 }

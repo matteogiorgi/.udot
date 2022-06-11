@@ -104,7 +104,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alFtr'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -268,3 +268,12 @@ alias xdual="autorandr --load dual"
 # other aliases
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
+
+
+
+
+## KEYBINDINGS
+##############
+
+# vi mode
+set -o vi
