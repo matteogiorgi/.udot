@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+
+function xhide () {
+    id=$(xdo id)
+    xdo hide
+    sh -c "$*" >/dev/null 2>&1
+    xdo show "$id"
+}
+
+
+if [[ -f /bin/fzf ]]; then
+    export FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
+    FILE="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
+
+    case $(file --mime-type $FILE -bL) in
+        audio/*)
+            echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
+            mpv "$FILE"
+            ;;
+        video/*)
+            xhide "mpv --force-window '$FILE'"
+            ;;
+        application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
+            xhide "zathura '$FILE'"
+            ;;
+        image/*)
+            xhide "~/.config/sxiv/supersxiv '$FILE'"
+            ;;
+        *)
+            vim "$FILE"
+            ;;
+    esac
+else
+    echo "fzf not installed"
+fi
+
+
+unset FILE
+
+
+
+
+# export the following command to fuzzy-find directories:
+# 'rg --sort-files --files --null 2>/dev/null | xargs -0 dirname | uniq -u'
+

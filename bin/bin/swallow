@@ -1,8 +1,25 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 
-### greppers (vim as main editor)
-#################################
+### hide/show
+#############
+
+function xhide () {
+    id=$(xdo id)
+    xdo hide
+    sh -c "$*" >/dev/null 2>&1
+    xdo show "$id"
+}
+
+function xshow () {
+    sh -c "$*" & disown >/dev/null 2>&1
+}
+
+
+
+
+### greppers
+############
 
 echo "$*" | grep "\.ar\." && {
     xhide xterm -e "${EDITOR:=vim}" "$*" &
@@ -17,8 +34,8 @@ echo "$1" | grep "\.sent$" && {
 
 
 
-### mime-type opener (mpv, sxiv, zathura, shfm, vim)
-####################################################
+### mime-type opener
+####################
 
 case $(file --mime-type "$*" -bL) in
     audio/*)
@@ -27,13 +44,13 @@ case $(file --mime-type "$*" -bL) in
         mpv "$FILE"
         ;;
     video/*)
-        xhide "mpv --force-window '$*'"
+        xshow "mpv --force-window '$*'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        xhide "zathura '$*'"
+        xshow "zathura '$*'"
         ;;
     image/*)
-        xhide "~/.config/sxiv/supersxiv '$*'"
+        xshow "~/.config/sxiv/supersxiv '$*'"
         ;;
     inode/directory)
         fff "$*"

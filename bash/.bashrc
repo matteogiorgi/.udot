@@ -275,5 +275,4 @@ alias xpipes="pipes -n 5 -i 0.025"
 ## KEYBINDINGS
 ##############
 
-# vi mode
-set -o vi
+# set -o vi
