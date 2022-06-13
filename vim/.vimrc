@@ -104,7 +104,7 @@ set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
-set fillchars+=vert:\│,eob:\ ,fold:-
+set fillchars+=vert:\│  " eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
 set laststatus=2
