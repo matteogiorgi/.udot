@@ -10,62 +10,63 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### window manager related
 
-- stow           (symlink manager)
-- i3-wm          (tiling window-manager)
-- i3lock         (i3-wm lockscreen)
-- dmenu          (suckless menu)
-- arandr         (gui xrandr interface)
-- autorandr      (automate randr layouts)
+- stow            (symlink manager)
+- i3-wm           (tiling window-manager)
+- i3lock          (i3-wm lockscreen)
+- dmenu           (suckless menu)
+- arandr          (gui xrandr interface)
+- autorandr       (automate randr layouts)
 
 
 ### shell and editor
-- st             (suckless terminal)
-- xterm          (x11 terminal)
-- bash           (bourne again shell)
-- tmux           (terminal multiplexer)
-- vim            (vi improved - gtk3)
+- st              (suckless terminal)
+- xterm           (x11 terminal)
+- bash            (bourne again shell)
+- tmux            (terminal multiplexer)
+- vim             (vi improved - gtk3)
 
 
 ### tui tools
 
-- git            (version control)
-- atool          (archive manager)
-- trash-cli      (trash utility)
-- htop           (process viewer)
-- calcurse       (tui organizer)
+- git             (version control)
+- atool           (archive manager)
+- trash-cli       (trash utility)
+- htop            (process viewer)
+- calcurse        (calendar/organizer)
 
 
 ### media related
 
-- mpv            (media player)
-- zathura        (document viewer)
-- sxiv           (image viewer)
+- mpv             (media player)
+- zathura         (document viewer)
+- sxiv            (image viewer)
 
 
 ### usefull applets
 
-- blueman        (bt applet)
-- networkmanager (nm applet)
+- blueman         (bt applet)
+- network-manager (nm applet)
 
 
 ### other stuff
 
-- xclip          (x11 selections interface)
-- ripgrep        (a better grep)
-- wamerican      (/usr/share/dict collection)
-- xdo            (perform action on windows)
-- feh            (image viewer)
-- pandoc         (markup converter)
-- texlive        (tex live metapackage)
-- fonts-ubuntu   (pretty decent font family)
+- xclip           (x11 selections interface)
+- ripgrep         (a better grep)
+- wamerican       (/usr/share/dict collection)
+- xdo             (perform action on windows)
+- feh             (image viewer)
+- pandoc          (markup converter)
+- texlive         (tex live metapackage)
+- fonts-ubuntu    (pretty decent font family)
 
 
 ### and some more
 
-- chromium       (web-browser)
-- vscode         (another web-browser I guess)
-- xournalpp      (note-taking app)
-- flameshot      (screenshot app)
+- gparted         (partition editor)
+- chromium        (web-browser)
+- vscode          (another web-browser I guess)
+- xournalpp       (note-taking app)
+- flameshot       (screenshot app)
 
 
 
