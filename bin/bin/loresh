@@ -14,7 +14,7 @@ case "$choice" in
         ;;
     Logout)
         kill_apps
-        kill $(pgrep X) &
+        killall i3  # kill $(pgrep X) &
         ;;
     Reboot)
         kill_apps
