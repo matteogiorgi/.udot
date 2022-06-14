@@ -195,9 +195,8 @@ bar {
 
 # Scratchpads
 for_window [instance="scratchpad"] floating enable
-for_window [instance="scratchpad"] resize set 1000 800
+for_window [instance="scratchpad"] resize set 800 600
 for_window [instance="scratchpad"] move scratchpad
-exec --no-startup-id st -n scratchpad -e tmux
 
 # Other keybindings
 bindsym $mod+o exec "loresh"
@@ -208,4 +207,5 @@ bindsym $mod+t [instance="scratchpad"] scratchpad show; [instance="scratchpad"] 
 
 # Autostart confs
 exec ~/.config/i3/i3mon
-exec sh -c "setxkbmap -layout it && xmodmap ~/.Xmodmap"
+exec ~/.config/i3/i3key
+exec --no-startup-id ~/.config/i3/i3pad

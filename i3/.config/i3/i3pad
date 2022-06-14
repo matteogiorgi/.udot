@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+
+while true; do
+    st -n scratchpad -e tmux &
+    wait $!
+done
