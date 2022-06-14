@@ -12,6 +12,7 @@ function xhide () {
 if [[ -f /bin/fzf ]]; then
     export FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
     FILE="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
+    [[ -z "$FILE" ]] && exit 1
 
     case $(file --mime-type $FILE -bL) in
         audio/*)
