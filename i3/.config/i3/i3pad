@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-
-while pgrep -x "i3"; do
-    st -n scratchpad -e tmux &
-    wait $!
-done

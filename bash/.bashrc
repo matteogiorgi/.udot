@@ -1,71 +1,74 @@
 ## BASH CONF
 ############
 
-## ~/.bashrc: executed by bash(1) for non-login shells.
-## see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-## for examples
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# See /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples.
 
 
-# If not running interactively, don't do anything
+
+
+### Only interactive mode
+#########################
+
 case $- in
     *i*) ;;
       *) return;;
 esac
 
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
+
+
+### History
+###########
+
 HISTCONTROL=ignoreboth
-
-
-# append to the history file, don't overwrite it
+HISTSIZE=1000
+HISTFILESIZE=2000
 shopt -s histappend
 
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+### Window size and pathname expansion
+######################################
+
 shopt -s checkwinsize
-
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
 shopt -s globstar
 
 
-# make less more friendly for non-text input files, see lesspipe(1)
+
+
+### Friendly less and working chroot
+####################################
+
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-
-# set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+
+
+### Fancy prompt
+################
+
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
 
+
+### Colored prompt
+##################
+
+force_color_prompt=yes
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -74,10 +77,15 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
 unset color_prompt force_color_prompt
 
 
-# If this is an xterm set the title to user@host:dir
+
+
+### XTerm title
+###############
+
 case "$TERM" in
     xterm*|rxvt*)
         PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -87,7 +95,11 @@ case "$TERM" in
 esac
 
 
-# enable color support of ls and also add handy aliases
+
+
+### Color support
+#################
+
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -99,33 +111,35 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 
-# colored GCC warnings and errors
+
+
+### Colored GCC
+###############
+
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 
-# some more ls aliases
-alias ll='ls -alFtr'
-alias la='ls -A'
-alias l='ls -CF'
 
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Alert alias for long commands (sleep 10; alert)
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+
+### Alias definitions
+#####################
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
+
+
+### Programmable completion features
+####################################
+
 if ! shopt -oq posix; then
     if [ -f /usr/share/bash-completion/bash_completion ]; then
         . /usr/share/bash-completion/bash_completion
@@ -140,30 +154,23 @@ fi
 ## MORE CONF
 ############
 
-# export my terminal, editor and file-manager variables
 export TERM="xterm-256color"
 export EDITOR="vim"
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
-
-# fzf exports (remember to install ripgrep)
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
 
-### Source some shit
-#####################
+### Source stuff
+################
 
-# check inputs with `xinput`
 [[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''" > $HOME/.xinput.bash
 source $HOME/.xinput.bash
 
-# pfetch
 [[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
-
-# fzf
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
@@ -174,7 +181,6 @@ source $HOME/.xinput.bash
 ## FUNCTIONS
 ############
 
-# Open last vim session
 function vs () {
     if [[ -f "$HOME/.vim/sessions/last" ]]; then
         /bin/vim -S $HOME/.vim/sessions/last
@@ -183,20 +189,17 @@ function vs () {
     fi
 }
 
-# Change directory exiting from fff
 function _fff () {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
-# Change directory exiting from shfm
 function _shfm () {
     ~/bin/shfm/shfm "$@"
     cd "$(cat ~/.shfm.tmp)"
     rm -f ~/.shfm.tmp
 }
 
-# Browse through images in directory after opening a single file
 function _sxiv () {
     if command -v sxiv >/dev/null 2>&1; then
         if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
@@ -210,52 +213,6 @@ function _sxiv () {
         echo "Please install SXIV or FEH!"
     fi
 }
-
-
-
-
-## ALIASES
-##########
-
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv="mv -i"
-alias rm="rm -i"
-alias rmfolder="rm -rfi"
-
-# xclip copy-pasta
-alias copy="xclip -i -selection clipboard"
-alias pasta="xclip -o -selection clipboard"
-alias xcopy="xclip-copyfile"
-alias xpasta="xclip-pastefile"
-alias xcut="xclip-cutfile"
-
-# aliases for fff, shfm, sxiv and vim
-alias fff="_fff"
-alias shfm="_shfm"
-alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
-alias vi="/bin/vim --noplugin -n -i NONE"
-
-# logout aliases
-alias reboot="systemctl reboot"
-alias poweroff="systemctl -i poweroff"
-
-# stow aliases
-alias stow="stow -S"
-alias restow="stow -R"
-alias unstow="stow -D"
-
-# xresources and keyboard aliases
-alias xload="xrdb ~/.Xresources"
-alias kswap="xmodmap ~/.Xmodmap"
-
-# xrandr aliases
-alias xmono="autorandr --load mono"
-alias xdual="autorandr --load dual"
-
-# other aliases
-alias xbgrnd="$HOME/.fehbg"
-alias xpipes="pipes -n 5 -i 0.025"
 
 
 
