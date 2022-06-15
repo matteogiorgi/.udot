@@ -162,15 +162,15 @@ export GOPATH_BIN="$HOME/go/bin"
 # set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively (simpler one: PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}")
 export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$GHCUP_BIN:$CABAL_BIN:$EMACS_BIN:$CARGO_BIN:$GOPATH_BIN"
 
-# check the name of your touchpad and tablet with `xinput`
-export TOUCHPADID="GXTP7863:00 27C6:01E0 Touchpad"
-export WACOMID="Wacom One by Wacom M Pen stylus"
-
 
 
 
 ### Source some shit
 #####################
+
+# check inputs with `xinput`
+[[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''" > $HOME/.xinput.bash
+source $HOME/.xinput.bash
 
 # pfetch
 [[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
