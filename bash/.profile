@@ -26,3 +26,15 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# Haskell exports
+export GHCUP_BIN="$HOME/.ghcup/bin"
+export CABAL_BIN="$HOME/.cabal/bin"
+
+# Other exports
+export EMACS_BIN="$HOME/.emacs.d/bin"
+export CARGO_BIN="$HOME/.cargo/bin"
+export GOPATH_BIN="$HOME/go/bin"
+
+# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively
+export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$GHCUP_BIN:$CABAL_BIN:$EMACS_BIN:$CARGO_BIN:$GOPATH_BIN"
