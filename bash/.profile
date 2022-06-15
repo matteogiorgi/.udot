@@ -6,7 +6,7 @@
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
-#umask 022
+# umask 022
 
 
 # If running bash:
@@ -17,24 +17,20 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# Set PATH so it includes just user's '~/bin' if it exists:
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # Set PATH so it includes just user's '~/.local/bin' if it exists:
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    PATH="$PATH:$HOME/.local/bin"
 fi
 
-# Haskell exports
-export GHCUP_BIN="$HOME/.ghcup/bin"
-export CABAL_BIN="$HOME/.cabal/bin"
+# Set PATH so it includes just user's '~/bin' (and its subdirs) if it exists:
+if [ -d "$HOME/bin" ] ; then
+    PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" )"
+fi
 
-# Other exports
-export EMACS_BIN="$HOME/.emacs.d/bin"
-export CARGO_BIN="$HOME/.cargo/bin"
-export GOPATH_BIN="$HOME/go/bin"
+# Set PATH so it includes just user's '~/.emacs.d/bin', '~/.cargo/bin', '~/go/bin' if they exist:
+[[ -d $HOME/.emacs.d/bin ]] && PATH="$PATH:$HOME/.emacs.d/bin"
+[[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
+[[ -d $HOME/go/bin ]] && PATH="$PATH:$HOME/go/bin"
 
-# set PATH to includes user's bin, go's bin, cargo's bin and emacs's bin recursively
-export PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" ):$HOME/.local/bin:$GHCUP_BIN:$CABAL_BIN:$EMACS_BIN:$CARGO_BIN:$GOPATH_BIN"
+# Add ghcup settings (curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh)
+[[ -d $HOME/.ghcup ]] && source $HOME/.ghcup/env
