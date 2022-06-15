@@ -1,6 +1,3 @@
-## BASH CONF
-############
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # See /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples.
 
@@ -121,7 +118,48 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 
 
-# Alert alias for long commands (sleep 10; alert)
+## FUNCTIONS
+############
+
+function vs () {
+    if [[ -f "$HOME/.vim/sessions/last" ]]; then
+        /bin/vim -S $HOME/.vim/sessions/last
+    else
+        /bin/vim
+    fi
+}
+
+function _fff () {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
+function _shfm () {
+    ~/bin/shfm/shfm "$@"
+    cd "$(cat ~/.shfm.tmp)"
+    rm -f ~/.shfm.tmp
+}
+
+function _sxiv () {
+    if command -v sxiv >/dev/null 2>&1; then
+        if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
+            sxiv -t "$@"
+        else
+            sxiv    "$@"
+        fi
+    elif command -v feh >/dev/null 2>&1; then
+        feh "$@"
+    else
+        echo "Please install SXIV or FEH!"
+    fi
+}
+
+
+
+
+### Alert alias for long commands (sleep 10; alert)
+###################################################
+
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
@@ -174,45 +212,6 @@ source $HOME/.xinput.bash
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
-
-
-
-
-## FUNCTIONS
-############
-
-function vs () {
-    if [[ -f "$HOME/.vim/sessions/last" ]]; then
-        /bin/vim -S $HOME/.vim/sessions/last
-    else
-        /bin/vim
-    fi
-}
-
-function _fff () {
-    fff "$@"
-    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
-}
-
-function _shfm () {
-    ~/bin/shfm/shfm "$@"
-    cd "$(cat ~/.shfm.tmp)"
-    rm -f ~/.shfm.tmp
-}
-
-function _sxiv () {
-    if command -v sxiv >/dev/null 2>&1; then
-        if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
-            sxiv -t "$@"
-        else
-            sxiv    "$@"
-        fi
-    elif command -v feh >/dev/null 2>&1; then
-        feh "$@"
-    else
-        echo "Please install SXIV or FEH!"
-    fi
-}
 
 
 
