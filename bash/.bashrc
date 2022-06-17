@@ -216,7 +216,7 @@ source $HOME/.xinput.bash
 
 
 
-## KEYBINDINGS
-##############
+## KEYBINDINGS (set -o vi)
+##########################
 
-# set -o vi
+bind '"\eq"':"\"fff\C-m\""
