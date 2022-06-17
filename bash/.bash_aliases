@@ -39,3 +39,4 @@ alias xdual="autorandr --load dual"
 
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
+alias calcurse="calcurse -q"
