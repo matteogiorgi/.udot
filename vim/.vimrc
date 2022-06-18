@@ -30,11 +30,15 @@ augroup end
 
 " Save last session{{{
 augroup vimleave
+    " a better way would be to check buffers on all opened windows
     autocmd VimLeave *
+                \ if &filetype == 'startscreen' |
+                \     execute 'bdelete' |
+                \ endif |
                 \ if !isdirectory('$HOME/.vim/sessions') |
                 \     execute "!mkdir -p $HOME/.vim/sessions" |
                 \ endif |
-                \ mksession! $HOME/.vim/sessions/last
+                \ mksession! $HOME/.vim/sessions/last.vim
 augroup end
 "}}}
 

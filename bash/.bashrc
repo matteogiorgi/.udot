@@ -122,8 +122,8 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ############
 
 function vs () {
-    if [[ -f "$HOME/.vim/sessions/last" ]]; then
-        /bin/vim -S $HOME/.vim/sessions/last
+    if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
+        /bin/vim -S $HOME/.vim/sessions/last.vim
     else
         /bin/vim
     fi
