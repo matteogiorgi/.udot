@@ -19,6 +19,8 @@ alias xcopy="xclip-copyfile"
 alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
+
+alias rover="_rover"
 alias fff="_fff"
 alias shfm="_shfm"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"

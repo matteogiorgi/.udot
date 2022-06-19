@@ -73,7 +73,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## Remember to install the followings packages
 
-`make`, `gcc`, `libx11-dev`, `libxinerama-dev` and `libxft-dev`
+`make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev` and `libncurses-dev`
 
 
 

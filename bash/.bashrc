@@ -129,6 +129,16 @@ function vs () {
     fi
 }
 
+function _rover () {
+    if command -v rover >/dev/null 2>&1; then
+        rover "$@" -d ~/.rover$$.tmp
+        cd "$(cat ~/.rover$$.tmp)"
+        rm -f ~/.rover$$.tmp
+    else
+        echo "rover is not installed"
+    fi
+}
+
 function _fff () {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
@@ -194,6 +204,7 @@ fi
 
 export TERM="xterm-256color"
 export EDITOR="vim"
+export OPEN='swallow'
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
@@ -219,4 +230,4 @@ source $HOME/.xinput.bash
 ## KEYBINDINGS (set -o vi)
 ##########################
 
-bind '"\eq"':"\"fff\C-m\""
+bind '"\eq"':"\"rover\C-m\""
