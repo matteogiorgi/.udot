@@ -3,7 +3,7 @@ Introduction
 
  Rover is a file browser for the terminal.
 
-![Rover screenshot](/../screenshots/screenshot.png?raw=true "Screenshot")
+![Rover screenshot](screenshot.png)
 
  The main goal is to provide a faster way to explore a file system from the
 terminal, compared to what's possible by using `cd`, `ls`, etc. Rover has

@@ -28,6 +28,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### tui tools
 
+- rover           (file manager)
 - git             (version control)
 - atool           (archive manager)
 - trash-cli       (trash utility)
