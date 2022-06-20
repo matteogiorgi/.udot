@@ -85,7 +85,7 @@
 #######
 
 /bin/bin/sim/*
-!/bin/bin/sim/sim.sh
+!/bin/bin/sim/sim.h
 !/bin/bin/sim/sim.c
 !/bin/bin/sim/sim.1
 !/bin/bin/sim/posix.c
