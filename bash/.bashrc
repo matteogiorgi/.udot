@@ -144,12 +144,6 @@ function _fff () {
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
-function _shfm () {
-    ~/bin/shfm/shfm "$@"
-    cd "$(cat ~/.shfm.tmp)"
-    rm -f ~/.shfm.tmp
-}
-
 function _sxiv () {
     if command -v sxiv >/dev/null 2>&1; then
         if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
@@ -204,6 +198,7 @@ fi
 
 export TERM="xterm-256color"
 export EDITOR="vim"
+export PAGER="less"
 export ROVER_EDITOR='sim'
 export ROVER_OPEN='swallow'
 export FFF_OPENER="swallow"
