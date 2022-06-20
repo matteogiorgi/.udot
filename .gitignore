@@ -84,13 +84,13 @@
 ### SIM
 #######
 
-/sim/*
-!/sim/sim.sh
-!/sim/sim.c
-!/sim/README
-!/sim/posix.c
-!/sim/Makefile
-!/sim/config.def.h
+/bin/bin/sim/*
+!/bin/bin/sim/sim.sh
+!/bin/bin/sim/sim.c
+!/bin/bin/sim/README
+!/bin/bin/sim/posix.c
+!/bin/bin/sim/Makefile
+!/bin/bin/sim/config.def.h
 
 
 
