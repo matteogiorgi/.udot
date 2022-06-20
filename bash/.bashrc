@@ -204,7 +204,7 @@ fi
 
 export TERM="xterm-256color"
 export EDITOR="vim"
-export ROVER_EDITOR='bed'
+export ROVER_EDITOR='sim'
 export ROVER_OPEN='swallow'
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
