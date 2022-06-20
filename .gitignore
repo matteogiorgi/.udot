@@ -81,6 +81,17 @@
 
 
 
+### KILO
+########
+
+/bin/bin/kilo/*
+!/bin/bin/kilo/kilo.1
+!/bin/bin/kilo/kilo.c
+!/bin/bin/kilo/Makefile
+
+
+
+
 ### WALLPAPERS
 ##############
 
