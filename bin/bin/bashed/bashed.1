@@ -1,0 +1,61 @@
+.
+.TH bashed "1" "June 2022" "bashed" "User Commands"
+.SH NAME
+bashed \- text editor
+.SH SYNOPSIS
+.B bashed
+.SH DESCRIPTION
+A simple text editor written in bash shell.
+.PP
+.SH "Usage"
+.
+.nf
+
+Features
+________________________________________________________________________________
+
+* Standard cursor movement controls
+  * Move the cursor using the arrow keys, Home, End, PgUp, PgDn
+  * Move by words by holding Ctrl
+* Select text by holding Shift
+* Clipboard functionality: cut, copy, and paste
+*Not supported in the Linux console, because it does not report modifier keys
+
+
+Limitations
+________________________________________________________________________________
+
+* No undo
+* No search
+* No line wrap
+* Can only edit one file at a time
+
+
+System Requirements
+________________________________________________________________________________
+
+* About 30 KB free disk space
+* Linux console, or an XTerm-compatible terminal emulator
+* Bash shell, version 4+ (note: tested on 5.0.17)
+* GNU coreutils (cat, tr, stty)
+* ncurses (tput, reset)
+* xclip to use the X selection as the clipboard (optional)
+
+
+Configuration
+________________________________________________________________________________
+
+User preferences may be configured in ~/.bashedrc, which is simply a Bash script
+sourced by bashed. This is probably a security risk, but bashed is not designed
+for serious usage anyway
+
+
+Performance
+________________________________________________________________________________
+
+Bash is not known for being particularly fast. To achieve acceptable performance,
+bashed:
+
+* Uses Bash built-ins whenever possible
+* Avoids subshells by using global variables to return values from functions
+* Only redraws the parts of the display that changed since the last frame
