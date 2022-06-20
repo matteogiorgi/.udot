@@ -204,7 +204,8 @@ fi
 
 export TERM="xterm-256color"
 export EDITOR="vim"
-export OPEN='swallow'
+export ROVER_EDITOR='bed'
+export ROVER_OPEN='swallow'
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'

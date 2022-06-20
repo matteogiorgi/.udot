@@ -81,13 +81,16 @@
 
 
 
-### KILO
-########
+### SIM
+#######
 
-/bin/bin/kilo/*
-!/bin/bin/kilo/kilo.1
-!/bin/bin/kilo/kilo.c
-!/bin/bin/kilo/Makefile
+/sim/*
+!/sim/sim.sh
+!/sim/sim.c
+!/sim/README
+!/sim/posix.c
+!/sim/Makefile
+!/sim/config.def.h
 
 
 
