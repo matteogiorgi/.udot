@@ -1094,7 +1094,7 @@ draw() {
 # Initialize the preferences variables.
 preferences_init() {
 	# Source the user's preferences file, if it exists.
-	[ -f "${HOME}/.bashedrc" ] && source "${HOME}/.bashedrc"
+	[ -f "${HOME}/.bedrc" ] && source "${HOME}/.bedrc"
 
 	# Spacing between tab stops.
 	[[ $tab_stop =~ [0-9]+ ]] || tab_stop=8

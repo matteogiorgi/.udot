@@ -1,9 +1,9 @@
 .
-.TH bashed "1" "June 2022" "bashed" "User Commands"
+.TH bed "1" "June 2022" "bed" "User Commands"
 .SH NAME
-bashed \- text editor
+bed \- text editor
 .SH SYNOPSIS
-.B bashed
+.B bed
 .SH DESCRIPTION
 A simple text editor written in bash shell.
 .PP
@@ -11,18 +11,11 @@ A simple text editor written in bash shell.
 .
 .nf
 
-Features
-________________________________________________________________________________
-
 * Standard cursor movement controls
-  * Move the cursor using the arrow keys, Home, End, PgUp, PgDn
-  * Move by words by holding Ctrl
+    * Move the cursor using the arrow keys, Home, End, PgUp, PgDn
+    * Move by words by holding Ctrl (not supported in Linux console)
 * Select text by holding Shift
 * Clipboard functionality: cut, copy, and paste
-*Not supported in the Linux console, because it does not report modifier keys
-
-
-Limitations
 ________________________________________________________________________________
 
 * No undo
@@ -30,8 +23,6 @@ ________________________________________________________________________________
 * No line wrap
 * Can only edit one file at a time
 
-
-System Requirements
 ________________________________________________________________________________
 
 * About 30 KB free disk space
@@ -41,21 +32,15 @@ ________________________________________________________________________________
 * ncurses (tput, reset)
 * xclip to use the X selection as the clipboard (optional)
 
-
-Configuration
 ________________________________________________________________________________
 
-User preferences may be configured in ~/.bashedrc, which is simply a Bash script
-sourced by bashed. This is probably a security risk, but bashed is not designed
+User preferences may be configured in ~/.bedrc, which is simply a Bash script
+sourced by bed. This is probably a security risk, but bed is not designed
 for serious usage anyway
 
-
-Performance
 ________________________________________________________________________________
 
-Bash is not known for being particularly fast. To achieve acceptable performance,
-bashed:
-
-* Uses Bash built-ins whenever possible
-* Avoids subshells by using global variables to return values from functions
-* Only redraws the parts of the display that changed since the last frame
+To achieve acceptable performance in bed:
+    * Uses Bash built-ins whenever possible
+    * Avoids subshells by using global variables to return values from functions
+    * Only redraws the parts of the display that changed since the last frame
