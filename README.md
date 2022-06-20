@@ -24,6 +24,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - bash            (bourne again shell)
 - tmux            (terminal multiplexer)
 - vim             (vi improved - gtk3)
+- sim             (sam-vi text editor)
 
 
 ### tui tools
