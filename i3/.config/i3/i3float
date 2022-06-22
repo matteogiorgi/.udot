@@ -4,3 +4,5 @@
 $@ &
 sleep 0.1
 i3-msg "floating toggle"
+i3-msg "resize set 800 600"
+i3-msg "move position center"
