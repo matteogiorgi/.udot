@@ -38,4 +38,10 @@ for arg in "$@"; do
 done
 
 echo -e "${YLW}Done.${NC}"
+
+
+unset RED
+unset YLW
+unset NC
+unset list
 exit 0

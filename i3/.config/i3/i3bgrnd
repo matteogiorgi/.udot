@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-
-sxiv -t ~/Pictures/bgrnd/* &
-sleep 0.2
-i3-msg "floating toggle"
-i3-msg "resize set 800 200"
-i3-msg "move position center"
