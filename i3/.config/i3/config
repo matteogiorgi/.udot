@@ -197,8 +197,8 @@ for_window [instance="scratchpad"] move scratchpad
 #################
 
 bindsym $mod+m move workspace to output next
-bindsym $mod+p [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
-bindsym $mod+o exec "loresh"
+bindsym $mod+o [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
+bindsym $mod+p exec "loresh"
 bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $mod+d exec --no-startup-id "dmenu_run -i"
 bindsym $mod+Return exec "st"
