@@ -73,7 +73,6 @@ c2="${reset}${red}"                 # third color
 ## OUTPUT
 
 cat <<EOF
-
 ${c0}      ___     ${nc}${USER}@${host}${reset}
 ${c0}     (${c1}.. ${c0}\    ${lc}os        ${ic}${os}${reset}
 ${c0}     (${c2}<> ${c0}|    ${lc}kernel    ${ic}${kernel}${reset}

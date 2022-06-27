@@ -207,7 +207,7 @@ bindsym $mod+o exec "loresh"
 bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $mod+d exec --no-startup-id "dmenu_run -i"
 bindsym $mod+Return exec "st"
-bindsym $sup+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
+bindsym $mod+Escape [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 bindsym $mod+Shift+q kill
 
 

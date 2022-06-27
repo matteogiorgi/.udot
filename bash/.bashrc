@@ -144,6 +144,12 @@ function _fff () {
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
 
+function _shfm () {
+    ~/bin/shfm/shfm "$@"
+    cd "$(cat ~/.shfm.tmp)"
+    rm -f ~/.shfm.tmp
+}
+
 function _sxiv () {
     if command -v sxiv >/dev/null 2>&1; then
         if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
@@ -217,7 +223,7 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 [[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''" > $HOME/.xinput.bash
 source $HOME/.xinput.bash
 
-[[ -f $HOME/bin/pfetch/pfetch ]] && $HOME/bin/pfetch/pfetch
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
@@ -228,4 +234,4 @@ source $HOME/.xinput.bash
 ## KEYBINDINGS (set -o vi)
 ##########################
 
-bind '"\eq"':"\"rover\C-m\""
+bind '"\eq"':"\"shfm\C-m\""
