@@ -234,4 +234,5 @@ source $HOME/.xinput.bash
 ## KEYBINDINGS (set -o vi)
 ##########################
 
-bind '"\eq"':"\"shfm\C-m\""
+bind '"\eq"':"\"rover\C-m\""
+bind '"\eo"':"\"tig\C-m\""
