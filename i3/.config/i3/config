@@ -14,6 +14,7 @@
 #################
 
 set $mod Mod1
+set $sup Mod4
 floating_modifier $mod
 font pango:Ubuntu Mono 9
 
@@ -174,7 +175,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
     font pango:Ubuntu Mono 9
-    position top
+    position bottom
     separator_symbol "::"
     tray_output primary
     status_command i3status
@@ -197,11 +198,11 @@ for_window [instance="scratchpad"] move scratchpad
 #################
 
 bindsym $mod+m move workspace to output next
-bindsym $mod+o [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
-bindsym $mod+p exec "loresh"
+bindsym $mod+o exec "loresh"
 bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
-bindsym $mod+d exec --no-startup-id "dmenu_run -i"
+bindsym $mod+d exec --no-startup-id "dmenu_run -b -i"
 bindsym $mod+Return exec "st"
+bindsym $sup+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 bindsym $mod+Shift+q kill
 
 

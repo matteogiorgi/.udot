@@ -6,7 +6,7 @@ kill_apps() {
     done < <(wmctrl -l | awk '{print $1}')
 }
 
-choice=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i | cut -d ':' -f 1)
+choice=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -b -i | cut -d ':' -f 1)
 
 case "$choice" in
     Lock)

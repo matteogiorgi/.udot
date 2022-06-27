@@ -7,8 +7,7 @@ set recolor false
 set font "Ubuntu Mono 10"
 set first-page-column 2
 
-# set show-scrollbars
-# set smooth-scroll true
+set guioptions sv
 
 set window-title-basename "true"
 set selection-clipboard "clipboard"
