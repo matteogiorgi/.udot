@@ -74,19 +74,19 @@ bindsym $mod+Shift+Right move right
 ### split, layout, mode
 #######################
 
-bindsym $mod+b split h
 bindsym $mod+v split v
+bindsym $mod+b split h
 
 workspace_layout tabbed
+bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+s layout stacking
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
-bindsym $mod+z focus child
+bindsym $mod+s focus child
 
 
 
@@ -202,9 +202,9 @@ for_window [instance="scratchpad"] move scratchpad
 ### Usefull binds
 #################
 
-bindsym $mod+i [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
-bindsym $mod+o exec "loresh"
 bindsym $mod+d exec --no-startup-id "dmenu_run -i"
+bindsym $mod+u exec "loresh"
+bindsym $mod+i [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 bindsym $mod+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $mod+m move workspace to output next
 bindsym $mod+Return exec "st"
