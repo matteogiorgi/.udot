@@ -235,3 +235,4 @@ source $HOME/.xinput.bash
 ##########################
 
 bind '"\eq"':"\"rover\C-m\""
+bind '"\eu"':"\"ffind\C-m\""
