@@ -53,7 +53,7 @@ case $(file --mime-type "$*" -bL) in
         xshow "~/.config/sxiv/supersxiv '$*'"
         ;;
     inode/directory)
-        fff "$*"
+        rover "$*"
         ;;
     *)
         vim "$*"
