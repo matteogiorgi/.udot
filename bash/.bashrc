@@ -235,4 +235,5 @@ source $HOME/.xinput.bash
 ##########################
 
 bind '"\eq"':"\"rover\C-m\""
-bind '"\eo"':"\"tig\C-m\""
+bind '"\et"':"\"tig\C-m\""
+bind '"\ev"':"\"vim\C-m\""
