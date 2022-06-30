@@ -7,7 +7,8 @@
 # user is already defined
 host="$(hostname)"
 os='GNU/Linux'	# I'd just like to interject for a moment...
-kernel="$(uname -sr)"
+read -r _ _ version _ < /proc/version
+kernel=${version%%-*}  # "$(uname -sr)"
 uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')"
 packages=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
 shell="$(basename "${SHELL}")"
