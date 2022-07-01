@@ -55,3 +55,12 @@ fi
 ################################################################################################
 
 [[ -d $HOME/.ghcup ]] && source $HOME/.ghcup/env
+
+
+
+
+### Set keyboard layout and special keys
+########################################
+
+[[ -f /bin/setxkbmap ]] && setxkbmap -layout it
+[[ -d $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap

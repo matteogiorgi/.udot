@@ -216,6 +216,5 @@ bindsym $mod+Shift+q kill
 ### Autostart confs
 ###################
 
-exec --no-startup-id "sh -c 'setxkbmap -layout it && xmodmap ~/.Xmodmap'"
 exec --no-startup-id "~/.config/i3/i3mon"
 exec --no-startup-id "~/.config/i3/i3pad"
