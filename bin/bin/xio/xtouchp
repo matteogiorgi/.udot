@@ -32,10 +32,3 @@ while read response; do
             ;;
     esac
 done
-
-
-unset RED
-unset YLW
-unset NC
-unset TOUCH
-unset response

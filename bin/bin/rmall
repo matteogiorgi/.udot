@@ -5,6 +5,7 @@ RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
 
+
 for arg in "$@"; do
 	list=$(find *.$arg)
 	if [[ $list == ""  ]]; then
@@ -19,29 +20,22 @@ for arg in "$@"; do
 
 	while read response; do
 		case $response in
-			"y" | "Y" | "yes" | "Yes")
+			"y" | "Y" | "yes" | "Yes" | "YES")
                 rm *.$arg
                 printf "$list\nremoved\n"
                 break
                 ;;
-
-			"n" | "N" | "no" | "No" | "")
+			"n" | "N" | "no" | "No" | "NO" | "")
                 printf "No file removed\n"
                 break
                 ;;
-
 			*)
-                printf "${YLW}%s${NC}\n" "You need to answare y(yes) or n(no)"
+                printf "${YLW}%s${NC}\n" "Answer Y(yes) or n(no)"
                 ;;
 		esac
 	done
 done
 
+
 echo -e "${YLW}Done.${NC}"
-
-
-unset RED
-unset YLW
-unset NC
-unset list
 exit 0

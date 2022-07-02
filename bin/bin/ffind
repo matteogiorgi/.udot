@@ -37,11 +37,5 @@ else
 fi
 
 
-unset FILE
-
-
-
-
 # export the following command to fuzzy-find directories:
 # 'rg --sort-files --files --null 2>/dev/null | xargs -0 dirname | uniq -u'
-

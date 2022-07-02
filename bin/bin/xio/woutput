@@ -40,10 +40,3 @@ while read response; do
 done
 
 xinput map-to-output $(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
-
-
-unset RED
-unset YLW
-unset NC
-unset MONITOR
-unset response

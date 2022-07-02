@@ -37,9 +37,3 @@ while read response; do
 done
 
 xmodmap ~/.Xmodmap
-
-
-unset RED
-unset YLW
-unset NC
-unset response

@@ -91,10 +91,3 @@ EOF
 
 
 printf "${YLW}%s${NC}\n" "Done."
-
-unset RED
-unset YLW
-unset NC
-unset FOLDER
-unset NAME
-unset response

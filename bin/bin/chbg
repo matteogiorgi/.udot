@@ -32,12 +32,3 @@ done
 bgrnd=$(/usr/bin/ls $bgrnd_dir | head -n $response | tail -n 1)
 feh --bg-fill "$bgrnd_dir/$bgrnd"
 printf "${YLW}%s\n${NC}" "Done."
-
-
-unset RED
-unset YLW
-unset NC
-unset list
-unset max
-unset bgrnd
-unset bgrnd_dir

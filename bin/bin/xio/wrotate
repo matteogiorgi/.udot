@@ -50,11 +50,3 @@ while read response; do
 done
 
 xsetwacom --set $XWACOMID Rotate $ROTATION
-
-
-unset RED
-unset YLW
-unset NC
-unset XWACOMID
-unset ROTATION
-unset response
