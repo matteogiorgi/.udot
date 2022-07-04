@@ -41,12 +41,19 @@ fi
 
 
 
-### Set PATH so it includes just '~/.emacs.d/bin', '~/.cargo/bin', '~/go/bin' if they exist
-###########################################################################################
+### Set PATH so it includes just '~/.emacs.d/bin' and '~/go/bin' if they exist
+##############################################################################
 
 [[ -d $HOME/.emacs.d/bin ]] && PATH="$PATH:$HOME/.emacs.d/bin"
-[[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
 [[ -d $HOME/go/bin ]] && PATH="$PATH:$HOME/go/bin"
+
+
+
+
+### Add rustup settings (curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh)
+########################################################################################
+
+[[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
 
 
 
