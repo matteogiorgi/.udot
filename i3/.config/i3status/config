@@ -21,13 +21,13 @@ order += "tztime local"
 
 
 cpu_usage {
-    format        = "<span background='#f59335'> CPU %usage </span>"
+    format        = "<span background='#fec7cd'> CPU %usage </span>"
     max_threshold = 75
 }
 
 memory {
-    format             = "<span background='#fec7cd'> MEM %percentage_used </span>"
-    format_degraded    = "<span background='#fec7cd'> MEM: %free </span>"
+    format             = "<span background='#f59335'> MEM %percentage_used </span>"
+    format_degraded    = "<span background='#f59335'> MEM: %free </span>"
     threshold_degraded = "10%"
 }
 
