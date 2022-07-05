@@ -19,12 +19,13 @@ alias xcopy="xclip-copyfile"
 alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
-
 alias rover="_rover"
 alias fff="_fff"
 alias shfm="_shfm"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
-alias vi="/bin/vim --noplugin -n -i NONE"
+alias vv="/bin/vim --noplugin -n -i NONE"
+alias vi="vim"
+alias tm="tmux"
 
 alias reboot="systemctl reboot"
 alias poweroff="systemctl -i poweroff"
