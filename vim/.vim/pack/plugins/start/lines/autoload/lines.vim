@@ -78,6 +78,7 @@ endfunction
 "}}}
 
 " Scrollbar{{{
+" UNUSED
 function! lines#Scrollbar()
     let width = 9
     let perc = (line('.') - 1.0) / (max([line('$'), 2]) - 1.0)
@@ -88,7 +89,6 @@ endfunction
 "}}}
 
 " Tabline status{{{
-" UNUSED
 function! lines#TabStatus()
     let l:s = ''
     for i in range(tabpagenr('$'))
@@ -105,12 +105,12 @@ function! lines#TabStatus()
 
         let l:s .= '%' . tabnr . 'T'
         let l:s .= (tabnr == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-        let l:s .= ' ' . tabnr
+        let l:s .= tabnr
 
         let n = tabpagewinnr(tabnr,'$')
         if n > 1 | let l:s .= ':' . n | endif
 
-        let l:s .= empty(bufname) ? ' [No Name] ' : ' ' . bufname . ' '
+        let l:s .= empty(bufname) ? ' [No Name]  ' : ' ' . bufname . '  '
 
         let bufmodified = getbufvar(bufnr, '&mod')
         if bufmodified | let l:s .= '[+] ' | endif
