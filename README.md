@@ -62,7 +62,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - fonts-ubuntu    (pretty decent font family)
 
 
-### and some more
+### some more
 
 - gparted         (partition editor)
 - chromium        (web-browser)
@@ -71,11 +71,48 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - flameshot       (screenshot app)
 
 
+### and some less useful gear
+
+- lxappearance            (gtk theme selector)
+- qt5ct                   (qt5 theme selector)
+- adwaita-icon-theme-full (gnome icon theme)
+- adwaita-qt              (adwaita qt5 port)
+- gnome-themes-extra      (adwaita theme engine)
+- gnome-themes-extra-data (adwaita theme common files)
+
+
 
 
 ## Remember to install the followings packages
 
 `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev` and `libncurses-dev`
+
+
+
+
+## and add the following conf
+
+```
+cat > /etc/X11/xorg.conf.d/10-synaptics.conf <<-EOF
+Section "InputClass"
+    Identifier "touchpad"
+    Driver "synaptics"
+    MatchIsTouchpad "on"
+        Option "TapButton1" "1"
+        Option "TapButton2" "3"
+        Option "TapButton3" "2"
+        Option "VertEdgeScroll" "off"
+        Option "VertTwoFingerScroll" "on"
+        Option "HorizEdgeScroll" "off"
+        Option "HorizTwoFingerScroll" "on"
+        Option "CircularScrolling" "on"
+        Option "CircScrollTrigger" "2"
+        Option "EmulateTwoFingerMinZ" "40"
+        Option "EmulateTwoFingerMinW" "8"
+        Option "CoastingSpeed" "1"
+EndSection
+EOF
+```
 
 
 
