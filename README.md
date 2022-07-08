@@ -54,7 +54,8 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 - xclip           (x11 selections interface)
 - ripgrep         (a better grep)
-- wamerican       (/usr/share/dict collection)
+- wamerican       (/usr/share/dict english)
+- witalian        (/usr/share/dict italian)
 - xdo             (perform action on windows)
 - feh             (image viewer)
 - pandoc          (markup converter)
@@ -62,7 +63,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - fonts-ubuntu    (pretty decent font family)
 
 
-### some more
+### and some more
 
 - gparted         (partition editor)
 - chromium        (web-browser)
@@ -71,14 +72,17 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - flameshot       (screenshot app)
 
 
-### and some less useful gear
+### adwaita everywhere
 
-- lxappearance            (gtk theme selector)
-- qt5ct                   (qt5 theme selector)
-- adwaita-icon-theme-full (gnome icon theme)
-- adwaita-qt              (adwaita qt5 port)
-- gnome-themes-extra      (adwaita theme engine)
-- gnome-themes-extra-data (adwaita theme common files)
+- adwaita-icon-theme (gnome icon theme)
+- gnome-themes-extra (adwaita theme engine)
+- adwaita-qt         (adwaita qt5 port)
+
+
+### and theme selectors
+
+- lxappearance       (gtk theme selector)
+- qt5ct              (qt5 theme selector)
 
 
 

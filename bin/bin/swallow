@@ -34,8 +34,8 @@ echo "$1" | grep "\.sent$" && {
 
 
 
-### mime-type opener
-####################
+### mime-type opener (inode/directory not necessary)
+####################################################
 
 case $(file --mime-type "$*" -bL) in
     audio/*)
@@ -51,9 +51,6 @@ case $(file --mime-type "$*" -bL) in
         ;;
     image/*)
         xshow "~/.config/sxiv/supersxiv '$*'"
-        ;;
-    inode/directory)
-        rover "$*"
         ;;
     *)
         vim "$*"

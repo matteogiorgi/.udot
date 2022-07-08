@@ -5,7 +5,7 @@ YLW='\033[1;35m'
 NC='\033[0m'
 
 
-bgrnd_dir="$HOME/Pictures/bgrnd"
+bgrnd_dir="$HOME/Pictures/backgrounds"
 printf "${RED}%s${NC}\n" "Choose a background:"
 
 
