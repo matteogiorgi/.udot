@@ -31,7 +31,7 @@ fi
 
 
 
-### Set PATH so it includes just '~/bin' (and its subdirs) if it exists
+### Set PATH so it includes just '~/bin' (if it exists) and its subdirs
 #######################################################################
 
 if [ -d "$HOME/bin" ] ; then
@@ -41,10 +41,17 @@ fi
 
 
 
-### Set PATH so it includes just '~/.emacs.d/bin' and '~/go/bin' if they exist
-##############################################################################
+### Set PATH to include '~/.emacs.d/bin' (apt install emacs)
+############################################################
 
 [[ -d $HOME/.emacs.d/bin ]] && PATH="$PATH:$HOME/.emacs.d/bin"
+
+
+
+
+### Add golang binary directory (apt install golang-go)
+#######################################################
+
 [[ -d $HOME/go/bin ]] && PATH="$PATH:$HOME/go/bin"
 
 
