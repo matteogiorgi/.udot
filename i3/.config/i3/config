@@ -203,13 +203,13 @@ for_window [instance="scratchpad"] move scratchpad
 #################
 
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
+bindsym $mod+d move workspace to output next
 bindsym $mod+Return exec st
 
+bindsym $sup+space exec --no-startup-id "dmenu_run -i -b"
 bindsym $sup+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
-bindsym $sup+space move workspace to output next
+bindsym $sup+Escape exec "logdown"
 
-bindsym $sup+l exec "logdown"
 bindsym $sup+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $sup+w exec "chromium --new-window https://www.geoteo.net/start"
 bindsym $sup+f exec "pcmanfm"
