@@ -25,7 +25,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - tmux            (terminal multiplexer)
 - vim             (vi improved - gtk3)
 - sim             (sam-vi text editor)
-- vscode          (another web-browser I guess)
 
 
 ### tui tools
@@ -40,7 +39,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### media related
 
-- chromium        (web-browser)
 - mpv             (media player)
 - zathura         (document viewer)
 - sxiv            (image viewer)
@@ -74,7 +72,15 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### and some more (optional) gear
 
-lxappearance, qt5ct, pcmanfm, geany, lxterminal, xarchiver gparted, xournalpp, flameshot, firefox, thunderbird
+- lxappearance, qt5ct (theme selectors)
+- geany, vscode       (text editors)
+- pcmanfm             (file manager)
+- lxterminal          (terminal emulator)
+- xournalpp           (note taking app)
+- flameshot           (screenshot)
+- chromium            (web-browser)
+- xarchiver           (archive-manager)
+- gparted             (poartition editor)
 
 
 
