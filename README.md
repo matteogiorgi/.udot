@@ -25,6 +25,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - tmux            (terminal multiplexer)
 - vim             (vi improved - gtk3)
 - sim             (sam-vi text editor)
+- vscode          (another web-browser I guess)
 
 
 ### tui tools
@@ -39,6 +40,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### media related
 
+- chromium        (web-browser)
 - mpv             (media player)
 - zathura         (document viewer)
 - sxiv            (image viewer)
@@ -63,15 +65,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - fonts-ubuntu    (pretty decent font family)
 
 
-### and some more
-
-- gparted         (partition editor)
-- chromium        (web-browser)
-- vscode          (another web-browser I guess)
-- xournalpp       (note-taking app)
-- flameshot       (screenshot app)
-
-
 ### adwaita everywhere
 
 - adwaita-icon-theme (gnome icon theme)
@@ -79,10 +72,9 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - adwaita-qt         (adwaita qt5 port)
 
 
-### and theme selectors
+### and some more
 
-- lxappearance       (gtk theme selector)
-- qt5ct              (qt5 theme selector)
+lxappearance, qt5ct, pcmanfm, gedit, lxterminal, xarchiver gparted, xournalpp, flameshot
 
 
 

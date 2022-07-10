@@ -95,8 +95,13 @@
 
 
 
-### WALLPAPERS
+### APPEARANCE
 ##############
 
-/bgrnd/Pictures/*
-!/bgrnd/Pictures/bgrnd
+/appearance/Pictures/*
+!/appearance/Pictures/backgrounds
+
+/appearance/.config/geany/*
+!/appearance/.config/geany/colorschemes
+/appearance/.config/geany/colorschemes/*
+!/appearance/.config/geany/colorschemes/gedit.conf
