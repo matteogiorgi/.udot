@@ -72,9 +72,9 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - adwaita-qt         (adwaita qt5 port)
 
 
-### and some more
+### and some more (optional) gear
 
-lxappearance, qt5ct, pcmanfm, gedit, lxterminal, xarchiver gparted, xournalpp, flameshot
+lxappearance, qt5ct, pcmanfm, geany, lxterminal, xarchiver gparted, xournalpp, flameshot, firefox, thunderbird
 
 
 

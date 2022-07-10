@@ -103,5 +103,6 @@
 
 /appearance/.config/geany/*
 !/appearance/.config/geany/colorschemes
-/appearance/.config/geany/colorschemes/*
-!/appearance/.config/geany/colorschemes/gedit.conf
+
+/appearance/.config/gtk-3.0/*
+!/appearance/.config/gtk-3.0/settings.ini
