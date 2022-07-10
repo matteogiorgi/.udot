@@ -231,8 +231,10 @@ source $HOME/.xinput.bash
 
 
 
-## KEYBINDINGS (set -o vi)
-##########################
+## KEYBINDINGS
+##############
 
+set -o vi
 bind '"\eu"':"\"ffind\C-m\""
 bind '"\ei"':"\"fff\C-m\""
+bind '"\eo"':"\"rover\C-m\""
