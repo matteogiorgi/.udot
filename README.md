@@ -60,7 +60,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - feh             (image viewer)
 - pandoc          (markup converter)
 - texlive         (tex live metapackage)
-- fonts-ubuntu    (pretty decent font family)
 
 
 ### adwaita everywhere
@@ -72,15 +71,16 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### and some more (optional) gear
 
-- lxappearance, qt5ct (theme selectors)
-- geany, vscode       (text editors)
-- pcmanfm             (file manager)
-- lxterminal          (terminal emulator)
-- xournalpp           (note taking app)
-- flameshot           (screenshot)
-- chromium            (web-browser)
-- xarchiver           (archive-manager)
-- gparted             (poartition editor)
+- lxappearance    (gtk theme selector)
+- qt5ct           (qt theme selector)
+- chromium        (web-browser)
+- vscodium        (text editor)
+- pcmanfm         (file manager)
+- lxterminal      (terminal emulator)
+- xournalpp       (note taking)
+- flameshot       (screenshot)
+- xarchiver       (archive-manager)
+- gparted         (partition editor)
 
 
 

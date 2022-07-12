@@ -213,8 +213,8 @@ bindsym $sup+Escape exec "logdown"
 bindsym $sup+n exec "chromium --new-window ~/notewiki/pandoc/index.html"
 bindsym $sup+w exec "chromium --new-window https://www.geoteo.net/start"
 bindsym $sup+f exec "pcmanfm"
-bindsym $sup+e exec "geany"
 bindsym $sup+t exec "lxterminal"
+bindsym $sup+e exec "codium"
 
 
 
