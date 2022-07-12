@@ -77,9 +77,9 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "terminal.integrated.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace",
     "terminal.integrated.fontSize": 13,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorTheme": "Monokai",
     "workbench.activityBar.visible": true,
-    "workbench.sideBar.location": "right",
+    "workbench.sideBar.location": "left",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
 }

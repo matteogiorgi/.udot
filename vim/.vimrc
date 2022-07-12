@@ -208,7 +208,6 @@ nnoremap <silent><Left> :vertical resize -5<CR>
 nnoremap <silent><Right> :vertical resize +5<CR>
 nnoremap <silent><Down> :resize -5<CR>
 nnoremap <silent><Up> :resize +5<CR>
-nnoremap <leader>c :!calcurse -q<CR><CR>
 nnoremap <leader>a :Explore<CR>
 nnoremap <leader>s :%s///gc<Left><Left><Left>
 xnoremap <leader>s :s///gc<Left><Left><Left>
