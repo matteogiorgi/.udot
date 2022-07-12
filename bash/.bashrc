@@ -121,7 +121,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ## FUNCTIONS
 ############
 
-function vs () {
+function _vist () {
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         /bin/vim -S $HOME/.vim/sessions/last.vim
     else
@@ -231,10 +231,7 @@ source $HOME/.xinput.bash
 
 
 
-## KEYBINDINGS
-##############
+## KEYBINDINGS (set -o vi)
+##########################
 
-set -o vi
-bind '"\eu"':"\"ffind\C-m\""
-bind '"\ei"':"\"fff\C-m\""
-bind '"\eo"':"\"rover\C-m\""
+bind '"\C-j"':"\"rover\C-m\""

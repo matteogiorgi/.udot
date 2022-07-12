@@ -24,6 +24,7 @@ alias fff="_fff"
 alias shfm="_shfm"
 alias sxiv="_sxiv" && [[ -f ~/.config/sxiv/supersxiv ]] && alias sxiv="~/.config/sxiv/supersxiv"
 alias vi="/bin/vim --noplugin -n -i NONE"
+alias vist="_vist"
 
 alias reboot="systemctl reboot"
 alias poweroff="systemctl -i poweroff"
