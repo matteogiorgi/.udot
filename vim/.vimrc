@@ -109,7 +109,6 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set fillchars+=vert:\│,eob:\ ,fold:-
-set wildchar=<Tab> wildmenu wildmode=full
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
 set laststatus=2
 set showtabline=1
@@ -124,7 +123,8 @@ set complete+=k/usr/share/dict/italian
 set complete+=w,b
 set dictionary+=/usr/share/dict/american-english-insane
 set dictionary+=/usr/share/dict/italian
-set wildmenu  " wildmode=list:longest,list:full
+set wildmenu  " wildoptions+=fuzzy
+set wildchar=<Tab> wildmode=full  " wildmode=list:longest,list:full
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set shortmess+=c
 set belloff+=ctrlg
