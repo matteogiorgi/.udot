@@ -34,7 +34,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - atool           (archive manager)
 - trash-cli       (trash utility)
 - htop            (process viewer)
-- calcurse        (calendar/organizer)
+- khal            (calendar)
 
 
 ### media related

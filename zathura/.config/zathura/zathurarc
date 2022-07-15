@@ -17,42 +17,42 @@ map <C-i> recolor
 
 
 
-### Color theme
-###############
+### Color theme (default theme is fine)
+#######################################
 
-set notification-error-bg   "#FF0000"
-set notification-error-fg   "#000000"
-set notification-warning-bg "#FFFF00"
-set notification-warning-fg "#000000"
-set notification-bg         "#E5E5E5"
-set notification-fg         "#000000"
+# set notification-error-bg   "#FF0000"
+# set notification-error-fg   "#000000"
+# set notification-warning-bg "#FFFF00"
+# set notification-warning-fg "#000000"
+# set notification-bg         "#E5E5E5"
+# set notification-fg         "#000000"
 
-set completion-bg           "#000000"
-set completion-fg           "#5E5C64"
-set completion-group-bg     "#000000"
-set completion-group-fg     "#5E5C64"
-set completion-highlight-bg "#000000"
-set completion-highlight-fg "#FFFF00"
+# set completion-bg           "#000000"
+# set completion-fg           "#5E5C64"
+# set completion-group-bg     "#000000"
+# set completion-group-fg     "#5E5C64"
+# set completion-highlight-bg "#000000"
+# set completion-highlight-fg "#FFFF00"
 
-set index-bg                "#E5E5E5"
-set index-fg                "#7F7F7F"
-set index-active-bg         "#E5E5E5"
-set index-active-fg         "#000000"
+# set index-bg                "#E5E5E5"
+# set index-fg                "#7F7F7F"
+# set index-active-bg         "#E5E5E5"
+# set index-active-fg         "#000000"
 
-set inputbar-bg             "#000000"
-set inputbar-fg             "#FFFFFF"
-set statusbar-bg            "#000000"
-set statusbar-fg            "#FFFFFF"
+# set inputbar-bg             "#000000"
+# set inputbar-fg             "#FFFFFF"
+# set statusbar-bg            "#000000"
+# set statusbar-fg            "#FFFFFF"
 
-set highlight-color         "#CDCD00"
-set highlight-active-color  "#00FF00"
+# set highlight-color         "#CDCD00"
+# set highlight-active-color  "#00FF00"
 
-set default-bg              "#E5E5E5"
-set default-fg              "#000000"
+# set default-bg              "#E5E5E5"
+# set default-fg              "#000000"
 
-set render-loading          true
-set render-loading-fg       "#000000"
-set render-loading-bg       "#E5E5E5"
+# set render-loading          true
+# set render-loading-fg       "#000000"
+# set render-loading-bg       "#E5E5E5"
 
-set recolor-darkcolor       "#E5E5E5"
-set recolor-lightcolor      "#000000"
+# set recolor-darkcolor       "#E5E5E5"
+# set recolor-lightcolor      "#000000"

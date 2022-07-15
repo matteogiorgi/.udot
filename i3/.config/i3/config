@@ -217,7 +217,7 @@ bindsym $mod+u exec "logdown"
 ### In-mode
 ###########
 
-mode "others" {
+mode "open" {
     bindsym h exec "chromium --new-window ~/notewiki/pandoc/index.html"; mode "default"
     bindsym j exec "chromium --new-window https://www.geoteo.net/start"; mode "default"
     bindsym k exec "pcmanfm"; mode "default"
@@ -228,7 +228,7 @@ mode "others" {
     bindsym $mod+o mode "default"
 }
 
-bindsym $mod+o mode "others"
+bindsym $mod+o mode "open"
 
 
 
