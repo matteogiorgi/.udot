@@ -15,6 +15,15 @@ function xshow () {
     sh -c "$*" & disown >/dev/null 2>&1
 }
 
+function _vim () {
+    BACKGROUND=$(xtermcontrol --get-bg)
+    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
+        env vim --cmd "let theme = 'light'" $@
+    else
+        env vim --cmd "let theme = 'dark'" $@
+    fi
+}
+
 
 
 
@@ -53,6 +62,6 @@ case $(file --mime-type "$*" -bL) in
         xshow "~/.config/sxiv/supersxiv '$*'"
         ;;
     *)
-        vim "$*"
+        _vim "$*"
         ;;
 esac
