@@ -121,7 +121,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ## FUNCTIONS
 ############
 
-function _vv () {
+function _vila () {
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         /bin/vim -S $HOME/.vim/sessions/last.vim
     else
@@ -235,3 +235,4 @@ source $HOME/.xinput.bash
 ##########################
 
 bind '"\C-o"':"\"rover\C-m\""
+bind '"\C-v"':"\"_vila\C-m\""
