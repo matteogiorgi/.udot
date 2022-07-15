@@ -206,29 +206,34 @@ for_window [instance="scratchpad"] move scratchpad
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec st
 
-bindsym $mod+i [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
-bindsym $mod+p move workspace to output next
+bindsym $sup+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
+bindsym $sup+space move workspace to output next
+
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
 bindsym $mod+u exec "logdown"
 
+bindsym $sup+t exec "lxterminal"
+bindsym $sup+f exec "pcmanfm"
+bindsym $sup+e exec "codium"
 
 
 
-### In-mode
-###########
 
-mode "open" {
-    bindsym h exec "chromium --new-window ~/notewiki/pandoc/index.html"; mode "default"
+### Internet
+############
+
+mode "internet" {
+    bindsym h exec "chromium --new-window -incognito"; mode "default"
     bindsym j exec "chromium --new-window https://www.geoteo.net/start"; mode "default"
-    bindsym k exec "pcmanfm"; mode "default"
-    bindsym l exec "codium"; mode "default"
+    bindsym k exec "chromium --new-window ~/notewiki/pandoc/index.html"; mode "default"
+    bindsym l exec "chromium --new-window ~/"; mode "default"
 
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
-    bindsym $mod+o mode "default"
+    bindsym $mod+i mode "default"
 }
 
-bindsym $mod+o mode "open"
+bindsym $mod+i mode "internet"
 
 
 

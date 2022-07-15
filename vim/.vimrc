@@ -69,9 +69,20 @@ endif
 
 " Syntax{{{
 syntax on
-set background=dark
-colorscheme hemisu
 filetype plugin indent on
+colorscheme hemisu
+if !exists('$COLORFGBG') && !get(v:, 'termrbgresp')
+    set background=dark
+endif
+"}}}
+
+
+" Dynamic background{{{
+if exists('theme') && theme == 'light'
+    set background=light
+else
+    set background=dark
+endif
 "}}}
 
 

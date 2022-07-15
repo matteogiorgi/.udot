@@ -121,11 +121,20 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ## FUNCTIONS
 ############
 
-function _vila () {
-    if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
-        /bin/vim -S $HOME/.vim/sessions/last.vim
+function _vim () {
+    BACKGROUND=$(xtermcontrol --get-bg)
+    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
+        env vim --cmd "let theme = 'light'" $@
     else
-        /bin/vim
+        env vim --cmd "let theme = 'dark'" $@
+    fi
+}
+
+function _last () {
+    if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
+        _vim -S $HOME/.vim/sessions/last.vim
+    else
+        _vim
     fi
 }
 
@@ -235,4 +244,4 @@ source $HOME/.xinput.bash
 ##########################
 
 bind '"\C-o"':"\"rover\C-m\""
-bind '"\C-v"':"\"_vila\C-m\""
+bind '"\C-v"':"\"_last\C-m\""
