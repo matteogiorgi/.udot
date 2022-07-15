@@ -20,6 +20,22 @@ map <C-i> recolor
 ### Color theme (default theme is fine)
 #######################################
 
+set render-loading          true
+set render-loading-fg       "#000000"
+set render-loading-bg       "#E5E5E5"
+
+set recolor-darkcolor       "#E5E5E5"
+set recolor-lightcolor      "#000000"
+
+set default-bg              "#E5E5E5"
+set default-fg              "#FFFFFF"
+
+
+
+
+### More colors
+###############
+
 # set notification-error-bg   "#FF0000"
 # set notification-error-fg   "#000000"
 # set notification-warning-bg "#FFFF00"
@@ -46,13 +62,3 @@ map <C-i> recolor
 
 # set highlight-color         "#CDCD00"
 # set highlight-active-color  "#00FF00"
-
-# set default-bg              "#E5E5E5"
-# set default-fg              "#000000"
-
-# set render-loading          true
-# set render-loading-fg       "#000000"
-# set render-loading-bg       "#E5E5E5"
-
-# set recolor-darkcolor       "#E5E5E5"
-# set recolor-lightcolor      "#000000"
