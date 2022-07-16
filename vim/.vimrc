@@ -71,9 +71,6 @@ endif
 syntax on
 filetype plugin indent on
 colorscheme hemisu
-if !exists('$COLORFGBG') && !get(v:, 'termrbgresp')
-    set background=dark
-endif
 "}}}
 
 
@@ -237,4 +234,10 @@ nnoremap <leader>9 9gt
 
 " Autocorrections{{{
 " ab autoc lorem ipsum dolor sit amet ...
+"}}}
+
+" Background{{{
+" if !exists('$COLORFGBG') && !get(v:, 'termrbgresp')
+"     set background=dark
+" endif
 "}}}

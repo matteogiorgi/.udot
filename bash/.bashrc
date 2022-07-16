@@ -122,8 +122,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ############
 
 function _vim () {
-    BACKGROUND=$(xtermcontrol --get-bg)
-    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
+    if [[ -f "/bin/xtermcontrol" && "$(xtermcontrol --get-bg)" == "rgb:ffff/ffff/ffff" ]]; then
         env vim --cmd "let theme = 'light'" $@
     else
         env vim --cmd "let theme = 'dark'" $@
