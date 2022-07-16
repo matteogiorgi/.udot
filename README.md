@@ -119,19 +119,19 @@ EOF
 
 
 
-## Xterm palette
+## GNOME palette
 
 <img align="right" width="160" src="mona.gif">
 
 I used the following palette throughout the all sysconfig.
 
-| Color   | Dark      | Light     |
+| Color   | Normal    | Bright    |
 | ------- | --------- | --------- |
-| Black   | `#000000` | `#7F7F7F` |
-| Red     | `#CD0000` | `#FF0000` |
-| Green   | `#00CD00` | `#00FF00` |
-| Yellow  | `#CDCD00` | `#FFFF00` |
-| Blue    | `#0000EE` | `#5C5CFF` |
-| Magenta | `#CD00CD` | `#FF00FF` |
-| Cyan    | `#00CDCD` | `#00FFFF` |
-| White   | `#E5E5E5` | `#FFFFFF` |
+| Black   | `#171421` | `#5E5C64` |
+| Red     | `#C01C28` | `#F66151` |
+| Green   | `#26A269` | `#33D17A` |
+| Yellow  | `#A2734C` | `#E9AD0C` |
+| Blue    | `#12488B` | `#2A7BDE` |
+| Magenta | `#A347BA` | `#C061CB` |
+| Cyan    | `#2AA1B3` | `#33C7DE` |
+| White   | `#D0CFCC` | `#FFFFFF` |
