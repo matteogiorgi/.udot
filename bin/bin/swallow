@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-### hide/show
+### Functions
 #############
 
 function xhide () {
@@ -27,7 +27,7 @@ function _vim () {
 
 
 
-### greppers
+### Greppers
 ############
 
 echo "$*" | grep "\.ar\." && {
@@ -43,7 +43,7 @@ echo "$1" | grep "\.sent$" && {
 
 
 
-### mime-type opener (inode/directory not necessary)
+### MIME-type opener (inode/directory not necessary)
 ####################################################
 
 case $(file --mime-type "$*" -bL) in

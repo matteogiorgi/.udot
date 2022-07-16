@@ -8,6 +8,15 @@ function xhide () {
     xdo show "$id"
 }
 
+function _vim () {
+    BACKGROUND=$(xtermcontrol --get-bg)
+    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
+        env vim --cmd "let theme = 'light'" $@
+    else
+        env vim --cmd "let theme = 'dark'" $@
+    fi
+}
+
 
 if [[ -f /bin/fzf ]]; then
     export FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
@@ -29,7 +38,7 @@ if [[ -f /bin/fzf ]]; then
             xhide "~/.config/sxiv/supersxiv '$FILE'"
             ;;
         *)
-            vim "$FILE"
+            _vim "$FILE"
             ;;
     esac
 else
