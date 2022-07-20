@@ -16,7 +16,7 @@ function xshow () {
 }
 
 function _vim () {
-    BACKGROUND=$(xtermcontrol --get-bg)
+    [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
     if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
         env vim --cmd "let theme = 'light'" $@
     else
