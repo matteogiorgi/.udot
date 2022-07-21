@@ -77,17 +77,19 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - codium          (text editor)
 - pcmanfm         (file manager)
 - lxterminal      (terminal emulator)
+- vlc             (media player)
 - xournalpp       (note taking)
 - flameshot       (screenshot)
 - xarchiver       (archive-manager)
 - gparted         (partition editor)
+- transmission    (torrent client)
 
 
 
 
 ## Remember to install the followings packages
 
-`make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev` and `libncurses-dev`, `xtermcontrol`
+`make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev` and `libncurses-dev`, `xtermcontrol`, `curl`, `wget`
 
 
 
