@@ -59,7 +59,7 @@ case $(file --mime-type "$*" -bL) in
         xshow "zathura '$*'"
         ;;
     image/*)
-        xshow "~/.config/sxiv/supersxiv '$*'"
+        xshow "esxiv '$*'"
         ;;
     *)
         _vim "$*"

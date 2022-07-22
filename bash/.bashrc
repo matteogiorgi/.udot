@@ -118,7 +118,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 
 
-## FUNCTIONS
+## Functions
 ############
 
 function _vim () {
@@ -208,14 +208,14 @@ fi
 
 
 
-## MORE CONF
+## More conf
 ############
 
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
+export PAGER="less"
 export VISUAL="vim"
 export EDITOR="vim"
-export PAGER="less"
 export ROVER_VISUAL='sim'
 export ROVER_EDITOR='sim'
 export ROVER_OPEN='swallow'
@@ -241,8 +241,9 @@ source $HOME/.xinput.bash
 
 
 
-## KEYBINDINGS (set -o vi)
-##########################
+## Keybindings (add `set -o vi` for vi mode)
+############################################
 
-bind '"\C-o"':"\"rover\C-m\""
-bind '"\C-v"':"\"_last\C-m\""
+bind '"\C-h"':"\"_last\C-m\""
+bind '"\C-j"':"\"_vim\C-m\""
+bind '"\C-k"':"\"_rover\C-m\""
