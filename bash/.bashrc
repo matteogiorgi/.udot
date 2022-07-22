@@ -244,6 +244,7 @@ source $HOME/.xinput.bash
 ## Keybindings (add `set -o vi` for vi mode)
 ############################################
 
-bind '"\C-h"':"\"_last\C-m\""
-bind '"\C-j"':"\"_vim\C-m\""
-bind '"\C-k"':"\"_rover\C-m\""
+bind '"\C-f"':"\"ffind\C-m\""
+bind '"\C-h"':"\"tig\C-m\""
+bind '"\C-j"':"\"vim\C-m\""
+bind '"\C-k"':"\"rover\C-m\""
