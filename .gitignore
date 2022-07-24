@@ -65,22 +65,6 @@
 
 
 
-### ROVER
-#########
-
-/rover/*
-!/rover/CHANGES.md
-!/rover/config.h
-!/rover/FAQ.md
-!/rover/Makefile
-!/rover/README.md
-!/rover/rover.1
-!/rover/rover.c
-!/rover/screenshot.png
-
-
-
-
 ### SIM
 #######
 
@@ -100,6 +84,3 @@
 
 /appearance/Pictures/*
 !/appearance/Pictures/backgrounds
-
-/appearance/.config/geany/*
-!/appearance/.config/geany/colorschemes

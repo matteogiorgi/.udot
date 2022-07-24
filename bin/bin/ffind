@@ -9,7 +9,7 @@ function xhide () {
 }
 
 function _vim () {
-    BACKGROUND=$(xtermcontrol --get-bg)
+    [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
     if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
         env vim --cmd "let theme = 'light'" $@
     else
@@ -23,7 +23,7 @@ if [[ -f /bin/fzf ]]; then
     FILE="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
     [[ -z "$FILE" ]] && exit 1
 
-    case $(file --mime-type $FILE -bL) in
+    case $(file --mime-type "$FILE" -bL) in
         audio/*)
             echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
             mpv "$FILE"
@@ -31,11 +31,11 @@ if [[ -f /bin/fzf ]]; then
         video/*)
             xhide "mpv --force-window '$FILE'"
             ;;
+        image/*)
+            xhide "esxiv '$FILE'"
+            ;;
         application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
             xhide "zathura '$FILE'"
-            ;;
-        image/*)
-            xhide "~/.config/sxiv/supersxiv '$FILE'"
             ;;
         *)
             _vim "$FILE"

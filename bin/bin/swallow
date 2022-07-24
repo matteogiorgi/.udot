@@ -55,11 +55,11 @@ case $(file --mime-type "$*" -bL) in
     video/*)
         xhide "mpv --force-window '$*'"
         ;;
+    image/*)
+        xhide "esxiv '$*'"
+        ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         xshow "zathura '$*'"
-        ;;
-    image/*)
-        xshow "esxiv '$*'"
         ;;
     *)
         _vim "$*"

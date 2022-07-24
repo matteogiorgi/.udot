@@ -212,7 +212,7 @@ bindsym $sup+space move workspace to output next
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
 bindsym $mod+u exec "logdown"
 
-bindsym $sup+t exec "lxterminal"
+bindsym $sup+t exec "terminator"
 bindsym $sup+f exec "pcmanfm"
 bindsym $sup+e exec "codium"
 

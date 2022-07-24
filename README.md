@@ -10,12 +10,10 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### window manager related
 
-- stow            (symlink manager)
 - i3-wm           (tiling window-manager)
 - i3lock          (i3-wm lockscreen)
 - dmenu           (suckless menu)
 - arandr          (gui xrandr interface)
-- autorandr       (automate randr layouts)
 
 
 ### shell and editor
@@ -24,17 +22,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - bash            (bourne again shell)
 - tmux            (terminal multiplexer)
 - vim             (vi improved - gtk3)
-- sim             (sam-vi text editor)
-
-
-### tui tools
-
-- rover           (file manager)
-- git             (version control)
-- atool           (archive manager)
-- trash-cli       (trash utility)
-- htop            (process viewer)
-- khal            (calendar)
 
 
 ### media related
@@ -48,18 +35,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 - blueman         (bt applet)
 - network-manager (nm applet)
-
-
-### other stuff
-
-- xclip           (x11 selections interface)
-- ripgrep         (a better grep)
-- wamerican       (/usr/share/dict english)
-- witalian        (/usr/share/dict italian)
-- xdo             (perform action on windows)
-- feh             (image viewer)
-- pandoc          (markup converter)
-- texlive         (tex live metapackage)
 
 
 ### adwaita everywhere
@@ -76,20 +51,23 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - chromium        (web-browser)
 - codium          (text editor)
 - pcmanfm         (file manager)
-- lxterminal      (terminal emulator)
-- vlc             (media player)
+- terminator      (terminal emulator)
 - xournalpp       (note taking)
 - flameshot       (screenshot)
 - xarchiver       (archive-manager)
 - gparted         (partition editor)
 - transmission    (torrent client)
+- vlc             (media player)
 
 
 
 
 ## Remember to install the followings packages
 
-`make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev` and `libncurses-dev`, `xtermcontrol`, `curl`, `wget`
+`xtermcontrol`, `curl`, `wget`\
+`stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`\
+`make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`\
+`xclip`, `ripgrep`, `wamerican`, `witalian`, `xdo`, `feh`, `pandoc`, `texlive`
 
 
 

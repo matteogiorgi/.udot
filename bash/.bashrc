@@ -138,16 +138,6 @@ function _last () {
     fi
 }
 
-function _rover () {
-    if command -v rover >/dev/null 2>&1; then
-        rover "$@" -d ~/.rover$$.tmp
-        cd "$(cat ~/.rover$$.tmp)"
-        rm -f ~/.rover$$.tmp
-    else
-        echo "rover is not installed"
-    fi
-}
-
 function _fff () {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
@@ -169,7 +159,7 @@ function _sxiv () {
     elif command -v feh >/dev/null 2>&1; then
         feh "$@"
     else
-        echo "Please install SXIV or FEH!"
+        echo "Install SXIV or FEH!"
     fi
 }
 
@@ -215,10 +205,7 @@ export TERM="xterm-256color"
 export SHELL="/bin/bash"
 export PAGER="less"
 export VISUAL="vim"
-export EDITOR="vim"
-export ROVER_VISUAL='sim'
-export ROVER_EDITOR='sim'
-export ROVER_OPEN='swallow'
+export EDITOR="sim"
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
@@ -244,4 +231,5 @@ source $HOME/.xinput.bash
 ## Keybindings (add `set -o vi` for vi mode)
 ############################################
 
-bind '"\C-f"':"\"_rover\C-m\""
+bind '"\C-v"':"\"_vim .\C-m\""
+bind '"\C-f"':"\"_shfm\C-m\""

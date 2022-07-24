@@ -24,7 +24,6 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
-alias rover="_rover"
 alias fff="_fff"
 alias shfm="_shfm"
 alias sxiv="_sxiv" && [[ -f $HOME/bin/esxiv ]] && alias sxiv="$HOME/bin/esxiv"
