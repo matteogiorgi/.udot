@@ -7,7 +7,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## Main color-palette
 
-<img align="right" width="160" src="ubuntu.png">
+<img align="right" width="160" src="mona.gif">
 
 | Color   | Normal    | Bright    |
 | ------- | --------- | --------- |
@@ -99,6 +99,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 
 
-<img align="right" width="160" src="mona.gif">
+<img align="right" width="160" src="ubuntu.png">
 
 #### For any other package check [`packages.ubuntu.com`](https://packages.ubuntu.com/)
