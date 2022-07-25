@@ -78,8 +78,10 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "terminal.integrated.fontSize": 13,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Default Dark+",
-    "workbench.activityBar.visible": true,
+    "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "right",
+    "workbench.editor.enablePreview": false,
+    "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
 }

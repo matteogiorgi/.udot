@@ -45,6 +45,12 @@ endfunction
 "}}}
 
 " WinMove{{{
+function! utility#Substituta(new)
+    exec '%s//'.a:new.'/gc'
+endfunction
+"}}}
+
+" WinMove{{{
 function! utility#WinMove(key)
     let t:curwin = winnr()
     exec 'wincmd '.a:key

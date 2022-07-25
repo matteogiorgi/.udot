@@ -172,13 +172,6 @@ augroup overlengthtoggle
 augroup end
 "}}}
 
-" Calcurse notes{{{
-augroup calcursenote
-    autocmd!
-    autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
-augroup end
-"}}}
-
 
 " Simple commands{{{
 command! Date execute 'r !printf "\n\# " && date && printf "\n"'
@@ -187,6 +180,7 @@ command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
 command! Squish execute "normal \ggVGgq"
 command! ClearLastSearch :let @/=""
+command! LastSession :source $HOME/.vim/sessions/last.vim
 "}}}
 
 " Copy/Pasta commands{{{
@@ -216,10 +210,7 @@ nnoremap <silent><Left> :vertical resize -5<CR>
 nnoremap <silent><Right> :vertical resize +5<CR>
 nnoremap <silent><Down> :resize -5<CR>
 nnoremap <silent><Up> :resize +5<CR>
-nnoremap <leader>e :Explore<CR>
-nnoremap <leader>a :find<space>
-nnoremap <leader>s :%s///gc<Left><Left><Left>
-xnoremap <leader>s :s///gc<Left><Left><Left>
+nnoremap <leader>f :Explore<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
@@ -233,12 +224,5 @@ nnoremap <leader>9 9gt
 "}}}
 
 
-" Autocorrections{{{
-" ab autoc lorem ipsum dolor sit amet ...
-"}}}
-
-" Background{{{
-" if !exists('$COLORFGBG') && !get(v:, 'termrbgresp')
-"     set background=dark
-" endif
-"}}}
+" nnoremap <leader>s :%s///gc<Left><Left><Left>
+" xnoremap <leader>s :s///gc<Left><Left><Left>

@@ -5,6 +5,7 @@ autocmd! BufWritePre * call utility#Mkdir()
 
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()
+command! -nargs=1 Substituta call utility#Substituta(<f-args>)
 command! Current call utility#Current()
 command! Parent call utility#Parent()
 command! GitDir call utility#GitDir()
