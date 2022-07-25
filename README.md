@@ -99,6 +99,4 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 
 
-<img align="right" width="160" src="ubuntu.png">
-
-#### For any other package check [`packages.ubuntu.com`](https://packages.ubuntu.com/)
+#### For any other package check <a href="https://packages.ubuntu.com/"><img width="15" src="ubuntu.png"></a>
