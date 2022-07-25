@@ -99,6 +99,24 @@ EOF
 
 
 
+## Add some language support
+
+- C/C++: `apt install build-essential`
+- Go: `apt install golang-go golang-golang-x-tools`
+- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+- Ocaml: `apt install ocaml-batteries-included ocaml-man opam opam-doc`
+- Java: `apt install openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle`
+- Python: `apt install python3 python3-pip`
+
+
+
+
+#### For any other package check [`packages.ubuntu.com`](https://packages.ubuntu.com/)
+
+
+
+
 ## GNOME palette
 
 <img align="right" width="160" src="mona.gif">
