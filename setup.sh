@@ -39,3 +39,26 @@ fi
 
 printf "${RED}%s ${YLW}%s${NC} " "This is the installer for udot confs, do you want to continue?" "(Y/n)"
 _loop
+
+
+
+
+# cat > /etc/X11/xorg.conf.d/10-synaptics.conf <<-EOF
+# Section "InputClass"
+#     Identifier "touchpad"
+#     Driver "synaptics"
+#     MatchIsTouchpad "on"
+#         Option "TapButton1" "1"
+#         Option "TapButton2" "3"
+#         Option "TapButton3" "2"
+#         Option "VertEdgeScroll" "off"
+#         Option "VertTwoFingerScroll" "on"
+#         Option "HorizEdgeScroll" "off"
+#         Option "HorizTwoFingerScroll" "on"
+#         Option "CircularScrolling" "on"
+#         Option "CircScrollTrigger" "2"
+#         Option "EmulateTwoFingerMinZ" "40"
+#         Option "EmulateTwoFingerMinW" "8"
+#         Option "CoastingSpeed" "1"
+# EndSection
+# EOF

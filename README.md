@@ -3,10 +3,27 @@
 These repo contains a minimal configuration of my dotfiles, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are ment to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
 
 
-## Workflow utilities
+
+
+## Main color-palette
 
 <img align="right" width="160" src="ubuntu.png">
 
+| Color   | Normal    | Bright    |
+| ------- | --------- | --------- |
+| Black   | `#171421` | `#5E5C64` |
+| Red     | `#C01C28` | `#F66151` |
+| Green   | `#26A269` | `#33D17A` |
+| Yellow  | `#A2734C` | `#E9AD0C` |
+| Blue    | `#12488B` | `#2A7BDE` |
+| Magenta | `#A347BA` | `#C061CB` |
+| Cyan    | `#2AA1B3` | `#33C7DE` |
+| White   | `#D0CFCC` | `#FFFFFF` |
+
+
+
+
+## Workflow utilities
 
 ### window manager related
 
@@ -16,7 +33,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - arandr          (gui xrandr interface)
 
 
-### shell and editor
+### shell and editor stuff
 - st              (suckless terminal)
 - xterm           (x11 terminal)
 - bash            (bourne again shell)
@@ -37,14 +54,14 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - network-manager (nm applet)
 
 
-### adwaita everywhere
+### adwaita, adwaita everywhere
 
 - adwaita-icon-theme (gnome icon theme)
 - gnome-themes-extra (adwaita theme engine)
 - adwaita-qt         (adwaita qt5 port)
 
 
-### and some more (optional) gear
+### more (gui) gear
 
 - lxappearance    (gtk theme selector)
 - qt5ct           (qt theme selector)
@@ -62,44 +79,14 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 
 
-## Remember to install the followings packages
+## Do not forget to install the followings packages
 
-`xtermcontrol`, `curl`, `wget`\
-`stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`\
-`make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`\
-`xclip`, `ripgrep`, `wamerican`, `witalian`, `xdo`, `feh`, `pandoc`, `texlive`
+`xtermcontrol`, `curl`, `wget`, `stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`, `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`, `xclip`, `ripgrep`, `wamerican`, `witalian`, `xdo`, `feh`, `pandoc`, `texlive
 
 
 
 
-## and add the following conf
-
-```
-cat > /etc/X11/xorg.conf.d/10-synaptics.conf <<-EOF
-Section "InputClass"
-    Identifier "touchpad"
-    Driver "synaptics"
-    MatchIsTouchpad "on"
-        Option "TapButton1" "1"
-        Option "TapButton2" "3"
-        Option "TapButton3" "2"
-        Option "VertEdgeScroll" "off"
-        Option "VertTwoFingerScroll" "on"
-        Option "HorizEdgeScroll" "off"
-        Option "HorizTwoFingerScroll" "on"
-        Option "CircularScrolling" "on"
-        Option "CircScrollTrigger" "2"
-        Option "EmulateTwoFingerMinZ" "40"
-        Option "EmulateTwoFingerMinW" "8"
-        Option "CoastingSpeed" "1"
-EndSection
-EOF
-```
-
-
-
-
-## Add some language support
+## and to add some language support
 
 - C/C++: `apt install build-essential`
 - Go: `apt install golang-go golang-golang-x-tools`
@@ -112,24 +99,6 @@ EOF
 
 
 
-#### For any other package check [`packages.ubuntu.com`](https://packages.ubuntu.com/)
-
-
-
-
-## GNOME palette
-
 <img align="right" width="160" src="mona.gif">
 
-I used the following palette throughout the all sysconfig.
-
-| Color   | Normal    | Bright    |
-| ------- | --------- | --------- |
-| Black   | `#171421` | `#5E5C64` |
-| Red     | `#C01C28` | `#F66151` |
-| Green   | `#26A269` | `#33D17A` |
-| Yellow  | `#A2734C` | `#E9AD0C` |
-| Blue    | `#12488B` | `#2A7BDE` |
-| Magenta | `#A347BA` | `#C061CB` |
-| Cyan    | `#2AA1B3` | `#33C7DE` |
-| White   | `#D0CFCC` | `#FFFFFF` |
+#### For any other package check [`packages.ubuntu.com`](https://packages.ubuntu.com/)
