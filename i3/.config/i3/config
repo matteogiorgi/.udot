@@ -223,6 +223,7 @@ bindsym $sup+e exec "codium"
 ############
 
 mode "internet" {
+    bindsym i exec "chromium"; mode "default"
     bindsym h exec "chromium --new-window -incognito"; mode "default"
     bindsym j exec "chromium --new-window https://www.geoteo.net/start"; mode "default"
     bindsym k exec "chromium --new-window ~/notewiki/pandoc/index.html"; mode "default"

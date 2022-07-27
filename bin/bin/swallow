@@ -1,28 +1,12 @@
 #!/usr/bin/env bash
 
 
-### Functions
-#############
+### Functions definition
+########################
 
-function xhide () {
-    id=$(xdo id)
-    xdo hide
-    sh -c "$*" >/dev/null 2>&1
-    xdo show "$id"
-}
-
-function xshow () {
-    sh -c "$*" & disown >/dev/null 2>&1
-}
-
-function _vim () {
-    [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
-    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
-        env vim --cmd "let theme = 'light'" $@
-    else
-        env vim --cmd "let theme = 'dark'" $@
-    fi
-}
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
 
 
 
@@ -31,12 +15,12 @@ function _vim () {
 ############
 
 echo "$*" | grep "\.ar\." && {
-    xhide xterm -e "${EDITOR:=vim}" "$*" &
+    _xhide xterm -e "${EDITOR:=vi}" "$*" &
     exit
 }
 
 echo "$1" | grep "\.sent$" && {
-    xhide sent "$1" &
+    _xhide sent "$1" &
     exit
 }
 
@@ -53,13 +37,13 @@ case $(file --mime-type "$*" -bL) in
         mpv "$FILE"
         ;;
     video/*)
-        xhide "mpv --force-window '$*'"
-        ;;
-    image/*)
-        xhide "esxiv '$*'"
+        _xhide "mpv --force-window '$*'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        xshow "zathura '$*'"
+        _xhide "zathura '$*'"
+        ;;
+    image/*)
+        _xhide "esxiv '$*'"
         ;;
     *)
         _vim "$*"

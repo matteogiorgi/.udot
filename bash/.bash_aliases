@@ -24,11 +24,17 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
+alias xhide="_xhide"
+alias xshow="_xshow"
+alias vim="_vim"
+alias last="_last"
 alias fff="_fff"
 alias shfm="_shfm"
-alias sxiv="_sxiv" && [[ -f $HOME/bin/esxiv ]] && alias sxiv="$HOME/bin/esxiv"
-alias last="_last"
-alias vim="_vim"
+alias sxiv="_sxiv"
+alias woutput="woutput"
+alias wrotate="wrotate"
+alias xlayout="xlayout"
+alias xtouchp="xtouchp"
 
 
 alias reboot="systemctl reboot"
@@ -48,7 +54,7 @@ alias xmono="autorandr --load mono"
 alias xdual="autorandr --load dual"
 
 
-alias vi="_vim --noplugin -n -i NONE"
+alias vnp="_vim --noplugin -n -i NONE"
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias kal="khal calendar"

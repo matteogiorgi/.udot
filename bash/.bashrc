@@ -118,50 +118,12 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 
 
-## Functions
-############
+### Functions definition
+########################
 
-function _vim () {
-    [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
-    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
-        env vim --cmd "let theme = 'light'" $@
-    else
-        env vim --cmd "let theme = 'dark'" $@
-    fi
-}
-
-function _last () {
-    if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
-        _vim -S $HOME/.vim/sessions/last.vim
-    else
-        _vim
-    fi
-}
-
-function _fff () {
-    fff "$@"
-    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
-}
-
-function _shfm () {
-    ~/bin/shfm/shfm "$@"
-    cd "$(cat ~/.shfm.tmp)"
-    rm -f ~/.shfm.tmp
-}
-
-function _sxiv () {
-    if command -v sxiv >/dev/null 2>&1; then
-        if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
-            sxiv -t "$@"
-        else
-            sxiv    "$@"
-        fi
-    elif command -v feh >/dev/null 2>&1; then
-        feh "$@"
-    else
-        echo "Install SXIV or FEH!"
-    fi
-}
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
 
 
 
@@ -174,8 +136,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 
 
-### Alias definitions
-#####################
+### Aliases definition
+######################
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

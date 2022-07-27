@@ -63,18 +63,19 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### more (gui) gear
 
-- lxappearance    (gtk theme selector)
-- qt5ct           (qt theme selector)
-- chromium        (web-browser)
-- codium          (text editor)
-- pcmanfm         (file manager)
-- terminator      (terminal emulator)
-- xournalpp       (note taking)
-- flameshot       (screenshot)
-- xarchiver       (archive-manager)
-- gparted         (partition editor)
-- transmission    (torrent client)
-- vlc             (media player)
+- lxappearance         (gtk theme selector)
+- qt5ct                (qt theme selector)
+- chromium             (web-browser)
+- codium               (text editor)
+- pcmanfm              (file manager)
+- terminator           (terminal emulator)
+- xournalpp            (note taking)
+- flameshot            (screenshot)
+- xarchiver            (archive-manager)
+- simplescreenrecorder (monitor recorder)
+- gparted              (partition editor)
+- transmission         (torrent client)
+- vlc                  (media player)
 
 
 

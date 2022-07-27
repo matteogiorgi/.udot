@@ -1,50 +1,8 @@
 #!/usr/bin/env bash
 
 
-function xhide () {
-    id=$(xdo id)
-    xdo hide
-    sh -c "$*" >/dev/null 2>&1
-    xdo show "$id"
-}
+export FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'  # --null 2>/dev/null | xargs -0 dirname | uniq -u
+FILE="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
 
-function _vim () {
-    [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
-    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
-        env vim --cmd "let theme = 'light'" $@
-    else
-        env vim --cmd "let theme = 'dark'" $@
-    fi
-}
-
-
-if [[ -f /bin/fzf ]]; then
-    export FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
-    FILE="$(fzf --prompt="Open: " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
-    [[ -z "$FILE" ]] && exit 1
-
-    case $(file --mime-type "$FILE" -bL) in
-        audio/*)
-            echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
-            mpv "$FILE"
-            ;;
-        video/*)
-            xhide "mpv --force-window '$FILE'"
-            ;;
-        image/*)
-            xhide "esxiv '$FILE'"
-            ;;
-        application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-            xhide "zathura '$FILE'"
-            ;;
-        *)
-            _vim "$FILE"
-            ;;
-    esac
-else
-    echo "fzf not installed"
-fi
-
-
-# export the following command to fuzzy-find directories:
-# 'rg --sort-files --files --null 2>/dev/null | xargs -0 dirname | uniq -u'
+[[ -z "$FILE" ]] && exit 1
+swallow "$FILE"
