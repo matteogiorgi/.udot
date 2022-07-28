@@ -160,18 +160,38 @@ fi
 
 
 
-## More conf
-############
+## ENV vars
+###########
 
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
 export PAGER="less"
 export VISUAL="vim"
 export EDITOR="sim"
-export FFF_OPENER="swallow"
-export FFF_TRASH_CMD="trash"
+
+
+
+
+## FZF vars
+###########
+
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+
+
+
+
+## FFF vars
+###########
+
+export FFF_CD_ON_EXIT=1
+export FFF_OPENER="swallow"
+export FFF_TRASH_CMD="trash"
+
+export FFF_FAV1=$HOME/.udot
+export FFF_FAV2=$HOME/Desktop
+export FFF_FAV3=$HOME/Documents
+export FFF_FAV4=$HOME/Downloads
 
 
 
@@ -194,4 +214,4 @@ source $HOME/.xinput.bash
 ############################################
 
 bind '"\C-v"':"\"_vim .\C-m\""
-bind '"\C-f"':"\"_shfm\C-m\""
+bind '"\C-f"':"\"_fff\C-m\""

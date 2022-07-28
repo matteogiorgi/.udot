@@ -82,7 +82,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## Do not forget to install the followings packages
 
-`xtermcontrol`, `curl`, `wget`, `stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`, `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`, `xclip`, `ripgrep`, `wamerican`, `witalian`, `xdo`, `feh`, `pandoc`, `texlive
+`xtermcontrol`, `curl`, `wget`, `stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`, `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`, `xclip`, `ripgrep`, `wamerican`, `witalian`, `xdo`, `feh`, `pandoc`, `texlive`
 
 
 
