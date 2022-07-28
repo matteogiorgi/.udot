@@ -188,11 +188,6 @@ export FFF_CD_ON_EXIT=1
 export FFF_OPENER="swallow"
 export FFF_TRASH_CMD="trash"
 
-export FFF_FAV1=$HOME/.udot
-export FFF_FAV2=$HOME/Desktop
-export FFF_FAV3=$HOME/Documents
-export FFF_FAV4=$HOME/Downloads
-
 
 
 
@@ -214,4 +209,4 @@ source $HOME/.xinput.bash
 ############################################
 
 bind '"\C-v"':"\"_vim .\C-m\""
-bind '"\C-f"':"\"_fff\C-m\""
+bind '"\C-f"':"\"_shfm\C-m\""

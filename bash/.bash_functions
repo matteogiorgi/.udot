@@ -19,6 +19,13 @@ function _xshow () {
 }
 
 
+function _mpv () {
+    FILE="$*"
+    echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
+    mpv "$FILE"
+}
+
+
 function _vim () {
     [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
     if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then

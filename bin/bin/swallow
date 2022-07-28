@@ -32,15 +32,13 @@ echo "$1" | grep "\.sent$" && {
 
 case $(file --mime-type "$*" -bL) in
     audio/*)
-        FILE=$*
-        echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
-        mpv "$FILE"
+        _mpv "$*"
         ;;
     video/*)
         _xhide "mpv --force-window '$*'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xhide "zathura '$*'"
+        _xshow "zathura '$*'"
         ;;
     image/*)
         _xhide "esxiv '$*'"
