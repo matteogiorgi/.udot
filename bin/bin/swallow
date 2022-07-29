@@ -38,7 +38,7 @@ case $(file --mime-type "$*" -bL) in
         _xhide "mpv --force-window '$*'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xshow "zathura '$*'"
+        _xhide "zathura '$*'"
         ;;
     image/*)
         _xhide "esxiv '$*'"
