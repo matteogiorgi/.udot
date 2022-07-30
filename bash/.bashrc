@@ -165,9 +165,8 @@ fi
 
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
-export PAGER="less"
-export EDITOR="vim"
-export VISUAL="vim"
+export PAGER="/bin/less"
+export VISUAL="${EDITOR=vi}"
 
 
 
