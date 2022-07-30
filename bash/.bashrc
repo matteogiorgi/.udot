@@ -208,6 +208,7 @@ source $HOME/.xinput.bash
 ## Keybindings (add `set -o vi` for vi mode)
 ############################################
 
-bind '"\C-v"':"\"_vim .\C-m\""
-bind '"\C-f"':"\"_shfm\C-m\""
-bind '"\C-j"':"\"ffind\C-m\""
+bind '"\C-f"':"\"ffind\C-m\""
+bind '"\C-g"':"\"fgit\C-m\""
+bind '"\C-j"':"\"fjump\C-m\""
+bind '"\C-v"':"\"vim .\C-m\""

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+[[ $@ == "" ]] && exit 1
+
+if [[ -L $@ && -d $@ ]]; then
+    /bin/ls $(readlink $@) -FGa | $PAGER
+elif [[ -d $@ ]]; then
+    /bin/ls $@ -FGa | $PAGER
+else
+    $PAGER $@
+fi

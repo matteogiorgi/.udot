@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SHFM_OPENER="opener"
+SHFM_OPENER="swallow"
 
 esc() {
     case $1 in
