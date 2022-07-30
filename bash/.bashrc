@@ -166,8 +166,8 @@ fi
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
 export PAGER="less"
+export EDITOR="vim"
 export VISUAL="vim"
-export EDITOR="sim"
 
 
 
@@ -210,3 +210,4 @@ source $HOME/.xinput.bash
 
 bind '"\C-v"':"\"_vim .\C-m\""
 bind '"\C-f"':"\"_shfm\C-m\""
+bind '"\C-j"':"\"ffind\C-m\""
