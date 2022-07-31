@@ -44,6 +44,5 @@ case $(file --mime-type "$*" -bL) in
         _xhide "esxiv '$*'"
         ;;
     *)
-        kak "$*"
-        ;;
+        [[ -n "${TMUX}" ]] && tmux new-window kak "$*" || kak "$*"
 esac

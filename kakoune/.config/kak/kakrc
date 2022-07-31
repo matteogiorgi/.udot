@@ -204,7 +204,7 @@ evaluate-commands %sh{ [ -f $kak_config/local.kak ] && echo "source $kak_config/
 
 
 
-# vim old habits
+# Vim old habits
 # ───────────────────────────────────────────
 
 map global normal D '<a-l>d' -docstring 'delete to end of line'
