@@ -30,19 +30,29 @@ echo "$1" | grep "\.sent$" && {
 ### MIME-type opener (inode/directory not necessary)
 ####################################################
 
-case $(file --mime-type "$*" -bL) in
+FILE="$*"
+case $(file --mime-type "$FILE" -bL) in
     audio/*)
-        _mpv "$*"
+        _mpv "$FILE"
         ;;
     video/*)
-        _xhide "mpv --force-window '$*'"
+        _xhide "mpv --force-window '$FILE'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xhide "zathura '$*'"
+        _xhide "zathura '$FILE'"
         ;;
     image/*)
-        _xhide "esxiv '$*'"
+        _xhide "esxiv '$FILE'"
         ;;
     *)
-        [[ -n "${TMUX}" ]] && tmux new-window kak "$*" || kak "$*"
+        case $(printf "vim\nkakoune\nsam\n" | fzf --prompt="Edit ${FILE##*/} with: " --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first) in
+            vim)
+                _vim "$FILE"
+                ;;
+            kakoune)
+                [[ -n "${TMUX}" ]] && tmux new-window kak "$FILE" || kak "$FILE"
+                ;;
+            sam)
+                sim "$FILE"
+        esac
 esac
