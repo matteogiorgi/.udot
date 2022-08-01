@@ -10,11 +10,10 @@
 
 
 
-### Mod-key, font
-#################
+### Mod-key (Mod1=Alt/Mod4=Sup), font
+#####################################
 
-set $mod Mod1
-set $sup Mod4
+set $mod Mod4
 floating_modifier $mod
 font pango:Ubuntu Mono 9
 
@@ -206,9 +205,8 @@ for_window [instance="scratchpad"] move scratchpad
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec st
 
-bindsym $sup+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
-bindsym $sup+space move workspace to output next
-
+bindsym $mod+n move workspace to output next
+bindsym $mod+p [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
 bindsym $mod+u exec "logdown"
 
