@@ -10,7 +10,7 @@ OPENER="swallow"
 function main () {
     while true
     do
-        FILE="$(fzf --preview 'less {}' --preview-window 'right,60%,border-left' --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD >> " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
+        FILE="$(fzf --preview 'less {}' --preview-window 'right,60%,border-left' --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " --height 100% --reverse --info=hidden --header-first)" 
         [[ -z "$FILE" ]] && exit 1
         "${OPENER:="${EDITOR:=vi}"}" "${FILE}"
     done

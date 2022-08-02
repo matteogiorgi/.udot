@@ -10,7 +10,7 @@ function main () {
     do
         printf '%s\n' "$PWD" >~/.fjump.tmp
         [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
-        FILE="$(/bin/ls --color -Ga | fzf --ansi --preview 'mess {}' --preview-window 'right,60%,border-left' --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH >> " --border=rounded --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first)" 
+        FILE="$(/bin/ls --color -Ga | fzf --ansi --preview 'mess {}' --preview-window 'right,60%,border-left' --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH > " --height 100% --reverse --info=hidden --header-first)" 
         [[ -z "$FILE" ]] && exit 0
         [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=vi}"}" "${FILE}"
     done
