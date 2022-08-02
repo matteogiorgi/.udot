@@ -46,11 +46,13 @@ case $(file --mime-type "$FILE" -bL) in
         ;;
     *)
         case $(printf "vim\nkakoune\nsam\n" | fzf --prompt="Edit ${FILE##*/} with: " --margin=5% --color=dark --height 100% --reverse --info=hidden --header-first) in
+            # to know if you are inside a tmux session just check TMUX variable:
+            # [[ -n "${TMUX}" ]] && tmux new-window kak "$FILE" || kak "$FILE"
             vim)
                 _vim "$FILE"
                 ;;
             kakoune)
-                [[ -n "${TMUX}" ]] && tmux new-window kak "$FILE" || kak "$FILE"
+                kak "$FILE"
                 ;;
             sam)
                 sim "$FILE"
