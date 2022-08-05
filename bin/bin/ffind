@@ -4,13 +4,15 @@
 # FZF_DEFAULT_COMMAND to fuzzy-find directories with rg (not perfect):
 # 'rg --sort-files --files --null 2>/dev/null | xargs -0 dirname | uniq -u'
 
-FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
 OPENER="swallow"
+FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
 
 function main () {
     while true
     do
-        FILE="$(fzf --preview 'less {}' --preview-window 'right,60%,border-left' --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " --height 100% --reverse --info=hidden --header-first)" 
+        FILE="$(fzf --preview 'less {}' --preview-window 'right,60%,border-left' `
+                `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " `
+                `--height 100% --reverse --info=hidden --header-first)"
         [[ -z "$FILE" ]] && exit 1
         "${OPENER:="${EDITOR:=vi}"}" "${FILE}"
     done

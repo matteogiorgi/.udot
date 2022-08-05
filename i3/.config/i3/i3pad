@@ -2,6 +2,7 @@
 
 
 # spawn a scratchpad as well as i3 is running
+# `st -n scratchpad -e tmux &` for a new session
 while pgrep -x "i3"; do
     st -n scratchpad -e tmux &
     wait $!

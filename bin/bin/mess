@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-[[ $@ == "" ]] && exit 1
+[[ "$@" == "" ]] && exit 1
+"${PAGER:="/bin/less"}"
+PREVIEW="/bin/ls -1Ga --color=always"
 
-if [[ -L $@ && -d $@ ]]; then
-    /bin/ls $(readlink $@) -FGa | $PAGER
-elif [[ -d $@ ]]; then
-    /bin/ls $@ -FGa | $PAGER
+if [[ -L "$@" && -d "$@" ]]; then
+    ${PREVIEW} "$(readlink $@)" | "${PAGER}"
+elif [[ -d "$@" ]]; then
+    ${PREVIEW} "$@" | "${PAGER}"
 else
-    $PAGER $@
+    "${PAGER}" "$@"
 fi

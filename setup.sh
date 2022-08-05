@@ -23,12 +23,12 @@ _loop () {
 }
 
 
-udot_install () {
-    sudo apt update && sudo apt upgrade -y
-    sudo apt install openssh-client git wget curl unrar unzip tree xclip make cmake htop ranger gnome-tweak-tool zsh -y
-    sudo apt install trash-cli -y
-    sudo apt install zathura -y
-}
+# udot_install () {
+#     sudo apt update && sudo apt upgrade -y
+#     sudo apt install openssh-client git wget curl unrar unzip tree xclip make cmake htop ranger gnome-tweak-tool zsh -y
+#     sudo apt install trash-cli -y
+#     sudo apt install zathura -y
+# }
 
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
