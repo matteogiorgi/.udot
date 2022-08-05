@@ -216,6 +216,3 @@ source $HOME/.xinput.bash
 bind '"\C-f"':"\"ffind\C-m\""
 bind '"\C-g"':"\"fgit\C-m\""
 bind '"\C-j"':"\"fjump\C-m\""
-
-bind '"\C-e"':"\"shfm\C-m\""
-bind '"\C-v"':"\"vim .\C-m\""

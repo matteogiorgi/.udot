@@ -2,7 +2,7 @@
 
 [[ "$@" == "" ]] && exit 1
 "${PAGER:="/bin/less"}"
-PREVIEW="/bin/ls -1Ga --color=always"
+PREVIEW="/bin/ls -1FGash --color=always"
 
 if [[ -L "$@" && -d "$@" ]]; then
     ${PREVIEW} "$(readlink $@)" | "${PAGER}"
