@@ -112,6 +112,7 @@ echo "$1" | grep "\.sent$" && {
 FILE="$*"
 case $(file --mime-type "$FILE" -bL) in
     audio/*)
+        clear &&
         _mpv "$FILE"
         ;;
     video/*)

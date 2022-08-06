@@ -7,7 +7,6 @@ kill_apps() {
 }
 
 choice=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -b | cut -d ':' -f 1)
-
 case "$choice" in
     Lock)
         i3lock --color=285577
