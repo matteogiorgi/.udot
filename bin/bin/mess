@@ -2,13 +2,19 @@
 
 [[ "$@" == "" ]] && exit 1
 
-LIST="/bin/ls -ANgoh --group-directories-first --color=always"
 MESS="${PAGER:=/bin/less}"
+LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
+
+# install source-highlight and use src-hilite-lesspipe.sh to preview
+# with colors, otherwise /bin/cat will be used instead
+[[ -f "/usr/share/source-highlight/src-hilite-lesspipe.sh" ]] \
+    && PRINT="/usr/share/source-highlight/src-hilite-lesspipe.sh" \
+    || PRINT="/bin/cat"
 
 if [[ -L "$@" && -d "$@" ]]; then
     ${LIST} "$(readlink $@)" | "${MESS}"
 elif [[ -d "$@" ]]; then
     ${LIST} "$@" | "${MESS}"
 else
-    "${MESS}" "$@"
+    ${PRINT} "$@" | "${MESS}"
 fi

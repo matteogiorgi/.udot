@@ -143,12 +143,12 @@ mode "resize" {
     bindsym j resize grow height 30 px or 10 ppt
     bindsym k resize shrink height 30 px or 10 ppt
     bindsym l resize grow width 30 px or 10 ppt
-    
+
     bindsym Left resize shrink width 30 px or 10 ppt
     bindsym Down resize grow height 30 px or 10 ppt
     bindsym Up resize shrink height 30 px or 10 ppt
     bindsym Right resize grow width 30 px or 10 ppt
-    
+
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
@@ -220,7 +220,7 @@ mode "open" {
     bindsym h exec "terminator"; mode "default"
     bindsym j exec "pcmanfm"; mode "default"
     bindsym k exec "codium"; mode "default"
-    bindsym l exec "chromium"; mode "default"
+    bindsym l exec "xournalpp"; mode "default"
 
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"

@@ -9,6 +9,82 @@ if [ -f ~/.bash_functions ]; then
 fi
 
 
+function fzf_editor_call () {
+    RED='\033[1;36m'
+    YLW='\033[1;35m'
+    NC='\033[0m'
+
+    clear &&
+    FILE="$*"
+    case $(printf "vim\nkakoune\nsam\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
+        vim)
+            COMMAND="_vim"
+            ;;
+        kakoune)
+            COMMAND="kak"
+            ;;
+        sam)
+            COMMAND="sim"
+    esac
+
+    if [[ ! -x "$(command -v $COMMAND)" && ! "$(type -t $COMMAND)" == function ]]; then
+        printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "Editor " "$COMMAND" " not availabile, press enter to continue"
+        read ans
+        exit 1
+    fi
+
+    "$COMMAND" "$FILE"
+}
+
+
+function editor_call () {
+    RED='\033[1;36m'
+    YLW='\033[1;35m'
+    NC='\033[0m'
+
+    clear &&
+    printf "${RED}%s${NC}\n" "Edit ${FILE##*/} with:"
+    printf "%s${YLW}%s${NC}\n" "  (v) " "vim"
+    printf "%s${YLW}%s${NC}\n" "  (k) " "kakoune"
+    printf "%s${YLW}%s${NC}\n" "  (s) " "sam"
+    printf "${RED}%s${NC} " "Enter an index (q to quit):"
+
+    # to know if you are inside a tmux session just check TMUX variable:
+    # [[ -n "${TMUX}" ]] && tmux new-window kak "$FILE" || kak "$FILE"
+
+    FILE="$*"
+    while read response; do
+        case $response in
+            q)
+                exit 0
+                ;;
+            v)
+                COMMAND="_vim"
+                break
+                ;;
+            k)
+                COMMAND="kak"
+                break
+                ;;
+            s)
+                COMMAND="sim"
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Enter an index (q to quit):"
+        esac
+    done
+
+    if [[ ! -x "$(command -v $COMMAND)" && ! "$(type -t $COMMAND)" == function ]]; then
+        printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "Editor " "$COMMAND" " not availabile, press enter to continue"
+        read ans
+        exit 1
+    fi
+
+    "$COMMAND" "$FILE"
+}
+
+
 
 
 ### Greppers
@@ -45,16 +121,5 @@ case $(file --mime-type "$FILE" -bL) in
         _xhide "esxiv '$FILE'"
         ;;
     *)
-        case $(printf "vim\nkakoune\nsam\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            # to know if you are inside a tmux session just check TMUX variable:
-            # [[ -n "${TMUX}" ]] && tmux new-window kak "$FILE" || kak "$FILE"
-            vim)
-                _vim "$FILE"
-                ;;
-            kakoune)
-                kak "$FILE"
-                ;;
-            sam)
-                sim "$FILE"
-        esac
+        [[ -f "/bin/fzf" ]] && fzf_editor_call "$FILE" || editor_call "$FILE"
 esac
