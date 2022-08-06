@@ -9,4 +9,4 @@ else
 fi
 
 # restore wallpaper
-~/.fehbg
+[[ -f ~/.fehbg ]] && ~/.fehbg

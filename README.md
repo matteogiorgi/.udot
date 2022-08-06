@@ -67,7 +67,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - lxappearance         (gtk theme selector)
 - qt5ct                (qt theme selector)
 - chromium             (web-browser)
-- codium               (text editor)
+- code/codium          (text editor)
 - pcmanfm              (file manager)
 - terminator           (terminal emulator)
 - xournalpp            (note taking)

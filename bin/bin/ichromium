@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+choice=$(echo -e "Startpage\nNotewiki\nHOME\nIncognito" | dmenu -i -b | cut -d ':' -f 1)
+case "$choice" in
+    Startpage)
+        chromium --new-window https://www.geoteo.net/start
+        ;;
+    Notewiki)
+        chromium --new-window ~/notewiki/pandoc/index.html
+        ;;
+    HOME)
+        chromium --new-window ~/
+        ;;
+    Incognito)
+        chromium --new-window -incognito
+        ;;
+    *)
+        exit 1
+        ;;
+esac
