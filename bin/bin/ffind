@@ -14,7 +14,7 @@ function main () {
                 `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " `
                 `--height 100% --reverse --info=hidden --header-first)"
         [[ -z "$FILE" ]] && exit 1
-        "${OPENER:="${EDITOR:=vi}"}" "${FILE}"
+        "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
     done
 }
 

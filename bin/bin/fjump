@@ -2,7 +2,7 @@
 
 CLICOLOR_FORCE=1
 OPENER="swallow"
-LIST="/bin/ls -Ga --color=always"
+LIST="/bin/ls -a --ignore="." --group-directories-first --color=always"
 
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
@@ -15,7 +15,7 @@ function main () {
                 `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH > " `
                 `--height 100% --reverse --info=hidden --header-first)"
         [[ -z "$FILE" ]] && exit 0
-        [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=vi}"}" "${FILE}"
+        [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
     done
 }
 

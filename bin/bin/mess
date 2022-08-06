@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 [[ "$@" == "" ]] && exit 1
-"${PAGER:="/bin/less"}"
-PREVIEW="/bin/ls -1FGash --color=always"
+
+LIST="/bin/ls -ANgoh --group-directories-first --color=always"
+MESS="${PAGER:=/bin/less}"
 
 if [[ -L "$@" && -d "$@" ]]; then
-    ${PREVIEW} "$(readlink $@)" | "${PAGER}"
+    ${LIST} "$(readlink $@)" | "${MESS}"
 elif [[ -d "$@" ]]; then
-    ${PREVIEW} "$@" | "${PAGER}"
+    ${LIST} "$@" | "${MESS}"
 else
-    "${PAGER}" "$@"
+    "${MESS}" "$@"
 fi

@@ -172,7 +172,7 @@ fi
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
 export PAGER="/bin/less"
-export VISUAL="${EDITOR=vi}"
+export VISUAL="${EDITOR=/bin/vi}"
 
 
 
