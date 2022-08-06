@@ -17,6 +17,9 @@ function fzf_editor_call () {
     clear &&
     FILE="$*"
     case $(printf "vim\nkakoune\nsam\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
+        "")
+            exit 0
+            ;;
         vim)
             COMMAND="_vim"
             ;;

@@ -2,7 +2,7 @@
 
 [[ "$@" == "" ]] && exit 1
 
-MESS="${PAGER:=/bin/less}"
+MESS="/bin/less -R"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
 # install source-highlight and use src-hilite-lesspipe.sh to preview
@@ -12,9 +12,9 @@ LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
     || PRINT="/bin/cat"
 
 if [[ -L "$@" && -d "$@" ]]; then
-    ${LIST} "$(readlink $@)" | "${MESS}"
+    ${LIST} "$(readlink $@)" | ${MESS}
 elif [[ -d "$@" ]]; then
-    ${LIST} "$@" | "${MESS}"
+    ${LIST} "$@" | ${MESS}
 else
-    ${PRINT} "$@" | "${MESS}"
+    ${PRINT} "$@" | ${MESS}
 fi
