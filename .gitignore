@@ -11,6 +11,20 @@
 
 
 
+### SIM
+#######
+
+/bin/bin/sim/*
+!/bin/bin/sim/sim.h
+!/bin/bin/sim/sim.c
+!/bin/bin/sim/sim.1
+!/bin/bin/sim/posix.c
+!/bin/bin/sim/Makefile
+!/bin/bin/sim/config.def.h
+
+
+
+
 ### DMENU
 #########
 
@@ -61,20 +75,6 @@
 !/st/win.h
 !/st/x.c
 !/st/x.c.orig
-
-
-
-
-### SIM
-#######
-
-/bin/bin/sim/*
-!/bin/bin/sim/sim.h
-!/bin/bin/sim/sim.c
-!/bin/bin/sim/sim.1
-!/bin/bin/sim/posix.c
-!/bin/bin/sim/Makefile
-!/bin/bin/sim/config.def.h
 
 
 

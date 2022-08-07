@@ -8,8 +8,7 @@ OPENER="swallow"
 FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
 
 function main () {
-    while true
-    do
+    while true; do
         FILE="$(fzf --preview 'mess {}' --preview-window 'right,70%,border-left' `
                 `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " `
                 `--height 100% --reverse --info=hidden --header-first)"

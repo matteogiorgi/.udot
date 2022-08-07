@@ -7,8 +7,7 @@ LIST="/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 function main () {
-    while true
-    do
+    while true; do
         printf '%s\n' "$PWD" >~/.fjump.tmp
         [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
         FILE="$(${LIST} | fzf --ansi --preview 'mess {}' --preview-window 'right,70%,border-left' `

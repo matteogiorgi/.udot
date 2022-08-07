@@ -2,9 +2,12 @@
 
 
 function _randombg () {
-    WALL="$HOME/Pictures/backgrounds"
-    PICT=$(/bin/ls -1 $WALL | tail -$(($RANDOM %$(/bin/ls -1 | wc -l)+1)) | head -1)
-    feh --bg-fill $WALL/$PICT
+    BACKGROUNDS="$HOME/Pictures/backgrounds"
+    while [[ $OLD_PIC == $NEW_PIC ]]; do
+        OLD_PIC=$(cat $HOME/.fehbg | awk '{if (NR==2) print $4}'); OLD_PIC=${OLD_PIC#"'"}; OLD_PIC=${OLD_PIC%"'"}
+        NEW_PIC=$BACKGROUNDS/$(/bin/ls -1 $BACKGROUNDS | tail -$(($RANDOM %$(/bin/ls -1 | wc -l)+1)) | head -1)
+    done
+    feh --bg-fill $NEW_PIC
 }
 
 _randombg
