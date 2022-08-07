@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+
+function _randombg () {
+    WALL="$HOME/Pictures/backgrounds"
+    PICT=$(/bin/ls -1 $WALL | tail -$(($RANDOM %$(/bin/ls -1 | wc -l)+1)) | head -1)
+    feh --bg-fill $WALL/$PICT
+}
+
+_randombg
