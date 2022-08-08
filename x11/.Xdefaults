@@ -18,6 +18,8 @@ Xft.lcdfilter: lcdfilter
 XTerm*renderFont: true
 XTerm*faceName: xft:Ubuntu Mono
 XTerm*faceSize: 10
+XTerm*scaleHeight: 0.9
+XTerm*scaleWidth: 1.0
 XTerm*utf8: 2
 XTerm*locale: true
 XTerm*loginshell: true
@@ -49,6 +51,8 @@ XTerm*cursorColor: #FFFFFF
 UXTerm*renderFont: true
 UXTerm*faceName: xft:Ubuntu Mono
 UXTerm*faceSize: 10
+UXTerm*scaleHeight: 0.9
+UXTerm*scaleWidth: 1.0
 UXTerm*utf8: 2
 UXTerm*locale: true
 UXTerm*loginshell: true
