@@ -17,8 +17,11 @@ if [[ -L "$FILE" && -d "$FILE" ]]; then
 elif [[ -d "$FILE" ]]; then
     ${LIST} "$FILE" | ${MESS}
 else
+    # check the relative mime-type here:
+    # https://www.iana.org/assignments/media-types/media-types.xhtml
     case $(file --mime-type "$FILE" -bL) in
-        audio/* | video/* | image/* | application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
+        audio/* | video/* | image/* | application/*executable | application/pdf | \
+        application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
             ${MESS} "$FILE"
             ;;
         *)

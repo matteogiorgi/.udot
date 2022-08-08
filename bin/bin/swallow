@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 
+FILE="$*"
 RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
@@ -15,7 +16,6 @@ fi
 
 function fzf_editor_call () {
     clear &&
-    FILE="$*"
     case $(printf "vim\nkakoune\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
         "")
             exit 0
@@ -36,7 +36,6 @@ function fzf_editor_call () {
 
 function editor_call () {
     clear &&
-    FILE="$*"
     printf "${RED}%s${NC}\n" "Edit ${FILE##*/} with:"
     printf "%s${YLW}%s${NC}\n" "  (v) " "vim"
     printf "%s${YLW}%s${NC}\n" "  (k) " "kak"
@@ -88,7 +87,8 @@ echo "$1" | grep "\.sent$" && {
 ### MIME-type opener (inode/directory not necessary)
 ####################################################
 
-FILE="$*"
+# check the relative mime-type here:
+# https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "$FILE" -bL) in
     audio/*)
         clear &&
