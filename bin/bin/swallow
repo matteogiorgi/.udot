@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
 ### Functions definition
 ########################
 
@@ -8,12 +13,7 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-
 function fzf_editor_call () {
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
     clear &&
     FILE="$*"
     case $(printf "vim\nkakoune\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
@@ -26,32 +26,21 @@ function fzf_editor_call () {
         kakoune)
             COMMAND="kak"
     esac
-
     if [[ ! -x "$(command -v $COMMAND)" && ! "$(type -t $COMMAND)" == function ]]; then
         printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "Editor " "$COMMAND" " not availabile, press enter to continue"
         read ans
         exit 1
     fi
-
     "$COMMAND" "$FILE"
 }
 
-
 function editor_call () {
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
     clear &&
+    FILE="$*"
     printf "${RED}%s${NC}\n" "Edit ${FILE##*/} with:"
     printf "%s${YLW}%s${NC}\n" "  (v) " "vim"
     printf "%s${YLW}%s${NC}\n" "  (k) " "kak"
     printf "${RED}%s${NC} " "Enter an index (q to quit):"
-
-    # to know if you are inside a tmux session just check TMUX variable:
-    # [[ -n "${TMUX}" ]] && tmux new-window kak "$FILE" || kak "$FILE"
-
-    FILE="$*"
     while read response; do
         case $response in
             q)
@@ -69,13 +58,11 @@ function editor_call () {
                 printf "${RED}%s${NC} " "Enter an index (q to quit):"
         esac
     done
-
     if [[ ! -x "$(command -v $COMMAND)" && ! "$(type -t $COMMAND)" == function ]]; then
         printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "Editor " "$COMMAND" " not availabile, press enter to continue"
         read ans
         exit 1
     fi
-
     "$COMMAND" "$FILE"
 }
 

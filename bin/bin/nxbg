@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+
+BACKGROUNDS="$HOME/Pictures/backgrounds"
+
+# this function chose a random background inside the $BACKGROUNDS
+# directory carefully excluding the one already in use
+function _randombg () {
+    while [[ $OLD_PIC == $NEW_PIC ]]; do
+        OLD_PIC=$(cat $HOME/.fehbg | awk '{if (NR==2) print $4}'); OLD_PIC=${OLD_PIC#"'"}; OLD_PIC=${OLD_PIC%"'"}
+        NEW_PIC=$BACKGROUNDS/$(/bin/ls -1 $BACKGROUNDS | tail -$(($RANDOM %$(/bin/ls -1 | wc -l)+1)) | head -1)
+    done
+    feh --bg-fill $NEW_PIC
+}
+
+# this function cycle through the backgrounds inside the $BACKGROUNDS directory
+# starting from the beginning each time a background is chosen differently
+function _cyclebg () {
+    INDEX=$(cat $HOME/.fehbg | awk 'END{print $2}')
+    REGEX='^[0-9]+$'
+    [[ ! $INDEX =~ $REGEX || $INDEX == 0 ]] && INDEX=$(/bin/ls -1 $BACKGROUNDS | wc -l) || ((INDEX--))
+    feh --bg-fill $BACKGROUNDS/$(/bin/ls -1 $BACKGROUNDS | tail -$INDEX | head -1)
+    echo "# $INDEX" >> $HOME/.fehbg
+}
+
+_cyclebg
