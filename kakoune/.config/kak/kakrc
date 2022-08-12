@@ -1,3 +1,12 @@
+##
+##    Kakoune editor - no plugin configuration
+##    For a sample initialization file see https://github.com/mawww/config/blob/master/kakrc
+##    For full documentation and other stuff visit https://www.nano-editor.org
+##
+
+
+
+
 # User preference
 # ───────────────
 
@@ -47,7 +56,7 @@ hook global BufNewFile .* %{ editorconfig-load }
 # ───────────────────────
 
 hook global WinSetOption filetype=(c|cpp) %{
-    clang-enable-autocomplete 
+    clang-enable-autocomplete
     clang-enable-diagnostics
     alias window lint clang-parse
     alias window lint-next-error clang-diagnostics-next

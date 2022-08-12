@@ -16,7 +16,7 @@ fi
 
 function fzf_editor_call () {
     clear &&
-    case $(printf "vim\nkakoune\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
+    case $(printf "vim\nkakoune\nnano\n" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
         "")
             exit 0
             ;;
@@ -25,6 +25,9 @@ function fzf_editor_call () {
             ;;
         kakoune)
             COMMAND="kak"
+            ;;
+        nano)
+            COMMAND="nano"
     esac
     if [[ ! -x "$(command -v $COMMAND)" && ! "$(type -t $COMMAND)" == function ]]; then
         printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "Editor " "$COMMAND" " not availabile, press enter to continue"
@@ -38,7 +41,8 @@ function editor_call () {
     clear &&
     printf "${RED}%s${NC}\n" "Edit ${FILE##*/} with:"
     printf "%s${YLW}%s${NC}\n" "  (v) " "vim"
-    printf "%s${YLW}%s${NC}\n" "  (k) " "kak"
+    printf "%s${YLW}%s${NC}\n" "  (k) " "kakoune"
+    printf "%s${YLW}%s${NC}\n" "  (n) " "nano"
     printf "${RED}%s${NC} " "Enter an index (q to quit):"
     while read response; do
         case $response in
@@ -51,6 +55,10 @@ function editor_call () {
                 ;;
             k)
                 COMMAND="kak"
+                break
+                ;;
+            n)
+                COMMAND="nano"
                 break
                 ;;
             *)

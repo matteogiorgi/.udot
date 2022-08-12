@@ -1,12 +1,15 @@
-
-"                                  PLUGINS
-"                 [ https://github.com/junegunn/vim-plug ]
-"
-"     vim-surround ············ https://github.com/tpope/vim-surround
-"     vim-repeat ·············· https://github.com/tpope/vim-repeat
-"     vim-commentary ·········· https://github.com/tpope/vim-commentary
-"     autopairs ··············· https://github.com/jiangmiao/auto-pairs
-"     vim-ctrlp ··············· https://github.com/ctrlpvim/ctrlp.vim
+""
+""                                 E-VIM PLUGINS
+""                    [ https://github.com/junegunn/vim-plug ]
+""
+""    vim-surround ················· https://github.com/tpope/vim-surround
+""    vim-repeat ··················· https://github.com/tpope/vim-repeat
+""    vim-commentary ··············· https://github.com/tpope/vim-commentary
+""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
+""    vim-ctrlp ···················· https://github.com/ctrlpvim/ctrlp.vim
+""
+""    For full documentation and other stuff visit https://www.vim.org
+""
 
 
 

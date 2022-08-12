@@ -40,6 +40,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - tmux            (terminal multiplexer)
 - vim             (vi improved - gtk3)
 - kakoune         (a better vi)
+- nano            (another editor)
 
 
 ### media related
@@ -65,6 +66,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 ### more (gui) gear
 
 - lxappearance/qt5ct   (gtk/qt theme selector)
+- pavucontrol          (pulseaudio volume control)
 - code/codium          (text-editor/IDE)
 - chromium             (web-browser)
 - xournalpp            (note taking)

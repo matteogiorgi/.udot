@@ -1,0 +1,153 @@
+##
+##                    :::                           The
+##      iLE88Dj.  :jD88888Dj:
+##    .LGitE888D.f8GjjjL8888E;        .d8888b.  888b    888 888     888
+##    iE   :8888Et.     .G8888.      d88P  Y88b 8888b   888 888     888
+##    ;i    E888,        ,8888,      888    888 88888b  888 888     888
+##          D888,        :8888:      888        888Y88b 888 888     888
+##          D888,        :8888:      888  88888 888 Y88b888 888     888
+##          D888,        :8888:      888    888 888  Y88888 888     888
+##          D888,        :8888:      Y88b  d88P 888   Y8888 Y88b. .d88P
+##          888W,        :8888:       "Y8888P88 888    Y888  "Y88888P"
+##          W88W,        :8888:
+##          W88W:        :8888:      88888b.   8888b.  88888b.   .d88b.
+##          DGGD:        :8888:      888 "88b     "88b 888 "88b d88""88b
+##                       :8888:      888  888 .d888888 888  888 888  888
+##                       :W888:      888  888 888  888 888  888 Y88..88P
+##                       :8888:      888  888 "Y888888 888  888  "Y88P"
+##                        E888i
+##                        tW88D               Text Editor Config
+##
+##
+##
+##
+##    For a sample initialization file and basic documentation see /etc/nanorc
+##    For full documentation and other stuff visit https://www.nano-editor.org
+
+
+
+
+## Generic settings
+###################
+
+set afterends
+set atblanks
+set autoindent
+set backup
+set backupdir "~"
+set boldtext
+set brackets ""')>]}"
+set constantshow
+set historylog
+set linenumbers
+set locking
+set matchbrackets "(<[{)>]}"
+set minibar
+set mouse
+set multibuffer
+set nohelp
+set nonewlines
+set positionlog
+set quickblank
+set softwrap
+set stateflags
+set tabsize 4
+set tabstospaces
+set trimblanks
+set wordbounds
+set zap
+
+set titlecolor bold,white,blue
+set promptcolor lightwhite,grey
+set statuscolor bold,white,green
+set errorcolor bold,white,red
+set spotlightcolor black,lightyellow
+set selectedcolor lightwhite,magenta
+set stripecolor ,yellow
+set scrollercolor cyan
+set numbercolor cyan
+set keycolor cyan
+set functioncolor green
+
+# set bookstyle
+# set breaklonglines
+# set casesensitive
+# set cutfromcursor
+# set emptyline
+# set fill -8
+# set guidestripe 81
+# set indicator
+# set jumpyscrolling
+# set magic
+# set noconvert
+# set operatingdir ""
+# set preserve
+# set punct "!.?"
+# set quotestr "^([ 	]*([!#%:;>|}]|//))+"
+# set rawsequences
+# set rebinddelete
+# set regexp
+# set saveonexit
+# set showcursor
+# set smarthome
+# set speller "aspell -x -c"
+# set unix
+# set whitespace "»·"
+# set whitespace ">."
+# set wordchars "<_>."
+# set zero
+
+
+
+
+## Syntax coloring
+##################
+
+include "/usr/share/nano/*.nanorc"
+
+extendsyntax python tabgives "    "
+extendsyntax makefile tabgives "	"
+
+
+
+
+## Key bindings
+###############
+
+unbind ^K main
+unbind ^U all
+unbind ^N main
+unbind ^Y all
+unbind M-J main
+unbind M-T main
+
+bind ^Z suspend main
+bind M-K comment main
+bind ^X cut main
+bind ^C copy main
+bind ^V paste all
+bind ^Q exit all
+bind ^S savefile main
+bind ^W writeout main
+bind ^O insert main
+bind ^H help all
+bind ^H exit help
+bind ^F whereis all
+bind ^G findnext all
+bind ^B wherewas all
+bind ^D findprevious all
+bind ^R replace main
+bind ^Z undo main
+bind ^Y redo main
+bind ^A mark main
+bind ^P location main
+bind ^T gotoline main
+bind ^T gotodir browser
+bind ^T cutrestoffile execute
+bind ^L linter execute
+bind ^E execute main
+
+# bind ^H chopwordleft main
+# bind ^L refresh main
+# bind Sh-M-U "^[Oc^[[1;6D^T|sed 's/.*/\U&/'^M" main
+# bind Sh-M-L "^[Oc^[[1;6D^T|sed 's/.*/\L&/'^M" main
