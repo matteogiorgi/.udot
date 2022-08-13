@@ -20,11 +20,10 @@ else
     # check the relative mime-type here:
     # https://www.iana.org/assignments/media-types/media-types.xhtml
     case $(file --mime-type "$FILE" -bL) in
-        audio/* | video/* | image/* | application/*executable | application/pdf | \
-        application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-            ${MESS} "$FILE"
+        text/*)
+            ${PRINT} "$FILE" | ${MESS}
             ;;
         *)
-            ${PRINT} "$FILE" | ${MESS}
+            ${MESS} "$FILE"
     esac
 fi
