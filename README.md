@@ -85,7 +85,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## and to add some language support
 
-- C/C++: `apt install build-essential`
+- C/C++: `apt install build-essential gdb cgdb`
 - Go: `apt install golang-go golang-golang-x-tools`
 - Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
