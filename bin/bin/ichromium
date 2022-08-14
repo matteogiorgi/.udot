@@ -6,10 +6,10 @@ case "$CHOICE" in
         COMMAND="chromium --new-window https://www.geoteo.net/start"
         ;;
     Notewiki)
-        COMMAND="chromium --new-window ~/notewiki/pandoc/index.html"
+        COMMAND="chromium --new-window $HOME/notewiki/pandoc/index.html"
         ;;
     HOME)
-        COMMAND="chromium --new-window ~/"
+        COMMAND="chromium --new-window $HOME"
         ;;
     Incognito)
         COMMAND="chromium --new-window -incognito"
