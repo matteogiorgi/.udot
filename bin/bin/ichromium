@@ -1,22 +1,26 @@
 #!/usr/bin/env bash
 
+
+if [[ ! -x "$(command -v chromium)" ]]; then
+    dmenu_run -i -b
+    exit 0
+fi
+
 CHOICE=$(echo -e "Startpage\nNotewiki\nHOME\nIncognito" | dmenu -i -b | cut -d ':' -f 1)
 case "$CHOICE" in
     Startpage)
-        COMMAND="chromium --new-window https://www.geoteo.net/start"
+        chromium --new-window https://www.geoteo.net/start
         ;;
     Notewiki)
-        COMMAND="chromium --new-window $HOME/notewiki/pandoc/index.html"
+        chromium --new-window $HOME/notewiki/pandoc/index.html
         ;;
     HOME)
-        COMMAND="chromium --new-window $HOME"
+        chromium --new-window $HOME
         ;;
     Incognito)
-        COMMAND="chromium --new-window -incognito"
+        chromium --new-window -incognito
         ;;
     *)
-        COMMAND="__no_command__"
+        exit 1
         ;;
 esac
-
-[[ -x "$(command -v ${COMMAND%% *})" ]] && $COMMAND || exit 1

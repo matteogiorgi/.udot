@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+
+
+
 # This script sets the default settings
 # and default keybindings for vscode and vscodium
 
@@ -35,7 +38,7 @@ done
 
 if [[ ! -x "$(command -v $NAME)" ]]; then
     printf "${YLW}%s${RED}%s${NC}\n" "$NAME" " is not installed"
-    exit 0
+    exit 1
 fi
 
 
@@ -87,8 +90,34 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 }
 EOF
 
+
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 {
+}
+EOF
+
+
+
+
+# this part add VSCode Marketplace to VSCodium config files
+# using the $HOME/.config/VSCodium/product.json as described in here:
+# https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions-marketplace
+
+if [[ $NAME == "code" ]]; then
+    printf "${YLW}%s${NC}\n" "Done."
+    exit 0
+fi
+
+
+cat 2>/dev/null > $HOME/.config/$FOLDER/product.json <<-EOF
+{
+    "extensionsGallery": {
+        "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+        "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+        "itemUrl": "https://marketplace.visualstudio.com/items",
+        "controlUrl": "",
+        "recommendationsUrl": ""
+    }
 }
 EOF
 

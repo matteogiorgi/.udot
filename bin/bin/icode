@@ -1,16 +1,30 @@
 #!/usr/bin/env bash
 
-CHOICE=$(echo -e "Code\nCodium" | dmenu -i -b | cut -d ':' -f 1)
+[[ -x "$(command -v geany)" ]] && NAMES="Geany\n"$NAMES
+[[ -x "$(command -v emacs)" ]] && NAMES="Emacs\n"$NAMES
+[[ -x "$(command -v codium)" ]] && NAMES="VSCodium\n"$NAMES
+[[ -x "$(command -v code)" ]] && NAMES="VSCode\n"$NAMES
+
+if [[ ! -n $NAMES ]]; then
+    dmenu_run -i -b
+    exit 0
+fi
+
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b | cut -d ':' -f 1)
 case "$CHOICE" in
-    Code)
-        COMMAND="code"
+    VSCode)
+        code
         ;;
-    Codium)
-        COMMAND="codium"
+    VSCodium)
+        codium
+        ;;
+    Emacs)
+        emacs
+        ;;
+    Geany)
+        geany
         ;;
     *)
-        COMMAND="__no_command__"
+        exit 1
         ;;
 esac
-
-[[ -x "$(command -v $COMMAND)" ]] && $COMMAND || exit 1
