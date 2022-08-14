@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+CHOICE=$(echo -e "Code\nCodium\nGeany" | dmenu -i -b | cut -d ':' -f 1)
+case "$CHOICE" in
+    Code)
+        COMMAND="code"
+        ;;
+    Codium)
+        COMMAND="codium"
+        ;;
+    Geany)
+        COMMAND="geany"
+        ;;
+    *)
+        COMMAND="__no_command__"
+        ;;
+esac
+
+[[ -x "$(command -v $COMMAND)" ]] && $COMMAND || exit 1

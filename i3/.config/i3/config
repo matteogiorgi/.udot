@@ -210,7 +210,7 @@ bindsym $mod+m move workspace to output next
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
 bindsym $mod+u exec "logdown"
 bindsym $mod+i exec "ichromium"
-bindsym $mod+o exec "code"
+bindsym $mod+o exec "icode"
 bindsym $mod+n exec "nxbg"
 bindsym $mod+p exec "nxbg --prev"
 

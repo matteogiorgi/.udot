@@ -1,20 +1,22 @@
 #!/usr/bin/env bash
 
-choice=$(echo -e "Startpage\nNotewiki\nHOME\nIncognito" | dmenu -i -b | cut -d ':' -f 1)
-case "$choice" in
+CHOICE=$(echo -e "Startpage\nNotewiki\nHOME\nIncognito" | dmenu -i -b | cut -d ':' -f 1)
+case "$CHOICE" in
     Startpage)
-        chromium --new-window https://www.geoteo.net/start
+        COMMAND="chromium --new-window https://www.geoteo.net/start"
         ;;
     Notewiki)
-        chromium --new-window ~/notewiki/pandoc/index.html
+        COMMAND="chromium --new-window ~/notewiki/pandoc/index.html"
         ;;
     HOME)
-        chromium --new-window ~/
+        COMMAND="chromium --new-window ~/"
         ;;
     Incognito)
-        chromium --new-window -incognito
+        COMMAND="chromium --new-window -incognito"
         ;;
     *)
-        exit 1
+        COMMAND="__no_command__"
         ;;
 esac
+
+[[ -x "$(command -v ${COMMAND%% *})" ]] && $COMMAND || exit 1
