@@ -27,27 +27,27 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### window manager related
 
-- i3-wm           (tiling window-manager)
-- i3lock          (i3-wm lockscreen)
-- dmenu           (suckless menu)
-- arandr          (gui xrandr interface)
+- i3-wm  (tiling window-manager)
+- i3lock (i3-wm lockscreen)
+- dmenu  (suckless menu)
+- arandr (gui xrandr interface)
 
 
 ### shell and editor stuff
-- st              (suckless terminal)
-- xterm           (x11 terminal)
-- bash            (bourne again shell)
-- tmux            (terminal multiplexer)
-- vim             (vi improved - gtk3)
-- kakoune         (a better vi)
-- nano            (another editor)
+- st      (suckless terminal)
+- xterm   (x11 terminal)
+- bash    (bourne again shell)
+- tmux    (terminal multiplexer)
+- vim     (vi improved - gtk3)
+- kakoune (a better vi)
+- nano    (another editor)
 
 
 ### media related
 
-- mpv             (media player)
-- zathura         (document viewer)
-- sxiv            (image viewer)
+- mpv     (media player)
+- zathura (document viewer)
+- sxiv    (image viewer)
 
 
 ### usefull applets
@@ -66,7 +66,6 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 ### more (gui) gear
 
 - lxappearance/qt5ct (gtk/qt theme selector)
-- codium/emacs/geany (text-editor/IDE)
 - chromium           (web-browser)
 - xournalpp          (note taking)
 - flameshot          (screenshot)
@@ -74,11 +73,18 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 - gparted            (partition editor)
 
 
+### developement environments
+
+- code/codium + vspacecode
+- emacs + spacemacs
+- geany + geany-plugins
+
+
 
 
 ## Do not forget to install the followings packages
 
-`xtermcontrol`, `curl`, `wget`, `stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`, `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`, `xclip`, `ripgrep`, `wamerican`, `witalian`, `source-highlight`, `xdo`, `feh`, `pandoc`, `texlive`
+`xtermcontrol`, `curl`, `wget`, `stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`, `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`, `xclip`, `ripgrep`, `wamerican`, `witalian`, `source-highlight`, `xdo`, `feh`, `pandoc`, `texlive`, `fonts-ubuntu`, `fonts-jetbrains-mono`
 
 
 

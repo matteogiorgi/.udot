@@ -76,4 +76,4 @@
 
 /xtra/.config/geany/colorschemes/*
 !/xtra/.config/geany/colorschemes/dark.conf
-!/xtra/.config/geany/colorschemes/gedit.conf
+!/xtra/.config/geany/colorschemes/github.conf
