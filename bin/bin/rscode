@@ -1,22 +1,59 @@
 #!/usr/bin/env bash
 
 
-CODE="code"
-FOLDER="Code"
+### Choose editor
+#################
 
+if [[ -f "/bin/fzf" ]]; then
+    [[ -x "$(command -v codium)" ]] && NAMES="VSCodium\n"$NAMES
+    [[ -x "$(command -v code)" ]] && NAMES="VSCode\n"$NAMES
+elif [[ -x "$(command -v code)" ]]; then
+    CODE="code"
+    FOLDER="Code"
+elif [[ -x "$(command -v codium)" ]]; then
+    CODE="codium"
+    FOLDER="VSCodium"
+fi
 
-if [[ ! -x "$(command -v $CODE)" ]]; then
-    printf "$CODE not installed\n"
+if [[ -n $NAMES ]]; then
+    case $(printf "$NAMES" | fzf --prompt="Choose editor to reset: " --height 100% --reverse --info=hidden --header-first) in
+        VSCode)
+            CODE="code"
+            FOLDER="Code"
+            ;;
+        VSCodium)
+            CODE="codium"
+            FOLDER="VSCodium"
+            ;;
+        *)
+            exit 1
+    esac
+elif [[ ! -n $CODE ]]; then
+    printf "VSCode/VSCodium not installed\n"
     exit 1
 fi
 
-read -p "Resetting VSCode, enter to continue ... "
+
+### Add VSCode Marketplace to VSCodium
+######################################
+
+cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
+{
+    "extensionsGallery": {
+        "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+        "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+        "itemUrl": "https://marketplace.visualstudio.com/items",
+        "controlUrl": "",
+        "recommendationsUrl": ""
+    }
+}
+EOF
 
 
 ### Remove extensions, add VSpaceCode
 #####################################
 
-LIST=$(code --list-extensions)
+LIST=$($CODE --list-extensions)
 for EXTENSION in $LIST; do
     $CODE --uninstall-extension $EXTENSION
 done
@@ -217,5 +254,3 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     }
 ]
 EOF
-
-printf "Done\n"
