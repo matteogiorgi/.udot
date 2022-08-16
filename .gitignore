@@ -68,5 +68,5 @@
 ### XTRA
 ########
 
-/xtra/Pictures/*
-!/xtra/Pictures/backgrounds
+/backgrounds/Pictures/*
+!/backgrounds/Pictures/backgrounds

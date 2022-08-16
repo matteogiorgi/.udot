@@ -66,12 +66,12 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 ### more (gui) gear
 
 - lxappearance/qt5ct (theme selectors)
+- code/codium        (text-editor/IDE)
 - chromium           (web-browser)
 - xournalpp          (note taking)
 - flameshot          (screenshot)
 - pavucontrol        (pulseaudio volume control)
 - gparted            (partition editor)
-- code/emacs         (IDEs)
 
 
 

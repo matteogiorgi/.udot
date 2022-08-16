@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ -x "$(command -v emacs)" ]]; then
-    NAMES="Emacs\n"$NAMES
+if [[ -x "$(command -v chromium)" ]]; then
+    NAMES="CodeDev\n"$NAMES
 fi
 
 if [[ -x "$(command -v code)" ]]; then
@@ -23,8 +23,8 @@ case "$CHOICE" in
     VSCodium)
         codium
         ;;
-    Emacs)
-        emacs
+    CodeDev)
+        chromium --new-window https://vscode.dev
         ;;
     *)
         exit 1
