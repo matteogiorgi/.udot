@@ -67,7 +67,7 @@ $CODE --install-extension vspacecode.vspacecode
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
     "telemetry.telemetryLevel": "off",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
@@ -87,6 +87,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.scrollbar.verticalScrollbarSize": 0,
     "terminal.integrated.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace",
     "terminal.integrated.fontSize": 13,
+    "workbench.editor.showTabs": false,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Default Dark+",
     "workbench.activityBar.visible": false,
