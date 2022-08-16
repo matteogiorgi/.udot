@@ -1,60 +1,31 @@
 #!/usr/bin/env bash
 
 
+CODE="code"
+FOLDER="Code"
 
 
-# This script sets the default settings
-# and default keybindings for vscode and vscodium
-
-RED='\033[1;36m'
-YLW='\033[1;35m'
-NC='\033[0m'
-
-
-printf "${RED}%s${NC}\n" "Choose an editor"
-printf "%s${YLW}%s${NC}\n" "  (1) " "code"
-printf "%s${YLW}%s${NC}\n" "  (2) " "codium"
-printf "${RED}%s${NC} " "Enter an index (1-2):"
-
-
-while read response; do
-    case $response in
-        1)
-            FOLDER="Code"
-            NAME="code"
-            break
-            ;;
-        2)
-            FOLDER="VSCodium"
-            NAME="codium"
-            break
-            ;;
-        *)
-            printf "${RED}%s${NC} " "Enter an index (1-2):"
-            ;;
-    esac
-done
-
-
-if [[ ! -x "$(command -v $NAME)" ]]; then
-    printf "${YLW}%s${RED}%s${NC}\n" "$NAME" " is not installed"
+if [[ ! -x "$(command -v $CODE)" ]]; then
+    printf "$CODE not installed\n"
     exit 1
 fi
 
+read -p "Resetting VSCode, enter to continue ... "
 
-printf "${RED}%s${YLW}%s${RED}%s${NC} " "Reset " "$NAME" " settings? (Y/n)"
-while read response; do
-    case $response in
-        "y" | "Y" | "yes" | "Yes")
-            break
-            ;;
-        *)
-            printf "${YLW}%s${NC}\n" "Ok, you still got your confs."
-            exit 0
-            ;;
-    esac
+
+### Remove extensions, add VSpaceCode
+#####################################
+
+LIST=$(code --list-extensions)
+for EXTENSION in $LIST; do
+    $CODE --uninstall-extension $EXTENSION
 done
 
+$CODE --install-extension vspacecode.vspacecode
+
+
+### Reset VSCode settings
+#########################
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
@@ -71,7 +42,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.rulers": [],
     "editor.folding": false,
     "editor.cursorBlinking": "solid",
-    "editor.renderLineHighlight": "line",
+    "editor.renderLineHighlight": "none",
     "editor.lineHeight": 1.2,
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.horizontalScrollbarSize": 0,
@@ -80,46 +51,171 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "terminal.integrated.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace",
     "terminal.integrated.fontSize": 13,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Quiet Light",
+    "workbench.colorTheme": "Default Dark+",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "right",
     "workbench.editor.enablePreview": false,
     "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<space>"],
+            "commands": ["vspacecode.space"]
+        },
+        {
+            "before": [","],
+            "commands": [
+                "vspacecode.space",
+                {
+                    "command": "whichkey.triggerKey",
+                    "args": "m"
+                }
+            ]
+        }
+    ]
 }
 EOF
-
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
-{
-}
-EOF
-
-
-
-
-# this part add VSCode Marketplace to VSCodium config files
-# using the $HOME/.config/VSCodium/product.json as described in here:
-# https://github.com/VSCodium/vscodium/blob/master/DOCS.md#extensions-marketplace
-
-if [[ $NAME == "code" ]]; then
-    printf "${YLW}%s${NC}\n" "Done."
-    exit 0
-fi
-
-
-cat 2>/dev/null > $HOME/.config/$FOLDER/product.json <<-EOF
-{
-    "extensionsGallery": {
-        "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-        "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-        "itemUrl": "https://marketplace.visualstudio.com/items",
-        "controlUrl": "",
-        "recommendationsUrl": ""
+[
+    {
+        "key": "space",
+        "command": "vspacecode.space",
+        "when": "activeEditorGroupEmpty && focusedView == '' && !whichkeyActive && !inputFocus"
+    },
+    {
+        "key": "space",
+        "command": "vspacecode.space",
+        "when": "sideBarFocus && !inputFocus && !whichkeyActive"
+    },
+    {
+        "key": "tab",
+        "command": "extension.vim_tab",
+        "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert' && editorLangId != 'magit'"
+    },
+    {
+        "key": "tab",
+        "command": "-extension.vim_tab",
+        "when": "editorFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+        "key": "x",
+        "command": "magit.discard-at-point",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+    },
+    {
+        "key": "k",
+        "command": "-magit.discard-at-point"
+    },
+    {
+        "key": "-",
+        "command": "magit.reverse-at-point",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+    },
+    {
+        "key": "v",
+        "command": "-magit.reverse-at-point"
+    },
+    {
+        "key": "shift+-",
+        "command": "magit.reverting",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+    },
+    {
+        "key": "shift+v",
+        "command": "-magit.reverting"
+    },
+    {
+        "key": "shift+o",
+        "command": "magit.resetting",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode =~ /^(?!SearchInProgressMode|CommandlineInProgress).*$/"
+    },
+    {
+        "key": "shift+x",
+        "command": "-magit.resetting"
+    },
+    {
+        "key": "x",
+        "command": "-magit.reset-mixed"
+    },
+    {
+        "key": "ctrl+u x",
+        "command": "-magit.reset-hard"
+    },
+    {
+        "key": "y",
+        "command": "-magit.show-refs"
+    },
+    {
+        "key": "y",
+        "command": "vspacecode.showMagitRefMenu",
+        "when": "editorTextFocus && editorLangId == 'magit' && vim.mode == 'Normal'"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "showPrevParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "file-browser.stepOut",
+        "when": "inFileBrowser"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "file-browser.stepIn",
+        "when": "inFileBrowser"
     }
-}
+]
 EOF
 
-
-printf "${YLW}%s${NC}\n" "Done."
+printf "Done\n"

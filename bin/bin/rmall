@@ -9,10 +9,10 @@ NC='\033[0m'
 for arg in "$@"; do
 	list=$(find *.$arg)
 	if [[ $list == ""  ]]; then
-		printf "${YLW}%s${RED}%s${YLW}%s${NC}\n" "No file with" " .$arg " "extention found in $PWD"
+		printf "${YLW}%s ${RED}%s ${YLW}%s${NC}\n" "No file with" ".$arg" "extention found in $PWD"
 		continue
 	fi
-	printf "${RED}%s${YLW}%s${NC}\n" ".$arg " "files:"
+	printf "${RED}%s ${YLW}%s${NC}\n" ".$arg" "files:"
 	for file in $list; do
 		echo $file
 	done

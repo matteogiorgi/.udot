@@ -65,19 +65,13 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ### more (gui) gear
 
-- lxappearance/qt5ct (gtk/qt theme selector)
+- lxappearance/qt5ct (theme selectors)
 - chromium           (web-browser)
 - xournalpp          (note taking)
 - flameshot          (screenshot)
 - pavucontrol        (pulseaudio volume control)
 - gparted            (partition editor)
-
-
-### developement environments
-
-- code/codium + vspacecode
-- emacs + spacemacs
-- geany + geany-plugins
+- code/emacs         (IDEs)
 
 
 

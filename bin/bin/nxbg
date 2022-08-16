@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 [[ $* == *--prev* ]] && PREV=1
 BACKGROUNDS="$HOME/Pictures/backgrounds"
 

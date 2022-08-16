@@ -70,10 +70,3 @@
 
 /xtra/Pictures/*
 !/xtra/Pictures/backgrounds
-
-/xtra/.config/geany/*
-!/xtra/.config/geany/colorschemes
-
-/xtra/.config/geany/colorschemes/*
-!/xtra/.config/geany/colorschemes/dark.conf
-!/xtra/.config/geany/colorschemes/github.conf

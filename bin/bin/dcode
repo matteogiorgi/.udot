@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
-[[ -x "$(command -v geany)" ]] && NAMES="Geany\n"$NAMES
-[[ -x "$(command -v emacs)" ]] && NAMES="Emacs\n"$NAMES
-[[ -x "$(command -v codium)" ]] && NAMES="VSCodium\n"$NAMES
-[[ -x "$(command -v code)" ]] && NAMES="VSCode\n"$NAMES
+if [[ -x "$(command -v emacs)" ]]; then
+    NAMES="Emacs\n"$NAMES
+fi
+
+if [[ -x "$(command -v code)" ]]; then
+    NAMES="VSCode\n"$NAMES
+elif [[ -x "$(command -v codium)" ]]; then
+    NAMES="VSCodium\n"$NAMES
+fi
 
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b
@@ -20,9 +25,6 @@ case "$CHOICE" in
         ;;
     Emacs)
         emacs
-        ;;
-    Geany)
-        geany
         ;;
     *)
         exit 1

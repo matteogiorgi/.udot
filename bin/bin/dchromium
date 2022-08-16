@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 if [[ ! -x "$(command -v chromium)" ]]; then
     dmenu_run -i -b
     exit 0

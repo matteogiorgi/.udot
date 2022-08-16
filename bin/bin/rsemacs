@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+
+if [[ ! -x "$(command -v emacs)" ]]; then
+    printf "emacs not installed\n"
+    exit 1
+fi
+
+read -p "Resetting Emacs, enter to continue ... "
+
+
+### Remove current config
+#########################
+
+[[ -d $HOME/.emacs.d ]] && /bin/rm -rf $HOME/.emacs.d
+[[ -f $HOME/.spacemacs ]] && /bin/rm -f $HOME/.spacemacs
+[[ -f $HOME/.spacemacs.env ]] && /bin/rm -f $HOME/.spacemacs.env
+
+
+### Install Spacemacs
+#####################
+
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+curl -fLo ~/.spacemacs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+printf "Done\n"

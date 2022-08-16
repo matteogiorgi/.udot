@@ -26,7 +26,6 @@ alias xcut="xclip-cutfile"
 
 alias xhide="_xhide"
 alias xshow="_xshow"
-alias vim="_vim"
 alias last="_last"
 alias fff="_fff"
 alias shfm="_shfm"
@@ -56,7 +55,7 @@ alias xmono="autorandr --load mono"
 alias xdual="autorandr --load dual"
 
 
-alias vnp="_vim --noplugin -n -i NONE"
+alias vin="vim --noplugin -n -i NONE"
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias kal="ikhal"
