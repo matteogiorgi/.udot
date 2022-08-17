@@ -1,10 +1,16 @@
 " hemisu.vim - Vim color scheme
+"
+" check Xterm256 color names for console Vim at:
+" https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
+"
 " ----------------------------------------------------------
-" Author:   Noah Frederick (http://noahfrederick.com/)
+" Authors:  Noah Frederick (http://noahfrederick.com/)
+"           Matteo Giorgi  (https://www.geoteo.net/)
 " Version:  3.4
 " License:  Creative Commons Attribution-NonCommercial
 "           3.0 Unported License       (see README.md)
 " ----------------------------------------------------------
+
 
 " Setup ----------------------------------------------------{{{
 " Reset syntax highlighting
