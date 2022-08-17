@@ -31,7 +31,7 @@ set t_Co=256
 let g:colors_name = "truedark"
 
 hi ColorColumn  guibg=#303030 ctermbg=237
-hi Comment      guifg=#949494 ctermfg=246
+hi Comment      guifg=#777777 ctermfg=241
 hi Constant     guifg=#ffaf00 gui=bold ctermfg=214 cterm=bold
 hi Cursor       guibg=#585858 guifg=NONE ctermbg=241 ctermfg=NONE cterm=NONE
 hi CursorLine   guibg=#111111 ctermbg=233 cterm=NONE
@@ -45,7 +45,7 @@ hi Ignore       guifg=#303030 ctermfg=236
 hi LineNr       guifg=#444444 ctermfg=238
 hi ModeMsg      guifg=#c6c6c6 ctermfg=251
 hi NonText      guifg=#444444 guibg=NONE ctermfg=238 cterm=NONE
-hi Normal       guifg=#c6c6c6 guibg=#000000 ctermfg=251 ctermbg=0
+hi Normal       guifg=#eeeeee guibg=#000000 ctermfg=255 ctermbg=0
 hi Pmenu        guibg=#000000 guifg=#c0c0c0 ctermbg=0 ctermfg=7
 hi PmenuSbar    guifg=#000000 guibg=#c0c0c0 ctermfg=0 ctermbg=7
 hi PmenuSel     guifg=#000000 guibg=#c0c0c0 ctermfg=0 ctermbg=7

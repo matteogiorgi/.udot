@@ -23,6 +23,16 @@ function! utility#Background()
 endfunction
 "}}}
 
+" ChColor{{{
+function! utility#ChColor()
+    if g:colors_name ==? 'truedark'
+        colorscheme hemisu
+    else
+        colorscheme truedark
+    endif
+endfunction
+"}}}
+
 " ToggleAccent{{{
 function! utility#ToggleAccent()
     let withAccentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
