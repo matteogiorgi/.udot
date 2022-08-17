@@ -14,7 +14,7 @@ endfunction
 "}}}
 
 " Background{{{
-function! utility#Background()
+function! utility#ChBackground()
     if &background ==? 'dark'
         set background=light
     else
@@ -24,8 +24,8 @@ endfunction
 "}}}
 
 " ChColor{{{
-function! utility#ChColor()
-    if g:colors_name ==? 'truedark'
+function! utility#ChColorscheme()
+    if exists("g:colors_name") && g:colors_name ==? 'truedark'
         colorscheme hemisu
     else
         colorscheme truedark

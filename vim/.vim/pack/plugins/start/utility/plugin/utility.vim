@@ -5,6 +5,8 @@ autocmd! BufWritePre * call utility#Mkdir()
 
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()
+command! ChBackground call utility#ChBackground()
+command! ChColorscheme call utility#ChColorscheme()
 command! -nargs=1 Substituta call utility#Substituta(<f-args>)
 command! Current call utility#Current()
 command! Parent call utility#Parent()
@@ -14,7 +16,6 @@ command! -nargs=* -complete=file -bang Rename call utility#Rename(<q-args>, '<ba
 
 
 nnoremap <silent>' :ToggleAccent<CR>
-nnoremap <silent>^ :call utility#ChColor()<CR>
 nnoremap <C-w>h :call utility#WinMove('h')<CR>
 nnoremap <C-w>j :call utility#WinMove('j')<CR>
 nnoremap <C-w>k :call utility#WinMove('k')<CR>
