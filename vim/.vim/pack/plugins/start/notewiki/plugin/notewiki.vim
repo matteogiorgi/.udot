@@ -4,7 +4,12 @@ let $beamerpages = fnamemodify('~/notewiki/beamer', ':p')
 let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
 if !exists('g:notebrowser')
-    let g:notebrowser = 'chromium --new-window'  "xdg-open
+    let g:notebrowser = 'nohup xdg-open'
+    if filereadable("/bin/google-chrome")
+        let g:notebrowser = 'nohup google-chrome --new-window'
+    elseif filereadable("/bin/chromium")
+        let g:notebrowser = 'nohup google-chrome --new-window'
+    endif
 endif
 
 
@@ -119,14 +124,14 @@ endfunction
 
 " Browse main notes directory{{{
 function s:NoteBrowseIndex()
-    execute '!' . g:notebrowser . ' ' . $wikipages
+    execute '!' . g:notebrowser . ' ' . $wikipages . ' >/dev/null 2>&1 &'
     execute 'redraw!'
 endfunction
 "}}}
 
 " Browse current notes directory{{{
 function s:NoteBrowse()
-    execute '!' . g:notebrowser . ' ' . '%:p:h'
+    execute '!' . g:notebrowser . ' ' . '%:p:h' . ' >/dev/null 2>&1 &'
     execute 'redraw!'
 endfunction
 "}}}
