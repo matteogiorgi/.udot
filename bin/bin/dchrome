@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if [[ -x "$(command -v google-chrome)" ]]; then
+    BROWSER="google-chrome"
+elif [[ -x "$(command -v chromium)" ]]; then
+    BROWSER="chromium"
+else
+    dmenu_run -i -b
+    exit 0
+fi
+
+CHOICE=$(echo -e "Startpage\nNotewiki\nHOME\nIncognito" | dmenu -i -b | cut -d ':' -f 1)
+case "$CHOICE" in
+    Startpage)
+        $BROWSER --new-window https://www.geoteo.net/start
+        ;;
+    Notewiki)
+        $BROWSER --new-window $HOME/notewiki/pandoc/index.html
+        ;;
+    HOME)
+        $BROWSER --new-window $HOME
+        ;;
+    Incognito)
+        $BROWSER --new-window -incognito
+        ;;
+    *)
+        exit 1
+        ;;
+esac

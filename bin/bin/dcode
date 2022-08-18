@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-if [[ -x "$(command -v chromium)" ]]; then
+if [[ -x "$(command -v google-chrome)" ]]; then
+    BROWSER="google-chrome"
+    NAMES="CodeDev\n"$NAMES
+elif [[ -x "$(command -v chromium)" ]]; then
+    BROWSER="chromium"
     NAMES="CodeDev\n"$NAMES
 fi
 
@@ -24,7 +28,7 @@ case "$CHOICE" in
         codium
         ;;
     CodeDev)
-        chromium --new-window https://vscode.dev
+        $BROWSER --new-window https://vscode.dev
         ;;
     *)
         exit 1

@@ -67,7 +67,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 - lxappearance/qt5ct (theme selectors)
 - code/codium        (text-editor/IDE)
-- chromium           (web-browser)
+- chrome/chromium    (web-browser)
 - xournalpp          (note taking)
 - flameshot          (screenshot)
 - pavucontrol        (pulseaudio volume control)
