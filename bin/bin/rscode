@@ -59,6 +59,7 @@ for EXTENSION in $LIST; do
 done
 
 $CODE --install-extension vspacecode.vspacecode
+$CODE --install-extension vladeeg.vscode-theme-vdark
 
 
 ### Reset VSCode settings
@@ -67,7 +68,7 @@ $CODE --install-extension vspacecode.vspacecode
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
     "telemetry.telemetryLevel": "off",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
@@ -88,13 +89,13 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.scrollbar.verticalScrollbarSize": 0,
     "terminal.integrated.fontFamily": "'JetBrains Mono', 'monospace'",
     "terminal.integrated.fontSize": 12,
-    "workbench.editor.showTabs": true,
+    "workbench.editor.showTabs": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "VDark",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
-    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.closeEmptyGroups": false,
     "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
