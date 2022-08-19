@@ -59,7 +59,7 @@ for EXTENSION in $LIST; do
 done
 
 $CODE --install-extension vspacecode.vspacecode
-$CODE --install-extension vladeeg.vscode-theme-vdark
+$CODE --install-extension rafaelmardojai.vscode-gnome-theme
 
 
 ### Reset VSCode settings
@@ -80,7 +80,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.rulers": [],
     "editor.folding": false,
     "editor.cursorBlinking": "solid",
-    "editor.renderLineHighlight": "line",
+    "editor.renderLineHighlight": "none",
     "editor.lineHeight": 1.4,
     "editor.lineNumbers": "relative",
     "editor.scrollbar.horizontal": "hidden",
@@ -91,7 +91,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "terminal.integrated.fontSize": 12,
     "workbench.editor.showTabs": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "VDark",
+    "workbench.colorTheme": "GNOME dark",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
