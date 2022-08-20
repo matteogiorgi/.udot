@@ -59,6 +59,7 @@ for EXTENSION in $LIST; do
 done
 
 $CODE --install-extension vspacecode.vspacecode
+$CODE --install-extension monokai.theme-monokai-pro-vscode
 
 
 ### Reset VSCode settings
@@ -79,7 +80,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.rulers": [],
     "editor.folding": false,
     "editor.cursorBlinking": "solid",
-    "editor.renderLineHighlight": "none",
+    "editor.renderLineHighlight": "line",
     "editor.lineHeight": 1.4,
     "editor.lineNumbers": "relative",
     "editor.scrollbar.horizontal": "hidden",
@@ -90,7 +91,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "terminal.integrated.fontSize": 12,
     "workbench.editor.showTabs": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorTheme": "Monokai Pro",
+    "workbench.iconTheme": "Monokai Pro Icons",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
