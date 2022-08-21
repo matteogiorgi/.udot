@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ -x "$(command -v google-chrome)" ]]; then
-    BROWSER="google-chrome"
-    NAMES="CodeDev\n"$NAMES
-elif [[ -x "$(command -v chromium)" ]]; then
-    BROWSER="chromium"
-    NAMES="CodeDev\n"$NAMES
+if [[ -x "$(command -v vim)" ]]; then
+    NAMES="EVim\n"$NAMES
 fi
 
 if [[ -x "$(command -v code)" ]]; then
@@ -27,8 +23,10 @@ case "$CHOICE" in
     VSCodium)
         codium
         ;;
-    CodeDev)
-        $BROWSER --new-window https://vscode.dev
+    EVim)
+        # if any terminal wasn't previously declare
+        # inside EXECUTE, xterm is used as default
+        ${EXECUTE:="xterm -e"} vim
         ;;
     *)
         exit 1
