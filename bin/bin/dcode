@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-if [[ -x "$(command -v vim)" ]]; then
-    NAMES="EVim\n"$NAMES
-fi
-
 if [[ -x "$(command -v code)" ]]; then
-    NAMES="VSCode\n"$NAMES
+    NAMES="VSCode\nHOME"$NAMES; CODE="code"
 elif [[ -x "$(command -v codium)" ]]; then
-    NAMES="VSCodium\n"$NAMES
+    NAMES="VSCodium\nHOME"$NAMES; CODE="codium"
 fi
 
 if [[ ! -n $NAMES ]]; then
@@ -23,10 +19,8 @@ case "$CHOICE" in
     VSCodium)
         codium
         ;;
-    EVim)
-        # if any terminal wasn't previously declare
-        # inside EXECUTE, xterm is used as default
-        ${EXECUTE:="xterm -e"} vim
+    HOME)
+        $CODE $HOME
         ;;
     *)
         exit 1
