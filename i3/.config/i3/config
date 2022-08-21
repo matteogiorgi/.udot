@@ -175,8 +175,8 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
     colors {
-        background #000000
-        statusline #000000
+        background #111111
+        statusline #111111
         separator  #888888
     }
     font pango:Ubuntu Mono 9
