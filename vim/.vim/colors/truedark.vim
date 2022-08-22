@@ -62,6 +62,6 @@ hi TabLineFill  guifg=#111111 guibg=#111111 ctermfg=233 ctermbg=233
 hi TabLineSel   guifg=#eeeeee guibg=#111111 ctermfg=255 ctermbg=233
 hi Todo         guifg=#ffff00 guibg=NONE ctermfg=11 ctermbg=NONE
 hi Type         guifg=#ff00d7 gui=bold ctermfg=200 cterm=bold
-hi VertSplit    guibg=#444444 guifg=#000000 ctermbg=238 ctermfg=0
+hi VertSplit    guibg=#111111 guifg=#000000 ctermbg=238 ctermfg=0
 hi Visual       guibg=#3a3a3a ctermbg=237
 hi WildMenu     guibg=#005f00 guifg=#000000 ctermbg=22 ctermfg=0
