@@ -73,7 +73,7 @@ endif
 " Syntax{{{
 syntax on
 filetype plugin indent on
-colorscheme truedark
+colorscheme landscape
 "}}}
 
 
