@@ -57,7 +57,7 @@ highlight Delimiter term=none ctermfg=181 gui=none guifg=orange
 highlight SpecialComment term=none ctermfg=182 gui=none guifg=violet
 highlight Debug term=none ctermfg=183 gui=none guifg=violet
 
-highlight TabLine ctermfg=246 ctermbg=233 cterm=bold guifg=#999999 guibg=#111111 gui=bold
+highlight TabLine ctermfg=246 ctermbg=233 cterm=none guifg=#999999 guibg=#111111 gui=none
 highlight TabLineFill ctermfg=233 ctermbg=233 cterm=none guifg=#111111 guibg=#111111 gui=none
 highlight TabLineSel ctermfg=255 ctermbg=233 cterm=bold guifg=#eeeeee guibg=#111111 gui=bold
 highlight Visual term=none ctermbg=240 guibg=#585858
@@ -86,8 +86,8 @@ highlight FoldColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#2626
 highlight SignColumn term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
 highlight SpecialKey term=underline ctermfg=237 gui=none guifg=darkgray
 highlight NonText term=none ctermfg=black gui=none guifg=black
-highlight StatusLine term=none gui=none guifg=#eeeeee guibg=#111111 gui=bold ctermfg=255 ctermbg=233 cterm=bold
-highlight StatusLineNC term=none gui=none guifg=#999999 guibg=#111111 gui=bold ctermfg=246 ctermbg=233 cterm=bold
+highlight StatusLine term=none guifg=#eeeeee guibg=#111111 gui=bold ctermfg=255 ctermbg=233 cterm=bold
+highlight StatusLineNC term=none guifg=#999999 guibg=#111111 gui=none ctermfg=246 ctermbg=233 cterm=none
 if get(g:, 'landscape_cursorline', 1)
     highlight CursorLine term=none cterm=none ctermbg=233 gui=none guibg=#111111
 else
