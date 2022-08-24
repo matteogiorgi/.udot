@@ -19,7 +19,7 @@ if exists('syntax_on')
     syntax reset
 endif
 
-highlight Normal gui=none guifg=#dddddd guibg=black
+highlight Normal term=none ctermfg=255 ctermbg=black gui=none guifg=#eeeeee guibg=black
 highlight Comment term=none ctermfg=243 ctermbg=none gui=none guifg=#767676
 highlight Constant term=none ctermfg=111 gui=none guifg=#87afff
 highlight String term=none ctermfg=215 ctermbg=none gui=none guifg=#ffaf5f
@@ -93,11 +93,11 @@ if get(g:, 'landscape_cursorline', 1)
 else
     highlight clear CursorLine
 endif
-highlight CursorLineNr term=none cterm=bold ctermbg=none gui=bold guibg=NONE
+highlight CursorLineNr term=none cterm=bold ctermfg=255 ctermbg=none gui=bold guifg=#eeeeee guibg=NONE
 highlight ColorColumn term=none cterm=none ctermbg=239 gui=none guibg=#4e4e4e
 highlight Cursor term=reverse cterm=reverse gui=reverse guifg=NONE guibg=NONE
 highlight CursorColumn term=none cterm=none ctermbg=235 gui=none guibg=#262626
-highlight LineNr term=none ctermfg=58 ctermbg=none guifg=#5f5f00 guibg=bg
+highlight LineNr term=none ctermfg=238 ctermbg=none guifg=#444444 guibg=bg
 highlight MatchParen ctermfg=none ctermbg=238 guibg=#4e4e4e
 highlight Pmenu ctermfg=233 ctermbg=249 gui=none guifg=#121212 guibg=#b2b2b2
 highlight PmenuSel ctermfg=233 ctermbg=242 gui=none guifg=#121212 guibg=#666666
