@@ -169,13 +169,13 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 
 
-### Borders and style
-#####################
+### Borders and style (default, stacking, tabbed)
+#################################################
 
 default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders smart
-workspace_layout default
+workspace_layout tabbed
 
 
 
