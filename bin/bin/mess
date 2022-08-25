@@ -3,7 +3,7 @@
 [[ "$*" == "" ]] && exit 1
 
 FILE="$*"
-MESS="/bin/less -R"
+MESS="/bin/less -R -~"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
 # install source-highlight and use src-hilite-lesspipe.sh to preview
