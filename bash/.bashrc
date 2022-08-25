@@ -196,6 +196,25 @@ export FFF_TRASH_CMD="trash"
 
 
 
+## Less colors
+##############
+
+# black   = 30        blue    = 34        reset      = 0
+# red     = 31        magenta = 35        bold       = 1
+# green   = 32        cyan    = 36        faint      = 2
+# yellow  = 33        white   = 37        underlined = 4
+
+export LESS_TERMCAP_mb=$'\e[01;31m'     # begin blinking
+export LESS_TERMCAP_md=$'\e[01;31m'     # begin bold
+export LESS_TERMCAP_me=$'\e[0m'         # end mode
+export LESS_TERMCAP_se=$'\e[0m'         # end standout-mode
+export LESS_TERMCAP_so=$'\e[01;44;37m'  # begin standout-mode
+export LESS_TERMCAP_ue=$'\e[0m'         # end underline
+export LESS_TERMCAP_us=$'\e[01;33m'     # begin underline
+
+
+
+
 ### Source stuff
 ################
 
