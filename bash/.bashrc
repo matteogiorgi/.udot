@@ -218,9 +218,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ### Source stuff
 ################
 
-[[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''" > $HOME/.xinput.bash
-source $HOME/.xinput.bash
-
 [[ -f $HOME/bin/fet ]] && $HOME/bin/fet
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash

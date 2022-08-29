@@ -37,8 +37,10 @@ if ! uname -a | grep Ubuntu &> /dev/null; then
 fi
 
 
-printf "${RED}%s ${YLW}%s${NC} " "This is the installer for udot confs, do you want to continue?" "(Y/n)"
+printf "${RED}%s ${YLW}%s ${RED}%s ${YLW}%s${NC} " "This is the installer for" ".udot" "confs, do you want to continue?" "(Y/n)"
 _loop
+
+echo "..."
 
 
 

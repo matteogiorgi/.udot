@@ -153,11 +153,11 @@ function _wrotate () {
     XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
 
     printf "${RED}%s${NC}\n" "Rotata wacom"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "0°"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "90°"
-    printf "%s${YLW}%s${NC}\n" "  (3) " "180°"
-    printf "%s${YLW}%s${NC}\n" "  (4) " "270°"
-    printf "${RED}%s${NC} " "Enter an index (1-4):"
+    printf "%s${YLW}%s${NC}\n" "  (0) " "0°"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "90°"
+    printf "%s${YLW}%s${NC}\n" "  (2) " "180°"
+    printf "%s${YLW}%s${NC}\n" "  (3) " "270°"
+    printf "${RED}%s${NC} " "Enter an index (0-3):"
 
     while read response; do
         if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
@@ -166,28 +166,28 @@ function _wrotate () {
         fi
 
         case $response in
-            1)
+            0)
                 ROTATION="none"
                 printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "0°"
                 break
                 ;;
-            2)
+            1)
                 ROTATION="ccw"
                 printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "90°"
                 break
                 ;;
-            3)
+            2)
                 ROTATION="half"
                 printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "180°"
                 break
                 ;;
-            4)
+            3)
                 ROTATION="cw"
                 printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "270°"
                 break
                 ;;
             *)
-                printf "${RED}%s${NC} " "Enter an index (1-4):"
+                printf "${RED}%s${NC} " "Enter an index (0-3):"
                 ;;
         esac
     done
@@ -242,18 +242,18 @@ function _xtouchp () {
     TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
 
     printf "${RED}%s${NC}\n" "Touchpad"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "enable"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "disable"
-    printf "${RED}%s${NC} " "Enter an index (1-2):"
+    printf "%s${YLW}%s${NC}\n" "  (0) " "enable"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "disable"
+    printf "${RED}%s${NC} " "Enter an index (0-1):"
 
     while read response; do
         case $response in
-            1)
+            0)
                 xinput set-prop $TOUCH "Device Enabled" 1
                 printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "enabled"
                 break
                 ;;
-            2)
+            1)
                 xinput set-prop $TOUCH "Device Enabled" 0
                 printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "disabled"
                 break
