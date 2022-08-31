@@ -242,24 +242,24 @@ function _xtouchp () {
     TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
 
     printf "${RED}%s${NC}\n" "Touchpad"
-    printf "%s${YLW}%s${NC}\n" "  (0) " "enable"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "disable"
+    printf "%s${YLW}%s${NC}\n" "  (0) " "disable"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "enable"
     printf "${RED}%s${NC} " "Enter an index (0-1):"
 
     while read response; do
         case $response in
             0)
-                xinput set-prop $TOUCH "Device Enabled" 1
-                printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "enabled"
-                break
-                ;;
-            1)
                 xinput set-prop $TOUCH "Device Enabled" 0
                 printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "disabled"
                 break
                 ;;
+            1)
+                xinput set-prop $TOUCH "Device Enabled" 1
+                printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "enabled"
+                break
+                ;;
             *)
-                printf "${RED}%s${NC} " "Enter an index (1-2):"
+                printf "${RED}%s${NC} " "Enter an index (0-1):"
                 ;;
         esac
     done
