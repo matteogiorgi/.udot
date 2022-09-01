@@ -9,89 +9,49 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 <img align="right" width="160" src="mona.gif">
 
-| Color   | Normal    | Bright    |
-| ------- | --------- | --------- |
-| Black   | `#171421` | `#5E5C64` |
-| Red     | `#C01C28` | `#F66151` |
-| Green   | `#26A269` | `#33D17A` |
-| Yellow  | `#A2734C` | `#E9AD0C` |
-| Blue    | `#12488B` | `#2A7BDE` |
-| Magenta | `#A347BA` | `#C061CB` |
-| Cyan    | `#2AA1B3` | `#33C7DE` |
-| White   | `#D0CFCC` | `#FFFFFF` |
+| Color   | Normal                                                                 | Bright                                                                 |
+| ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Black   | <span style="background-color:#171421; color:#FFFFFF">`#171421`</span> | <span style="background-color:#5E5C64; color:#FFFFFF">`#5E5C64`</span> |
+| Red     | <span style="background-color:#C01C28; color:#FFFFFF">`#C01C28`</span> | <span style="background-color:#F66151; color:#000000">`#F66151`</span> |
+| Green   | <span style="background-color:#26A269; color:#FFFFFF">`#26A269`</span> | <span style="background-color:#33D17A; color:#000000">`#33D17A`</span> |
+| Yellow  | <span style="background-color:#A2734C; color:#FFFFFF">`#A2734C`</span> | <span style="background-color:#E9AD0C; color:#000000">`#E9AD0C`</span> |
+| Blue    | <span style="background-color:#12488B; color:#FFFFFF">`#12488B`</span> | <span style="background-color:#2A7BDE; color:#000000">`#2A7BDE`</span> |
+| Magenta | <span style="background-color:#A347BA; color:#FFFFFF">`#A347BA`</span> | <span style="background-color:#C061CB; color:#000000">`#C061CB`</span> |
+| Cyan    | <span style="background-color:#2AA1B3; color:#FFFFFF">`#2AA1B3`</span> | <span style="background-color:#33C7DE; color:#000000">`#33C7DE`</span> |
+| White   | <span style="background-color:#D0CFCC; color:#000000">`#D0CFCC`</span> | <span style="background-color:#FFFFFF; color:#000000">`#FFFFFF`</span> |
 
 
 
 
-## Workflow utilities
+## Essential utilities
 
-### window manager related
-
-- i3-wm  (tiling window-manager)
-- i3lock (i3-wm lockscreen)
-- dmenu  (suckless menu)
-- arandr (gui xrandr interface)
-
-
-### shell and editor stuff
-- st      (suckless terminal)
-- xterm   (x11 terminal)
-- bash    (bourne again shell)
-- tmux    (terminal multiplexer)
-- vim     (vi improved - gtk3)
-- kakoune (a better vi)
-- nano    (another editor)
-
-
-### media related
-
-- mpv     (media player)
-- zathura (document viewer)
-- sxiv    (image viewer)
-
-
-### usefull applets
-
-- blueman         (bt applet)
-- network-manager (nm applet)
-
-
-### adwaita, adwaita everywhere
-
-- adwaita-icon-theme (gnome icon theme)
-- gnome-themes-extra (adwaita theme engine)
-- adwaita-qt         (adwaita qt5 port)
-
-
-### more (gui) gear
-
-- lxappearance/qt5ct (theme selectors)
-- code/codium        (text-editor/IDE)
-- chrome/chromium    (web-browser)
-- xournalpp          (note taking)
-- flameshot          (screenshot)
-- pavucontrol        (pulseaudio volume control)
-- gparted            (partition editor)
+```
+xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono
+```
 
 
 
 
-## Do not forget to install the followings packages
+## Main packages
 
-`xtermcontrol`, `curl`, `wget`, `stow`, `autorandr`, `git`, `atool`, `trash`, `htop`, `khal`, `make`, `gcc`, `libx11-dev`, `libxinerama-dev`, `libxft-dev`, `libncurses-dev`, `xclip`, `ripgrep`, `wamerican`, `witalian`, `source-highlight`, `xdo`, `feh`, `pandoc`, `texlive`, `fonts-ubuntu`, `fonts-jetbrains-mono`
+```
+i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra adwaita-qt lxappearance qt5ct codium chromium-browser xournalpp flameshot pavucontrol gparted
+```
 
 
 
 
-## and to add some language support
+## Language support
 
-- C/C++: `apt install build-essential gdb cgdb`
-- Go: `apt install golang-go golang-golang-x-tools`
-- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Ocaml: `apt install ocaml-batteries-included ocaml-man opam opam-doc`
-- Java: `apt install openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle`
-- Python: `apt install python3 python3-pip`
+```
+C/C++   -> build-essential gdb cgdb
+Java    -> openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle
+Python  -> python3 python3-pip
+Go      -> golang-go golang-golang-x-tools
+Ocaml   -> ocaml-batteries-included ocaml-man opam opam-doc
+Haskell -> https://get-ghcup.haskell.org
+Rust    -> https://sh.rustup.rs
+```
 
 
 

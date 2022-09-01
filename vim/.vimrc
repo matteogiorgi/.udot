@@ -129,10 +129,10 @@ set showtabline=1
 set path+=**
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,longest,noinsert,noselect
-set complete+=k/usr/share/dict/american-english-insane
+set complete+=k/usr/share/dict/american-english
 set complete+=k/usr/share/dict/italian
 set complete+=w,b
-set dictionary+=/usr/share/dict/american-english-insane
+set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/italian
 set wildmenu  " wildoptions+=fuzzy
 set wildchar=<Tab> wildmode=full  " wildmode=list:longest,list:full
