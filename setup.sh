@@ -161,11 +161,7 @@ fi
 ###########
 
 printf "\n     * Syncing and updating repos"
-printf "\n     * Compiling dmenu and st\n\n"
-sudo apt update && sudo apt upgrade -y || error "syncing repos"
-cd dmenu && sudo make clean install
-cd ../st && sudo make clean install
-cd ..
+sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
 
 
@@ -174,10 +170,11 @@ cd ..
 ################
 
 printf "\n     * Installing dependencies\n\n"
-sudo apt install \
+sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian \
-    source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono
+    source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono \
+    || error "Installing dependencies"
 
 
 
@@ -186,10 +183,11 @@ sudo apt install \
 #################
 
 printf "\n     * Installing main packages\n\n"
-sudo apt install \
+sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler zathura-ps \
     mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra adwaita-qt \
-    lxappearance qt5ct codium chromium-browser xournalpp flameshot pavucontrol gparted
+    lxappearance qt5ct codium chromium-browser xournalpp flameshot pavucontrol gparted \
+    || error "Installing main packages"
 
 if ask " Install Google Chrome?" Y; then
     printf "     -> Do it on your won from the following website:\n"
@@ -199,6 +197,17 @@ if ask " Install Visual Studio Code?" Y; then
     printf "     -> Do it on your won from the following website:\n"
     printf "     -> https://code.visualstudio.com\n"
 fi
+
+
+
+
+### Dmenu and St
+################
+
+printf "\n     * Compiling dmenu and st\n\n"
+cd dmenu && sudo make clean install
+cd ../st && sudo make clean install
+cd ..
 
 
 
@@ -230,19 +239,19 @@ stow zathura
 
 if ask " Add language support?" Y; then
     if ask " Install C/C++" Y; then
-        sudo apt install build-essential gdb cgdb
+        sudo apt install -qq -y build-essential gdb cgdb || error "Installing C/C++"
     fi
     if ask " Install Java" Y; then
-        sudo apt install openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle
+        sudo apt install -qq -y openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle || error "Installing Java"
     fi
     if ask " Install Python" Y; then
-        sudo apt install python3 python3-pip
+        sudo apt install -qq -y python3 python3-pip || error "Installing Python"
     fi
     if ask " Install Go" Y; then
-        sudo apt install golang-go golang-golang-x-tools
+        sudo apt install -qq -y golang-go golang-golang-x-tools || error "Installing Go"
     fi
     if ask " Install Ocaml" Y; then
-        sudo apt install ocaml-batteries-included ocaml-man opam opam-doc
+        sudo apt install -qq -y ocaml-batteries-included ocaml-man opam opam-doc || error "Installing Ocaml"
     fi
     if ask " Install Haskell" Y; then
         printf "     -> Do it on your won with the following command:\n"
