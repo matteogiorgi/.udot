@@ -164,21 +164,26 @@ restore
 ### Remove conf
 ###############
 
-printf "\n     * Removing dmenu and st\n\n"
+printf "\n Removing dmenu and st\n"
 cd dmenu && sudo make clean uninstall
 cd ../st && sudo make clean uninstall
 cd ..
 
-printf "\n     * Removing dependencies\n\n"
-sudo apt remove \
-    xtermcontrol curl wget stow autorandr git atool trash-cli htop khal \
-    xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono
-
-printf "\n     * Removing main packages\n\n"
-sudo apt remove \
-    i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
-    zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt \
-    lxappearance qt5ct codium chromium-browser xournalpp flameshot
+printf "\n The following packages will be uninstalled:"
+printf "\n     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal"
+printf "\n     xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono"
+printf "\n     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu"
+printf "\n     zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt"
+printf "\n     lxappearance qt5ct codium chromium-browser xournalpp flameshot\n"
+if ask " Confirm?" Y; then
+    sudo apt remove -qq -y \
+        xtermcontrol curl wget stow autorandr git atool trash-cli htop khal \
+        xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
+        i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
+        zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt \
+        lxappearance qt5ct codium chromium-browser xournalpp flameshot \
+        || error "Uninstalling packages"
+fi
 
 
 
@@ -186,10 +191,15 @@ sudo apt remove \
 ### Remove language support
 ###########################
 
-printf "\n     * Removing language support\n\n"
-sudo apt remove \
-    gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
-    python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc
+printf "\n The following language support will be uninstalled:\n"
+printf "\n     gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle\n"
+printf "\n     python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc\n"
+if ask " Confirm?" Y; then
+    sudo apt remove -qq -y \
+        gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
+        python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc \
+        || error "Uninstalling language support"
+fi
 
 
 

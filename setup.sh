@@ -160,7 +160,7 @@ fi
 ### Syncing
 ###########
 
-printf "\n     * Syncing and updating repos"
+printf "\n Syncing and updating repos"
 sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
 
@@ -169,7 +169,7 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 ### Dependencies
 ################
 
-printf "\n     * Installing dependencies\n\n"
+printf "\n Installing dependencies\n\n"
 sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian \
@@ -182,7 +182,7 @@ sudo apt install -qq -y \
 ### Main packages
 #################
 
-printf "\n     * Installing main packages\n\n"
+printf "\n Installing main packages\n\n"
 sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler zathura-ps \
     mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra adwaita-qt \
