@@ -164,17 +164,17 @@ restore
 ###############
 
 printf "\n     * Removing dmenu and st\n\n"
-printf "\n     * Removing dependencies\n\n"
-printf "\n     * Removing main packages\n\n"
 cd dmenu && sudo make clean uninstall
 cd ../st && sudo make clean uninstall
 cd ..
 
+printf "\n     * Removing dependencies\n\n"
 sudo apt remove \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian \
     source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 
+printf "\n     * Removing main packages\n\n"
 sudo apt remove \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler zathura-ps \
     mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra adwaita-qt \
@@ -190,9 +190,6 @@ printf "\n     * Removing language support\n\n"
 sudo apt remove \
     build-essential gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
     python3 python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc
-
-printf "\n If present, remove Haskell support from 'ghcup tui'"
-printf "\n If present, remove Rust support from 'rustup'\n\n"
 
 
 

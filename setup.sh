@@ -191,8 +191,14 @@ sudo apt install \
     mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra adwaita-qt \
     lxappearance qt5ct codium chromium-browser xournalpp flameshot pavucontrol gparted
 
-printf "\n Install Chrome optionally from 'https://www.google.com/chrome'"
-printf "\n Install VSCode optionally from 'https://code.visualstudio.com'\n\n"
+if ask " Install Google Chrome?" Y; then
+    printf "     -> Do it on your won from the following website:\n"
+    printf "     -> https://www.google.com/chrome\n"
+fi
+if ask " Install Visual Studio Code?" Y; then
+    printf "     -> Do it on your won from the following website:\n"
+    printf "     -> https://code.visualstudio.com\n"
+fi
 
 
 
@@ -239,10 +245,12 @@ if ask " Add language support?" Y; then
         sudo apt install ocaml-batteries-included ocaml-man opam opam-doc
     fi
     if ask " Install Haskell" Y; then
-        curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+        printf "     -> Do it on your won with the following command:\n"
+        printf "     -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh\n"
     fi
     if ask " Install Rust" Y; then
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        printf "     -> Do it on your won with the following command:\n"
+        printf "     -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
     fi
 fi
 
