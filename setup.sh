@@ -197,7 +197,7 @@ sudo apt install -qq -y \
 
 if [[ -f /bin/snap ]]; then
     printf "\n Installing snap packages\n\n"
-    sudo snap install codium
+    sudo snap install --classic codium || error "installing snap packages"
 fi
 
 
