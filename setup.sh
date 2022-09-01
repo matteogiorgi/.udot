@@ -174,7 +174,7 @@ sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian \
     source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono \
-    || error "Installing dependencies"
+    || error "installing dependencies"
 
 
 
@@ -184,10 +184,10 @@ sudo apt install -qq -y \
 
 printf "\n Installing main packages\n\n"
 sudo apt install -qq -y \
-    i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler zathura-ps \
-    mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra adwaita-qt \
-    lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted \
-    || error "Installing main packages"
+    i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
+    zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
+    adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted \
+    || error "installing main packages"
 
 
 
@@ -197,9 +197,7 @@ sudo apt install -qq -y \
 
 if [[ -f /bin/snap ]]; then
     printf "\n Installing snap packages\n\n"
-    sudo snap install \
-        codium \
-        || error "Installing snap packages"
+    sudo snap install codium
 fi
 
 
@@ -259,19 +257,19 @@ stow zathura
 
 if ask " Add language support?" Y; then
     if ask " Install C/C++" Y; then
-        sudo apt install -qq -y build-essential gdb cgdb || error "Installing C/C++"
+        sudo apt install -qq -y build-essential gdb cgdb || error "installing C/C++"
     fi
     if ask " Install Java" Y; then
-        sudo apt install -qq -y openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle || error "Installing Java"
+        sudo apt install -qq -y openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle || error "installing Java"
     fi
     if ask " Install Python" Y; then
-        sudo apt install -qq -y python3 python3-pip || error "Installing Python"
+        sudo apt install -qq -y python3 python3-pip || error "installing Python"
     fi
     if ask " Install Go" Y; then
-        sudo apt install -qq -y golang-go golang-golang-x-tools || error "Installing Go"
+        sudo apt install -qq -y golang-go golang-golang-x-tools || error "installing Go"
     fi
     if ask " Install Ocaml" Y; then
-        sudo apt install -qq -y ocaml-batteries-included ocaml-man opam opam-doc || error "Installing Ocaml"
+        sudo apt install -qq -y ocaml-batteries-included ocaml-man opam opam-doc || error "installing Ocaml"
     fi
     if ask " Install Haskell" Y; then
         printf "     -> Do it on your won with the following command:\n"
