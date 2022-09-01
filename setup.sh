@@ -172,8 +172,8 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 printf "\n Installing dependencies\n\n"
 sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
-    libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian \
-    source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono \
+    libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip fzf ripgrep wamerican \
+    witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono \
     || error "installing dependencies"
 
 
@@ -186,19 +186,8 @@ printf "\n Installing main packages\n\n"
 sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
-    adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted \
+    adwaita-qt lxappearance qt5ct codium chromium-browser xournalpp flameshot pavucontrol gparted \
     || error "installing main packages"
-
-
-
-
-### Snap packages
-#################
-
-if [[ -f /bin/snap ]]; then
-    printf "\n Installing snap packages\n\n"
-    sudo snap install --classic codium || error "installing snap packages"
-fi
 
 
 
