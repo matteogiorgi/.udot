@@ -250,8 +250,6 @@ stow vim
 stow x11
 stow zathura
 
-. $HOME/.profile
-
 
 
 
@@ -268,6 +266,14 @@ if ask "    Add language support?" Y; then
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
     printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 fi
+
+
+
+
+### Reload .profile
+###################
+
+. $HOME/.profile
 
 
 
