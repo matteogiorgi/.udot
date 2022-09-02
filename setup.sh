@@ -186,7 +186,7 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 #############
 
 printf "\n"
-read -p "    Installing utilities (press enter to continue)"
+read -p "    Installing utilities (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
@@ -201,7 +201,7 @@ sudo apt install -qq -y \
 #################
 
 printf "\n"
-read -p "    Installing main packages (press enter to continue)"
+read -p "    Installing main packages (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
@@ -221,7 +221,7 @@ fi
 ################
 
 printf "\n"
-read -p "    Compiling dmenu and st (press enter to continue)"
+read -p "    Compiling dmenu and st (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean install
@@ -249,6 +249,8 @@ stow tmux
 stow vim
 stow x11
 stow zathura
+
+. $HOME/.profile
 
 
 
