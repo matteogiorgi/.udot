@@ -273,7 +273,8 @@ fi
 ### Reload .profile
 ###################
 
-. $HOME/.profile
+. ~/.profile
+case $- in *i*) . ~/.bashrc;; esac
 
 
 
