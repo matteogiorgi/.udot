@@ -238,9 +238,9 @@ if ask " Add language support?" Y; then
         build-essential gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source
         ant maven gradle python3 python3-pip golang-go golang-golang-x-tools
         ocaml-batteries-included ocaml-man opam opam-doc || error "installing language support"
-    read -p " Need Haskell and/or Rust? (press enter to continue)\n \
-              curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh\n \
-              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    printf " Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh\n"
+    printf " Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
+    read -p " Language support installed (press enter to continue)"
 fi
 
 
