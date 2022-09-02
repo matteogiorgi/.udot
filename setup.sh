@@ -9,22 +9,6 @@
 
 
 
-### Variables definition
-########################
-
-if [[ ! -d $HOME/.udot-restore ]]; then
-    mkdir $HOME/.udot-restore
-    RESTORE="$HOME/.udot-restore"
-else
-    clear
-    banner
-    printf " udot is already setup\n"
-    exit 1
-fi
-
-
-
-
 ### Functions definition
 ########################
 
@@ -152,6 +136,14 @@ backup () {
 clear
 banner
 warning
+
+if [[ ! -d $HOME/.udot-restore ]]; then
+    mkdir $HOME/.udot-restore
+    RESTORE="$HOME/.udot-restore"
+else
+    printf " udot is already setup\n"
+    exit 1
+fi
 
 if ! ask "    Confirm to start the '.udot' install script" Y; then
     exit 0
