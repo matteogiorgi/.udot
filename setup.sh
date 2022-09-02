@@ -141,16 +141,20 @@ if [[ ! -d $HOME/.udot-restore ]]; then
     mkdir $HOME/.udot-restore
     RESTORE="$HOME/.udot-restore"
 else
-    printf " udot is already setup\n"
+    printf "    udot is already setup\n\n"
     exit 1
 fi
 
 if ! ask "    Confirm to start the '.udot' install script" Y; then
+    printf "\n"
     exit 0
 fi
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    ask "    This is not a Ubuntu distro, continue anyway?" N
+    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
+        printf "\n"
+        exit 0
+    fi
 fi
 
 
@@ -161,6 +165,7 @@ fi
 
 printf "\n"
 read -p "    Syncing and updating repos (enter to continue)"
+printf "\n"
 
 sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
@@ -172,6 +177,7 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
 printf "\n"
 read -p "    Installing utilities (press enter to continue)"
+printf "\n"
 
 sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
@@ -186,6 +192,7 @@ sudo apt install -qq -y \
 
 printf "\n"
 read -p "    Installing main packages (press enter to continue)"
+printf "\n"
 
 sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
@@ -205,6 +212,7 @@ fi
 
 printf "\n"
 read -p "    Compiling dmenu and st (press enter to continue)"
+printf "\n"
 
 cd dmenu && sudo make clean install
 cd ../st && sudo make clean install
@@ -240,6 +248,7 @@ stow zathura
 
 printf "\n"
 if ask "    Add language support?" Y; then
+    printf "\n"
     sudo apt install -qq -y \
         build-essential gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source \
         ant maven gradle python3 python3-pip golang-go golang-golang-x-tools \
@@ -255,4 +264,4 @@ fi
 ### Goodby
 ##########
 
-printf "\n    Installation completed\n\n"
+printf "    Installation completed\n\n"
