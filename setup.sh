@@ -264,8 +264,7 @@ if ask "    Add language support?" Y; then
         ant maven gradle python3 python3-pip golang-go golang-golang-x-tools \
         ocaml-batteries-included ocaml-man opam opam-doc || error "installing language support"
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
-    read -p "    Language support installed (press enter to continue)"
+    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 fi
 
 
@@ -274,6 +273,6 @@ fi
 ### Final suggestions
 #####################
 
-printf "\n    If you need Google Chrome    -> https://www.google.com/chrome"
-printf "\n    and/or Visual Studio Code    -> https://code.visualstudio.com\n"
+printf "\n    Need Chrome?  -> https://www.google.com/chrome"
+printf "\n    Need VSCode?  -> https://code.visualstudio.com\n"
 printf "\n    Installation completed\n\n"
