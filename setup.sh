@@ -9,15 +9,25 @@
 
 
 
+### Colors definition
+#####################
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
 ### Functions definition
 ########################
 
 banner () {
-    printf "\n     _   _ ____   ___ _____"
-    printf "\n    | | | |  _ \ / _ \_   _|  Matteo Giorgi (Geoteo)"
-    printf "\n    | | | | | | | | | || |    https://www.geoteo.net"
-    printf "\n    | |_| | |_| | |_| || |    https://github.com/matteogiorgi/.udot"
-    printf "\n     \___/|____/ \___/ |_|\n\n"
+    printf "${YLW}%s${NC}"          "\n     _   _ ____   ___ _____"
+    printf "${YLW}%s ${RED}%s${NC}" "\n    | | | |  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
+    printf "${YLW}%s ${RED}%s${NC}" "\n    | | | | | | | | | || |  " "  https://www.geoteo.net"
+    printf "${YLW}%s ${RED}%s${NC}" "\n    | |_| | |_| | |_| || |  " "  https://github.com/matteogiorgi/.udot"
+    printf "${YLW}%s${NC}"          "\n     \___/|____/ \___/ |_|\n\n"
 }
 
 warning () {
@@ -142,7 +152,7 @@ if [[ ! -d $HOME/.udot-restore ]]; then
     RESTORE="$HOME/.udot-restore"
 else
     printf "    '.udot' is already setup\n"
-    printf "    Launch 'restore.sh' first\n\n"
+    printf "    Launch ./restore.sh first\n\n"
     exit 1
 fi
 
