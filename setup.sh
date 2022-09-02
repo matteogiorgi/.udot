@@ -199,7 +199,7 @@ sudo apt install -qq -y \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
     adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted || error "installing main packages"
 
-if [[ -f /bin/snap ]]
+if [[ -f /bin/snap ]]; then
     sudo snap install --classic \
         codium || error "installing codium snap-package"
 fi
