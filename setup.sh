@@ -32,11 +32,11 @@ banner () {
 
 warning () {
     if [ "$(id -u)" = 0 ]; then
-        printf "\n    This script MUST NOT be run as root user since it makes changes"
-        printf "\n    to the \$HOME directory of the \$USER executing this script."
-        printf "\n    The \$HOME directory of the root user is, of course, '/root'."
-        printf "\n    We don't want to mess around in there. So run this script as a"
-        printf "\n    normal user. You will be asked for a sudo password when necessary.\n\n"
+        printf "\n${RED}%s${NC}"     "    This script MUST NOT be run as root user since it makes changes"
+        printf "\n${RED}%s${NC}"     "    to the \$HOME directory of the \$USER executing this script."
+        printf "\n${RED}%s${NC}"     "    The \$HOME directory of the root user is, of course, '/root'."
+        printf "\n${RED}%s${NC}"     "    We don't want to mess around in there. So run this script as a"
+        printf "\n${RED}%s${NC}\n\n" "    normal user. You will be asked for a sudo password when necessary."
         exit 1
     fi
 }
