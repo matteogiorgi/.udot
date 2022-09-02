@@ -141,7 +141,8 @@ if [[ ! -d $HOME/.udot-restore ]]; then
     mkdir $HOME/.udot-restore
     RESTORE="$HOME/.udot-restore"
 else
-    printf "    udot is already setup\n\n"
+    printf "    '.udot' is already setup\n"
+    printf "    Launch 'restore.sh' first\n\n"
     exit 1
 fi
 
@@ -163,7 +164,6 @@ fi
 ### Syncing
 ###########
 
-printf "\n"
 read -p "    Syncing and updating repos (enter to continue)"
 printf "\n"
 
