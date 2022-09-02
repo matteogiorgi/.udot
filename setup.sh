@@ -16,6 +16,8 @@ if [[ ! -d $HOME/.udot-restore ]]; then
     mkdir $HOME/.udot-restore
     RESTORE="$HOME/.udot-restore"
 else
+    clear
+    banner
     printf " udot is already setup\n"
     exit 1
 fi
@@ -27,20 +29,20 @@ fi
 ########################
 
 banner () {
-    printf "\n  _   _ ____   ___ _____"
-    printf "\n | | | |  _ \ / _ \_   _|  Matteo Giorgi (Geoteo)"
-    printf "\n | | | | | | | | | || |    https://www.geoteo.net"
-    printf "\n | |_| | |_| | |_| || |    https://github.com/matteogiorgi/.udot"
-    printf "\n  \___/|____/ \___/ |_|\n\n"
+    printf "\n     _   _ ____   ___ _____"
+    printf "\n    | | | |  _ \ / _ \_   _|  Matteo Giorgi (Geoteo)"
+    printf "\n    | | | | | | | | | || |    https://www.geoteo.net"
+    printf "\n    | |_| | |_| | |_| || |    https://github.com/matteogiorgi/.udot"
+    printf "\n     \___/|____/ \___/ |_|\n\n"
 }
 
 warning () {
     if [ "$(id -u)" = 0 ]; then
-        printf "\n This script MUST NOT be run as root user since it makes changes"
-        printf "\n to the \$HOME directory of the \$USER executing this script."
-        printf "\n The \$HOME directory of the root user is, of course, '/root'."
-        printf "\n We don't want to mess around in there. So run this script as a"
-        printf "\n normal user. You will be asked for a sudo password when necessary.\n\n"
+        printf "\n    This script MUST NOT be run as root user since it makes changes"
+        printf "\n    to the \$HOME directory of the \$USER executing this script."
+        printf "\n    The \$HOME directory of the root user is, of course, '/root'."
+        printf "\n    We don't want to mess around in there. So run this script as a"
+        printf "\n    normal user. You will be asked for a sudo password when necessary.\n\n"
         exit 1
     fi
 }
