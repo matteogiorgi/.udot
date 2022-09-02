@@ -161,6 +161,7 @@ fi
 ###########
 
 read -p " Syncing and updating repos (enter to continue)"
+
 sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
 
@@ -169,12 +170,12 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 ### Dependencies
 ################
 
-read -p "Installing utilities (press enter to continue)"
+read -p " Installing utilities (press enter to continue)"
+
 sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip fzf ripgrep wamerican \
-    witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono \
-    || error "installing dependencies"
+    witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono || error "installing dependencies"
 
 
 
@@ -182,37 +183,15 @@ sudo apt install -qq -y \
 ### Main packages
 #################
 
-read -p "Installing main packages (press enter to continue)"
+read -p " Installing main packages (press enter to continue)"
+
 sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
-    adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted \
-    || error "installing main packages"
+    adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted || error "installing main packages"
 
-
-
-
-### Snap packages
-#################
-
-read -p "Installing snap packages (press enter to continue)"
-sudo snap install codium --classic || error "installing codium snap-package"
-
-
-
-
-### Suggestions
-###############
-
-
-if ask " Install Google Chrome?" Y; then
-    printf "     -> Do it on your won from the following website:\n"
-    printf "     -> https://www.google.com/chrome\n"
-fi
-if ask " Install Visual Studio Code?" Y; then
-    printf "     -> Do it on your won from the following website:\n"
-    printf "     -> https://code.visualstudio.com\n"
-fi
+sudo snap install --classic \
+    codium || error "installing codium snap-package"
 
 
 
@@ -220,7 +199,8 @@ fi
 ### Dmenu and St
 ################
 
-printf "\n     * Compiling dmenu and st\n\n"
+read -p " Compiling dmenu and st (press enter to continue)"
+
 cd dmenu && sudo make clean install
 cd ../st && sudo make clean install
 cd ..
@@ -254,29 +234,13 @@ stow zathura
 ########################
 
 if ask " Add language support?" Y; then
-    if ask " Install C/C++" Y; then
-        sudo apt install -qq -y build-essential gdb cgdb || error "installing C/C++"
-    fi
-    if ask " Install Java" Y; then
-        sudo apt install -qq -y openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle || error "installing Java"
-    fi
-    if ask " Install Python" Y; then
-        sudo apt install -qq -y python3 python3-pip || error "installing Python"
-    fi
-    if ask " Install Go" Y; then
-        sudo apt install -qq -y golang-go golang-golang-x-tools || error "installing Go"
-    fi
-    if ask " Install Ocaml" Y; then
-        sudo apt install -qq -y ocaml-batteries-included ocaml-man opam opam-doc || error "installing Ocaml"
-    fi
-    if ask " Install Haskell" Y; then
-        printf "     -> Do it on your won with the following command:\n"
-        printf "     -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh\n"
-    fi
-    if ask " Install Rust" Y; then
-        printf "     -> Do it on your won with the following command:\n"
-        printf "     -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
-    fi
+    sudo apt install -qq -y \
+        build-essential gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source
+        ant maven gradle python3 python3-pip golang-go golang-golang-x-tools
+        ocaml-batteries-included ocaml-man opam opam-doc || error "installing language support"
+    read -p " Need Haskell and/or Rust? (press enter to continue)\n \
+              curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh\n \
+              curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 fi
 
 
