@@ -123,8 +123,8 @@ warning
 if [[ -d $HOME/.udot-restore ]]; then
     RESTORE="$HOME/.udot-restore"
 else
-    printf " Nothing to restore\n\n"
-    exit 0
+    printf " Nothing to restore\n"
+    exit 1
 fi
 
 if ! ask " Confirm to start the '.udot' restore script" Y; then

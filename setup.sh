@@ -12,8 +12,13 @@
 ### Variables definition
 ########################
 
-RESTORE="$HOME/.udot-restore"
-[[ ! -d $RESTORE ]] && mkdir $HOME/.udot-restore
+if [[ ! -d $HOME/.udot-restore ]]; then
+    mkdir $HOME/.udot-restore
+    RESTORE="$HOME/.udot-restore"
+else
+    printf " udot is already setup\n"
+    exit 1
+fi
 
 
 
@@ -146,12 +151,12 @@ clear
 banner
 warning
 
-if ! ask " Confirm to start the '.udot' install script" Y; then
+if ! ask "    Confirm to start the '.udot' install script" Y; then
     exit 0
 fi
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    ask " This is not a Ubuntu distro, continue anyway?" N
+    ask "    This is not a Ubuntu distro, continue anyway?" N
 fi
 
 
@@ -160,7 +165,8 @@ fi
 ### Syncing
 ###########
 
-read -p " Syncing and updating repos (enter to continue)"
+printf "\n"
+read -p "    Syncing and updating repos (enter to continue)"
 
 sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
@@ -170,7 +176,8 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 ### Dependencies
 ################
 
-read -p " Installing utilities (press enter to continue)"
+printf "\n"
+read -p "    Installing utilities (press enter to continue)"
 
 sudo apt install -qq -y \
     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
@@ -183,15 +190,18 @@ sudo apt install -qq -y \
 ### Main packages
 #################
 
-read -p " Installing main packages (press enter to continue)"
+printf "\n"
+read -p "    Installing main packages (press enter to continue)"
 
 sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
     adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted || error "installing main packages"
 
-sudo snap install --classic \
-    codium || error "installing codium snap-package"
+if [[ -f /bin/snap ]]
+    sudo snap install --classic \
+        codium || error "installing codium snap-package"
+fi
 
 
 
@@ -199,7 +209,8 @@ sudo snap install --classic \
 ### Dmenu and St
 ################
 
-read -p " Compiling dmenu and st (press enter to continue)"
+printf "\n"
+read -p "    Compiling dmenu and st (press enter to continue)"
 
 cd dmenu && sudo make clean install
 cd ../st && sudo make clean install
@@ -233,14 +244,15 @@ stow zathura
 ### Add language support
 ########################
 
-if ask " Add language support?" Y; then
+printf "\n"
+if ask "    Add language support?" Y; then
     sudo apt install -qq -y \
         build-essential gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source \
         ant maven gradle python3 python3-pip golang-go golang-golang-x-tools \
         ocaml-batteries-included ocaml-man opam opam-doc || error "installing language support"
-    printf " Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh\n"
-    printf " Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
-    read -p " Language support installed (press enter to continue)"
+    printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
+    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
+    read -p "    Language support installed (press enter to continue)"
 fi
 
 
@@ -249,4 +261,4 @@ fi
 ### Goodby
 ##########
 
-printf "\n Installation completed\n\n"
+printf "\n    Installation completed\n\n"
