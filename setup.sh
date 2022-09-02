@@ -23,11 +23,11 @@ NC='\033[0m'
 ########################
 
 banner () {
-    printf "${YLW}%s${NC}"          "\n     _   _ ____   ___ _____"
-    printf "${YLW}%s ${RED}%s${NC}" "\n    | | | |  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
-    printf "${YLW}%s ${RED}%s${NC}" "\n    | | | | | | | | | || |  " "  https://www.geoteo.net"
-    printf "${YLW}%s ${RED}%s${NC}" "\n    | |_| | |_| | |_| || |  " "  https://github.com/matteogiorgi/.udot"
-    printf "${YLW}%s${NC}"          "\n     \___/|____/ \___/ |_|\n\n"
+    printf "\n${YLW}%s${NC}"          "     _   _ ____   ___ _____"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | | | |  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | | | | | | | | | || |  " "  https://www.geoteo.net"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | |_| | |_| | |_| || |  " "  https://github.com/matteogiorgi/.udot"
+    printf "\n${YLW}%s${NC}\n\n"      "     \___/|____/ \___/ |_|"
 }
 
 warning () {
