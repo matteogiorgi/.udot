@@ -182,8 +182,8 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 
 
 
-### Dependencies
-################
+### Utilities
+#############
 
 printf "\n"
 read -p "    Installing utilities (press enter to continue)"
@@ -271,7 +271,9 @@ fi
 
 
 
-### Goodby
-##########
+### Final suggestions
+#####################
 
-printf "    Installation completed\n\n"
+printf "\n    If you need Google Chrome    -> https://www.google.com/chrome"
+printf "\n    and/or Visual Studio Code    -> https://code.visualstudio.com\n"
+printf "\n    Installation completed\n\n"
