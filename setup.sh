@@ -192,6 +192,15 @@ sudo apt install -qq -y \
 
 
 
+### Snap packages
+#################
+
+read -p "Installing snap packages (press enter to continue)"
+sudo snap install codium --classic || error "installing codium snap-package"
+
+
+
+
 ### Suggestions
 ###############
 
