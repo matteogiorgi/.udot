@@ -205,11 +205,11 @@ printf "\n"
 
 # the following packages aren't going to be uninstalled:
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-# git libx11-dev libxinerama-dev libxft-dev libncurses-dev wamerican witalian
+# git curl libx11-dev libxinerama-dev libxft-dev libncurses-dev wamerican witalian
 # fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
 sudo apt remove -qq -y \
-    xtermcontrol curl wget stow autorandr atool trash-cli htop khal make gcc \
+    xtermcontrol wget stow autorandr atool trash-cli htop khal make gcc \
     xclip fzf ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \

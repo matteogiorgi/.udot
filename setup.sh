@@ -259,7 +259,7 @@ if ask "    Add language support?" Y; then
         ant maven gradle python3 python3-pip golang-go golang-golang-x-tools \
         ocaml-batteries-included ocaml-man opam opam-doc || error "installing language support"
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
 fi
 
 
@@ -277,4 +277,4 @@ case $- in *i*) . ~/.bashrc;; esac
 ### Goodby
 ##########
 
-printf "\n    Installation completed\n\n"
+printf "    Installation completed\n\n"
