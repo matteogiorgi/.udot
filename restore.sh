@@ -203,12 +203,17 @@ printf "\n"
 read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
+# the following packages aren't going to be uninstalled:
+# ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+# git libx11-dev libxinerama-dev libxft-dev libncurses-dev wamerican witalian
+# fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
+
 sudo apt remove -qq -y \
-    xtermcontrol curl wget stow autorandr atool trash-cli htop khal \
-    xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
+    xtermcontrol curl wget stow autorandr atool trash-cli htop khal make gcc \
+    xclip fzf ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
-    zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt \
-    lxappearance qt5ct chromium-browser xournalpp flameshot || error "uninstalling packages"
+    zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
+    lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
 
 if [[ -f /bin/snap ]]; then
     sudo snap remove \

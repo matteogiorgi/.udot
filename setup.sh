@@ -279,9 +279,7 @@ case $- in *i*) . ~/.bashrc;; esac
 
 
 
-### Final suggestions
-#####################
+### Goodby
+##########
 
-printf "\n    Need Chrome?  -> https://www.google.com/chrome"
-printf "\n    Need VSCode?  -> https://code.visualstudio.com\n"
 printf "\n    Installation completed\n\n"
