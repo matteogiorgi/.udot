@@ -213,7 +213,7 @@ sudo apt remove -qq -y \
     xclip fzf ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
-    lxappearance qt5ct code chromium-browser xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
+    lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
 
 
 
@@ -224,6 +224,10 @@ sudo apt remove -qq -y \
 printf "\n"
 read -p "    Removing language support (enter to continue)"
 printf "\n"
+
+# the following packages aren't going to be uninstalled:
+# ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+# build-essential python3
 
 sudo apt remove -qq -y \
     gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
