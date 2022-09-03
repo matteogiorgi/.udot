@@ -204,7 +204,7 @@ read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 sudo apt remove -qq -y \
-    xtermcontrol curl wget stow autorandr git atool trash-cli htop khal \
+    xtermcontrol curl wget stow autorandr atool trash-cli htop khal \
     xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt \
