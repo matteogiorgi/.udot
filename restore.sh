@@ -213,12 +213,7 @@ sudo apt remove -qq -y \
     xclip fzf ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
-    lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
-
-if [[ -f /bin/snap ]]; then
-    sudo snap remove \
-        codium || error "uninstalling codium snap-package"
-fi
+    lxappearance qt5ct code chromium-browser xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
 
 
 

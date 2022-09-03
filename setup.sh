@@ -207,12 +207,7 @@ printf "\n"
 sudo apt install -qq -y \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
-    adwaita-qt lxappearance qt5ct chromium-browser xournalpp flameshot pavucontrol gparted || error "installing main packages"
-
-if [[ -f /bin/snap ]]; then
-    sudo snap install --classic \
-        codium || error "installing codium snap-package"
-fi
+    adwaita-qt lxappearance qt5ct code chromium-browser xournalpp flameshot pavucontrol gparted || error "installing main packages"
 
 
 
