@@ -177,6 +177,7 @@ stow -D x11
 stow -D zathura
 
 restore
+[[ -d $RESTORE ]] && rm -r $RESTORE
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
 
 
