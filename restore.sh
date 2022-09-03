@@ -6,26 +6,42 @@
 
 
 
+### Colors definition
+#####################
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
 ### Functions definition
 ########################
 
 banner () {
-    printf "\n  _   _ ____   ___ _____"
-    printf "\n | | | |  _ \ / _ \_   _|  Matteo Giorgi (Geoteo)"
-    printf "\n | | | | | | | | | || |    https://www.geoteo.net"
-    printf "\n | |_| | |_| | |_| || |    https://github.com/matteogiorgi/.udot"
-    printf "\n  \___/|____/ \___/ |_|\n\n"
+    printf "\n${YLW}%s${NC}"          "     _   _ ____   ___ _____"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | | | |  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | | | | | | | | | || |  " "  https://www.geoteo.net"
+    printf "\n${YLW}%s ${RED}%s${NC}" "    | |_| | |_| | |_| || |  " "  https://github.com/matteogiorgi/.udot"
+    printf "\n${YLW}%s${NC}\n\n"      "     \___/|____/ \___/ |_|"
 }
 
 warning () {
     if [ "$(id -u)" = 0 ]; then
-        printf "\n This script MUST NOT be run as root user since it makes changes"
-        printf "\n to the \$HOME directory of the \$USER executing this script."
-        printf "\n The \$HOME directory of the root user is, of course, '/root'."
-        printf "\n We don't want to mess around in there. So run this script as a"
-        printf "\n normal user. You will be asked for a sudo password when necessary.\n\n"
+        printf "\n${RED}%s${NC}"     "    This script MUST NOT be run as root user since it makes changes"
+        printf "\n${RED}%s${NC}"     "    to the \$HOME directory of the \$USER executing this script."
+        printf "\n${RED}%s${NC}"     "    The \$HOME directory of the root user is, of course, '/root'."
+        printf "\n${RED}%s${NC}"     "    We don't want to mess around in there. So run this script as a"
+        printf "\n${RED}%s${NC}\n\n" "    normal user. You will be asked for a sudo password when necessary."
         exit 1
     fi
+}
+
+error () {
+    clear
+    printf "ERROR: %s\n" "$1" >&2
+    exit 1
 }
 
 ask () {
@@ -113,8 +129,8 @@ restore () {
 
 
 
-### Start installer
-###################
+### Start uninstalling
+######################
 
 clear
 banner
@@ -123,23 +139,28 @@ warning
 if [[ -d $HOME/.udot-restore ]]; then
     RESTORE="$HOME/.udot-restore"
 else
-    printf " Nothing to restore\n"
+    printf "    Nothing to restore\n"
+    printf "    Launch ./setup.sh first\n\n"
     exit 1
 fi
 
-if ! ask " Confirm to start the '.udot' restore script" Y; then
+if ! ask "    Confirm to start the '.udot' restore script" Y; then
+    printf "\n"
     exit 0
 fi
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    ask " This is not a Ubuntu distro, continue anyway?" N
+    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
+        printf "\n"
+        exit 0
+    fi
 fi
 
 
 
 
-### Remove symlinks + restore
-#############################
+### Remove symlinks
+###################
 
 stow -D backgrounds
 stow -D bash
@@ -161,28 +182,37 @@ restore
 
 
 
-### Remove conf
-###############
+### Dmenu and St
+################
 
-printf "\n Removing dmenu and st\n"
+printf "\n"
+read -p "    Removing dmenu and st (enter to continue)"
+printf "\n"
+
 cd dmenu && sudo make clean uninstall
 cd ../st && sudo make clean uninstall
 cd ..
 
-printf "\n The following packages will be uninstalled:"
-printf "\n     xtermcontrol curl wget stow autorandr git atool trash-cli htop khal"
-printf "\n     xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono"
-printf "\n     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu"
-printf "\n     zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt"
-printf "\n     lxappearance qt5ct codium chromium-browser xournalpp flameshot\n"
-if ask " Confirm?" Y; then
-    sudo apt remove -qq -y \
-        xtermcontrol curl wget stow autorandr git atool trash-cli htop khal \
-        xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
-        i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
-        zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt \
-        lxappearance qt5ct codium chromium-browser xournalpp flameshot \
-        || error "Uninstalling packages"
+
+
+
+### Remove packages
+###################
+
+printf "\n"
+read -p "    Uninstalling packages (enter to continue)"
+printf "\n"
+
+sudo apt remove -qq -y \
+    xtermcontrol curl wget stow autorandr git atool trash-cli htop khal \
+    xclip ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
+    i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
+    zathura-pdf-poppler zathura-ps mpv sxiv redshift-gtk adwaita-qt \
+    lxappearance qt5ct chromium-browser xournalpp flameshot || error "uninstalling packages"
+
+if [[ -f /bin/snap ]]; then
+    sudo snap remove \
+        codium || error "uninstalling codium snap-package"
 fi
 
 
@@ -191,15 +221,22 @@ fi
 ### Remove language support
 ###########################
 
-printf "\n The following language support will be uninstalled:\n"
-printf "\n     gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle\n"
-printf "\n     python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc\n"
-if ask " Confirm?" Y; then
-    sudo apt remove -qq -y \
-        gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
-        python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc \
-        || error "Uninstalling language support"
-fi
+printf "\n"
+read -p "    Removing language support (enter to continue)"
+printf "\n"
+
+sudo apt remove -qq -y \
+    gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
+    python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc || error "uninstalling language support"
+
+
+
+
+### Reload ~/.profile and ~/.bashrc
+###################################
+
+. ~/.profile
+case $- in *i*) . ~/.bashrc;; esac
 
 
 
@@ -207,4 +244,4 @@ fi
 ### Goodby
 ##########
 
-printf "\n Restoring completed\n\n"
+printf "\n    Restoring completed\n\n"

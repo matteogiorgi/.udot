@@ -140,8 +140,8 @@ backup () {
 
 
 
-### Start installer
-###################
+### Start installing
+####################
 
 clear
 banner
@@ -270,8 +270,8 @@ fi
 
 
 
-### Reload .profile
-###################
+### Reload ~/.profile and ~/.bashrc
+###################################
 
 . ~/.profile
 case $- in *i*) . ~/.bashrc;; esac
