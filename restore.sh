@@ -186,7 +186,6 @@ restore
 ### Dmenu and St
 ################
 
-printf "\n"
 read -p "    Removing dmenu and st (enter to continue)"
 printf "\n"
 
