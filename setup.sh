@@ -147,6 +147,13 @@ clear
 banner
 warning
 
+if ! uname -a | grep Ubuntu &> /dev/null; then
+    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
+        printf "\n"
+        exit 0
+    fi
+fi
+
 if [[ ! -d $HOME/.udot-restore ]]; then
     mkdir $HOME/.udot-restore
     RESTORE="$HOME/.udot-restore"
@@ -159,13 +166,6 @@ fi
 if ! ask "    Confirm to start the '.udot' install script" Y; then
     printf "\n"
     exit 0
-fi
-
-if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
-        printf "\n"
-        exit 0
-    fi
 fi
 
 

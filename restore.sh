@@ -136,6 +136,13 @@ clear
 banner
 warning
 
+if ! uname -a | grep Ubuntu &> /dev/null; then
+    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
+        printf "\n"
+        exit 0
+    fi
+fi
+
 if [[ -d $HOME/.udot-restore ]]; then
     RESTORE="$HOME/.udot-restore"
 else
@@ -147,13 +154,6 @@ fi
 if ! ask "    Confirm to start the '.udot' restore script" Y; then
     printf "\n"
     exit 0
-fi
-
-if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
-        printf "\n"
-        exit 0
-    fi
 fi
 
 
@@ -205,15 +205,15 @@ printf "\n"
 
 # the following packages aren't going to be uninstalled:
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-# git curl libx11-dev libxinerama-dev libxft-dev libncurses-dev wamerican witalian
-# fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
+# git curl libx11-dev libxinerama-dev libxft-dev libncurses-dev make gcc
+# wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
 sudo apt remove -qq -y \
-    xtermcontrol wget stow autorandr atool trash-cli htop khal make gcc \
-    xclip fzf ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
+    xtermcontrol wget stow autorandr atool trash-cli htop khal xclip fzf \
+    ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
     i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
-    lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted
+    lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
 
 
 
@@ -236,11 +236,11 @@ sudo apt remove -qq -y \
 
 
 
-### Reload ~/.profile and ~/.bashrc
-###################################
+### Reload ~/.profile and autoremove
+####################################
 
 . ~/.profile
-case $- in *i*) . ~/.bashrc;; esac
+sudo apt autoremove
 
 
 
