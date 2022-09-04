@@ -242,14 +242,14 @@ sudo apt remove -qq -y \
 
 
 
-### Autoremove and logout
+### Autoremove and reboot
 #########################
 
 sudo apt autoremove -qq -y || error "autoremove"
 
 printf "\n"
-read -p "    Restoring completed (enter to logout)"
+read -p "    Restoring completed (enter to reboot)"
 printf "\n"
 
 kill_apps
-killall i3
+systemctl reboot

@@ -279,4 +279,4 @@ read -p "    Installation completed (enter to logout)"
 printf "\n"
 
 kill_apps
-kill $(pgrep X) &
+kill $(pgrep X)
