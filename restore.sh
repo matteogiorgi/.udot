@@ -252,4 +252,4 @@ read -p "    Restoring completed (enter to logout)"
 printf "\n"
 
 kill_apps
-kill $(pgrep X) &
+killall i3
