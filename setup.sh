@@ -41,6 +41,12 @@ warning () {
     fi
 }
 
+kill_apps() {
+    while read -r app; do
+        wmctrl -i -c "$app"
+    done < <(wmctrl -l | awk '{print $1}')
+}
+
 error () {
     clear
     printf "ERROR: %s\n" "$1" >&2
@@ -265,16 +271,12 @@ fi
 
 
 
-### Reload ~/.profile and ~/.bashrc
-###################################
-
-. ~/.profile
-case $- in *i*) . ~/.bashrc;; esac
-
-
-
-
-### Goodby
+### Logout
 ##########
 
-printf "    Installation completed\n\n"
+printf "\n"
+read -p "    Installation completed (enter to logout)"
+printf "\n"
+
+kill_apps
+killall i3

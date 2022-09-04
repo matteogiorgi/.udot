@@ -38,6 +38,12 @@ warning () {
     fi
 }
 
+kill_apps() {
+    while read -r app; do
+        wmctrl -i -c "$app"
+    done < <(wmctrl -l | awk '{print $1}')
+}
+
 error () {
     clear
     printf "ERROR: %s\n" "$1" >&2
@@ -236,16 +242,14 @@ sudo apt remove -qq -y \
 
 
 
-### Reload ~/.profile and autoremove
-####################################
+### Autoremove and logout
+#########################
 
-. ~/.profile
 sudo apt autoremove
 
+printf "\n"
+read -p "    Restoring completed (enter to logout)"
+printf "\n"
 
-
-
-### Goodby
-##########
-
-printf "\n    Restoring completed\n\n"
+kill_apps
+killall i3
