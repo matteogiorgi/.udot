@@ -262,4 +262,4 @@ read -p "    Restoring completed (enter to reboot)"
 printf "\n"
 
 kill_apps
-systemctl reboot > /dev/null
+systemctl reboot
