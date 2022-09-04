@@ -245,7 +245,7 @@ sudo apt remove -qq -y \
 ### Autoremove and logout
 #########################
 
-sudo apt autoremove
+sudo apt autoremove -qq -y || error "autoremove"
 
 printf "\n"
 read -p "    Restoring completed (enter to logout)"
