@@ -211,7 +211,7 @@ printf "\n"
 
 # the following packages aren't going to be uninstalled:
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-# git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev make gcc
+# wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev make gcc
 # wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
 sudo apt remove -qq -y \
@@ -252,4 +252,4 @@ read -p "    Restoring completed (enter to logout)"
 printf "\n"
 
 kill_apps
-killall i3
+kill $(pgrep X) &

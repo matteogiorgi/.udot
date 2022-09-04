@@ -41,7 +41,7 @@ warning () {
     fi
 }
 
-kill_apps() {
+kill_apps () {
     while read -r app; do
         wmctrl -i -c "$app"
     done < <(wmctrl -l | awk '{print $1}')
@@ -196,7 +196,7 @@ read -p "    Installing utilities (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
-    xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
+    wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip fzf ripgrep wamerican \
     witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono || error "installing dependencies"
 
@@ -279,4 +279,4 @@ read -p "    Installation completed (enter to logout)"
 printf "\n"
 
 kill_apps
-killall i3
+kill $(pgrep X) &
