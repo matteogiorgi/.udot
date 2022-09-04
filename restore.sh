@@ -242,10 +242,20 @@ sudo apt remove -qq -y \
 
 
 
-### Autoremove and reboot
-#########################
+### Autoremove
+##############
+
+printf "\n"
+read -p "    Launching autoremove (enter to continue)"
+printf "\n"
 
 sudo apt autoremove -qq -y || error "autoremove"
+
+
+
+
+### Reboot
+##########
 
 printf "\n"
 read -p "    Restoring completed (enter to reboot)"
