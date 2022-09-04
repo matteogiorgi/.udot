@@ -78,7 +78,23 @@ UXTerm*cursorColor: #FFFFFF
 
 
 
-!!! sxiv config
+!!! Zutty config
+!!!!!!!!!!!!!!!!
+
+Zutty.title: zutty
+Zutty.geometry: 120x45
+Zutty.altScroll: true
+Zutty.boldColors: true
+Zutty.font: UbuntuMono
+Zutty.fontsize: 13
+Zutty.bg: #000000
+Zutty.fg: #FFFFFF
+Zutty.cr: #FFFFFF
+
+
+
+
+!!! Sxiv config
 !!!!!!!!!!!!!!!
 
 Sxiv.background: #E5E5E5
@@ -88,7 +104,7 @@ Sxiv.font: Ubuntu Mono:style=Regular:size=10
 
 
 
-!!! XTerm palette
+!!! Color palette
 !!!!!!!!!!!!!!!!!
 
 *.color0:  #171421

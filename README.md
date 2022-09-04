@@ -27,8 +27,8 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ```
 xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc
-libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip ripgrep wamerican witalian
-source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono
+libx11-dev libxinerama-dev libxft-dev libncurses-dev xclip fzf ripgrep wamerican
+witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 ```
 
 
@@ -37,9 +37,9 @@ source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 ## Main packages
 
 ```
-i3-wm i3lock arandr xterm tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler
+i3-wm i3lock arandr xterm zutty tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler
 zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra
-adwaita-qt lxappearance qt5ct codium chromium-browser xournalpp flameshot pavucontrol gparted
+adwaita-qt lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted
 ```
 
 

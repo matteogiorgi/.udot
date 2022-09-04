@@ -253,7 +253,7 @@ print() {
 }
 
 # default value
-: "${info:=user os sh wm up gtk cpu mem host kern pkgs term col n}"
+: "${info:=user os sh wm up gtk cpu mem host kern pkgs term zig n}"
 
 for i in $info; do
 	case $i in
@@ -270,6 +270,7 @@ for i in $info; do
 		pkgs) print pkgs "$pkgs";;
 		term) print term "$term";;
 		user) printf '%7s@%s\n' "$USER" "$host";;
+        zig) printf '  ¯¯¯¯¯¯¯¯¯¯¯¯';;
 		col) col;;
 	esac
 done
