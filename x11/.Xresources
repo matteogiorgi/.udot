@@ -82,7 +82,7 @@ UXTerm*cursorColor: #FFFFFF
 !!!!!!!!!!!!!!!!
 
 Zutty.title: zutty
-Zutty.geometry: 120x45
+Zutty.geometry: 80x24
 Zutty.altScroll: true
 Zutty.boldColors: true
 Zutty.font: UbuntuMono

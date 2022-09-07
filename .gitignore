@@ -52,6 +52,24 @@
 
 
 
+### SLOCK
+#########
+
+/slock/*
+!/slock/arg.h
+!/slock/config.def.h
+!/slock/config.mk
+!/slock/explicit_bzero.c
+!/slock/LICENSE
+!/slock/Makefile
+!/slock/README.md
+!/slock/st.1
+!/slock/st.c
+!/slock/util.h
+
+
+
+
 ### VIM
 #######
 

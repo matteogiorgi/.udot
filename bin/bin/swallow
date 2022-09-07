@@ -39,34 +39,34 @@ echo "$1" | grep "\.sent$" && {
 
 # check the relative mime-type here:
 # https://www.iana.org/assignments/media-types/media-types.xhtml
-case $(file --mime-type "$FILE" -bL) in
+case $(file --mime-type "${FILE}" -bL) in
     audio/*)
         clear &&
-        _mpv "$FILE"
+        _mpv "${FILE}"
         ;;
     video/*)
-        _xhide "mpv --force-window '$FILE'"
+        _xhide "mpv --force-window '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xhide "zathura '$FILE'"
+        _xhide "zathura '${FILE}'"
         ;;
     image/*)
-        _xhide "esxiv '$FILE'"
+        _xhide "esxiv '${FILE}'"
         ;;
     *)
         if [[ ! -n $NAMES  || ! -f "/bin/fzf" ]]; then
-            "${EDITOR:=vi}" "$FILE"
+            "${EDITOR:=vi}" "${FILE}"
             exit 0
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
             Vim)
-                vim $FILE
+                vim "${FILE}"
                 ;;
             Kakoune)
-                kak $FILE
+                kak "${FILE}"
                 ;;
             Nano)
-                nano $FILE
+                nano "${FILE}"
                 ;;
             *)
                 exit 1

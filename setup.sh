@@ -211,7 +211,7 @@ read -p "    Installing main packages (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
-    i3-wm i3lock arandr xterm zutty tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
+    i3-wm xautolock arandr xterm zutty tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
     adwaita-qt lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "installing main packages"
 
@@ -222,11 +222,12 @@ sudo apt install -qq -y \
 ################
 
 printf "\n"
-read -p "    Compiling dmenu and st (enter to continue)"
+read -p "    Compiling dmenu, st and slock (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean install
 cd ../st && sudo make clean install
+cd ../slock && sudo make clean install
 cd ..
 
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# this function close every window controlled by
+# the window-manager (to be used befor a Logout)
 kill_apps() {
     while read -r app; do
         wmctrl -i -c "$app"
@@ -9,7 +11,7 @@ kill_apps() {
 CHOICE=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -b | cut -d ':' -f 1)
 case "$CHOICE" in
     Lock)
-        i3lock --color=285577
+        slock
         ;;
     Logout)
         kill_apps

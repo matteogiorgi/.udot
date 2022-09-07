@@ -9,7 +9,7 @@ st is a simple terminal emulator for X which sucks less. This fork has the follo
 
 ## Requirements
 
-In order to build st you need the Xlib header files plus, consider to install [some patched font](https://github.com/matteogiorgi/.dotfiles/tree/master/themes/.local/share/fonts) since the default one is `mononoki Nerd Font`.
+In order to build dmenu you need the Xlib header files plus, install [*Ubuntu Mono Font*](https://design.ubuntu.com/font) with `apt install fonts-ubuntu` since it is set as default.
 
 
 ## Installation
@@ -17,12 +17,13 @@ In order to build st you need the Xlib header files plus, consider to install [s
 First clone this repo:
 
 ```
-git clone https://github.com/matteogiorgi/st.git
+git clone https://github.com/matteogiorgi/.udot.git
 ```
 
 Then edit config.mk to match your local setup (st is installed into the `/usr/local` namespace by default). Afterwards enter the following command to build and install st (if necessary as root):
 
 ```
+cd st
 make clean install
 ```
 

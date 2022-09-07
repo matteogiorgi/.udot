@@ -192,11 +192,12 @@ restore
 ### Dmenu and St
 ################
 
-read -p "    Removing dmenu and st (enter to continue)"
+read -p "    Removing dmenu, st, and slock (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean uninstall
 cd ../st && sudo make clean uninstall
+cd ../slock && sudo make clean uninstall
 cd ..
 
 
@@ -217,7 +218,7 @@ printf "\n"
 sudo apt remove -qq -y \
     wmctrl xtermcontrol stow autorandr atool trash-cli htop khal xclip fzf \
     ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
-    i3-wm i3lock arandr xterm zutty tmux vim-gtk3 kakoune nano zathura zathura-djvu \
+    i3-wm xautolock arandr xterm zutty tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
     lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
 
