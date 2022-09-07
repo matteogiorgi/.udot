@@ -212,8 +212,8 @@ printf "\n"
 
 # the following packages aren't going to be uninstalled:
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-# wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev make gcc
-# wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
+# wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev make
+# gcc wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
 sudo apt remove -qq -y \
     wmctrl xtermcontrol stow autorandr atool trash-cli htop khal xclip fzf \
