@@ -63,8 +63,8 @@
 !/slock/LICENSE
 !/slock/Makefile
 !/slock/README.md
-!/slock/st.1
-!/slock/st.c
+!/slock/slock.1
+!/slock/slock.c
 !/slock/util.h
 
 
