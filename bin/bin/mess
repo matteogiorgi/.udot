@@ -27,14 +27,14 @@ else
             ${MESS} "$FILE"
             ;;
         *)
-            echo "                             "
-            echo "  .-----------------------.  "
-            echo "  |  No preview, sry ...  |  "
-            echo "  '-----------------------'  "
-            echo "      |                      "
-            echo "      |      (\_/)           "
-            echo "      '----- (O.o)           "
-            echo "             (> <)           "
-            echo "                             "
+            echo "                               "
+            echo "  .-------------------------.  "
+            echo "  |  Sry mate, no preview.  |  "
+            echo "  '-------------------------'  "
+            echo "      |                        "
+            echo "      |      (\_/)             "
+            echo "      '----- (O.o)             "
+            echo "             (> <)             "
+            echo "                               "
     esac
 fi
