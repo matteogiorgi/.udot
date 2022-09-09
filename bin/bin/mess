@@ -23,7 +23,18 @@ else
         text/*)
             ${PRINT} "$FILE" | ${MESS}
             ;;
-        *)
+        application/pdf | application/postscript | application/djvu)
             ${MESS} "$FILE"
+            ;;
+        *)
+            echo "                             "
+            echo "  .-----------------------.  "
+            echo "  |  No preview, sry ...  |  "
+            echo "  '-----------------------'  "
+            echo "      |                      "
+            echo "      |      (\_/)           "
+            echo "      '----- (O.o)           "
+            echo "             (> <)           "
+            echo "                             "
     esac
 fi

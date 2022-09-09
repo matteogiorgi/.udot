@@ -218,7 +218,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ### Source stuff
 ################
 
-[[ -f $HOME/bin/fet ]] && $HOME/bin/fet
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
