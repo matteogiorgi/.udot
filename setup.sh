@@ -211,7 +211,7 @@ read -p "    Installing main packages (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
-    i3-wm xautolock arandr xterm zutty tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
+    i3-wm xautolock arandr xterm rxvt-unicode tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
     zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
     adwaita-qt lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "installing main packages"
 

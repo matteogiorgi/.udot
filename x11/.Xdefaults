@@ -102,22 +102,8 @@ URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.keysym.Control-Shift-c: perl:clipboard:copy
 URxvt.keysym.Control-Shift-v: perl:clipboard:paste
-
-
-
-
-!!! Zutty config
-!!!!!!!!!!!!!!!!
-
-Zutty.title: zutty
-Zutty.geometry: 80x24
-Zutty.altScroll: true
-Zutty.boldColors: true
-Zutty.font: UbuntuMono
-Zutty.fontsize: 13
-Zutty.bg: #000000
-Zutty.fg: #FFFFFF
-Zutty.cr: #FFFFFF
+URxvt.keysym.Control-Shift-Up: command:\033]720;1\007
+URxvt.keysym.Control-Shift-Down: command:\033]721;1\007
 
 
 
