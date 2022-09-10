@@ -100,10 +100,10 @@ URxvt.iso14755_52: false
 URxvt.perl-ext-common: ...,clipboard,resize-font
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
-URxvt.keysym.Control-Shift-c: perl:clipboard:copy
-URxvt.keysym.Control-Shift-v: perl:clipboard:paste
-URxvt.keysym.Control-Shift-Up: command:\033]720;1\007
-URxvt.keysym.Control-Shift-Down: command:\033]721;1\007
+URxvt.keysym.C-c: perl:clipboard:copy
+URxvt.keysym.C-v: perl:clipboard:paste
+URxvt.keysym.C-Up: command:\033]720;1\007
+URxvt.keysym.C-Down: command:\033]721;1\007
 
 
 

@@ -28,12 +28,12 @@ else
             ;;
         *)
             echo "                               "
-            echo "  .-------------------------.  "
-            echo "  |  Sry mate, no preview.  |  "
-            echo "  '-------------------------'  "
-            echo "      |                        "
-            echo "      |      (\_/)             "
-            echo "      '----- (O.o)             "
+            echo "  ┌─────────────────────────┐  "
+            echo "  │  Sry mate, no preview.  │  "
+            echo "  └───┬─────────────────────┘  "
+            echo "      │                        "
+            echo "      │      (\_/)             "
+            echo "      └───── (O.o)             "
             echo "             (> <)             "
             echo "                               "
     esac
