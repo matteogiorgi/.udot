@@ -231,7 +231,7 @@ for_window [instance="scratchpad"] move scratchpad
 ### Usefull binds
 #################
 
-bindsym $mod+Return exec st
+bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 bindsym $mod+Shift+q kill
 
