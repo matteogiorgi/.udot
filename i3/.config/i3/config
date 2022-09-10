@@ -138,6 +138,17 @@ bindsym $mod+Shift+BackSpace move container to workspace prev
 
 
 
+### Bind programs
+#################
+
+assign [class="Google-chrome"] $ws1
+assign [class="Chromium"] $ws1
+assign [class="Code"] $ws10
+assign [class="VSCodium"] $ws10
+
+
+
+
 ### Resize window
 #################
 
