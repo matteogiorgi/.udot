@@ -71,7 +71,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "breadcrumbs.enabled": true,
     "telemetry.telemetryLevel": "off",
     "window.menuBarVisibility": "hidden",
-    "window.restoreWindows": "none",
+    "window.restoreWindows": "all",
     "editor.fontFamily": "'JetBrains Mono', 'monospace'",
     "editor.fontLigatures": true,
     "editor.fontSize": 11,

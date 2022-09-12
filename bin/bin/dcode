@@ -1,26 +1,24 @@
 #!/usr/bin/env bash
 
 if [[ -x "$(command -v code)" ]]; then
-    NAMES="VSCode\nHOME"$NAMES; CODE="code"
+    COMMAND="code"; CODE="VSCode"
 elif [[ -x "$(command -v codium)" ]]; then
-    NAMES="VSCodium\nHOME"$NAMES; CODE="codium"
-fi
-
-if [[ ! -n $NAMES ]]; then
+    COMMAND="codium"; CODE="VSCodium"
+else
     dmenu_run -i -b
     exit 0
 fi
 
-CHOICE=$(echo -e "$NAMES" | dmenu -i -b | cut -d ':' -f 1)
+CHOICE=$(echo -e "$CODE\nNewWindow\nHOME" | dmenu -i -b | cut -d ':' -f 1)
 case "$CHOICE" in
-    VSCode)
-        code
+    $CODE)
+        $COMMAND
         ;;
-    VSCodium)
-        codium
+    NewWindow)
+        $COMMAND --new-window
         ;;
     HOME)
-        $CODE $HOME
+        $COMMAND $HOME
         ;;
     *)
         exit 1
