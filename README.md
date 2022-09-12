@@ -27,9 +27,9 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ```
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop khal
-make gcc libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev
-xclip fzf ripgrep wamerican witalian source-highlight xdo feh pandoc texlive
-fonts-ubuntu fonts-jetbrains-mono
+make gcc lxpolkit libx11-dev libxinerama-dev libxft-dev libncurses-dev
+libxrandr-dev xclip fzf ripgrep wamerican witalian source-highlight xdo feh
+pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 ```
 
 
