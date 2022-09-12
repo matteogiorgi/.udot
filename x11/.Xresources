@@ -85,7 +85,7 @@ URxvt.font: xft:Ubuntu Mono:size=9
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 80x24
-URxvt.internalBorder: 5
+URxvt.internalBorder: 2
 URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
 URxvt.saveline: 2048

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+# keyboard layout
+if [[ -f /bin/setxkbmap ]]; then
+    if [[ ! -f $HOME/.layout ]]; then
+        printf "#!/bin/sh\nsetxkbmap -layout us\n" > $HOME/.layout
+        chmod 755 $HOME/.layout
+    fi
+    $HOME/.layout
+fi
+
+# special keys
+if [[ -f /bin/xmodmap && -f $HOME/.Xmodmap ]]; then
+    xmodmap $HOME/.Xmodmap
+fi

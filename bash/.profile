@@ -76,14 +76,5 @@ fi
 ### Create and/or source xinput variables
 #########################################
 
-[[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''" > $HOME/.xinput.bash
+[[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''\n" > $HOME/.xinput.bash
 source $HOME/.xinput.bash
-
-
-
-
-### Set keyboard layout and special keys
-########################################
-
-[[ -f /bin/setxkbmap ]] && setxkbmap -layout it
-[[ -d $HOME/.Xmodmap ]] && xmodmap $HOME/.Xmodmap

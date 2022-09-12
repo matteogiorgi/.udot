@@ -210,17 +210,17 @@ function _xlayout () {
     while read response; do
         case $response in
             1)
-                setxkbmap -layout it
+                printf "#!/bin/sh\nsetxkbmap -layout it\n" > $HOME/.layout
                 printf "${RED}%s${YLW}%s${NC}\n" "Layout " "IT"
                 break
                 ;;
             2)
-                setxkbmap -layout us
+                printf "#!/bin/sh\nsetxkbmap -layout us\n" > $HOME/.layout
                 printf "${RED}%s${YLW}%s${NC}\n" "Layout " "US"
                 break
                 ;;
             3)
-                setxkbmap -layout gb
+                printf "#!/bin/sh\nsetxkbmap -layout gb\n" > $HOME/.layout
                 printf "${RED}%s${YLW}%s${NC}\n" "Layout " "GB"
                 break
                 ;;
@@ -230,7 +230,9 @@ function _xlayout () {
         esac
     done
 
-    xmodmap ~/.Xmodmap
+    chmod 755 $HOME/.layout
+    $HOME/.layout
+    xmodmap $HOME/.Xmodmap
 }
 
 
