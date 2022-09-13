@@ -186,16 +186,6 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
-## FFF vars
-###########
-
-export FFF_CD_ON_EXIT=1
-export FFF_OPENER="swallow"
-export FFF_TRASH_CMD="trash"
-
-
-
-
 ## Less colors
 ##############
 

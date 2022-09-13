@@ -78,3 +78,12 @@ fi
 
 [[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''\n" > $HOME/.xinput.bash
 source $HOME/.xinput.bash
+
+
+
+
+### i3-sensible-variables
+########################à
+
+export TERMINAL="/usr/local/bin/st"
+export VISUAL="/bin/vi"

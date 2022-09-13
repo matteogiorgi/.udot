@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 
-# spawn a scratchpad as well as i3 is running
-# `st -n scratchpad -e tmux &` for a new session
+# spawn a scratchpad as long as i3 is running
 while pgrep -x "i3"; do
-    st -n scratchpad -e tmux &
+    i3-sensible-terminal -n scratchpad -e tmux &
     wait $!
 done
