@@ -184,6 +184,7 @@ stow -D zathura
 
 restore
 [[ -d $RESTORE ]] && rm -rf $RESTORE
+[[ -d $HOME/.tmp ]] && rm -rf $HOME/.tmp
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
 
 
@@ -271,7 +272,7 @@ read -p "    Removing Snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    sudo apt install snapd
+    sudo apt purge -qq -y snapd
     sudo snap remove --purge codium
     sudo snap remove --purge chromium
     sudo snap remove --purge ferdium

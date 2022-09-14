@@ -279,7 +279,7 @@ sudo apt install -qq -y \
 printf "\n"
 if ask "    Add snap packages?" Y; then
     printf "\n"
-    [[ ! -x "$(command -v snap)" ]] && sudo apt install snapd
+    [[ ! -x "$(command -v snap)" ]] && sudo apt install -qq -y snapd
     sudo snap install --classic codium
     sudo snap install chromium
     sudo snap install ferdium
