@@ -260,14 +260,21 @@ sudo apt purge -qq -y \
     pavucontrol \
     gparted
 
+
+
+
+### Remove Snap packages
+########################
+
+printf "\n"
+read -p "    Removing Snap packages (enter to continue)"
+printf "\n"
+
 if [[ -x "$(command -v snap)" ]]; then
+    sudo apt install snapd
     sudo snap remove --purge codium
     sudo snap remove --purge chromium
     sudo snap remove --purge ferdium
-elif [[ -x "$(command -v flatpak)" ]]; then
-    flatpak uninstall --delete-data com.vscodium.codium
-    flatpak uninstall --delete-data org.chromium.Chromium
-    flatpak uninstall --delete-data org.ferdium.Ferdium
 fi
 
 
