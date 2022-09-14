@@ -189,8 +189,8 @@ restore
 
 
 
-### Dmenu and St
-################
+### Dmenu, St and Slock
+#######################
 
 read -p "    Removing dmenu, st, and slock (enter to continue)"
 printf "\n"
@@ -215,12 +215,51 @@ printf "\n"
 # wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev make
 # gcc wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
-sudo apt remove -qq -y \
-    wmctrl xtermcontrol stow autorandr atool trash-cli htop khal lxpolkit xclip \
-    fzf ripgrep source-highlight xdo feh mediainfo pandoc texlive fonts-jetbrains-mono \
-    i3-wm xautolock arandr xterm rxvt-unicode tmux vim-gtk3 kakoune nano zathura zathura-djvu \
-    zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
-    lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted
+sudo apt remove -qq -y wmctrl
+sudo apt remove -qq -y xtermcontrol
+sudo apt remove -qq -y stow
+sudo apt remove -qq -y autorandr
+sudo apt remove -qq -y atool
+sudo apt remove -qq -y trash-cli
+sudo apt remove -qq -y htop
+sudo apt remove -qq -y khal
+sudo apt remove -qq -y lxpolkit
+sudo apt remove -qq -y xclip
+sudo apt remove -qq -y fzf
+sudo apt remove -qq -y ripgrep
+sudo apt remove -qq -y source-highlight
+sudo apt remove -qq -y xdo
+sudo apt remove -qq -y feh
+sudo apt remove -qq -y mediainfo
+sudo apt remove -qq -y pandoc
+sudo apt remove -qq -y texlive
+sudo apt remove -qq -y fonts-jetbrains-mono
+sudo apt remove -qq -y i3-wm
+sudo apt remove -qq -y xautolock
+sudo apt remove -qq -y arandr
+sudo apt remove -qq -y xterm
+sudo apt remove -qq -y rxvt-unicode
+sudo apt remove -qq -y tmux
+sudo apt remove -qq -y vim-gtk3
+sudo apt remove -qq -y kakoune
+sudo apt remove -qq -y nano
+sudo apt remove -qq -y zathura
+sudo apt remove -qq -y zathura-djvu
+sudo apt remove -qq -y zathura-pdf-poppler
+sudo apt remove -qq -y zathura-ps
+sudo apt remove -qq -y mpv
+sudo apt remove -qq -y sxiv
+sudo apt remove -qq -y blueman
+sudo apt remove -qq -y redshift-gtk
+sudo apt remove -qq -y adwaita-qt
+sudo apt remove -qq -y lxappearance
+sudo apt remove -qq -y qt5ct
+sudo apt remove -qq -y code
+sudo apt remove -qq -y google-chrome-stable
+sudo apt remove -qq -y xournalpp
+sudo apt remove -qq -y flameshot
+sudo apt remove -qq -y pavucontrol
+sudo apt remove -qq -y gparted
 
 
 
@@ -236,9 +275,21 @@ printf "\n"
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 # build-essential python3
 
-sudo apt remove -qq -y \
-    gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
-    python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc
+sudo apt remove -qq -y gdb
+sudo apt remove -qq -y cgdb
+sudo apt remove -qq -y openjdk-18-jdk
+sudo apt remove -qq -y openjdk-18-doc
+sudo apt remove -qq -y openjdk-18-source
+sudo apt remove -qq -y ant
+sudo apt remove -qq -y maven
+sudo apt remove -qq -y gradle
+sudo apt remove -qq -y python3-pip
+sudo apt remove -qq -y golang-go
+sudo apt remove -qq -y golang-golang-x-tools
+sudo apt remove -qq -y ocaml-batteries-included
+sudo apt remove -qq -y ocaml-man
+sudo apt remove -qq -y opam
+sudo apt remove -qq -y opam-doc
 
 
 

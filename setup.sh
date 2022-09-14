@@ -195,10 +195,40 @@ printf "\n"
 read -p "    Installing utilities (enter to continue)"
 printf "\n"
 
-sudo apt install -qq -y \
-    wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc lxpolkit \
-    libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev xclip fzf ripgrep wamerican \
-    witalian source-highlight xdo feh ffmpeg poppler-utils mediainfo pandoc texlive fonts-ubuntu fonts-jetbrains-mono
+sudo apt install -qq -y wmctrl
+sudo apt install -qq -y xtermcontrol
+sudo apt install -qq -y curl
+sudo apt install -qq -y wget
+sudo apt install -qq -y stow
+sudo apt install -qq -y autorandr
+sudo apt install -qq -y git
+sudo apt install -qq -y atool
+sudo apt install -qq -y trash-cli
+sudo apt install -qq -y htop
+sudo apt install -qq -y khal
+sudo apt install -qq -y make
+sudo apt install -qq -y gcc
+sudo apt install -qq -y lxpolkit
+sudo apt install -qq -y libx11-dev
+sudo apt install -qq -y libxinerama-dev
+sudo apt install -qq -y libxft-dev
+sudo apt install -qq -y libncurses-dev
+sudo apt install -qq -y libxrandr-dev
+sudo apt install -qq -y xclip
+sudo apt install -qq -y fzf
+sudo apt install -qq -y ripgrep
+sudo apt install -qq -y wamerican
+sudo apt install -qq -y witalian
+sudo apt install -qq -y source-highlight
+sudo apt install -qq -y xdo
+sudo apt install -qq -y feh
+sudo apt install -qq -y ffmpeg
+sudo apt install -qq -y poppler-utils
+sudo apt install -qq -y mediainfo
+sudo apt install -qq -y pandoc
+sudo apt install -qq -y texlive
+sudo apt install -qq -y fonts-ubuntu
+sudo apt install -qq -y fonts-jetbrains-mono
 
 
 
@@ -210,16 +240,41 @@ printf "\n"
 read -p "    Installing main packages (enter to continue)"
 printf "\n"
 
-sudo apt install -qq -y \
-    i3-wm xautolock arandr xterm rxvt-unicode tmux vim-gtk3 kakoune nano zathura zathura-djvu zathura-pdf-poppler \
-    zathura-ps mpv sxiv blueman network-manager redshift-gtk adwaita-icon-theme gnome-themes-extra \
-    adwaita-qt lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted
+sudo apt install -qq -y i3-wm
+sudo apt install -qq -y xautolock
+sudo apt install -qq -y arandr
+sudo apt install -qq -y xterm
+sudo apt install -qq -y rxvt-unicode
+sudo apt install -qq -y tmux
+sudo apt install -qq -y vim-gtk3
+sudo apt install -qq -y kakoune
+sudo apt install -qq -y nano
+sudo apt install -qq -y zathura
+sudo apt install -qq -y zathura-djvu
+sudo apt install -qq -y zathura-pdf-poppler
+sudo apt install -qq -y zathura-ps
+sudo apt install -qq -y mpv
+sudo apt install -qq -y sxiv
+sudo apt install -qq -y blueman
+sudo apt install -qq -y network-manager
+sudo apt install -qq -y redshift-gtk
+sudo apt install -qq -y adwaita-icon-theme
+sudo apt install -qq -y gnome-themes-extra
+sudo apt install -qq -y adwaita-qt
+sudo apt install -qq -y lxappearance
+sudo apt install -qq -y qt5ct
+sudo apt install -qq -y code
+sudo apt install -qq -y google-chrome-stable
+sudo apt install -qq -y xournalpp
+sudo apt install -qq -y flameshot
+sudo apt install -qq -y pavucontrol
+sudo apt install -qq -y gparted
 
 
 
 
-### Dmenu and St
-################
+### Dmenu, St and Slock
+#######################
 
 printf "\n"
 read -p "    Compiling dmenu, st and slock (enter to continue)"
@@ -261,10 +316,23 @@ stow zathura
 printf "\n"
 if ask "    Add language support?" Y; then
     printf "\n"
-    sudo apt install -qq -y \
-        build-essential gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source \
-        ant maven gradle python3 python3-pip golang-go golang-golang-x-tools \
-        ocaml-batteries-included ocaml-man opam opam-doc
+    sudo apt install -qq -y build-essential
+    sudo apt install -qq -y gdb
+    sudo apt install -qq -y cgdb
+    sudo apt install -qq -y openjdk-18-jdk
+    sudo apt install -qq -y openjdk-18-doc
+    sudo apt install -qq -y openjdk-18-source
+    sudo apt install -qq -y ant
+    sudo apt install -qq -y maven
+    sudo apt install -qq -y gradle
+    sudo apt install -qq -y python3
+    sudo apt install -qq -y python3-pip
+    sudo apt install -qq -y golang-go
+    sudo apt install -qq -y golang-golang-x-tools
+    sudo apt install -qq -y ocaml-batteries-included
+    sudo apt install -qq -y ocaml-man
+    sudo apt install -qq -y opam
+    sudo apt install -qq -y opam-doc
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
     printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
 fi
