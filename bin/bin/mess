@@ -70,6 +70,7 @@ else
             [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || no_preview
             ;;
         image/*)
+            # remember to install PIL/Pillow: pip3 install PIL/Pillow
             [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || no_preview
             ;;
         *)
