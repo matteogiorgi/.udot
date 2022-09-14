@@ -70,10 +70,9 @@ else
             [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || no_preview
             ;;
         image/*)
-            [[ -x "$(command -v tcv)" ]] && tcv "$FILE" | ${MESS} || no_preview
+            [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || no_preview
             ;;
         *)
             no_preview
     esac
-    [[ -f $HOME/.temp.png ]] && rm $HOME/.temp.png
 fi
