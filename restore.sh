@@ -215,7 +215,7 @@ printf "\n"
 # wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev make
 # gcc wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
-sudo apt remove -qq -y \
+sudo apt purge -qq -y \
     wmctrl \
     xtermcontrol \
     stow \
@@ -260,22 +260,14 @@ sudo apt remove -qq -y \
     pavucontrol \
     gparted
 
-
-
-
-### Remove Snap packages
-########################
-
-printf "\n"
-read -p "    Removing snap packages (enter to continue)"
-printf "\n"
-
 if [[ -x "$(command -v snap)" ]]; then
-    sudo snap remove codium
-    sudo snap remove chromium
-    sudo snap remove ferdium
-else
-    printf "Snap package manager not found\n"
+    sudo snap remove --purge codium
+    sudo snap remove --purge chromium
+    sudo snap remove --purge ferdium
+elif [[ -x "$(command -v flatpak)" ]]; then
+    flatpak uninstall --delete-data com.vscodium.codium
+    flatpak uninstall --delete-data org.chromium.Chromium
+    flatpak uninstall --delete-data org.ferdium.Ferdium
 fi
 
 
@@ -292,7 +284,7 @@ printf "\n"
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 # build-essential python3
 
-sudo apt remove -qq -y \
+sudo apt purge -qq -y \
     gdb \
     cgdb \
     openjdk-18-jdk \

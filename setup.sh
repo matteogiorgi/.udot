@@ -270,22 +270,15 @@ sudo apt install -qq -y \
     pavucontrol \
     gparted
 
-
-
-
-### Snap packages
-#################
-
-printf "\n"
-read -p "    Installing snap packages (enter to continue)"
-printf "\n"
-
 if [[ -x "$(command -v snap)" ]]; then
     sudo snap install --classic codium
     sudo snap install chromium
     sudo snap install ferdium
-else
-    printf "Snap package manager not found\n"
+elif [[ -x "$(command -v flatpak)" ]]; then
+    flatpak install flathub
+    flatpak install com.vscodium.codium
+    flatpak install org.chromium.Chromium
+    flatpak install org.ferdium.Ferdium
 fi
 
 
