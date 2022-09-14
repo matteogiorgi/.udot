@@ -47,7 +47,7 @@ qt5ct xournalpp flameshot pavucontrol gparted
 
 
 
-## Snap packages
+## Snap/Flatpak packages
 
 ```
 codium chromium ferdium
