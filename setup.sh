@@ -198,7 +198,7 @@ printf "\n"
 sudo apt install -qq -y \
     wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop khal make gcc lxpolkit \
     libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev xclip fzf ripgrep wamerican \
-    witalian source-highlight xdo feh pandoc texlive fonts-ubuntu fonts-jetbrains-mono || error "installing dependencies"
+    witalian source-highlight xdo feh ffmpeg poppler-utils mediainfo pandoc texlive fonts-ubuntu fonts-jetbrains-mono || error "installing dependencies"
 
 
 

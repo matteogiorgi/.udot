@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
 
 [[ "$*" == "" ]] && exit 1
+[[ ! -d $HOME/.tmp ]] && mkdir $HOME/.tmp
+
+if [[ "$*" == "--reset" ]]; then
+    rm -rf $HOME/.tmp
+    exit 0
+fi
 
 FILE="$*"
+NAME=${FILE%.*}
 MESS="/bin/less -R -~"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
-# install source-highlight and use src-hilite-lesspipe.sh to preview
-# with colors, otherwise /bin/cat will be used instead
-[[ -f "/usr/share/source-highlight/src-hilite-lesspipe.sh" ]] \
-    && PRINT="/usr/share/source-highlight/src-hilite-lesspipe.sh" \
-    || PRINT="/bin/cat"
+no_preview () {
+    echo "                               "
+    echo "  ┌─────────────────────────┐  "
+    echo "  │  Sry mate, no preview.  │  "
+    echo "  └───┬─────────────────────┘  "
+    echo "      │                        "
+    echo "      │      (\_/)             "
+    echo "      └───── (O.o)             "
+    echo "             (> <)             "
+    echo "                               "
+}
 
 if [[ -L "$FILE" && -d "$FILE" ]]; then
     ${LIST} "$(readlink $FILE)" | ${MESS}
@@ -21,20 +34,46 @@ else
     # https://www.iana.org/assignments/media-types/media-types.xhtml
     case $(file --mime-type "$FILE" -bL) in
         text/*)
-            ${PRINT} "$FILE" | ${MESS}
+            if [[ -f "/usr/share/source-highlight/src-hilite-lesspipe.sh" ]]; then
+                /usr/share/source-highlight/src-hilite-lesspipe.sh "$FILE" | ${MESS}
+            else
+                ${MESS} "$FILE"
+            fi
             ;;
         application/pdf | application/postscript | application/djvu)
-            ${MESS} "$FILE"
+            if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
+                if [[ -x "$(command -v pdftoppm)" ]]; then
+                    pdftoppm "$FILE" $HOME/.tmp/$NAME -singlefile -png 2>/dev/null
+                    mess $HOME/.tmp/$NAME.png
+                else
+                    ${MESS} "$FILE"
+                fi
+            else
+                mess $HOME/.tmp/$NAME.png
+            fi
+            ;;
+        video/*)
+            if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
+                if [[ -x "$(command -v ffmpeg)" ]]; then
+                    ffmpeg -i "$FILE" -vframes 1 -f image2 $HOME/.tmp/$NAME.png 2>/dev/null
+                    mess $HOME/.tmp/$NAME.png
+                elif [[ -x "$(command -v mediainfo)" ]]; then
+                    mediainfo "$FILE" | ${MESS}
+                else
+                    no_preview
+                fi
+            else
+                mess $HOME/.tmp/$NAME.png
+            fi
+            ;;
+        audio/*)
+            [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || no_preview
+            ;;
+        image/*)
+            [[ -x "$(command -v tcv)" ]] && tcv "$FILE" | ${MESS} || no_preview
             ;;
         *)
-            echo "                               "
-            echo "  ┌─────────────────────────┐  "
-            echo "  │  Sry mate, no preview.  │  "
-            echo "  └───┬─────────────────────┘  "
-            echo "      │                        "
-            echo "      │      (\_/)             "
-            echo "      └───── (O.o)             "
-            echo "             (> <)             "
-            echo "                               "
+            no_preview
     esac
+    [[ -f $HOME/.temp.png ]] && rm $HOME/.temp.png
 fi

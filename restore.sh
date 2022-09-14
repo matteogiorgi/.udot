@@ -217,7 +217,7 @@ printf "\n"
 
 sudo apt remove -qq -y \
     wmctrl xtermcontrol stow autorandr atool trash-cli htop khal lxpolkit xclip \
-    fzf ripgrep source-highlight xdo feh pandoc texlive fonts-jetbrains-mono \
+    fzf ripgrep source-highlight xdo feh mediainfo pandoc texlive fonts-jetbrains-mono \
     i3-wm xautolock arandr xterm rxvt-unicode tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
     lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
