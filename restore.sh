@@ -220,7 +220,7 @@ sudo apt remove -qq -y \
     fzf ripgrep source-highlight xdo feh mediainfo pandoc texlive fonts-jetbrains-mono \
     i3-wm xautolock arandr xterm rxvt-unicode tmux vim-gtk3 kakoune nano zathura zathura-djvu \
     zathura-pdf-poppler zathura-ps mpv sxiv blueman redshift-gtk adwaita-qt \
-    lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted || error "uninstalling packages"
+    lxappearance qt5ct code google-chrome-stable xournalpp flameshot pavucontrol gparted
 
 
 
@@ -238,7 +238,7 @@ printf "\n"
 
 sudo apt remove -qq -y \
     gdb cgdb openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle \
-    python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc || error "uninstalling language support"
+    python3-pip golang-go golang-golang-x-tools ocaml-batteries-included ocaml-man opam opam-doc
 
 
 
