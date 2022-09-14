@@ -281,8 +281,9 @@ read -p "    Installing snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    sudo snap install chromium
     sudo snap install --classic codium
+    sudo snap install chromium
+    sudo snap install ferdium
 else
     printf "Snap package manager not found\n"
 fi

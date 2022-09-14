@@ -271,8 +271,9 @@ read -p "    Removing snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    sudo snap remove chromium
     sudo snap remove codium
+    sudo snap remove chromium
+    sudo snap remove ferdium
 else
     printf "Snap package manager not found\n"
 fi
