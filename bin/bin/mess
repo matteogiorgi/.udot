@@ -10,6 +10,7 @@ fi
 
 FILE="$*"
 NAME=${FILE%.*}
+NAME=${NAME##*/}
 MESS="/bin/less -R -~"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
@@ -43,27 +44,27 @@ else
         application/pdf | application/postscript | application/djvu)
             if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
                 if [[ -x "$(command -v pdftoppm)" ]]; then
-                    pdftoppm "$FILE" $HOME/.tmp/$NAME -singlefile -png 2>/dev/null
-                    mess $HOME/.tmp/$NAME.png
+                    pdftoppm "$FILE" "$HOME/.tmp/$NAME" -singlefile -png 2>/dev/null
+                    mess "$HOME/.tmp/$NAME.png"
                 else
                     ${MESS} "$FILE"
                 fi
             else
-                mess $HOME/.tmp/$NAME.png
+                mess "$HOME/.tmp/$NAME.png"
             fi
             ;;
         video/*)
             if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
                 if [[ -x "$(command -v ffmpeg)" ]]; then
-                    ffmpeg -i "$FILE" -vframes 1 -f image2 $HOME/.tmp/$NAME.png 2>/dev/null
-                    mess $HOME/.tmp/$NAME.png
+                    ffmpeg -i "$FILE" -vframes 1 -f image2 "$HOME/.tmp/$NAME.png" 2>/dev/null
+                    mess "$HOME/.tmp/$NAME.png"
                 elif [[ -x "$(command -v mediainfo)" ]]; then
                     mediainfo "$FILE" | ${MESS}
                 else
                     no_preview
                 fi
             else
-                mess $HOME/.tmp/$NAME.png
+                mess "$HOME/.tmp/$NAME.png"
             fi
             ;;
         audio/*)
