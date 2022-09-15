@@ -2,7 +2,8 @@
 ###########
 
 # To replicate i3 vanilla conf, delete
-# this file and re-run i3-config-wizard(1).
+# this file and re-run i3-config-wizard(1);
+# or just copy the defaults at /etc/i3/config
 
 # For a complete reference, go to
 # https://i3wm.org/docs/userguide.html
@@ -24,7 +25,7 @@ font pango:Ubuntu Mono 9
 #################################################
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id redshift-gtk -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}') -Pr -t 8000:5000 &
+exec --no-startup-id redshift-gtk -Pr -t 8000:5000
 exec --no-startup-id lxpolkit
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
