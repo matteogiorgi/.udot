@@ -25,12 +25,12 @@ font pango:Ubuntu Mono 9
 #################################################
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id redshift-gtk -Pr -t 8000:5000
 exec --no-startup-id lxpolkit
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id flameshot
 exec --no-startup-id xautolock -time 10 -locker slock
+exec --no-startup-id redshift-gtk -Pr -t 8000:5000
 
 
 
