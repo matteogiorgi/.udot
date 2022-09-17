@@ -61,7 +61,8 @@ function! utility#WinMove(key)
             wincmd s
         endif
         exec 'wincmd '.a:key
-        exec 'Explore'
+        " add `exec 'Explore'` to open
+        " Netrw inside the new window
     endif
     return bufname('%')
 endfunction

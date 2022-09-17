@@ -45,12 +45,6 @@ function _last () {
 }
 
 
-function _fff () {
-    fff "$@"
-    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
-}
-
-
 function _shfm () {
     ~/bin/shfm/shfm "$@"
     cd "$(cat ~/.shfm.tmp)"

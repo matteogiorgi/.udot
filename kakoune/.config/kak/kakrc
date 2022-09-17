@@ -10,7 +10,7 @@
 # User preference
 # ───────────────
 
-colorscheme ultrasonic
+colorscheme torchwood
 
 set global indentwidth 4
 set global tabstop 4
