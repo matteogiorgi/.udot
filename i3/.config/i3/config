@@ -192,7 +192,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 default_border normal
 default_floating_border normal
 hide_edge_borders none
-workspace_layout tabbed
+workspace_layout stacking
 
 
 
