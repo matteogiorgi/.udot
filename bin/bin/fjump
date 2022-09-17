@@ -13,7 +13,7 @@ function main () {
         FILE="$(${LIST} | fzf --ansi --preview 'mess {}' --preview-window 'right,70%,border-left' `
                 `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH > " `
                 `--height 100% --reverse --info=hidden --header-first)"
-        [[ -z "$FILE" ]] && exit 0
+        [[ -z "$FILE" ]] && exit 1
         [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
     done
 }

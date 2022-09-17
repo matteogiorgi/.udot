@@ -6,7 +6,6 @@
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
-""    vim-ctrlp ···················· https://github.com/ctrlpvim/ctrlp.vim
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -52,7 +51,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 "}}}
 
@@ -206,14 +204,17 @@ nnoremap <silent><C-Up> :0tabmove<cr>
 nnoremap <silent>Y y$
 tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><Tab> :wincmd w<cr>
-nnoremap <silent><Backspace> :bprevious<cr>
+nnoremap <silent><Backspace> :buffer#<cr>
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 nnoremap <silent><Left> :vertical resize -5<CR>
 nnoremap <silent><Right> :vertical resize +5<CR>
 nnoremap <silent><Down> :resize -5<CR>
 nnoremap <silent><Up> :resize +5<CR>
-nnoremap <leader>f :Explore<CR>
+nnoremap <leader>s :%s///gc<Left><Left><Left>
+xnoremap <leader>s :s///gc<Left><Left><Left>
+nnoremap <leader>l :buffer<space><C-d>
+nnoremap <leader>e :Explore<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
@@ -225,7 +226,3 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 "}}}
-
-
-" nnoremap <leader>s :%s///gc<Left><Left><Left>
-" xnoremap <leader>s :s///gc<Left><Left><Left>

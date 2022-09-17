@@ -3,7 +3,7 @@
 [[ "$*" == "" ]] && exit 1
 [[ ! -d $HOME/.tmp ]] && mkdir $HOME/.tmp
 
-if [[ "$*" == "--reset" ]]; then
+if [[ "$*" == "*--reset*" ]]; then
     rm -rf $HOME/.tmp
     exit 0
 fi
