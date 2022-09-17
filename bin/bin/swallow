@@ -45,13 +45,13 @@ case $(file --mime-type "${FILE}" -bL) in
         _mpv "${FILE}"
         ;;
     video/*)
-        _xhide "mpv --force-window '${FILE}'"
+        _xshow "mpv --force-window '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xhide "zathura '${FILE}'"
+        _xshow "zathura '${FILE}'"
         ;;
     image/*)
-        _xhide "esxiv '${FILE}'"
+        _xshow "esxiv '${FILE}'"
         ;;
     *)
         if [[ ! -n $NAMES  || ! -f "/bin/fzf" ]]; then
