@@ -60,7 +60,7 @@ case $(file --mime-type "${FILE}" -bL) in
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
             Vim)
-                vim "${FILE}"
+                _vim "${FILE}"
                 ;;
             Kakoune)
                 kak "${FILE}"

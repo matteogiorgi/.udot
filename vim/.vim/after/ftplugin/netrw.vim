@@ -27,3 +27,7 @@ nmap <buffer> D D
 nmap <buffer> c mtmc
 nmap <buffer> m mtmm
 nmap <buffer> x mx
+
+" Remaps
+nnoremap <buffer> <silent><Tab> :bnext<cr>
+nnoremap <buffer> <silent><Backspace> :bprev<cr>
