@@ -209,6 +209,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ################
 
 [[ -f $HOME/bin/fet ]] && $HOME/bin/fet
+[[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
