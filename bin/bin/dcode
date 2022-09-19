@@ -9,12 +9,12 @@ else
     exit 0
 fi
 
-CHOICE=$(echo -e "$CODE\nNewWindow\nHOME" | dmenu -i -b | cut -d ':' -f 1)
+CHOICE=$(echo -e "$CODE\nBlank\nHOME" | dmenu -i -b | cut -d ':' -f 1)
 case "$CHOICE" in
     $CODE)
         $COMMAND
         ;;
-    NewWindow)
+    Blank)
         $COMMAND --new-window
         ;;
     HOME)
