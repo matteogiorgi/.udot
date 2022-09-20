@@ -199,8 +199,6 @@ vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
 nnoremap <silent><Return> :wincmd w<cr>
 nnoremap <silent><Backspace> :b#<cr>
-nnoremap <silent><S-Tab> :bprev<cr>
-nnoremap <silent><Tab> :bnext<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
 nnoremap <silent><C-Left> :tabmove -1<cr>
