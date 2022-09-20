@@ -225,6 +225,7 @@ sudo apt purge -qq -y \
     trash-cli \
     htop \
     khal \
+    tree \
     lxpolkit \
     xclip \
     fzf \
@@ -274,7 +275,6 @@ printf "\n"
 if [[ -x "$(command -v snap)" ]]; then
     sudo snap remove --purge codium
     sudo snap remove --purge chromium
-    sudo snap remove --purge ferdium
 fi
 
 

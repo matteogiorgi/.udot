@@ -207,6 +207,7 @@ sudo apt install -qq -y \
     trash-cli \
     htop \
     khal \
+    tree \
     make \
     gcc \
     lxpolkit \
@@ -282,7 +283,6 @@ if ask "    Add snap packages?" Y; then
     [[ ! -x "$(command -v snap)" ]] && sudo apt install -qq -y snapd
     sudo snap install --classic codium
     sudo snap install chromium
-    sudo snap install ferdium
 fi
 
 
