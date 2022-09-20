@@ -8,7 +8,7 @@ if !exists('g:notebrowser')
     if filereadable("/bin/google-chrome")
         let g:notebrowser = 'nohup google-chrome --new-window'
     elseif filereadable("/bin/chromium")
-        let g:notebrowser = 'nohup google-chrome --new-window'
+        let g:notebrowser = 'nohup chromium --new-window'
     endif
 endif
 
