@@ -7,6 +7,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## Main color-palette
 
+<img align="right" width="160" src="glenda.png">
 <img align="right" width="160" src="mona.gif">
 
 | Color   | Normal                                                                 | Bright                                                                 |
