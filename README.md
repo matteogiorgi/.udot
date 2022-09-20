@@ -1,4 +1,4 @@
-# A very minimal (but effective) GNU/Linux config
+# A very minimal (but effective <img width="30" src="mona.gif">) GNU/Linux config
 
 These repo contains a minimal configuration of my dotfiles, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are ment to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
 
@@ -7,8 +7,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 
 ## Main color-palette
 
-<img align="right" width="160" src="glenda.png">
-<img align="right" width="160" src="mona.gif">
+<img align="right" width="350" src="glenda.png">
 
 | Color   | Normal                                                                 | Bright                                                                 |
 | ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
