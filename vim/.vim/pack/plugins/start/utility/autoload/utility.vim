@@ -45,7 +45,7 @@ endfunction
 "}}}
 
 " Substitute{{{
-function! utility#SubSel(new)
+function! utility#SSelection(new)
     exec '%s//'.a:new.'/gc'
 endfunction
 "}}}
