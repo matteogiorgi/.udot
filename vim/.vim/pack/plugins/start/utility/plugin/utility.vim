@@ -6,7 +6,7 @@ autocmd! BufWritePre * call utility#Mkdir()
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()
 command! ChBackground call utility#ChBackground()
-command! -nargs=1 Substituta call utility#Substituta(<f-args>)
+command! -nargs=1 SubSel call utility#SubSel(<f-args>)
 command! Current call utility#Current()
 command! Parent call utility#Parent()
 command! GitDir call utility#GitDir()
@@ -20,3 +20,6 @@ nnoremap <C-w>h :call utility#WinMove('h')<CR>
 nnoremap <C-w>j :call utility#WinMove('j')<CR>
 nnoremap <C-w>k :call utility#WinMove('k')<CR>
 nnoremap <C-w>l :call utility#WinMove('l')<CR>
+
+" nnoremap <leader>s :%s///gc<Left><Left><Left>
+" xnoremap <leader>s :s///gc<Left><Left><Left>

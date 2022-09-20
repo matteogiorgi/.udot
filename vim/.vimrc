@@ -112,8 +112,8 @@ set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
 set matchpairs+=<:>
 set autochdir
 set hidden
-set updatetime=4000  " 300,4000
-set timeoutlen=4000  " 300,4000
+set updatetime=1000  " 300,4000
+set timeoutlen=1000  " 300,4000
 set ttimeoutlen=0    " -1,0,100
 set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
@@ -198,7 +198,8 @@ xnoremap J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
 nnoremap <silent><Return> :wincmd w<cr>
-nnoremap <silent><Backspace> :bprev<cr>
+nnoremap <silent><Backspace> :b#<cr>
+nnoremap <silent><S-Tab> :bprev<cr>
 nnoremap <silent><Tab> :bnext<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
@@ -214,8 +215,6 @@ nnoremap <silent><Left> :vertical resize -5<CR>
 nnoremap <silent><Right> :vertical resize +5<CR>
 nnoremap <silent><Down> :resize -5<CR>
 nnoremap <silent><Up> :resize +5<CR>
-nnoremap <leader>s :%s///gc<Left><Left><Left>
-xnoremap <leader>s :s///gc<Left><Left><Left>
 nnoremap <leader>e :Explore<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

@@ -44,8 +44,8 @@ function! utility#ToggleAccent()
 endfunction
 "}}}
 
-" WinMove{{{
-function! utility#Substituta(new)
+" Substitute{{{
+function! utility#SubSel(new)
     exec '%s//'.a:new.'/gc'
 endfunction
 "}}}
