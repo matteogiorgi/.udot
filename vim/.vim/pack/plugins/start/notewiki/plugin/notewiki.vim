@@ -5,9 +5,9 @@ let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
 if !exists('g:notebrowser')
     let g:notebrowser = 'nohup xdg-open'
-    if filereadable("/bin/google-chrome")
+    if executable("google-chrome")
         let g:notebrowser = 'nohup google-chrome --new-window'
-    elseif filereadable("/bin/chromium")
+    elseif executable("chromium")
         let g:notebrowser = 'nohup chromium --new-window'
     endif
 endif
