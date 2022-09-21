@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 [[ "$*" == "" ]] && exit 1
-[[ ! -d $HOME/.tmp ]] && mkdir $HOME/.tmp
 
-if [[ "$*" == "*--reset*" ]]; then
-    rm -rf $HOME/.tmp
-    exit 0
+if [[ ! -d $HOME/.tmp ]]; then
+    mkdir $HOME/.tmp
+elif [[ $(du $HOME/.tmp | awk '{print $1}') -gt 1048576 ]]; then
+    rm $HOME/.tmp/*
 fi
 
 FILE="$*"
