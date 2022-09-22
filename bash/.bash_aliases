@@ -46,8 +46,8 @@ alias restow="stow -R"
 alias unstow="stow -D"
 
 
-alias xload="xrdb ~/.Xresources"
-alias kswap="xmodmap ~/.Xmodmap"
+alias x11load="xrdb ~/.Xresources"
+alias keyswap="xmodmap ~/.Xmodmap"
 
 
 alias xmono="autorandr --load mono"
@@ -60,4 +60,3 @@ alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias xshift="redshift-gtk -Pr -t 8000:5000"
 alias ltree="tree -aC --dirsfirst | less -R -~"
-alias kal="ikhal"

@@ -99,6 +99,8 @@ function _sxiv () {
 
 
 function _woutput () {
+    source $HOME/.xinput.bash
+
     RED='\033[1;36m'
     YLW='\033[1;35m'
     NC='\033[0m'
@@ -140,6 +142,8 @@ function _woutput () {
 
 
 function _wrotate () {
+    source $HOME/.xinput.bash
+
     RED='\033[1;36m'
     YLW='\033[1;35m'
     NC='\033[0m'
@@ -190,47 +194,9 @@ function _wrotate () {
 }
 
 
-function _xlayout () {
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
-    printf "${RED}%s${NC}\n" "Layout"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "IT"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "US"
-    printf "%s${YLW}%s${NC}\n" "  (3) " "GB"
-    printf "${RED}%s${NC} " "Enter an index (1-3):"
-
-    while read response; do
-        case $response in
-            1)
-                printf "#!/bin/sh\nsetxkbmap -layout it\n" > $HOME/.layout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "IT"
-                break
-                ;;
-            2)
-                printf "#!/bin/sh\nsetxkbmap -layout us\n" > $HOME/.layout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "US"
-                break
-                ;;
-            3)
-                printf "#!/bin/sh\nsetxkbmap -layout gb\n" > $HOME/.layout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "GB"
-                break
-                ;;
-            *)
-                printf "${RED}%s${NC} " "Enter an index (1-3):"
-                ;;
-        esac
-    done
-
-    chmod 755 $HOME/.layout
-    $HOME/.layout
-    xmodmap $HOME/.Xmodmap
-}
-
-
 function _xtouchp () {
+    source $HOME/.xinput.bash
+
     RED='\033[1;36m'
     YLW='\033[1;35m'
     NC='\033[0m'
@@ -259,4 +225,44 @@ function _xtouchp () {
                 ;;
         esac
     done
+}
+
+
+function _xlayout () {
+    RED='\033[1;36m'
+    YLW='\033[1;35m'
+    NC='\033[0m'
+
+    printf "${RED}%s${NC}\n" "Layout"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "IT"
+    printf "%s${YLW}%s${NC}\n" "  (2) " "US"
+    printf "%s${YLW}%s${NC}\n" "  (3) " "GB"
+    printf "${RED}%s${NC} " "Enter an index (1-3):"
+
+    while read response; do
+        case $response in
+            1)
+                printf "#!/bin/sh\nsetxkbmap -layout it\n" > ~/.layout
+                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "IT"
+                break
+                ;;
+            2)
+                printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.layout
+                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "US"
+                break
+                ;;
+            3)
+                printf "#!/bin/sh\nsetxkbmap -layout gb\n" > ~/.layout
+                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "GB"
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Enter an index (1-3):"
+                ;;
+        esac
+    done
+
+    chmod 755 ~/.layout
+    ~/.layout
+    xmodmap ~/.Xmodmap
 }

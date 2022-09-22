@@ -24,7 +24,7 @@ fi
 ### Set PATH to includes just '~/.local/bin' if it exists
 #########################################################
 
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$PATH:$HOME/.local/bin"
 fi
 
@@ -34,7 +34,7 @@ fi
 ### Set PATH to includes just '~/bin' (if it exists) and its subdirs
 ####################################################################
 
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" )"
 fi
 
@@ -73,17 +73,17 @@ fi
 
 
 
-### Create and/or source xinput variables
-#########################################
-
-[[ ! -f $HOME/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''\n" > $HOME/.xinput.bash
-source $HOME/.xinput.bash
-
-
-
-
-### i3-sensible-variables
-########################à
+### i3-sensible-variables and others
+####################################
 
 export TERMINAL="/usr/local/bin/st"
 export VISUAL="/bin/vi"
+
+
+
+
+### Create and/or source xinput variables
+#########################################
+
+[[ ! -f ~/.xinput.bash ]] && printf "TOUCHPADID=''\nWACOMID=''\n" > ~/.xinput.bash
+source $HOME/.xinput.bash

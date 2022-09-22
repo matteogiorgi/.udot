@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# XDG autostart, loginctl lock-session, applets
+[[ -x "$(command -v dex)" ]] && dex --autostart --environment i3 &
+[[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
+[[ -x "$(command -v nm-applet)" ]] && nm-applet &
+[[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
+[[ -x "$(command -v flameshot)" ]] && flameshot &
+[[ -x "$(command -v xautolock)" ]] && xautolock -time 15 -locker slock &
+
+# redshift with a stable internet connection
+if [[ -x "$(command -v wget)" ]]; then
+    wget -q --spider http://google.com
+    [[ -x "$(command -v redshift-gtk)" && $? -eq 0 ]] && redshift-gtk -Pr -t 8000:5000 &
+fi
