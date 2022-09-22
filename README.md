@@ -60,7 +60,7 @@ codium chromium
 
 ```
 C/C++   -> build-essential gdb cgdb
-Java    -> openjdk-18-jdk openjdk-18-doc openjdk-18-source ant maven gradle
+Java    -> default-jdk default-jdk-doc ant maven gradle
 Python  -> python3 python3-pip
 Go      -> golang-go golang-golang-x-tools
 Ocaml   -> ocaml-batteries-included ocaml-man opam opam-doc

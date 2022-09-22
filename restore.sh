@@ -294,9 +294,8 @@ printf "\n"
 sudo apt purge -qq -y \
     gdb \
     cgdb \
-    openjdk-18-jdk \
-    openjdk-18-doc \
-    openjdk-18-source \
+    default-jdk \
+    default-jdk-doc \
     ant \
     maven \
     gradle \
