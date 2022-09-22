@@ -11,5 +11,5 @@
 # redshift with a stable internet connection
 if [[ -x "$(command -v wget)" ]]; then
     wget -q --spider http://google.com
-    [[ -x "$(command -v redshift-gtk)" && $? -eq 0 ]] && redshift-gtk -Pr -t 8000:5000 &
+    [[ $? -eq 0 && -x "$(command -v redshift-gtk)" ]] && redshift-gtk -Pr -t 8000:5000 &
 fi
