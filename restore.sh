@@ -253,7 +253,6 @@ sudo apt purge -qq -y \
     mpv \
     sxiv \
     blueman \
-    redshift-gtk \
     adwaita-qt \
     lxappearance \
     qt5ct \

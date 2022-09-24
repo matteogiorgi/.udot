@@ -31,10 +31,19 @@ alias shfm="_shfm"
 alias fjump="_fjump"
 alias fgit="_fgit"
 alias sxiv="_sxiv"
+
 alias woutput="_woutput"
 alias wrotate="_wrotate"
-alias xlayout="_xlayout"
 alias xtouchp="_xtouchp"
+alias xlayout="_xlayout"
+
+
+alias kswap="xmodmap ~/.Xmodmap"
+alias xload="xrdb ~/.Xresources"
+
+
+alias xmono="autorandr --load mono"
+alias xdual="autorandr --load dual"
 
 
 alias reboot="systemctl reboot"
@@ -44,14 +53,6 @@ alias poweroff="systemctl -i poweroff"
 alias stow="stow -S"
 alias restow="stow -R"
 alias unstow="stow -D"
-
-
-alias x11load="xrdb ~/.Xresources"
-alias keyswap="xmodmap ~/.Xmodmap"
-
-
-alias xmono="autorandr --load mono"
-alias xdual="autorandr --load dual"
 
 
 alias vim="_vim"

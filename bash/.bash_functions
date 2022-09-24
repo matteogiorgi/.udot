@@ -29,9 +29,9 @@ function _mpv () {
 function _vim () {
     [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
     if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
-        env vim --cmd "let theme = 'light'" $@
+        env vim --cmd "let theme = 'light'" "$@"
     else
-        env vim --cmd "let theme = 'dark'" $@
+        env vim --cmd "let theme = 'dark'" "$@"
     fi
 }
 

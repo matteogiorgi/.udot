@@ -50,6 +50,9 @@ case $(file --mime-type "${FILE}" -bL) in
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         _xhide "zathura '${FILE}'"
         ;;
+    application/zip | application/gzip)
+        [[ "${FILE##*.}" == "xopp" ]] && _xhide "xournalpp '${FILE}'" || less -R -~ "${FILE}"
+        ;;
     image/*)
         _xhide "esxiv '${FILE}'"
         ;;

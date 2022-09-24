@@ -53,6 +53,21 @@ else
                 mess "$HOME/.tmp/$NAME.png"
             fi
             ;;
+        application/zip | application/gzip)
+            if [[ "${FILE##*.}" == "xopp" ]]; then
+                if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
+                    if [[ -x "$(command -v xournalpp)" ]]; then
+                        xournalpp "$FILE" -p "$HOME/.tmp/$NAME.pdf" 2>/dev/null
+                        mess "$HOME/.tmp/$NAME.pdf"
+                        rm "$HOME/.tmp/$NAME.pdf"
+                    fi
+                else
+                    mess "$HOME/.tmp/$NAME.png"
+                fi
+            else
+                ${MESS} "$FILE"
+            fi
+            ;;
         video/*)
             if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
                 if [[ -x "$(command -v ffmpeg)" ]]; then

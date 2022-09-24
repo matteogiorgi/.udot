@@ -244,7 +244,7 @@ bindsym $mod+p exec "nxbg --prev"
 
 
 
-### Autostart confs
+### Autoload confs
 ###################
 
 exec --no-startup-id "~/.config/i3/i3autoload"

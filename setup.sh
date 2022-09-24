@@ -260,7 +260,6 @@ sudo apt install -qq -y \
     sxiv \
     blueman \
     network-manager \
-    redshift-gtk \
     adwaita-icon-theme \
     gnome-themes-extra \
     adwaita-qt \
