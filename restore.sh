@@ -257,6 +257,7 @@ sudo apt purge -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
+    sct \
     flameshot \
     pavucontrol \
     gparted

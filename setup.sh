@@ -266,6 +266,7 @@ sudo apt install -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
+    sct \
     flameshot \
     pavucontrol \
     gparted

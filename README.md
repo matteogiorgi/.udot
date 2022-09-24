@@ -41,7 +41,7 @@ ffmpeg poppler-utils mediainfo pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 i3-wm xautolock arandr xterm rxvt-unicode tmux vim-gtk3 kakoune nano zathura
 zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 adwaita-icon-theme gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
-flameshot pavucontrol gparted
+sct flameshot pavucontrol gparted
 ```
 
 
