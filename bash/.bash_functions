@@ -266,3 +266,39 @@ function _xlayout () {
     ~/.layout
     xmodmap ~/.Xmodmap
 }
+
+
+function _xtemp () {
+    RED='\033[1;36m'
+    YLW='\033[1;35m'
+    NC='\033[0m'
+
+    printf "${RED}%s${NC}\n" "Temperature"
+    printf "%s${YLW}%s${NC}\n" "  (0) " "default"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "blueshift"
+    printf "%s${YLW}%s${NC}\n" "  (2) " "redshift"
+    printf "${RED}%s${NC} " "Enter an index (0-2):"
+
+    while read response; do
+        case $response in
+            0)
+                sct
+                printf "${RED}%s${YLW}%s${NC}\n" "Temperature set to " "6500"
+                break
+                ;;
+            1)
+                sct 8000
+                printf "${RED}%s${YLW}%s${NC}\n" "Temperature set to " "8000"
+                break
+                ;;
+            2)
+                sct 5000
+                printf "${RED}%s${YLW}%s${NC}\n" "Temperature set to " "5000"
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Enter an index (0-1):"
+                ;;
+        esac
+    done
+}

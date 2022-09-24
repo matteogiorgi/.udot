@@ -36,6 +36,7 @@ alias woutput="_woutput"
 alias wrotate="_wrotate"
 alias xtouchp="_xtouchp"
 alias xlayout="_xlayout"
+alias xtemp="_xtemp"
 
 
 alias kswap="xmodmap ~/.Xmodmap"
