@@ -73,8 +73,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-bindsym $mod+n focus parent
-bindsym $mod+m focus child
+bindsym $mod+i focus parent
+bindsym $mod+u focus child
 
 
 
@@ -277,9 +277,9 @@ bindsym $mod+Shift+q kill
 
 bindsym $mod+p move workspace to output next
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
-bindsym $mod+u exec "dlogout"
-bindsym $mod+i exec "dchrome"
-bindsym $mod+o exec "dcode"
+bindsym $mod+o exec "dlogout"
+bindsym $mod+c exec "dchrome"
+bindsym $mod+v exec "dcode"
 
 
 
