@@ -124,8 +124,8 @@ bindsym $mod+Shift+BackSpace move container to workspace prev
 
 
 
-### Bind programs
-#################
+### Bind programs (use xprop)
+#############################
 
 assign [class="Google-chrome"] $ws1
 assign [class="Chromium"] $ws1
@@ -160,6 +160,29 @@ bindsym $mod+r mode "resize"
 
 
 
+### Adjust temperature
+######################
+
+mode "temperature" {
+    bindsym 0 exec "xtemp -0"
+    bindsym j exec "xtemp -1"
+    bindsym k exec "xtemp +1"
+
+    bindsym 0 exec "xtemp -0"
+    bindsym Down exec "xtemp -1"
+    bindsym Up exec "xtemp +1"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+    bindsym $mod+t mode "default"
+}
+
+bindsym $mod+t mode "temperature"
+
+
+
+
 ### reload, restart, exit
 #########################
 
@@ -178,7 +201,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 default_border normal
 default_floating_border normal
 hide_edge_borders none
-workspace_layout stacking
+workspace_layout tabbed
 
 
 
@@ -245,10 +268,7 @@ bindsym $mod+p exec "nxbg --prev"
 
 
 ### Autoload confs
-###################
+##################
 
 exec --no-startup-id "~/.config/i3/i3autoload"
-exec --no-startup-id "~/.config/i3/i3monitor"
 exec --no-startup-id "~/.config/i3/i3scratchpad"
-exec --no-startup-id "~/.config/i3/i3touchpad"
-exec --no-startup-id "~/.config/i3/i3layout"

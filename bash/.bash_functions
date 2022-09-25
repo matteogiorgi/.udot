@@ -234,26 +234,26 @@ function _xlayout () {
     NC='\033[0m'
 
     printf "${RED}%s${NC}\n" "Layout"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "IT"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "US"
-    printf "%s${YLW}%s${NC}\n" "  (3) " "GB"
+    printf "%s${YLW}%s${NC}\n" "  (0) " "US"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "GB"
+    printf "%s${YLW}%s${NC}\n" "  (2) " "IT"
     printf "${RED}%s${NC} " "Enter an index (1-3):"
 
     while read response; do
         case $response in
-            1)
-                printf "#!/bin/sh\nsetxkbmap -layout it\n" > ~/.layout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "IT"
-                break
-                ;;
-            2)
-                printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.layout
+            0)
+                printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.xlayout
                 printf "${RED}%s${YLW}%s${NC}\n" "Layout " "US"
                 break
                 ;;
-            3)
-                printf "#!/bin/sh\nsetxkbmap -layout gb\n" > ~/.layout
+            1)
+                printf "#!/bin/sh\nsetxkbmap -layout gb\n" > ~/.xlayout
                 printf "${RED}%s${YLW}%s${NC}\n" "Layout " "GB"
+                break
+                ;;
+            2)
+                printf "#!/bin/sh\nsetxkbmap -layout it\n" > ~/.xlayout
+                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "IT"
                 break
                 ;;
             *)
@@ -262,43 +262,7 @@ function _xlayout () {
         esac
     done
 
-    chmod 755 ~/.layout
-    ~/.layout
+    chmod 755 ~/.xlayout
+    ~/.xlayout
     xmodmap ~/.Xmodmap
-}
-
-
-function _xtemp () {
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
-    printf "${RED}%s${NC}\n" "Temperature"
-    printf "%s${YLW}%s${NC}\n" "  (0) " "default"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "blueshift"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "redshift"
-    printf "${RED}%s${NC} " "Enter an index (0-2):"
-
-    while read response; do
-        case $response in
-            0)
-                sct
-                printf "${RED}%s${YLW}%s${NC}\n" "Temperature set to " "6500"
-                break
-                ;;
-            1)
-                sct 8000
-                printf "${RED}%s${YLW}%s${NC}\n" "Temperature set to " "8000"
-                break
-                ;;
-            2)
-                sct 5000
-                printf "${RED}%s${YLW}%s${NC}\n" "Temperature set to " "5000"
-                break
-                ;;
-            *)
-                printf "${RED}%s${NC} " "Enter an index (0-1):"
-                ;;
-        esac
-    done
 }

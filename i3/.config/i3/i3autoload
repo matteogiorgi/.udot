@@ -1,9 +1,72 @@
 #!/usr/bin/env bash
 
-# XDG autostart, loginctl lock-session, applets
+source $HOME/.xinput.bash
+
+
+### XDG autostart, loginctl lock-session, applets
+#################################################
+
 [[ -x "$(command -v dex)" ]] && dex --autostart --environment i3 &
 [[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
 [[ -x "$(command -v nm-applet)" ]] && nm-applet &
 [[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
 [[ -x "$(command -v flameshot)" ]] && flameshot &
 [[ -x "$(command -v xautolock)" ]] && xautolock -time 15 -locker slock &
+
+
+
+
+### Load monitor config as dual/mono with autorandr
+###################################################
+
+[[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]] && autorandr --load dual || autorandr --load mono
+[[ -f ~/.fehbg ]] && ~/.fehbg
+
+
+
+
+### Touchpad properties (xinput list-props "$TOUCHPADID")
+#########################################################
+
+xinput set-prop "$TOUCHPADID" "libinput Tapping Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Tapping Drag Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Natural Scrolling Enabled" 0
+xinput set-prop "$TOUCHPADID" "libinput Disable While Typing Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Scroll Method Enabled" 1, 0, 0
+xinput set-prop "$TOUCHPADID" "libinput Click Method Enabled" 1, 0
+xinput set-prop "$TOUCHPADID" "libinput Middle Emulation Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Accel Speed" 0.000000
+xinput set-prop "$TOUCHPADID" "libinput Accel Profile Enabled" 1, 0
+xinput set-prop "$TOUCHPADID" "libinput Horizontal Scroll Enabled" 1
+
+
+
+
+### Load keyboard layout and special keys
+#########################################
+
+if [[ -x "$(command -v setxkbmap)" ]]; then
+    if [[ ! -f ~/.xlayout ]]; then
+        printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.xlayout
+        chmod 755 ~/.xlayout
+    fi
+    ~/.xlayout
+fi
+
+if [[ -x "$(command -v xmodmap)" && -f ~/.Xmodmap ]]; then
+    xmodmap ~/.Xmodmap
+fi
+
+
+
+
+### Load screen temperature
+###########################
+
+if [[ -x "$(command -v sct)" ]]; then
+    if [[ ! -f ~/.xtemp ]]; then
+        printf "#!/bin/sh\nsct 6500\n" > ~/.xtemp
+        chmod 755 ~/.xtemp
+    fi
+    ~/.xtemp
+fi

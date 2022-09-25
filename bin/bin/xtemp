@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+[[ ! -x "$(command -v sct)" ]] && exit 1
+[[ ! -f ~/.xtemp ]] && printf "#!/bin/sh\nsct 6500\n" > ~/.xtemp
+
+TEMP=$(awk 'FNR==2 {print $2}' ~/.xtemp)
+
+if [[ $* == *-0* ]]; then
+    printf "#!/bin/sh\nsct 6500\n" > ~/.xtemp
+elif [[ $* == *-1* && $TEMP -gt 3500 ]]; then
+    ((TEMP-=1000))
+    printf "#!/bin/sh\nsct $TEMP\n" > ~/.xtemp
+elif [[ $* == *+1* && $TEMP -lt 9500 ]]; then
+    ((TEMP+=1000))
+    printf "#!/bin/sh\nsct $TEMP\n" > ~/.xtemp
+fi
+
+chmod 755 ~/.xtemp
+~/.xtemp
