@@ -167,8 +167,6 @@ mode "temperature" {
     bindsym 0 exec "xtemp -0"
     bindsym j exec "xtemp -1"
     bindsym k exec "xtemp +1"
-
-    bindsym 0 exec "xtemp -0"
     bindsym Down exec "xtemp -1"
     bindsym Up exec "xtemp +1"
 
@@ -179,6 +177,26 @@ mode "temperature" {
 }
 
 bindsym $mod+t mode "temperature"
+
+
+
+
+### Set background
+##################
+
+mode "nextbg" {
+    bindsym j exec "nxbg"
+    bindsym k exec "nxbg --prev"
+    bindsym Down exec "nxbg"
+    bindsym Up exec "nxbg --prev"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+    bindsym $mod+n mode "default"
+}
+
+bindsym $mod+n mode "nextbg"
 
 
 
@@ -261,8 +279,6 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -i -b"
 bindsym $mod+u exec "dlogout"
 bindsym $mod+i exec "dchrome"
 bindsym $mod+o exec "dcode"
-bindsym $mod+n exec "nxbg"
-bindsym $mod+p exec "nxbg --prev"
 
 
 
