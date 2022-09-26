@@ -59,7 +59,7 @@ codium chromium
 ## Language support
 
 ```
-C/C++   -> build-essential gdb cgdb
+C/C++   -> build-essential valgrind gdb cgdb
 Java    -> default-jdk default-jdk-doc ant maven gradle
 Python  -> python3 python3-pip
 Go      -> golang-go golang-golang-x-tools

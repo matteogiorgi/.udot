@@ -292,6 +292,7 @@ printf "\n"
 # build-essential python3
 
 sudo apt purge -qq -y \
+    valgrind \
     gdb \
     cgdb \
     default-jdk \

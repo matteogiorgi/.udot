@@ -333,6 +333,7 @@ if ask "    Add language support?" Y; then
     printf "\n"
     sudo apt install -qq -y \
         build-essential \
+        valgrind \
         gdb \
         cgdb \
         default-jdk \
