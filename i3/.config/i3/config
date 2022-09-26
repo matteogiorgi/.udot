@@ -63,8 +63,8 @@ bindsym $mod+Shift+Right move right
 ### split, layout, mode
 #######################
 
-bindsym $mod+a split h
-bindsym $mod+s split v
+bindsym $mod+a split v
+bindsym $mod+s split h
 
 bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed

@@ -36,7 +36,7 @@ function _vim () {
 }
 
 
-function _last () {
+function _vil () {
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         _vim -S $HOME/.vim/sessions/last.vim
     else

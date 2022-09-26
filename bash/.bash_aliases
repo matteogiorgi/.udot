@@ -24,13 +24,23 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
+alias vim="_vim"
+alias vil="_vil"
+alias vip="vim --noplugin -n -i NONE"
+
+
+alias xtool="atool -x"
 alias xhide="_xhide"
 alias xshow="_xshow"
-alias last="_last"
 alias shfm="_shfm"
 alias fjump="_fjump"
 alias fgit="_fgit"
 alias sxiv="_sxiv"
+
+
+alias randrsave="autorandr -s"
+alias randrload="autorandr -l"
+
 
 alias woutput="_woutput"
 alias wrotate="_wrotate"
@@ -55,8 +65,6 @@ alias restow="stow -R"
 alias unstow="stow -D"
 
 
-alias vim="_vim"
-alias vin="vim --noplugin -n -i NONE"
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias xshift="redshift-gtk -Pr -t 8000:5000"
