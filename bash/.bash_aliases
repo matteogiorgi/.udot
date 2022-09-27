@@ -29,13 +29,16 @@ alias vil="_vil"
 alias vip="vim --noplugin -n -i NONE"
 
 
-alias xtool="atool -x"
 alias xhide="_xhide"
 alias xshow="_xshow"
 alias shfm="_shfm"
 alias fjump="_fjump"
 alias fgit="_fgit"
 alias sxiv="_sxiv"
+
+
+alias atoolzip="atool --add"
+alias atoolunzip="atool --extract"
 
 
 alias randrsave="autorandr -s"
@@ -69,3 +72,4 @@ alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias xshift="redshift-gtk -Pr -t 8000:5000"
 alias ltree="tree -aC --dirsfirst | less -R -~"
+alias ical="ikhal"
