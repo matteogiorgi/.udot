@@ -49,7 +49,7 @@ exe "nnoremap <unique>" "<localleader>" " :cal <SID>init(1)<cr>:cal SBRun()<cr>"
 exe "cnoremap <unique>" "<localleader>" "<Esc>"
 
 if !exists("g:qb_hotkey") || g:qb_hotkey == ""
-    let g:qb_hotkey = "<Tab>"
+    let g:qb_hotkey = "<leader><Tab>"
 endif
 exe "nnoremap <unique>" g:qb_hotkey " :cal <SID>init(1)<cr>:cal SBRun()<cr>"
 

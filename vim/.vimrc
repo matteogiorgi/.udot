@@ -197,7 +197,7 @@ xnoremap K :move '<-2<CR>gv=gv
 xnoremap J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
-nnoremap <silent><Return> :wincmd w<cr>
+nnoremap <silent><Tab> :wincmd w<cr>
 nnoremap <silent><Backspace> :b#<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
