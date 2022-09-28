@@ -294,7 +294,6 @@ printf "\n"
 sudo apt purge -qq -y \
     valgrind \
     gdb \
-    cgdb \
     default-jdk \
     default-jdk-doc \
     ant \

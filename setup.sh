@@ -335,7 +335,6 @@ if ask "    Add language support?" Y; then
         build-essential \
         valgrind \
         gdb \
-        cgdb \
         default-jdk \
         default-jdk-doc \
         ant \
