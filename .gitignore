@@ -83,8 +83,11 @@
 
 
 
-### BACKGROUNDS
-###############
+### MEDIA
+#########
 
-/backgrounds/Pictures/*
-!/backgrounds/Pictures/backgrounds
+/media/Pictures/*
+!/media/Pictures/backgrounds
+
+/media/Music/*
+!/media/Music/backgrounds
