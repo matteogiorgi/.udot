@@ -37,12 +37,8 @@ alias fgit="_fgit"
 alias sxiv="_sxiv"
 
 
-alias atoolzip="atool --add"
-alias atoolunzip="atool --extract"
-
-
-alias randrsave="autorandr -s"
-alias randrload="autorandr -l"
+alias atooladd="atool --add"
+alias atoolext="atool --extract"
 
 
 alias woutput="_woutput"
