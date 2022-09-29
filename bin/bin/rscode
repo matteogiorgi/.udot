@@ -67,7 +67,7 @@ $CODE --install-extension monokai.theme-monokai-pro-vscode
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
     "telemetry.telemetryLevel": "off",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "all",
@@ -75,7 +75,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.fontLigatures": true,
     "editor.fontSize": 11,
     "editor.guides.indentation": false,
-    "editor.minimap.enabled": false,
+    "editor.minimap.enabled": true,
     "editor.rulers": [],
     "editor.folding": false,
     "editor.cursorBlinking": "solid",
@@ -92,8 +92,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Monokai Pro",
     "workbench.iconTheme": "Monokai Pro Icons",
-    "workbench.activityBar.visible": false,
-    "workbench.sideBar.location": "right",
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
     "workbench.editor.closeEmptyGroups": true,
     "workbench.list.openMode": "doubleClick",
