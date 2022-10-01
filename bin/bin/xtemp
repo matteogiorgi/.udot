@@ -8,10 +8,10 @@ TEMP=$(awk 'FNR==2 {print $2}' ~/.xtemp)
 if [[ $* == *-0* ]]; then
     printf "#!/bin/sh\nsct 6500\n" > ~/.xtemp
 elif [[ $* == *-1* && $TEMP -gt 3500 ]]; then
-    ((TEMP-=1000))
+    ((TEMP-=500))
     printf "#!/bin/sh\nsct $TEMP\n" > ~/.xtemp
 elif [[ $* == *+1* && $TEMP -lt 9500 ]]; then
-    ((TEMP+=1000))
+    ((TEMP+=500))
     printf "#!/bin/sh\nsct $TEMP\n" > ~/.xtemp
 fi
 

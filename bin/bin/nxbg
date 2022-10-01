@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+[[ $* == *--next* ]] && NEXT=1
 [[ $* == *--prev* ]] && PREV=1
 BACKGROUNDS="$HOME/Pictures/backgrounds"
 

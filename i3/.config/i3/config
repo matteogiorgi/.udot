@@ -173,9 +173,9 @@ bindsym $mod+t mode "temperature"
 ##################
 
 mode "background" {
-    bindsym j exec "nxbg"
+    bindsym j exec "nxbg --next"
     bindsym k exec "nxbg --prev"
-    bindsym Down exec "nxbg"
+    bindsym Down exec "nxbg --next"
     bindsym Up exec "nxbg --prev"
 
     bindsym Return mode "default"
