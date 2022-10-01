@@ -267,7 +267,8 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p MENU"
 bindsym $mod+u exec "dcode"
 bindsym $mod+i exec "dbrowse"
 bindsym $mod+o exec "dquit"
-bindsym $mod+p move workspace to output next
+bindsym $mod+p exec "dmonitor"
+bindsym $mod+n move workspace to output next
 
 
 

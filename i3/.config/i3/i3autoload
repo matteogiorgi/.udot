@@ -19,9 +19,9 @@ source $HOME/.xinput.bash
 ### Load monitor config as single/dual/triple with autorandr
 ############################################################
 
-[[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 1 ]] && autorandr --load single
-[[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 2 ]] && autorandr --load dual
-[[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -eq 3 ]] && autorandr --load triple
+NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
+[[ $NMON -eq 1 ]] && autorandr --load master
+[[ $NMON -eq 2 ]] && autorandr --load dual
 [[ -f ~/.fehbg ]] && ~/.fehbg
 
 
