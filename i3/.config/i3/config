@@ -122,17 +122,6 @@ bindsym $mod+Shift+BackSpace move container to workspace prev
 
 
 
-### Bind programs (use xprop)
-#############################
-
-assign [class="Google-chrome"] $ws1
-assign [class="Chromium"] $ws1
-assign [class="Code"] $ws10
-assign [class="VSCodium"] $ws10
-
-
-
-
 ### Resize window
 #################
 
@@ -288,3 +277,12 @@ bindsym $mod+p move workspace to output next
 
 exec --no-startup-id "~/.config/i3/i3autoload"
 exec --no-startup-id "~/.config/i3/i3scratchpad"
+
+
+
+
+### Bind programs (use xprop)
+#############################
+
+# assign [class="Brave-browser"] $ws1
+# assign [class="Code"] $ws10

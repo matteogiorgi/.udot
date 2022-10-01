@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-if [[ -x "$(command -v google-chrome)" ]]; then
+if [[ -x "$(command -v brave)" ]]; then
+    COMMAND="brave"; BROWSER="Brave"
+elif [[ -x "$(command -v google-chrome)" ]]; then
     COMMAND="google-chrome"; BROWSER="Chrome"
 elif [[ -x "$(command -v chromium)" ]]; then
     COMMAND="chromium"; BROWSER="Chromium"
