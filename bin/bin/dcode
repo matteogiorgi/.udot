@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
 if [[ -x "$(command -v code)" ]]; then
-    COMMAND="code"; CODE="VSCode"
+    COMMAND="code"; CODE="CODE"
 elif [[ -x "$(command -v codium)" ]]; then
-    COMMAND="codium"; CODE="VSCodium"
+    COMMAND="codium"; CODE="CODIUM"
 else
     dmenu_run -i -b
     exit 0
 fi
 
-CHOICE=$(echo -e "$CODE\nNFrame\nHOME" | dmenu -i -b | cut -d ':' -f 1)
+CHOICE=$(echo -e "Open\nFrame\nHome" | dmenu -i -b -p $CODE | cut -d ':' -f 1)
 case "$CHOICE" in
-    $CODE)
+    Open)
         $COMMAND
         ;;
-    NFrame)
+    Frame)
         $COMMAND --new-window
         ;;
-    HOME)
+    Home)
         $COMMAND $HOME
         ;;
     *)

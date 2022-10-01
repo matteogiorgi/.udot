@@ -24,19 +24,6 @@ if [[ -n $NAMES ]]; then
         VSCodium)
             CODE="codium"
             FOLDER="VSCodium"
-            ;;
-        *)
-            exit 1
-    esac
-elif [[ ! -n $CODE ]]; then
-    printf "VSCode/VSCodium not installed\n"
-    exit 1
-fi
-
-
-### Add VSCode Marketplace to VSCodium
-######################################
-
 cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
 {
     "extensionsGallery": {
@@ -48,6 +35,14 @@ cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
     }
 }
 EOF
+            ;;
+        *)
+            exit 1
+    esac
+elif [[ ! -n $CODE ]]; then
+    printf "VSCode/VSCodium not installed\n"
+    exit 1
+fi
 
 
 ### Remove extensions, add VSpaceCode

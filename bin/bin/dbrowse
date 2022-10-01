@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 if [[ -x "$(command -v brave)" ]]; then
-    COMMAND="brave"; BROWSER="Brave"
+    COMMAND="brave"; BROWSER="BRAVE"
 elif [[ -x "$(command -v google-chrome)" ]]; then
-    COMMAND="google-chrome"; BROWSER="Chrome"
+    COMMAND="google-chrome"; BROWSER="CHROME"
 elif [[ -x "$(command -v chromium)" ]]; then
-    COMMAND="chromium"; BROWSER="Chromium"
+    COMMAND="chromium"; BROWSER="CHROMIUM"
 else
     dmenu_run -i -b
     exit 0
 fi
 
-CHOICE=$(echo -e "$BROWSER\nStartpage\nNotewiki\nHOME\nIncognito" | dmenu -i -b | cut -d ':' -f 1)
+CHOICE=$(echo -e "Open\nStartpage\nNotewiki\nHome\nIncognito" | dmenu -i -b -p $BROWSER | cut -d ':' -f 1)
 case "$CHOICE" in
-    $BROWSER)
+    Open)
         $COMMAND
         ;;
     Startpage)
@@ -22,7 +22,7 @@ case "$CHOICE" in
     Notewiki)
         $COMMAND --new-window $HOME/notewiki/pandoc/index.html
         ;;
-    HOME)
+    Home)
         $COMMAND --new-window $HOME
         ;;
     Incognito)

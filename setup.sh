@@ -282,9 +282,7 @@ if ask "    Add snap packages?" Y; then
     printf "\n"
     [[ ! -x "$(command -v snap)" ]] && sudo apt install -qq -y snapd
     sudo snap install --classic code
-    sudo snap install --classic codium
     sudo snap install brave
-    sudo snap install chromium
 fi
 
 
