@@ -274,7 +274,9 @@ printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
     sudo snap remove --purge code
+    sudo snap remove --purge codium
     sudo snap remove --purge brave
+    sudo snap remove --purge chromium
 fi
 
 

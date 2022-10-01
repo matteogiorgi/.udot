@@ -50,7 +50,7 @@ sct flameshot pavucontrol gparted
 ## Snap packages
 
 ```
-code brave
+code codium brave chromium
 ```
 
 
