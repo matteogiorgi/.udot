@@ -48,7 +48,7 @@ case "$*" in
         ;;
     "")
         xsetroot -gray
-        rm -f ~/.fehbg
+        rm -f ~/.fehbg 2>/dev/null
         ;;
     *)
         exit 1
