@@ -30,3 +30,4 @@ case "$CHOICE" in
 esac
 
 [[ -f ~/.fehbg ]] && ~/.fehbg
+[[ -f ~/.xtemp ]] && ~/.xtemp
