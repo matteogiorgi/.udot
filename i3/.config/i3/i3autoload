@@ -27,7 +27,7 @@ NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 if [[ -f ~/.fehbg && -f $(awk 'FNR==2 {print $4}' ~/.fehbg) ]]; then
     ~/.fehbg
 else
-    feh --bg-fill --no-fehbg "$SCRIPTPATH/default.png"
+    feh --bg-fill "$SCRIPTPATH/default.png"
 fi
 
 

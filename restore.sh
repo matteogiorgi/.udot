@@ -187,10 +187,12 @@ stow -D x11
 stow -D zathura
 
 restore
+rmdir $HOME/Pictures/backgrounds 2>/dev/null
+
 [[ -d $RESTORE ]] && rm -rf $RESTORE
 [[ -d $HOME/.tmp ]] && rm -rf $HOME/.tmp
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
-rmdir $HOME/Pictures/backgrounds 2>/dev/null
+[[ -f $HOME/.xtemp ]] && rm $HOME/.xtemp
 
 
 

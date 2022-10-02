@@ -31,3 +31,4 @@ esac
 
 [[ -f ~/.fehbg ]] && ~/.fehbg
 [[ -f ~/.xtemp ]] && ~/.xtemp
+xsetroot -cursor_name arrow
