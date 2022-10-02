@@ -178,10 +178,10 @@ mode "background" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
-    bindsym $mod+b mode "default"
+    bindsym $mod+y mode "default"
 }
 
-bindsym $mod+b mode "background"
+bindsym $mod+y mode "background"
 
 
 
