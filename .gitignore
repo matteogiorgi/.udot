@@ -79,12 +79,3 @@
 !/vim/.vim/colors
 !/vim/.vim/pack
 !/vim/.vim/plugin
-
-
-
-
-### MEDIA
-#########
-
-/media/Pictures/*
-!/media/Pictures/backgrounds
