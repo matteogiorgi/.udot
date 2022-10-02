@@ -98,6 +98,38 @@ function _sxiv () {
 }
 
 
+function _chbg () {
+    BACKGROUNDS="$HOME/Pictures/backgrounds"
+    [[ -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]] && exit 1
+
+    RED='\033[1;36m'
+    YLW='\033[1;35m'
+    NC='\033[0m'
+
+    count=1
+    list=$(/usr/bin/ls $BACKGROUNDS)
+    max=$(($(/usr/bin/ls $BACKGROUNDS | wc -w)+1))
+
+    printf "${RED}%s${NC}\n" "Choose a background:"
+    for file in $list
+    do
+        echo "$count $file"
+        ((count++))
+    done
+    printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
+
+    while read response; do
+        re='^[0-9]+$'
+        [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$max" ]] && break
+        printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
+    done
+
+    bgrnd=$(/usr/bin/ls $BACKGROUNDS | head -n $response | tail -n 1)
+    feh --bg-fill "$BACKGROUNDS/$bgrnd"
+    printf "${YLW}%s\n${NC}" "Done."
+}
+
+
 function _woutput () {
     source $HOME/.xinput.bash
 

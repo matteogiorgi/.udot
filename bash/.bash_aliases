@@ -35,6 +35,7 @@ alias shfm="_shfm"
 alias fjump="_fjump"
 alias fgit="_fgit"
 alias sxiv="_sxiv"
+alias chbg="_chbg"
 
 
 alias atooladd="atool --add"

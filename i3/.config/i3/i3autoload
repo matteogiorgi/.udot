@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source $HOME/.xinput.bash
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 
 ### XDG autostart, loginctl lock-session, applets
@@ -22,7 +23,7 @@ source $HOME/.xinput.bash
 NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 [[ $NMON -eq 1 ]] && autorandr --load master
 [[ $NMON -eq 2 ]] && autorandr --load dual
-[[ -f ~/.fehbg ]] && ~/.fehbg
+[[ -f ~/.fehbg ]] && ~/.fehbg || feh --bg-fill "$SCRIPTPATH/default.png"
 
 
 

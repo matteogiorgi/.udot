@@ -6,6 +6,14 @@
 
 
 
+### This should retrieve current script path
+############################################
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+
+
+
 ### Colors definition
 #####################
 

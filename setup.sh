@@ -9,6 +9,14 @@
 
 
 
+### This should retrieve current script path
+############################################
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+
+
+
 ### Colors definition
 #####################
 
@@ -306,6 +314,7 @@ cd ..
 #########################
 
 backup
+feh --bg-fill "$SCRIPTPATH/i3/.config/i3/default.png"
 
 stow bash
 stow bin
