@@ -80,9 +80,6 @@ ask () {
 }
 
 restore () {
-    # backgrounds
-    [[ -d $RESTORE/backgrounds ]] && mv $RESTORE/backgrounds $HOME/Pictures
-
     # bash
     [[ -f $RESTORE/.bash_aliases ]] && mv $RESTORE/.bash_aliases $HOME
     [[ -f $RESTORE/.bash_functions ]] && mv $RESTORE/.bash_functions $HOME
@@ -168,7 +165,6 @@ fi
 ### Remove symlinks
 ###################
 
-stow -D backgrounds
 stow -D bash
 stow -D bin
 stow -D fzf

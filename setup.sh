@@ -91,9 +91,6 @@ clean () {
 }
 
 backup () {
-    # backgrounds
-    [[ -d $HOME/Pictures/backgrounds ]] && clean $HOME/Pictures/backgrounds
-
     # bash
     [[ -f $HOME/.bash_aliases ]] && clean $HOME/.bash_aliases
     [[ -f $HOME/.bash_functions ]] && clean $HOME/.bash_functions
@@ -310,7 +307,6 @@ cd ..
 
 backup
 
-stow backgrounds
 stow bash
 stow bin
 stow fzf
