@@ -53,3 +53,4 @@ case "$*" in
     *)
         exit 1
 esac
+xsetroot -cursor_name arrow
