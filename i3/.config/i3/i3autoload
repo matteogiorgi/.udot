@@ -17,8 +17,8 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 
 
-### Load monitor config as single/dual/triple with autorandr
-############################################################
+### Load monitor config as single/dual with autorandr
+#####################################################
 
 NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 [[ $NMON -eq 1 ]] && autorandr --load master
@@ -78,3 +78,11 @@ if [[ -x "$(command -v sct)" ]]; then
     fi
     ~/.xtemp
 fi
+
+
+
+
+### Load mouse pointer
+######################
+
+xsetroot -cursor_name arrow
