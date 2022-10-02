@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-BACKGROUNDS="$HOME/Pictures/backgrounds"
-[[ -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]] && exit 1
-
-[[ $* == *--next* ]] && NEXT=1
-[[ $* == *--prev* ]] && PREV=1
 
 # this function chose a random background inside the $BACKGROUNDS
 # directory carefully excluding the one already in use
 function _randombg () {
+    [[ -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]] && exit 1
     while [[ $OLD_PIC == $NEW_PIC ]]; do
-        OLD_PIC=$(cat $HOME/.fehbg | awk '{if (NR==2) print $4}'); OLD_PIC=${OLD_PIC#"'"}; OLD_PIC=${OLD_PIC%"'"}
+        OLD_PIC=$(awk '{if (NR==2) print $4}' $HOME/.fehbg); OLD_PIC=${OLD_PIC#"'"}; OLD_PIC=${OLD_PIC%"'"}
         NEW_PIC=$BACKGROUNDS/$(/bin/ls -1 $BACKGROUNDS | tail -$(($RANDOM %$(/bin/ls -1 | wc -l)+1)) | head -1)
     done
     feh --bg-fill $NEW_PIC
@@ -19,18 +15,41 @@ function _randombg () {
 # this function cycle through the backgrounds inside the $BACKGROUNDS directory
 # starting from the beginning each time a background is chosen differently
 function _cyclebg () {
+    [[ -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]] && exit 1
     ELEMS=$(/bin/ls -1 $BACKGROUNDS | wc -l)
-    INDEX=$(cat $HOME/.fehbg | awk 'END{print $2}')
+    [[ -f ~/.fehbg ]] && INDEX=$(awk 'END{print $2}' $HOME/.fehbg) || INDEX="null"
     REGEX='^[0-9]+$'
     if [[ ! $INDEX =~ $REGEX ]]; then
         INDEX=$ELEMS
     elif [[ -n $PREV ]]; then
         [[ $INDEX -eq $ELEMS ]] && INDEX=1 || ((INDEX++))
-    else
+    elif [[ -n $NEXT ]]; then
         [[ $INDEX == 1 ]] && INDEX=$ELEMS || ((INDEX--))
     fi
     feh --bg-fill $BACKGROUNDS/$(/bin/ls -1 $BACKGROUNDS | tail -$INDEX | head -1)
     echo "# $INDEX" >> $HOME/.fehbg
 }
 
-_cyclebg
+
+
+
+BACKGROUNDS="$HOME/Pictures/backgrounds"
+case "$*" in
+    --random)
+        _randombg
+        ;;
+    --prev)
+        PREV=1
+        _cyclebg
+        ;;
+    --next)
+        NEXT=1
+        _cyclebg
+        ;;
+    "")
+        xsetroot -gray
+        rm -f ~/.fehbg
+        ;;
+    *)
+        exit 1
+esac

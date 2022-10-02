@@ -315,6 +315,7 @@ cd ..
 
 backup
 feh --bg-fill "$SCRIPTPATH/i3/.config/i3/default.png"
+mkdir -p $HOME/Pictures/backgrounds
 
 stow bash
 stow bin

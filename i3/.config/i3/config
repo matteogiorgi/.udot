@@ -153,10 +153,7 @@ bindsym $mod+r mode "resize"
 mode "temperature" {
     bindsym j exec "xtemp -1"
     bindsym k exec "xtemp +1"
-    bindsym Down exec "xtemp -1"
-    bindsym Up exec "xtemp +1"
-
-    bindsym 0 exec "xtemp -0"
+    bindsym z exec "xtemp"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -175,8 +172,8 @@ bindsym $mod+t mode "temperature"
 mode "background" {
     bindsym j exec "nxbg --next"
     bindsym k exec "nxbg --prev"
-    bindsym Down exec "nxbg --next"
-    bindsym Up exec "nxbg --prev"
+    bindsym r exec "nxbg --random"
+    bindsym z exec "nxbg"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
