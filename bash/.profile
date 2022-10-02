@@ -85,5 +85,5 @@ export VISUAL="/bin/vi"
 ### Create and/or source xinput variables
 #########################################
 
-[[ ! -f ~/.xinput.bash ]] && printf "TOUCHPADID=''\nWACOMID=''\n" > ~/.xinput.bash
+[[ ! -f ~/.xinput.bash ]] && printf "export TOUCHPADID=''\nexport WACOMID=''\n" > ~/.xinput.bash
 source $HOME/.xinput.bash

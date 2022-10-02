@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
+BACKGROUNDS="$HOME/Pictures/backgrounds"
+[[ -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]] && exit 1
+
 [[ $* == *--next* ]] && NEXT=1
 [[ $* == *--prev* ]] && PREV=1
-BACKGROUNDS="$HOME/Pictures/backgrounds"
 
 # this function chose a random background inside the $BACKGROUNDS
 # directory carefully excluding the one already in use
