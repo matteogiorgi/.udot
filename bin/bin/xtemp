@@ -17,3 +17,4 @@ fi
 
 chmod 755 ~/.xtemp
 ~/.xtemp
+xsetroot -cursor_name arrow
