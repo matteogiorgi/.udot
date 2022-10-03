@@ -255,7 +255,7 @@ for_window [instance="scratchpad"] move scratchpad
 ### Usefull binds
 #################
 
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 bindsym $mod+Shift+q kill
 

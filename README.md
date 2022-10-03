@@ -38,7 +38,7 @@ ffmpeg poppler-utils mediainfo pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 ## Main packages
 
 ```
-i3-wm xautolock arandr xterm rxvt-unicode tmux kakoune neovim vim-gtk3 nano
+i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune neovim vim-gtk3 nano
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 adwaita-icon-theme gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 sct flameshot pavucontrol gparted

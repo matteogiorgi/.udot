@@ -110,6 +110,9 @@ restore () {
     # kakoune
     [[ -d $RESTORE/kak ]] && mv $RESTORE/kak $HOME/.config
 
+    # kitty
+    [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
+
     # nano
     [[ -f $RESTORE/.nanorc ]] && mv $RESTORE/.nanorc $HOME
 
@@ -181,6 +184,7 @@ stow -D bin
 stow -D fzf
 stow -D i3
 stow -D kakoune
+stow -D kitty
 stow -D nano
 stow -D neovim
 stow -D sxiv
@@ -255,6 +259,7 @@ sudo apt purge -qq -y \
     rxvt-unicode \
     tmux \
     kakoune \
+    kitty \
     neovim \
     vim-gtk3 \
     nano \

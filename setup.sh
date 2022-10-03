@@ -121,6 +121,9 @@ backup () {
     # kakoune
     [[ -d $HOME/.config/kak ]] && clean $HOME/.config/kak
 
+    # kitty
+    [[ -d $HOME/.config/kitty ]] && clean $HOME/.config/kitty
+
     # nano
     [[ -f $HOME/.nanorc ]] && clean $HOME/.nanorc
 
@@ -258,6 +261,7 @@ sudo apt install -qq -y \
     rxvt-unicode \
     tmux \
     kakoune \
+    kitty \
     neovim \
     vim-gtk3 \
     nano \
@@ -325,6 +329,7 @@ stow bin
 stow fzf
 stow i3
 stow kakoune
+stow kitty
 stow nano
 stow neovim
 stow sxiv
