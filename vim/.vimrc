@@ -213,7 +213,6 @@ nnoremap <silent><Left> :vertical resize -5<CR>
 nnoremap <silent><Right> :vertical resize +5<CR>
 nnoremap <silent><Down> :resize -5<CR>
 nnoremap <silent><Up> :resize +5<CR>
-nnoremap <leader>e :Explore<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt

@@ -124,6 +124,9 @@ backup () {
     # nano
     [[ -f $HOME/.nanorc ]] && clean $HOME/.nanorc
 
+    # neovim
+    [[ -d $HOME/.config/nvim ]] && clean $HOME/.config/nvim
+
     # sxiv
     [[ -d $HOME/.config/sxiv ]] && clean $HOME/.config/sxiv
 
@@ -254,8 +257,9 @@ sudo apt install -qq -y \
     xterm \
     rxvt-unicode \
     tmux \
-    vim-gtk3 \
     kakoune \
+    neovim \
+    vim-gtk3 \
     nano \
     zathura \
     zathura-djvu \
@@ -322,6 +326,7 @@ stow fzf
 stow i3
 stow kakoune
 stow nano
+stow neovim
 stow sxiv
 stow tig
 stow tmux
