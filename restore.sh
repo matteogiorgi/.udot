@@ -246,6 +246,7 @@ sudo apt purge -qq -y \
     fzf \
     ripgrep \
     source-highlight \
+    mesa-utils \
     xdo \
     feh \
     mediainfo \

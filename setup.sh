@@ -233,6 +233,7 @@ sudo apt install -qq -y \
     wamerican \
     witalian \
     source-highlight \
+    mesa-utils \
     xdo \
     feh \
     ffmpeg \
