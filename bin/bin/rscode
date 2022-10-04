@@ -114,21 +114,25 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "command": "workbench.action.showCommands"
     },
     {
-        "key": "alt+v",
+        "key": "alt+u",
         "command": "toggleVim"
     },
     {
-        "key": "alt+t",
+        "key": "alt+i",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
     {
+        "key": "alt+a",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
         "key": "alt+s",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "command": "workbench.action.focusAuxiliaryBar"
     },
     {
         "key": "alt+h",
-        "command": "workbench.action.openRecent"
+        "command": "workbench.action.toggleSidebarVisibility"
     },
     {
         "key": "alt+j",
@@ -140,7 +144,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+l",
-        "command": "workbench.action.focusSideBar"
+        "command": "workbench.action.toggleAuxiliaryBar"
     },
     {
         "key": "ctrl+j",
