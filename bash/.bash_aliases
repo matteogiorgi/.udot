@@ -36,6 +36,7 @@ alias fjump="_fjump"
 alias fgit="_fgit"
 alias sxiv="_sxiv"
 alias chbg="_chbg"
+alias ipreview="_ipreview"
 
 
 alias atooladd="atool --add"

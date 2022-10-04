@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 
+
+### Check arguments
+###################
+
 [[ "$*" == "" ]] && exit 1
+
+
+
+
+### Check ~/.tmp
+################
 
 if [[ ! -d $HOME/.tmp ]]; then
     mkdir $HOME/.tmp
@@ -8,13 +18,31 @@ elif [[ $(du $HOME/.tmp | awk '{print $1}') -gt 1048576 ]]; then
     rm $HOME/.tmp/*
 fi
 
+
+
+
+### Functions definition
+########################
+
+# check a function with something like this:
+# [[ "$(type -t _vim)" == function ]] && _vim $FILE
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+
+
+
+### Variables and functions definition
+######################################
+
 FILE="$*"
 NAME=${FILE%.*}
 NAME=${NAME##*/}
 MESS="/bin/less -R -~"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
-no_preview () {
+_no_preview () {
     echo "                               "
     echo "  ┌─────────────────────────┐  "
     echo "  │  Sry mate, no preview.  │  "
@@ -25,6 +53,12 @@ no_preview () {
     echo "             (> <)             "
     echo "                               "
 }
+
+
+
+
+### Main body
+#############
 
 if [[ -L "$FILE" && -d "$FILE" ]]; then
     ${LIST} "$(readlink $FILE)" | ${MESS}
@@ -76,20 +110,20 @@ else
                 elif [[ -x "$(command -v mediainfo)" ]]; then
                     mediainfo "$FILE" | ${MESS}
                 else
-                    no_preview
+                    _no_preview
                 fi
             else
                 mess "$HOME/.tmp/$NAME.png"
             fi
             ;;
         audio/*)
-            [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || no_preview
+            [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || _no_preview
             ;;
         image/*)
             # remember to install PIL/Pillow: pip3 install PIL/Pillow
-            [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || no_preview
+            [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || _no_preview
             ;;
         *)
-            no_preview
+            _no_preview
     esac
 fi

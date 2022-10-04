@@ -300,3 +300,19 @@ function _xlayout () {
     ~/.xlayout
     xmodmap ~/.Xmodmap
 }
+
+
+function _ipreview () {
+    FILE=$*
+    RED='\033[1;36m'
+    NC='\033[0m'
+
+    # remember to install PIL/Pillow: pip3 install PIL/Pillow
+    if [[ $(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$)) == "kitty" ]]; then
+        kitty +kitten icat "$FILE"
+    elif [[ -x "$(command -v tcv)" ]]; then
+        tcv "$FILE" 2>/dev/null
+    else
+        printf "${RED}%s${NC}\n" "Can't preview shit, do something!"
+    fi
+}
