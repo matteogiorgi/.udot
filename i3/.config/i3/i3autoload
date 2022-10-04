@@ -24,7 +24,8 @@ NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 [[ $NMON -eq 1 ]] && autorandr --load master
 [[ $NMON -eq 2 ]] && autorandr --load dual
 
-if [[ -f ~/.fehbg && -f $(awk 'FNR==2 {print $4}' ~/.fehbg) ]]; then
+[[ -f ~/.fehbg ]] && PIC=$(awk 'FNR==2 {print $4}' ~/.fehbg)
+if [[ -n $PIC && -f ${PIC:1:-1} ]]; then
     ~/.fehbg
 else
     feh --bg-fill "$SCRIPTPATH/default.png"
