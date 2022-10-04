@@ -217,9 +217,15 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 
 
 
-## Keybindings (add `set -o vi` for vi mode)
-############################################
+## Keybindings (vi mode)
+########################
 
-bind '"\C-f"':"\"ffind\C-m\""
-bind '"\C-g"':"\"fgit\C-m\""
-bind '"\C-j"':"\"fjump\C-m\""
+set -o vi
+
+bind -m vi-command -x '"\C-f": ffind'
+bind -m vi-command -x '"\C-g": fgit'
+bind -m vi-command -x '"\C-j": fjump'
+
+bind -m vi-insert -x '"\C-f": ffind'
+bind -m vi-insert -x '"\C-g": fgit'
+bind -m vi-insert -x '"\C-j": fjump'
