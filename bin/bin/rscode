@@ -78,7 +78,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.cursorBlinking": "solid",
     "editor.renderLineHighlight": "line",
     "editor.lineHeight": 1.4,
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "relative",
     "editor.scrollbar.vertical": "auto",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 10,
@@ -110,8 +110,67 @@ EOF
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 [
     {
-        "key": "alt+j",
+        "key": "alt+space",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "alt+v",
         "command": "toggleVim"
+    },
+    {
+        "key": "alt+t",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "alt+s",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.openRecent"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusSideBar"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "showNextParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "showPrevParameterHint",
+        "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
     }
 ]
 EOF
