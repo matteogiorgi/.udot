@@ -27,11 +27,12 @@ function _mpv () {
 
 
 function _vim () {
-    [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
-    if [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]]; then
-        env vim --cmd "let theme = 'light'" "$@"
+    if [[ -n "$TMUX" ]]; then
+        /bin/vim
     else
-        env vim --cmd "let theme = 'dark'" "$@"
+        [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
+        [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
+        env vim --cmd "let theme = $BGCOLOR" "$@"
     fi
 }
 
