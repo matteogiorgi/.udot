@@ -276,11 +276,11 @@ bindsym $mod+n move workspace to output next
 ### Bind programs (use xprop)
 #############################
 
-assign [class="Brave-browser"] $ws1
-assign [class="Google-chrome"] $ws1
-assign [class="Chromium"] $ws1
-assign [class="Code"] $ws2
-assign [class="VSCodium"] $ws2
+# assign [class="Brave-browser"] $ws1
+# assign [class="Google-chrome"] $ws1
+# assign [class="Chromium"] $ws1
+# assign [class="Code"] $ws2
+# assign [class="VSCodium"] $ws2
 
 
 
