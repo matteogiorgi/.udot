@@ -250,6 +250,7 @@ sudo apt purge -qq -y \
     xdo \
     feh \
     mediainfo \
+    brightnessctl \
     pandoc \
     texlive \
     fonts-jetbrains-mono \

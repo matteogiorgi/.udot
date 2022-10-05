@@ -239,6 +239,7 @@ sudo apt install -qq -y \
     ffmpeg \
     poppler-utils \
     mediainfo \
+    brightnessctl \
     pandoc \
     texlive \
     fonts-ubuntu \

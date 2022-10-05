@@ -45,6 +45,12 @@ function _vimlast () {
 }
 
 
+function _tmux () {
+    YLW='\033[1;35m'; NC='\033[0m'
+    [[ ! -n "$TMUX" ]] && /bin/tmux || printf "${YLW}%s${NC}\n" "WTF 're doing mate!"
+}
+
+
 function _shfm () {
     ~/bin/shfm/shfm "$@"
     cd "$(cat ~/.shfm.tmp)"

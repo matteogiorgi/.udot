@@ -29,6 +29,7 @@ alias vimlast="_vil"
 alias vimnoplugin="vim --noplugin -n -i NONE"
 
 
+alias tmux="_tmux"
 alias xhide="_xhide"
 alias xshow="_xshow"
 alias shfm="_shfm"

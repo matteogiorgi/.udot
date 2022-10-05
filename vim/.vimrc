@@ -105,7 +105,7 @@ set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
 set cursorline noerrorbells novisualbell
-set cursorlineopt=number,line  " number,line
+set cursorlineopt=number  " number,line
 set splitbelow splitright
 set equalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM

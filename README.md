@@ -29,7 +29,7 @@ These <img width="15" src="media/mona.gif"> repo contains a minimal configuratio
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop khal tree make
 gcc lxpolkit libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev xclip
 fzf ripgrep wamerican witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils
-mediainfo pandoc texlive fonts-ubuntu fonts-jetbrains-mono
+mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono
 ```
 
 
