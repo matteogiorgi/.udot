@@ -48,7 +48,7 @@ function _vimlast () {
 
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
-    [[ ! -n "$TMUX" ]] && /bin/tmux || printf "${YLW}%s${NC}\n" "WTF 're doing mate!"
+    [[ ! -n "$TMUX" ]] && /bin/tmux || printf "${YLW}%s${NC}\n" "WTF mate, you're already in tmux session!"
 }
 
 
@@ -72,24 +72,29 @@ function _fjump () {
 function _fgit () {
     # FZF git commit browser:
     # [enter=show] [ctrl-d=diff] [`=sort]
-    local out shas sha q k
-    while out=$(
-            git log --graph --color=always \
-                --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-            fzf --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
-                --print-query --expect=ctrl-d --toggle-sort=\`); do
-        q=$(head -1 <<< "$out")
-        k=$(head -2 <<< "$out" | tail -1)
-        shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
-        [ -z "$shas" ] && continue
-        if [ "$k" = 'ctrl-d' ]; then
-            git diff --color=always $shas | less -R -~
-        else
-            for sha in $shas; do
-                git show --color=always $sha | less -R -~
-            done
-        fi
-    done
+    YLW='\033[1;35m'; NC='\033[0m'
+    if [[ -d ./.git ]]; then
+        local out shas sha q k
+        while out=$(
+                git log --graph --color=always \
+                    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+                fzf --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
+                    --print-query --expect=ctrl-d --toggle-sort=\`); do
+            q=$(head -1 <<< "$out")
+            k=$(head -2 <<< "$out" | tail -1)
+            shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
+            [ -z "$shas" ] && continue
+            if [ "$k" = 'ctrl-d' ]; then
+                git diff --color=always $shas | less -R -~
+            else
+                for sha in $shas; do
+                    git show --color=always $sha | less -R -~
+                done
+            fi
+        done
+    else
+        printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
+    fi
 }
 
 
