@@ -53,10 +53,11 @@ function _shfm () {
 
 
 function _fjump () {
+    PROMPT=${PS1@P}
     ~/bin/fjump
     cd "$(cat ~/.fjump.tmp)"
     NEWPROMPT=${PS1@P}
-    echo ${NEWPROMPT%????}
+    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
     rm -f ~/.fjump.tmp
 }
 
