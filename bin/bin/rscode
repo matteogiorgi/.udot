@@ -114,6 +114,10 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "command": "workbench.action.showCommands"
     },
     {
+        "key": "alt+r",
+        "command": "workbench.action.openRecent"
+    },
+    {
         "key": "alt+u",
         "command": "toggleVim"
     },
