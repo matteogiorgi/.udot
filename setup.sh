@@ -294,7 +294,6 @@ sudo apt install -qq -y \
 
 printf "\n"
 if ask "    Add snap packages?" Y; then
-    printf "\n"
     [[ ! -x "$(command -v snap)" ]] && sudo apt install -qq -y snapd
 
     printf "\n${RED}%s${NC}" "    Would you like to install Code or Codium?"
