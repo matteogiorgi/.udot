@@ -296,10 +296,66 @@ printf "\n"
 if ask "    Add snap packages?" Y; then
     printf "\n"
     [[ ! -x "$(command -v snap)" ]] && sudo apt install -qq -y snapd
-    sudo snap install --classic code
-    sudo snap install --classic codium
-    sudo snap install brave
-    sudo snap install chromium
+
+    printf "\n${RED}%s${NC}" "    Would you like to install Code or Codium?"
+    printf "\n%s${YLW}%s${NC}" "      (0) " "Code AND Codium"
+    printf "\n%s${YLW}%s${NC}" "      (1) " "Code"
+    printf "\n%s${YLW}%s${NC}" "      (2) " "Codium"
+    printf "\n${RED}%s${NC} " "    Enter an index (1-2):"
+
+    while read response; do
+        case $response in
+            0)
+                printf "\n"
+                sudo snap install --classic code
+                sudo snap install --classic codium
+                break
+                ;;
+            1)
+                printf "\n"
+                sudo snap install --classic code
+                break
+                ;;
+            2)
+                printf "\n"
+                sudo snap install --classic codium
+                break
+                ;;
+            *)
+                printf "\n${RED}%s${NC} " "Enter an index (0-2):"
+                ;;
+        esac
+    done
+
+    printf "\n${RED}%s${NC}" "    Would you like to install Brave or Chromium?"
+    printf "\n%s${YLW}%s${NC}" "      (0) " "Brave AND Chromium"
+    printf "\n%s${YLW}%s${NC}" "      (1) " "Brave"
+    printf "\n%s${YLW}%s${NC}" "      (2) " "Chromium"
+    printf "\n${RED}%s${NC} " "    Enter an index (0-2):"
+
+    while read response; do
+        case $response in
+            0)
+                printf "\n"
+                sudo snap install brave
+                sudo snap install chromium
+                break
+                ;;
+            1)
+                printf "\n"
+                sudo snap install brave
+                break
+                ;;
+            2)
+                printf "\n"
+                sudo snap install chromium
+                break
+                ;;
+            *)
+                printf "\n${RED}%s${NC} " "Enter an index (0-1):"
+                ;;
+        esac
+    done
 fi
 
 
