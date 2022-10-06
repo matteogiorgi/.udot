@@ -292,10 +292,10 @@ read -p "    Removing Snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    sudo snap remove --purge code
-    sudo snap remove --purge codium
-    sudo snap remove --purge brave
-    sudo snap remove --purge chromium
+    [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
+    [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
+    [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
+    [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
 fi
 
 

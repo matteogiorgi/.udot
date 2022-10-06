@@ -301,7 +301,7 @@ if ask "    Add snap packages?" Y; then
     printf "\n%s${YLW}%s${NC}" "      (0) " "Code AND Codium"
     printf "\n%s${YLW}%s${NC}" "      (1) " "Code"
     printf "\n%s${YLW}%s${NC}" "      (2) " "Codium"
-    printf "\n${RED}%s${NC} " "    Enter an index (1-2):"
+    printf "\n${RED}%s${NC} " "    Enter an index (0-2):"
 
     while read response; do
         case $response in

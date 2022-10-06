@@ -1,29 +1,10 @@
 #!/usr/bin/env bash
 
 
-### Choose editor
-#################
+### Funcions and colors definition
+##################################
 
-if [[ -f "/bin/fzf" ]]; then
-    [[ -x "$(command -v codium)" ]] && NAMES="VSCodium\n"$NAMES
-    [[ -x "$(command -v code)" ]] && NAMES="VSCode\n"$NAMES
-elif [[ -x "$(command -v code)" ]]; then
-    CODE="code"
-    FOLDER="Code"
-elif [[ -x "$(command -v codium)" ]]; then
-    CODE="codium"
-    FOLDER="VSCodium"
-fi
-
-if [[ -n $NAMES ]]; then
-    case $(printf "$NAMES" | fzf --prompt="Choose editor to reset: " --height 100% --reverse --info=hidden --header-first) in
-        VSCode)
-            CODE="code"
-            FOLDER="Code"
-            ;;
-        VSCodium)
-            CODE="codium"
-            FOLDER="VSCodium"
+add_codium_marketplace () {
 cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
 {
     "extensionsGallery": {
@@ -35,18 +16,81 @@ cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
     }
 }
 EOF
+}
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
+### Choose editor
+#################
+
+if [[ -x "$(command -v codium)" ]]; then
+    CODE="codium"
+    FOLDER="VSCodium"
+    NAMES="Codium\n"$NAMES
+fi
+
+if [[ -x "$(command -v code)" ]]; then
+    CODE="code"
+    FOLDER="Code"
+    NAMES="Code\n"$NAMES
+fi
+
+if [[ ! -n $NAMES ]]; then
+    printf "${YLW}%s${NC}\n" "WTF mate, Code/Codium are not installed!"
+    exit 1
+fi
+
+if [[ -f "/bin/fzf" ]]; then
+    case $(printf "$NAMES" | fzf --prompt="Choose editor to reset: " --height 100% --reverse --info=hidden --header-first) in
+        Code)
+            CODE="code"
+            FOLDER="Code"
+            ;;
+        Codium)
+            CODE="codium"
+            FOLDER="VSCodium"
+            add_codium_marketplace
             ;;
         *)
             exit 1
     esac
-elif [[ ! -n $CODE ]]; then
-    printf "VSCode/VSCodium not installed\n"
-    exit 1
+else
+    clear
+    printf "${RED}%s${NC}\n" "Choose editor to reset:"
+    printf "%s${YLW}%s${NC}\n" "  (1) " "Code"
+    printf "%s${YLW}%s${NC}\n" "  (2) " "Codium"
+    printf "${RED}%s${NC} " "Enter an index (1-2):"
+
+    while read response; do
+        case $response in
+            1)
+                CODE="code"
+                FOLDER="Code"
+                break
+                ;;
+            2)
+                CODE="codium"
+                FOLDER="VSCodium"
+                add_codium_marketplace
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Enter an index (1-2):"
+                ;;
+        esac
+    done
 fi
 
 
-### Remove extensions, add VSpaceCode
-#####################################
+
+
+### Remove extensions, add reinstall
+####################################
 
 LIST=$($CODE --list-extensions)
 for EXTENSION in $LIST; do
@@ -54,6 +98,8 @@ for EXTENSION in $LIST; do
 done
 
 $CODE --install-extension monokai.theme-monokai-pro-vscode
+
+
 
 
 ### Reset VSCode settings
