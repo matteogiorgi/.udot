@@ -173,7 +173,7 @@ banner
 warning
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! ask "    ${RED}This is not a Ubuntu distro, continue anyway?${NC}" N; then
+    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
         printf "\n"
         exit 0
     fi
@@ -183,12 +183,12 @@ if [[ ! -d $HOME/.udot-restore ]]; then
     mkdir $HOME/.udot-restore
     RESTORE="$HOME/.udot-restore"
 else
-    printf "    ${RED}%s${NC}\n" "'.udot' is already setup"
-    printf "    ${RED}%s${NC}\n\n" "Launch ./restore.sh first"
+    printf "    '.udot' is already setup\n"
+    printf "    Launch ./restore.sh first\n\n"
     exit 1
 fi
 
-if ! ask "    ${RED}Confirm to start the '.udot' install script${NC}" Y; then
+if ! ask "    Confirm to start the '.udot' install script" Y; then
     printf "\n"
     exit 0
 fi
@@ -199,7 +199,7 @@ fi
 ### Syncing
 ###########
 
-read -p "    ${RED}Syncing and updating repos (enter to continue)${NC}"
+read -p "    Syncing and updating repos (enter to continue)"
 printf "\n"
 
 sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
@@ -211,7 +211,7 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 #############
 
 printf "\n"
-read -p "    ${RED}Installing utilities (enter to continue)${NC}"
+read -p "    Installing utilities (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
@@ -260,7 +260,7 @@ sudo apt install -qq -y \
 #################
 
 printf "\n"
-read -p "    ${RED}Installing main packages (enter to continue)${NC}"
+read -p "    Installing main packages (enter to continue)"
 printf "\n"
 
 sudo apt install -qq -y \
@@ -301,17 +301,17 @@ sudo apt install -qq -y \
 #####################
 
 printf "\n"
-if ask "    ${RED}Add snap packages?${NC}" Y; then
+if ask "    Add snap packages?" Y; then
     if [[ ! -x "$(command -v snap)" ]]; then
         sudo apt install -qq -y snapd
         printf "\n"
     fi
 
-    printf "${RED}%s${NC}" "    Would you like to install Code or Codium?"
+    printf "${YLW}%s${NC}" "    Would you like to install Code or Codium?"
     printf "\n%s${YLW}%s${NC}" "      (0) " "Code AND Codium"
     printf "\n%s${YLW}%s${NC}" "      (1) " "Code"
     printf "\n%s${YLW}%s${NC}" "      (2) " "Codium"
-    printf "\n${RED}%s${NC} " "    Enter an index (0-2):"
+    printf "\n${YLW}%s${NC} " "    Enter an index (0-2):"
 
     while read response; do
         case $response in
@@ -332,16 +332,16 @@ if ask "    ${RED}Add snap packages?${NC}" Y; then
                 break
                 ;;
             *)
-                printf "\n${RED}%s${NC} " "Enter an index (0-2):"
+                printf "\n${YLW}%s${NC} " "Enter an index (0-2):"
                 ;;
         esac
     done
 
-    printf "\n${RED}%s${NC}" "    Would you like to install Brave or Chrome?"
+    printf "\n${YLW}%s${NC}" "    Would you like to install Brave or Chrome?"
     printf "\n%s${YLW}%s${NC}" "      (0) " "Brave AND Chrome"
     printf "\n%s${YLW}%s${NC}" "      (1) " "Brave"
     printf "\n%s${YLW}%s${NC}" "      (2) " "Chrome"
-    printf "\n${RED}%s${NC} " "    Enter an index (0-2):"
+    printf "\n${YLW}%s${NC} " "    Enter an index (0-2):"
 
     while read response; do
         case $response in
@@ -362,7 +362,7 @@ if ask "    ${RED}Add snap packages?${NC}" Y; then
                 break
                 ;;
             *)
-                printf "\n${RED}%s${NC} " "Enter an index (0-1):"
+                printf "\n${YLW}%s${NC} " "Enter an index (0-1):"
                 ;;
         esac
     done
@@ -375,7 +375,7 @@ fi
 #######################
 
 printf "\n"
-read -p "    ${RED}Compiling dmenu, st and slock (enter to continue)${NC}"
+read -p "    Compiling dmenu, st and slock (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean install
@@ -414,7 +414,7 @@ stow zathura
 ########################
 
 printf "\n"
-if ask "    ${RED}Add language support?${NC}" Y; then
+if ask "    Add language support?" Y; then
     printf "\n"
     sudo apt install -qq -y \
         build-essential \
@@ -433,8 +433,8 @@ if ask "    ${RED}Add language support?${NC}" Y; then
         ocaml-man \
         opam \
         opam-doc
-    printf "\n    ${YLW}%s${NC}" "Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    ${YLW}%s${NC}\n" "Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+    printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
+    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
 fi
 
 
@@ -444,7 +444,7 @@ fi
 ##########
 
 printf "\n"
-read -p "    ${RED}Installation completed (enter to logout)${NC}"
+read -p "    Installation completed (enter to logout)"
 printf "\n"
 
 kill_apps

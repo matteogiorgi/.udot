@@ -154,7 +154,7 @@ banner
 warning
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! ask "    ${RED}This is not a Ubuntu distro, continue anyway?${NC}" N; then
+    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
         printf "\n"
         exit 0
     fi
@@ -163,12 +163,12 @@ fi
 if [[ -d $HOME/.udot-restore ]]; then
     RESTORE="$HOME/.udot-restore"
 else
-    printf "    ${RED}%s${NC}\n" "Nothing to restore"
-    printf "    ${RED}%s${NC}\n\n" "Launch ./setup.sh first"
+    printf "    Nothing to restore\n"
+    printf "    Launch ./setup.sh first\n\n"
     exit 1
 fi
 
-if ! ask "    ${RED}Confirm to start the '.udot' restore script${NC}" Y; then
+if ! ask "    Confirm to start the '.udot' restore script" Y; then
     printf "\n"
     exit 0
 fi
@@ -208,7 +208,7 @@ rmdir $HOME/Pictures/backgrounds 2>/dev/null
 ### Dmenu, St and Slock
 #######################
 
-read -p "    ${RED}Removing dmenu, st, and slock (enter to continue)${NC}"
+read -p "    Removing dmenu, st, and slock (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean uninstall
@@ -223,7 +223,7 @@ cd ..
 ###################
 
 printf "\n"
-read -p "    ${RED}Uninstalling packages (enter to continue)${NC}"
+read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
@@ -288,7 +288,7 @@ sudo apt purge -qq -y \
 ########################
 
 printf "\n"
-read -p "    ${RED}Removing Snap packages (enter to continue)${NC}"
+read -p "    Removing Snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
@@ -305,7 +305,7 @@ fi
 ###########################
 
 printf "\n"
-read -p "    ${RED}Removing language support (enter to continue)${NC}"
+read -p "    Removing language support (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
@@ -335,7 +335,7 @@ sudo apt purge -qq -y \
 ##############
 
 printf "\n"
-read -p "    ${RED}Launching autoremove (enter to continue)${NC}"
+read -p "    Launching autoremove (enter to continue)"
 printf "\n"
 
 sudo apt autoremove -qq -y || error "autoremove"
@@ -347,7 +347,7 @@ sudo apt autoremove -qq -y || error "autoremove"
 ##########
 
 printf "\n"
-read -p "    ${RED}Restoring completed (enter to reboot)${NC}"
+read -p "    Restoring completed (enter to reboot)"
 printf "\n"
 
 kill_apps
