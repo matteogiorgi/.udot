@@ -307,12 +307,7 @@ if ask "    Add snap packages?" Y; then
         printf "\n"
     fi
 
-    printf "${YLW}%s${NC}" "    Would you like to install Code or Codium?"
-    printf "\n%s${YLW}%s${NC}" "      (0) " "Code AND Codium"
-    printf "\n%s${YLW}%s${NC}" "      (1) " "Code"
-    printf "\n%s${YLW}%s${NC}" "      (2) " "Codium"
-    printf "\n${YLW}%s${NC} " "    Enter an index (0-2):"
-
+    printf "    Would you like to install Code(1), Codium(2) or both(0)? "
     while read response; do
         case $response in
             0)
@@ -332,17 +327,12 @@ if ask "    Add snap packages?" Y; then
                 break
                 ;;
             *)
-                printf "\n${YLW}%s${NC} " "Enter an index (0-2):"
+                printf "\nEnter an index (0-2): "
                 ;;
         esac
     done
 
-    printf "\n${YLW}%s${NC}" "    Would you like to install Brave or Chrome?"
-    printf "\n%s${YLW}%s${NC}" "      (0) " "Brave AND Chrome"
-    printf "\n%s${YLW}%s${NC}" "      (1) " "Brave"
-    printf "\n%s${YLW}%s${NC}" "      (2) " "Chrome"
-    printf "\n${YLW}%s${NC} " "    Enter an index (0-2):"
-
+    printf "    Would you like to install Brave(1), Chrome(2) or both(0)? "
     while read response; do
         case $response in
             0)
@@ -362,7 +352,7 @@ if ask "    Add snap packages?" Y; then
                 break
                 ;;
             *)
-                printf "\n${YLW}%s${NC} " "Enter an index (0-1):"
+                printf "\nEnter an index (0-2): "
                 ;;
         esac
     done
