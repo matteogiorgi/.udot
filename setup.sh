@@ -173,7 +173,7 @@ banner
 warning
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
+    if ! ask "    ${RED}This is not a Ubuntu distro, continue anyway?${NC}" N; then
         printf "\n"
         exit 0
     fi
@@ -183,12 +183,12 @@ if [[ ! -d $HOME/.udot-restore ]]; then
     mkdir $HOME/.udot-restore
     RESTORE="$HOME/.udot-restore"
 else
-    printf "    '.udot' is already setup\n"
-    printf "    Launch ./restore.sh first\n\n"
+    printf "    ${RED}%s${NC}\n" "'.udot' is already setup"
+    printf "    ${RED}%s${NC}\n\n" "Launch ./restore.sh first"
     exit 1
 fi
 
-if ! ask "    Confirm to start the '.udot' install script" Y; then
+if ! ask "    ${RED}Confirm to start the '.udot' install script${NC}" Y; then
     printf "\n"
     exit 0
 fi
@@ -199,7 +199,7 @@ fi
 ### Syncing
 ###########
 
-read -p "    Syncing and updating repos (enter to continue)"
+read -p "    ${RED}Syncing and updating repos (enter to continue)${NC}"
 printf "\n"
 
 sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
@@ -211,7 +211,7 @@ sudo apt update && sudo apt upgrade -qq -y || error "syncing repos"
 #############
 
 printf "\n"
-read -p "    Installing utilities (enter to continue)"
+read -p "    ${RED}Installing utilities (enter to continue)${NC}"
 printf "\n"
 
 sudo apt install -qq -y \
@@ -260,7 +260,7 @@ sudo apt install -qq -y \
 #################
 
 printf "\n"
-read -p "    Installing main packages (enter to continue)"
+read -p "    ${RED}Installing main packages (enter to continue)${NC}"
 printf "\n"
 
 sudo apt install -qq -y \
@@ -301,10 +301,13 @@ sudo apt install -qq -y \
 #####################
 
 printf "\n"
-if ask "    Add snap packages?" Y; then
-    [[ ! -x "$(command -v snap)" ]] && sudo apt install -qq -y snapd
+if ask "    ${RED}Add snap packages?${NC}" Y; then
+    if [[ ! -x "$(command -v snap)" ]]; then
+        sudo apt install -qq -y snapd
+        printf "\n"
+    fi
 
-    printf "\n${RED}%s${NC}" "    Would you like to install Code or Codium?"
+    printf "${RED}%s${NC}" "    Would you like to install Code or Codium?"
     printf "\n%s${YLW}%s${NC}" "      (0) " "Code AND Codium"
     printf "\n%s${YLW}%s${NC}" "      (1) " "Code"
     printf "\n%s${YLW}%s${NC}" "      (2) " "Codium"
@@ -372,7 +375,7 @@ fi
 #######################
 
 printf "\n"
-read -p "    Compiling dmenu, st and slock (enter to continue)"
+read -p "    ${RED}Compiling dmenu, st and slock (enter to continue)${NC}"
 printf "\n"
 
 cd dmenu && sudo make clean install
@@ -411,7 +414,7 @@ stow zathura
 ########################
 
 printf "\n"
-if ask "    Add language support?" Y; then
+if ask "    ${RED}Add language support?${NC}" Y; then
     printf "\n"
     sudo apt install -qq -y \
         build-essential \
@@ -430,8 +433,8 @@ if ask "    Add language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
-    printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
+    printf "\n    ${YLW}%s${NC}" "Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
+    printf "\n    ${YLW}%s${NC}\n" "Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 fi
 
 
@@ -441,7 +444,7 @@ fi
 ##########
 
 printf "\n"
-read -p "    Installation completed (enter to logout)"
+read -p "    ${RED}Installation completed (enter to logout)${NC}"
 printf "\n"
 
 kill_apps
