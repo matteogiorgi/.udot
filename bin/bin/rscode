@@ -124,7 +124,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.cursorBlinking": "solid",
     "editor.renderLineHighlight": "gutter",
     "editor.lineHeight": 1.4,
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "relative",
     "editor.scrollbar.vertical": "auto",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 10,
