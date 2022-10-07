@@ -154,6 +154,14 @@ backup () {
     [[ -d $HOME/.config/zathura ]] && clean $HOME/.config/zathura
 }
 
+install_chrome () {
+    [[ ! -d ~/Downloads ]] && mkdir -p ~/Downloads
+    cd ~/Downloads
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    cd -
+}
+
 
 
 
@@ -326,10 +334,10 @@ if ask "    Add snap packages?" Y; then
         esac
     done
 
-    printf "\n${RED}%s${NC}" "    Would you like to install Brave or Chromium?"
-    printf "\n%s${YLW}%s${NC}" "      (0) " "Brave AND Chromium"
+    printf "\n${RED}%s${NC}" "    Would you like to install Brave or Chrome?"
+    printf "\n%s${YLW}%s${NC}" "      (0) " "Brave AND Chrome"
     printf "\n%s${YLW}%s${NC}" "      (1) " "Brave"
-    printf "\n%s${YLW}%s${NC}" "      (2) " "Chromium"
+    printf "\n%s${YLW}%s${NC}" "      (2) " "Chrome"
     printf "\n${RED}%s${NC} " "    Enter an index (0-2):"
 
     while read response; do
@@ -337,7 +345,7 @@ if ask "    Add snap packages?" Y; then
             0)
                 printf "\n"
                 sudo snap install brave
-                sudo snap install chromium
+                install_chrome
                 break
                 ;;
             1)
@@ -347,7 +355,7 @@ if ask "    Add snap packages?" Y; then
                 ;;
             2)
                 printf "\n"
-                sudo snap install chromium
+                install_chrome
                 break
                 ;;
             *)
