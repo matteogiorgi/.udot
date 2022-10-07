@@ -19,6 +19,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 2
 vim.opt.relativenumber = true
 vim.opt.signcolumn = 'no'
+vim.opt.listchars = { tab='  ' , trail='-', nbsp='+' }
 vim.opt.cursorline = false
 vim.opt.expandtab = true
 vim.opt.smarttab = true

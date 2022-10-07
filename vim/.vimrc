@@ -15,45 +15,51 @@
 
 
 " Plug check (it only works on GNU/Linux){{{
-augroup vimenter
-    autocmd VimEnter *
-                \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
-                \     PlugInstall --sync | q |
-                \ endif
-    if !filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim"'))
-        echo 'Downloading junegunn/vim-plug to manage plugins...'
-        silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-        silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-                    \ > ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim
-        autocmd VimEnter * PlugInstall
-    endif
-augroup end
+if ! exists('noplugin')
+    augroup vimenter
+        autocmd VimEnter *
+                    \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
+                    \     PlugInstall --sync | q |
+                    \ endif
+        if !filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim"'))
+            echo 'Downloading junegunn/vim-plug to manage plugins...'
+            silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+            silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+                        \ > ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim
+            autocmd VimEnter * PlugInstall
+        endif
+    augroup end
+endif
 "}}}
 
 
 " Save last session{{{
-augroup vimleave
-    " a better way would be to check buffers on all opened windows
-    autocmd VimLeave *
-                \ if &filetype == 'startscreen' |
-                \     execute 'bdelete' |
-                \ endif |
-                \ if !isdirectory('$HOME/.vim/sessions') |
-                \     execute "!mkdir -p $HOME/.vim/sessions" |
-                \ endif |
-                \ mksession! $HOME/.vim/sessions/last.vim
-augroup end
+if ! exists('noplugin')
+    augroup vimleave
+        " a better way would be to check buffers on all opened windows
+        autocmd VimLeave *
+                    \ if &filetype == 'startscreen' |
+                    \     execute 'bdelete' |
+                    \ endif |
+                    \ if !isdirectory('$HOME/.vim/sessions') |
+                    \     execute "!mkdir -p $HOME/.vim/sessions" |
+                    \ endif |
+                    \ mksession! $HOME/.vim/sessions/last.vim
+    augroup end
+endif
 "}}}
 
 
 " Plugin list{{{
-call plug#begin('~/.vim/plugged')
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-commentary'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'mbbill/undotree'
-call plug#end()
+if ! exists('noplugin')
+    call plug#begin('~/.vim/plugged')
+        Plug 'tpope/vim-surround'
+        Plug 'tpope/vim-repeat'
+        Plug 'tpope/vim-commentary'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'mbbill/undotree'
+    call plug#end()
+endif
 "}}}
 
 
@@ -105,7 +111,7 @@ set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
 set cursorline noerrorbells novisualbell
-set cursorlineopt=number,line  " number,line
+set cursorlineopt=number  " number,line
 set splitbelow splitright
 set equalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
@@ -119,10 +125,16 @@ set termencoding=utf-8 encoding=utf-8 t_Co=256 | scriptencoding utf-8
 set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
-set fillchars+=vert:\│,eob:\ ,fold:-
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
-set laststatus=2
-set showtabline=1
+if ! exists('noplugin')
+    set fillchars+=vert:\│,eob:\ ,fold:-
+    set laststatus=2
+    set showtabline=1
+else
+    set fillchars+=vert:\│,eob:~,fold:-
+    set laststatus=0
+    set showtabline=0
+endif
 "}}}
 
 " Set completion{{{

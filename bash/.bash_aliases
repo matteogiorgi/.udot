@@ -25,8 +25,8 @@ alias xcut="xclip-cutfile"
 
 
 alias vim="_vim"
-alias vimlast="_vil"
-alias vimnoplugin="vim --noplugin -n -i NONE"
+alias vimlastsession="_vimlastsession"
+alias vimnoplugin="_vimnoplugin"
 
 
 alias tmux="_tmux"

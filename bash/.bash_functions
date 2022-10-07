@@ -32,12 +32,17 @@ function _vim () {
     else
         [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
         [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
-        env vim --cmd "let theme = $BGCOLOR" "$@"
+        env vim --cmd "let theme=$BGCOLOR" "$@"
     fi
 }
 
 
-function _vimlast () {
+function _vimnoplugin () {
+    env vim --noplugin -n -i NONE --cmd "let noplugin=1" "$@"
+}
+
+
+function _vimlastsession () {
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         _vim -S $HOME/.vim/sessions/last.vim
     else
@@ -48,7 +53,7 @@ function _vimlast () {
 
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
-    [[ ! -n "$TMUX" ]] && /bin/tmux || printf "${YLW}%s${NC}\n" "WTF mate, you're already in tmux session!"
+    [[ ! -n "$TMUX" ]] && /bin/tmux>/dev/null || printf "${YLW}%s${NC}\n" "WTF mate, you're already in tmux session!"
 }
 
 
@@ -73,7 +78,7 @@ function _fgit () {
     # FZF git commit browser:
     # [enter=show] [ctrl-d=diff] [`=sort]
     YLW='\033[1;35m'; NC='\033[0m'
-    if [[ -d ./.git ]]; then
+    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
         local out shas sha q k
         while out=$(
                 git log --graph --color=always \

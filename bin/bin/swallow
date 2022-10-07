@@ -6,9 +6,9 @@
 
 FILE="$*"
 [[ -x "$(command -v nano)" ]] && NAMES="Nano\n"$NAMES
-[[ -x "$(command -v nvim)" ]] && NAMES="Neovim\n"$NAMES
+[[ -x "$(command -v nvim)" ]] && NAMES="Nvim\n"$NAMES
 [[ -x "$(command -v vim)" ]] && NAMES="Vim\n"$NAMES
-[[ -x "$(command -v kak)" ]] && NAMES="Kakoune\n"$NAMES
+[[ -x "$(command -v kak)" ]] && NAMES="Kak\n"$NAMES
 
 
 ### Functions definition
@@ -63,13 +63,13 @@ case $(file --mime-type "${FILE}" -bL) in
             exit 0
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            Kakoune)
+            Kak)
                 kak "${FILE}"
                 ;;
             Vim)
-                _vim --noplugin -n -i NONE "${FILE}"
+                _vimnoplugin "${FILE}"
                 ;;
-            Neovim)
+            Nvim)
                 nvim "${FILE}"
                 ;;
             Nano)
