@@ -160,6 +160,10 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "command": "toggleVim"
     },
     {
+        "key": "alt+q",
+        "command": "workbench.action.quit"
+    },
+    {
         "key": "alt+h",
         "command": "workbench.action.openRecent"
     },
