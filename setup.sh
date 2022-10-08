@@ -322,16 +322,16 @@ if ask "    Add snap packages?" Y; then
             1)
                 printf "\n"
                 sudo snap install --classic code
-                sudo snap install --classic codium
                 break
                 ;;
             2)
                 printf "\n"
-                sudo snap install --classic code
+                sudo snap install --classic codium
                 break
                 ;;
             3)
                 printf "\n"
+                sudo snap install --classic code
                 sudo snap install --classic codium
                 break
                 ;;
@@ -356,16 +356,16 @@ if ask "    Add snap packages?" Y; then
             1)
                 printf "\n"
                 sudo snap install brave
-                install_chrome
                 break
                 ;;
             2)
                 printf "\n"
-                sudo snap install brave
+                install_chrome
                 break
                 ;;
             3)
                 printf "\n"
+                sudo snap install brave
                 install_chrome
                 break
                 ;;
