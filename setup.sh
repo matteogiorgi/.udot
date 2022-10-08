@@ -318,6 +318,7 @@ if ask "    Add snap packages?" Y; then
         case $response in
             0)
                 break
+                ;;
             1)
                 printf "\n"
                 sudo snap install --classic code
@@ -351,6 +352,7 @@ if ask "    Add snap packages?" Y; then
         case $response in
             0)
                 break
+                ;;
             1)
                 printf "\n"
                 sudo snap install brave
