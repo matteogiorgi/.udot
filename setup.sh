@@ -158,7 +158,7 @@ install_chrome () {
     [[ ! -d ~/Downloads ]] && mkdir -p ~/Downloads
     cd ~/Downloads
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install ./google-chrome-stable_current_amd64.deb
+    sudo apt install -qq -y ./google-chrome-stable_current_amd64.deb
     cd -
 }
 
@@ -311,7 +311,7 @@ if ask "    Add snap packages?" Y; then
     printf "\n        (0) NONE"
     printf "\n        (1) Code"
     printf "\n        (2) Codium"
-    printf "\n        (3) Code AND Codium"
+    printf "\n        (3) BOTH"
     printf "\n    Enter an index (0-3): "
 
     while read response; do
@@ -345,7 +345,7 @@ if ask "    Add snap packages?" Y; then
     printf "\n        (0) NONE"
     printf "\n        (1) Brave"
     printf "\n        (2) Chrome"
-    printf "\n        (3) Brave AND Chrome"
+    printf "\n        (3) BOTH"
     printf "\n    Enter an index (0-3): "
 
     while read response; do
