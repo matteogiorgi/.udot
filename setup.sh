@@ -307,52 +307,68 @@ if ask "    Add snap packages?" Y; then
         printf "\n"
     fi
 
-    printf "    Would you like to install Code(1), Codium(2) or both(0)? "
+    printf "    Which fancy editor would you like to install?"
+    printf "\n        (0) NONE"
+    printf "\n        (1) Code"
+    printf "\n        (2) Codium"
+    printf "\n        (3) Code AND Codium"
+    printf "\n    Enter an index (0-3): "
+
     while read response; do
         case $response in
             0)
+                break
+            1)
                 printf "\n"
                 sudo snap install --classic code
                 sudo snap install --classic codium
                 break
                 ;;
-            1)
+            2)
                 printf "\n"
                 sudo snap install --classic code
                 break
                 ;;
-            2)
+            3)
                 printf "\n"
                 sudo snap install --classic codium
                 break
                 ;;
             *)
-                printf "\nEnter an index (0-2): "
+                printf "    WTF 're doing mate, just enter an index from 0 to 3: "
                 ;;
         esac
     done
 
-    printf "    Would you like to install Brave(1), Chrome(2) or both(0)? "
+    printf "\n    Which web browser would you like to install?"
+    printf "\n        (0) NONE"
+    printf "\n        (1) Brave"
+    printf "\n        (2) Chrome"
+    printf "\n        (3) Brave AND Chrome"
+    printf "\n    Enter an index (0-3): "
+
     while read response; do
         case $response in
             0)
+                break
+            1)
                 printf "\n"
                 sudo snap install brave
                 install_chrome
                 break
                 ;;
-            1)
+            2)
                 printf "\n"
                 sudo snap install brave
                 break
                 ;;
-            2)
+            3)
                 printf "\n"
                 install_chrome
                 break
                 ;;
             *)
-                printf "\nEnter an index (0-2): "
+                printf "    WTF 're doing mate, just enter an index from 0 to 3: "
                 ;;
         esac
     done
@@ -424,7 +440,7 @@ if ask "    Add language support?" Y; then
         opam \
         opam-doc
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n"
+    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
 fi
 
 
@@ -433,7 +449,6 @@ fi
 ### Logout
 ##########
 
-printf "\n"
 read -p "    Installation completed (enter to logout)"
 printf "\n"
 
