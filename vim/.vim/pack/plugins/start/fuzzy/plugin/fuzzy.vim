@@ -25,6 +25,8 @@ function s:FuzzyGit()
     redraw!
 endfun
 
+" has to be checked
+" do not use it for now
 function s:FuzzyList()
     let files = filter(map(range(1,bufnr('$')), 'fnamemodify(bufname(v:val), ":p")'), '!empty(v:val)')
     call writefile(files, '/tmp/vim_fuzzy_buffers')
@@ -41,9 +43,7 @@ endfun
 command! FuzzyFind call <SID>FuzzyFind()
 command! FuzzyJump call <SID>FuzzyJump()
 command! FuzzyGit call <SID>FuzzyGit()
-command! FuzzyList call <SID>FuzzyList()
 
 nnoremap <leader>f :FuzzyFind<CR>
 nnoremap <leader>j :FuzzyJump<CR>
 nnoremap <leader>g :FuzzyGit<CR>
-nnoremap <leader>l :FuzzyList<CR>
