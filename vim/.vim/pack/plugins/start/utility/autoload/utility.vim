@@ -13,6 +13,7 @@ function! utility#LongLine()
 endfunction
 "}}}
 
+
 " Background{{{
 function! utility#ChBackground()
     if &background ==? 'dark'
@@ -22,6 +23,7 @@ function! utility#ChBackground()
     endif
 endfunction
 "}}}
+
 
 " ToggleAccent{{{
 function! utility#ToggleAccent()
@@ -44,11 +46,13 @@ function! utility#ToggleAccent()
 endfunction
 "}}}
 
+
 " Substitute{{{
 function! utility#SSelection(new)
     exec '%s//'.a:new.'/gc'
 endfunction
 "}}}
+
 
 " WinMove{{{
 function! utility#WinMove(key)
@@ -61,47 +65,13 @@ function! utility#WinMove(key)
             wincmd s
         endif
         exec 'wincmd '.a:key
-        " add `exec 'Explore'` to open
-        " Netrw inside the new window
+        " add `exec 'Explore'` here to
+        " open Netrw inside new window
     endif
     return bufname('%')
 endfunction
 "}}}
 
-" Jump current directory{{{
-function! utility#Current()
-    echon 'cwd: '
-    cd %:p:h
-    echon getcwd()
-endfunction
-"}}}
-
-" Jump parent directory{{{
-function! utility#Parent()
-    echon 'cwd: '
-    let l:parent = fnamemodify('getcwd()', ':p:h:h')
-    execute 'cd ' . l:parent
-    echon getcwd()
-endfunction
-"}}}
-
-" Jump git directory{{{
-function! utility#GitDir()
-    if getcwd() ==? $HOME
-        " echon 'Not in a git repository'
-        return
-    endif
-
-    if isdirectory('.git')
-        " echon 'cwd: ' . getcwd()
-        return
-    else
-        let l:parent = fnamemodify('getcwd()', ':p:h:h')
-        execute 'cd ' . l:parent
-        execute 'call utility#GitDir()'
-    endif
-endfunction
-"}}}
 
 " Mkdir{{{
 function! utility#Mkdir()
@@ -114,12 +84,14 @@ function! utility#Mkdir()
 endfunction
 "}}}
 
+
 " Delete{{{
 function! utility#Delete()
     delete(expand('%'))
     Bclose
 endfunction
 "}}}
+
 
 " Rename{{{
 function! utility#Rename(name, bang)
@@ -176,16 +148,62 @@ function! utility#Rename(name, bang)
 endfunction
 "}}}
 
-" Launch on open{{{
-" Bclose is needed
+
+" Jump current directory{{{
+" UNUSED
+function! utility#Current()
+    echon 'cwd: '
+    cd %:p:h
+    echon getcwd()
+endfunction
+"}}}
+
+
+" Jump parent directory{{{
+" UNUSED
+function! utility#Parent()
+    echon 'cwd: '
+    let l:parent = fnamemodify('getcwd()', ':p:h:h')
+    execute 'cd ' . l:parent
+    echon getcwd()
+endfunction
+"}}}
+
+
+" Jump git directory{{{
+" UNUSED
+function! utility#GitDir()
+    if getcwd() ==? $HOME
+        " echon 'Not in a git repository'
+        return
+    endif
+
+    if isdirectory('.git')
+        " echon 'cwd: ' . getcwd()
+        return
+    else
+        let l:parent = fnamemodify('getcwd()', ':p:h:h')
+        execute 'cd ' . l:parent
+        execute 'call utility#GitDir()'
+    endif
+endfunction
+"}}}
+
+
+" Check if directory{{{
+" UNUSED
 function! s:isdir(dir) abort
     let l:isempty = !empty(a:dir)
     let l:isdirectory = isdirectory(a:dir)
     let l:systemshit = !empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)
     return l:isempty && (l:isdirectory || l:systemshit)
 endfunction
+"}}}
 
-function! utility#LaunchOnopen(explorer)
+
+" Launch explorer on open{{{
+" UNUSED
+function! utility#LaunchOnOpen(explorer)
     let l:directory = expand('%:p')
     if <SID>isdir(l:directory)
         execute 'Bclose'

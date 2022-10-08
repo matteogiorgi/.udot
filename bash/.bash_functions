@@ -53,13 +53,24 @@ function _vimlastsession () {
 
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
-    [[ ! -n "$TMUX" ]] && /bin/tmux>/dev/null || printf "${YLW}%s${NC}\n" "WTF mate, you're already in tmux session!"
+    if [[ -n "$TMUX" ]]; then
+        printf "${YLW}%s${NC}\n" "WTF mate, you're already in tmux session!"
+        return
+    fi
+    if [[ $(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$)) == "kitty" ]]; then
+        printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
+        return
+    fi
+    /bin/tmux >/dev/null
 }
 
 
 function _shfm () {
+    PROMPT=${PS1@P}
     ~/bin/shfm/shfm "$@"
     cd "$(cat ~/.shfm.tmp)"
+    NEWPROMPT=${PS1@P}
+    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
     rm -f ~/.shfm.tmp
 }
 
@@ -97,6 +108,16 @@ function _fgit () {
                 done
             fi
         done
+    else
+        printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
+    fi
+}
+
+
+function _tig () {
+    YLW='\033[1;35m'; NC='\033[0m'
+    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
+        tig
     else
         printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
     fi

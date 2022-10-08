@@ -137,6 +137,7 @@ else
 endif
 "}}}
 
+
 " Set completion{{{
 set path+=**
 set omnifunc=syntaxcomplete#Complete
@@ -173,6 +174,7 @@ augroup numbertoggle
 augroup end
 "}}}
 
+
 " Overlength behaviour{{{
 augroup overlengthtoggle
     autocmd!
@@ -198,11 +200,13 @@ command! ClearLastSearch :let @/=""
 command! LastSession :source $HOME/.vim/sessions/last.vim
 "}}}
 
+
 " Copy/Pasta commands{{{
 "(`pacman -S gvim` for it)
 command! Copy execute 'visual "+y'
 command! Pasta execute 'normal "+p'
 "}}}
+
 
 " Keymaps{{{
 xnoremap K :move '<-2<CR>gv=gv
@@ -218,6 +222,8 @@ nnoremap <silent><C-Right> :tabmove +1<cr>
 nnoremap <silent><C-Down> :$tabmove<cr>
 nnoremap <silent><C-Up> :0tabmove<cr>
 nnoremap <silent>Y y$
+nnoremap <silent>QQ :qall<CR>
+nnoremap <silent>WW :wall<CR>
 tnoremap <silent><C-q> <C-\><C-n>
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
