@@ -156,50 +156,65 @@ EOF
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 [
     {
-        "key": "alt+space",
-        "command": "workbench.action.showCommands"
-    },
-    {
-        "key": "alt+r",
-        "command": "workbench.action.openRecent"
-    },
-    {
-        "key": "alt+v",
+        "key": "alt+t",
         "command": "toggleVim"
     },
     {
-        "key": "alt+u",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active"
+        "key": "alt+h",
+        "command": "workbench.action.openRecent"
     },
     {
-        "key": "alt+i",
+        "key": "alt+j",
+        "command": "workbench.action.showCommands"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusSideBar",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "alt+space",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
     {
-        "key": "alt+a",
-        "command": "workbench.action.focusSideBar"
+        "key": "alt+tab",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
     },
     {
-        "key": "alt+s",
-        "command": "workbench.action.focusAuxiliaryBar"
+        "key": "alt+tab",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     },
     {
-        "key": "alt+h",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "key": "alt+shift+tab",
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
     },
     {
-        "key": "alt+j",
-        "command": "workbench.action.quickOpen"
+        "key": "alt+shift+tab",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     },
     {
-        "key": "alt+k",
-        "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+        "key": "alt+Enter",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
     },
     {
-        "key": "alt+l",
-        "command": "workbench.action.toggleAuxiliaryBar"
+        "key": "alt+Enter",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "!terminal.active"
     },
     {
         "key": "ctrl+j",
@@ -230,6 +245,6 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "key": "ctrl+k",
         "command": "showPrevParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-    }
+    },
 ]
 EOF

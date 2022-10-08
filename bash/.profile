@@ -73,6 +73,18 @@ fi
 
 
 
+### Add opam configuration (remember to run 'opam init')
+########################################################
+
+[[ -x "$(command -v opam)" ]] && eval $(opam env)
+
+if [[ -d $HOME/.opam/opam-init ]]; then
+    test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+fi
+
+
+
+
 ### i3-sensible-variables and others
 ####################################
 
