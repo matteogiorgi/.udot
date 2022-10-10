@@ -14,8 +14,12 @@ _launch () {
 }
 
 
-if [[ -x "$(command -v wireshark)" ]]; then
-    NAMES="Wireshark"
+if [[ -x "$(command -v qt5ct)" ]]; then
+    NAMES="Qt5ct"
+fi
+
+if [[ -x "$(command -v lxappearance)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Lxappearance" || NAMES="Lxappearance\n"$NAMES
 fi
 
 if [[ -x "$(command -v gparted)" ]]; then
@@ -54,8 +58,11 @@ case "$CHOICE" in
     Gparted)
         gparted
         ;;
-    Wireshark)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY wireshark
+    Lxappearance)
+        _launch "lxappearance"
+        ;;
+    Qt5ct)
+        _launch "qt5ct"
         ;;
     *)
         exit 1

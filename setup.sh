@@ -284,6 +284,7 @@ sudo apt install -qq -y \
     sxiv \
     blueman \
     network-manager \
+    humanity-icon-theme \
     adwaita-icon-theme \
     gnome-themes-extra \
     adwaita-qt \
