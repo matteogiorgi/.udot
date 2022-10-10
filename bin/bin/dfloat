@@ -2,7 +2,7 @@
 
 
 _launch () {
-    CHOICE=$(echo -e "$USER\nRoot" | dmenu -i -b -p USER | cut -d ':' -f 1)
+    CHOICE=$(echo -e "$USER\nroot" | dmenu -i -b -p USER | cut -d ':' -f 1)
     case "$CHOICE" in
         $USER)
             "$*"
