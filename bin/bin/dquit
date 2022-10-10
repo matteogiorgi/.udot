@@ -27,8 +27,11 @@ _launch () {
 }
 
 
-CHOICE=$(echo -e "Logout\nReboot\nShutdown\nLock" | dmenu -i -b -p QUIT | cut -d ':' -f 1)
+CHOICE=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -b -p QUIT | cut -d ':' -f 1)
 case "$CHOICE" in
+    Lock)
+        slock
+        ;;
     Logout)
         # kill $(pgrep X) &
         _launch "LOGOUT" "killall i3"
@@ -38,9 +41,6 @@ case "$CHOICE" in
         ;;
     Shutdown)
         _launch "SHUTDOWN" "systemctl -i poweroff"
-        ;;
-    Lock)
-        slock
         ;;
     *)
         exit 1
