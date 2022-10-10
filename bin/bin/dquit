@@ -1,29 +1,47 @@
 #!/usr/bin/env bash
 
+
 # this function close every window controlled by
 # the window-manager (to be used befor a Logout)
-kill_apps() {
+_killapps () {
     while read -r app; do
         wmctrl -i -c "$app"
     done < <(wmctrl -l | awk '{print $1}')
 }
 
-CHOICE=$(echo -e "Lock\nLogout\nReboot\nShutdown" | dmenu -i -b -p QUIT | cut -d ':' -f 1)
+_launch () {
+    NAME="$1"; COMMAND="$2"
+    CHOICE=$(echo -e "Refute\nConfirm" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    case "$CHOICE" in
+        Refute)
+            exit 0
+            ;;
+        Confirm)
+            $COMMAND
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+}
+
+
+CHOICE=$(echo -e "Logout\nReboot\nShutdown\nLock" | dmenu -i -b -p QUIT | cut -d ':' -f 1)
 case "$CHOICE" in
-    Lock)
-        slock
-        ;;
     Logout)
-        kill_apps
-        killall i3  # kill $(pgrep X) &
+        _killapps
+        _launch "LOGOUT" "killall i3"  # kill $(pgrep X) &
         ;;
     Reboot)
-        kill_apps
-        systemctl reboot
+        _killapps
+        _launch "REBOOT" "systemctl reboot"
         ;;
     Shutdown)
-        kill_apps
-        systemctl -i poweroff
+        _killapps
+        _launch "SHUTDOWN" "systemctl -i poweroff"
+        ;;
+    Lock)
+        slock
         ;;
     *)
         exit 1
