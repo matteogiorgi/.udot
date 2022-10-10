@@ -7,7 +7,7 @@ _launch () {
         $USER)
             "$*"
             ;;
-        Root)
+        root)
             pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$*"
             ;;
     esac
