@@ -1,24 +1,47 @@
 #!/usr/bin/env bash
 
+
+_launch () {
+    NAME="$1"; COMMAND="$2"
+    CHOICE=$(echo -e "Open\nFrame\nHome" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    case "$CHOICE" in
+        Open)
+            $COMMAND
+            ;;
+        Frame)
+            $COMMAND --new-window
+            ;;
+        Home)
+            $COMMAND $HOME
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+}
+
+
+if [[ -x "$(command -v codium)" ]]; then
+    NAMES="Codium"
+fi
+
 if [[ -x "$(command -v code)" ]]; then
-    COMMAND="code"; CODE="CODE"
-elif [[ -x "$(command -v codium)" ]]; then
-    COMMAND="codium"; CODE="CODIUM"
-else
+    [[ ! -n $NAMES ]] && NAMES="Code" || NAMES="Code\n"$NAMES
+fi
+
+if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
 fi
 
-CHOICE=$(echo -e "Open\nFrame\nHome" | dmenu -i -b -p $CODE | cut -d ':' -f 1)
+
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p EDITOR | cut -d ':' -f 1)
 case "$CHOICE" in
-    Open)
-        $COMMAND
+    Code)
+        _launch "CODE" "code"
         ;;
-    Frame)
-        $COMMAND --new-window
-        ;;
-    Home)
-        $COMMAND $HOME
+    Codium)
+        _launch "CODIUM" "codium"
         ;;
     *)
         exit 1

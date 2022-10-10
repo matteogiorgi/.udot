@@ -1,32 +1,60 @@
 #!/usr/bin/env bash
 
+
+_launch () {
+    NAME="$1"; COMMAND="$2"
+    CHOICE=$(echo -e "Open\nStartpage\nNotewiki\nHome\nIncognito" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    case "$CHOICE" in
+        Open)
+            $COMMAND
+            ;;
+        Startpage)
+            $COMMAND --new-window https://www.geoteo.net/start
+            ;;
+        Notewiki)
+            $COMMAND --new-window $HOME/notewiki/pandoc/index.html
+            ;;
+        Home)
+            $COMMAND --new-window $HOME
+            ;;
+        Incognito)
+            $COMMAND --new-window -incognito
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+}
+
+
+if [[ -x "$(command -v chromium)" ]]; then
+    NAMES="Chromium"
+fi
+
+if [[ -x "$(command -v google-chrome)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Chrome" || NAMES="Chrome\n"$NAMES
+fi
+
 if [[ -x "$(command -v brave)" ]]; then
-    COMMAND="brave"; BROWSER="BRAVE"
-elif [[ -x "$(command -v google-chrome)" ]]; then
-    COMMAND="google-chrome"; BROWSER="CHROME"
-elif [[ -x "$(command -v chromium)" ]]; then
-    COMMAND="chromium"; BROWSER="CHROMIUM"
-else
+    [[ ! -n $NAMES ]] && NAMES="Brave" || NAMES="Brave\n"$NAMES
+fi
+
+if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
 fi
 
-CHOICE=$(echo -e "Open\nStartpage\nNotewiki\nHome\nIncognito" | dmenu -i -b -p $BROWSER | cut -d ':' -f 1)
+
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p BROWSER | cut -d ':' -f 1)
 case "$CHOICE" in
-    Open)
-        $COMMAND
+    Brave)
+        _launch "BRAVE" "brave"
         ;;
-    Startpage)
-        $COMMAND --new-window https://www.geoteo.net/start
+    Chrome)
+        _launch "CHROME" "google-chrome"
         ;;
-    Notewiki)
-        $COMMAND --new-window $HOME/notewiki/pandoc/index.html
-        ;;
-    Home)
-        $COMMAND --new-window $HOME
-        ;;
-    Incognito)
-        $COMMAND --new-window -incognito
+    Chromium)
+        _launch "CHROMIUM" "chromium"
         ;;
     *)
         exit 1
