@@ -276,6 +276,7 @@ sudo apt install -qq -y \
     neovim \
     vim-gtk3 \
     nano \
+    tig \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -312,7 +313,7 @@ if ask "    Add snap packages?" Y; then
         printf "\n"
     fi
 
-    printf "    Which fancy editor would you like to install?"
+    printf "    Which fancy text-editor would you like to install?"
     printf "\n        (0) NONE"
     printf "\n        (1) Code"
     printf "\n        (2) Codium"
@@ -346,12 +347,13 @@ if ask "    Add snap packages?" Y; then
         esac
     done
 
-    printf "\n    Which web browser would you like to install?"
+    printf "\n    Which web-browser would you like to install?"
     printf "\n        (0) NONE"
     printf "\n        (1) Brave"
     printf "\n        (2) Chrome"
-    printf "\n        (3) BOTH"
-    printf "\n    Enter an index (0-3): "
+    printf "\n        (3) Chromium"
+    printf "\n        (4) ALL"
+    printf "\n    Enter an index (0-4): "
 
     while read response; do
         case $response in
@@ -370,12 +372,18 @@ if ask "    Add snap packages?" Y; then
                 ;;
             3)
                 printf "\n"
+                sudo snap install chromium
+                break
+                ;;
+            4)
+                printf "\n"
                 sudo snap install brave
+                sudo snap install chromium
                 install_chrome
                 break
                 ;;
             *)
-                printf "    WTF 're doing mate, just enter an index from 0 to 3: "
+                printf "    WTF 're doing mate, just enter an index from 0 to 4: "
                 ;;
         esac
     done

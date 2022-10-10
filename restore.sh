@@ -265,6 +265,7 @@ sudo apt purge -qq -y \
     neovim \
     vim-gtk3 \
     nano \
+    tig \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -298,6 +299,7 @@ if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
+    [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
 fi
 
