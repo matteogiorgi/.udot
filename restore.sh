@@ -279,7 +279,10 @@ sudo apt purge -qq -y \
     sct \
     flameshot \
     pavucontrol \
-    gparted
+    gparted \
+    wireshark \
+    pcmanfm \
+    xarchiver
 
 
 

@@ -7,7 +7,7 @@ elif [[ -x "$(command -v google-chrome)" ]]; then
 elif [[ -x "$(command -v chromium)" ]]; then
     COMMAND="chromium"; BROWSER="CHROMIUM"
 else
-    dmenu_run -i -b
+    dmenu_run -i -b -p MENU
     exit 0
 fi
 

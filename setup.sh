@@ -293,7 +293,10 @@ sudo apt install -qq -y \
     sct \
     flameshot \
     pavucontrol \
-    gparted
+    gparted \
+    wireshark \
+    pcmanfm \
+    xarchiver
 
 
 

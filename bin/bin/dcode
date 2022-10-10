@@ -5,7 +5,7 @@ if [[ -x "$(command -v code)" ]]; then
 elif [[ -x "$(command -v codium)" ]]; then
     COMMAND="codium"; CODE="CODIUM"
 else
-    dmenu_run -i -b
+    dmenu_run -i -b -p MENU
     exit 0
 fi
 

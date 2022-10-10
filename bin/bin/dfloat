@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+
+_launch () {
+    CHOICE=$(echo -e "$USER\nRoot" | dmenu -i -b -p USER | cut -d ':' -f 1)
+    case "$CHOICE" in
+        $USER)
+            "$*"
+            ;;
+        Root)
+            pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$*"
+            ;;
+    esac
+}
+
+
+if [[ -x "$(command -v wireshark)" ]]; then
+    NAMES="Wireshark"
+fi
+
+if [[ -x "$(command -v gparted)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Gparted" || NAMES="Gparted\n"$NAMES
+fi
+
+if [[ -x "$(command -v xarchiver)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
+fi
+
+if [[ -x "$(command -v pcmanfm)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Pcmanfm" || NAMES="Pcmanfm\n"$NAMES
+fi
+
+if [[ -x "$(command -v arandr)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
+fi
+
+if [[ ! -n $NAMES ]]; then
+    dmenu_run -i -b -p MENU
+    exit 0
+fi
+
+
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p FLOAT | cut -d ':' -f 1)
+case "$CHOICE" in
+    Arandr)
+        _launch "arandr"
+        ;;
+    Pcmanfm)
+        _launch "pcmanfm"
+        ;;
+    Xarchiver)
+        _launch "xarchiver"
+        ;;
+    Gparted)
+        gparted
+        ;;
+    Wireshark)
+        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY wireshark
+        ;;
+    *)
+        exit 1
+        ;;
+esac
