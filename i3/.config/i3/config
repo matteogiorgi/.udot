@@ -282,9 +282,9 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 bindsym $mod+u exec "dcode"
 bindsym $mod+i exec "dbrowse"
-bindsym $mod+o exec "dquit"
+bindsym $mod+o exec "dfloat"
+bindsym $mod+p exec "dquit"
 bindsym $mod+m exec "dmonitor"
-bindsym $mod+p exec "dfloat"
 bindsym $mod+n move workspace to output next
 
 
