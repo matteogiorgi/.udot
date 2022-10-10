@@ -11,12 +11,13 @@ _killapps () {
 
 _launch () {
     NAME="$1"; COMMAND="$2"
-    CHOICE=$(echo -e "Refute\nConfirm" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    CHOICE=$(echo -e "Cancel\nConfirm" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
     case "$CHOICE" in
-        Refute)
+        Cancel)
             exit 0
             ;;
         Confirm)
+            _killapps
             $COMMAND
             ;;
         *)
@@ -29,15 +30,13 @@ _launch () {
 CHOICE=$(echo -e "Logout\nReboot\nShutdown\nLock" | dmenu -i -b -p QUIT | cut -d ':' -f 1)
 case "$CHOICE" in
     Logout)
-        _killapps
-        _launch "LOGOUT" "killall i3"  # kill $(pgrep X) &
+        # kill $(pgrep X) &
+        _launch "LOGOUT" "killall i3"
         ;;
     Reboot)
-        _killapps
         _launch "REBOOT" "systemctl reboot"
         ;;
     Shutdown)
-        _killapps
         _launch "SHUTDOWN" "systemctl -i poweroff"
         ;;
     Lock)
