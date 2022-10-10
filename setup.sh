@@ -285,7 +285,7 @@ sudo apt install -qq -y \
     blueman \
     network-manager \
     humanity-icon-theme \
-    adwaita-icon-theme \
+    adwaita-icon-theme-full \
     gnome-themes-extra \
     adwaita-qt \
     lxappearance \

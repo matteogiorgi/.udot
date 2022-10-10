@@ -249,10 +249,11 @@ bar {
 ### Floating windows
 ####################
 
-for_window [class="Arandr"] floating enable
+for_window [class="Xournalpp"] floating enable
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="GParted"] floating enable
+for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
 
@@ -277,7 +278,6 @@ bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="sc
 bindsym $mod+space exec "i3term"
 bindsym $mod+Shift+q kill
 
-bindsym $mod+y exec "xournalpp"
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 bindsym $mod+u exec "dcode"

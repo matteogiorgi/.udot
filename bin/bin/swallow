@@ -52,7 +52,11 @@ case $(file --mime-type "${FILE}" -bL) in
         _xhide "zathura '${FILE}'"
         ;;
     application/zip | application/gzip)
-        [[ "${FILE##*.}" == "xopp" ]] && _xhide "xournalpp '${FILE}'" || less -R -~ "${FILE}"
+        if [[ "${FILE##*.}" == "xopp" ]]; then
+            _xhide "xournalpp '${FILE}'"
+        else
+            [[ -x "$(command -v xarchiver)" ]] && _xhide "xarchiver '${FILE}'" || less -R -~ "${FILE}"
+        fi
         ;;
     image/*)
         _xhide "esxiv '${FILE}'"

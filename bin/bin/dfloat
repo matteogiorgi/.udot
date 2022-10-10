@@ -38,6 +38,10 @@ if [[ -x "$(command -v pcmanfm)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Pcmanfm" || NAMES="Pcmanfm\n"$NAMES
 fi
 
+if [[ -x "$(command -v xournalpp)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Xournalpp" || NAMES="Xournalpp\n"$NAMES
+fi
+
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
@@ -46,6 +50,9 @@ fi
 
 CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p FLOAT | cut -d ':' -f 1)
 case "$CHOICE" in
+    Xournalpp)
+        xournalpp
+        ;;
     Pcmanfm)
         _launch "pcmanfm"
         ;;
@@ -56,7 +63,7 @@ case "$CHOICE" in
         gparted
         ;;
     Arandr)
-        _launch "arandr"
+        arandr
         ;;
     Lxappearance)
         _launch "lxappearance"
