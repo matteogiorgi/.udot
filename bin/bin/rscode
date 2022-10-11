@@ -173,12 +173,6 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
         "<C-a>": false,
         "<C-f>": false
     },
-    "vim.cursorStylePerMode.normal": "block",
-    "vim.cursorStylePerMode.insert": "line",
-    "vim.cursorStylePerMode.replace": "line",
-    "vim.cursorStylePerMode.visual": "line",
-    "vim.cursorStylePerMode.visualblock": "line",
-    "vim.cursorStylePerMode.visualline": "line",
 }
 EOF
 
