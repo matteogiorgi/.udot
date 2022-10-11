@@ -185,7 +185,7 @@ EOF
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 [
     {
-        "key": "alt+t",
+        "key": "alt+d",
         "command": "toggleVim"
     },
     {
