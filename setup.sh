@@ -296,7 +296,6 @@ sudo apt install -qq -y \
     flameshot \
     pavucontrol \
     gparted \
-    wireshark \
     pcmanfm \
     xarchiver
 

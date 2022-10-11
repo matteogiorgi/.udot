@@ -281,7 +281,6 @@ sudo apt purge -qq -y \
     flameshot \
     pavucontrol \
     gparted \
-    wireshark \
     pcmanfm \
     xarchiver
 
