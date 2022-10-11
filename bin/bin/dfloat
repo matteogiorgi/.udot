@@ -34,6 +34,10 @@ if [[ -x "$(command -v gparted)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Gparted" || NAMES="Gparted\n"$NAMES
 fi
 
+if [[ -x "$(command -v pavucontrol)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Pavucontrol" || NAMES="Pavucontrol\n"$NAMES
+fi
+
 if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
@@ -55,6 +59,9 @@ case "$CHOICE" in
         ;;
     Arandr)
         arandr
+        ;;
+    Pavucontrol)
+        pavucontrol
         ;;
     Gparted)
         gparted
