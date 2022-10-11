@@ -287,11 +287,11 @@ sudo apt purge -qq -y \
 
 
 
-### Remove Snap packages
-########################
+### Remove snap/extra packages
+##############################
 
 printf "\n"
-read -p "    Removing Snap packages (enter to continue)"
+read -p "    Removing snap/extra packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then

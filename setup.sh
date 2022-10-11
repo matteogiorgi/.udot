@@ -302,11 +302,11 @@ sudo apt install -qq -y \
 
 
 
-### Add Snap packages
-#####################
+### Add snap/extra packages
+###########################
 
 printf "\n"
-if ask "    Add snap packages?" Y; then
+if ask "    Add snap/extra packages?" Y; then
     if [[ ! -x "$(command -v snap)" ]]; then
         sudo apt install -qq -y snapd
         printf "\n"
