@@ -252,7 +252,8 @@ sudo apt install -qq -y \
     pandoc \
     texlive \
     fonts-ubuntu \
-    fonts-jetbrains-mono
+    fonts-jetbrains-mono \
+    jq
 
 
 
