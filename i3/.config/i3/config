@@ -278,11 +278,11 @@ for_window [instance="scratchpad"] move scratchpad
 bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
 
-bindsym $mod+space exec "i3focus"
-bindsym $mod+shift+space exec "i3term"
+bindsym $mod+space exec --no-startup-id "dmenu_run -i -b -p MENU"
+bindsym $mod+Shift+space exec "dterm"
+bindsym $mod+d exec "i3focus"
 
 bindsym $mod+y exec "diodon"
-bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p MENU"
 bindsym $mod+n move workspace to output next
 
 bindsym $mod+u exec "dcode"

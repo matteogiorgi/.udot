@@ -3,4 +3,4 @@
 # This script control OpenGL drivers version before openining kitty;
 # if before version 3.3, i3-sensible-terminal (st) is opened instead
 GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
-(( $(echo "$GLX > 3.3" | bc -l) )) && kitty $* || urxvt $*
+(( $(echo "$GLX > 3.3" | bc -l) )) && kitty $* || i3-sensible-terminal $*
