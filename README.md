@@ -41,7 +41,7 @@ mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono jq
 i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune neovim vim-gtk3 nano tig
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct
-xournalpp sct flameshot pavucontrol gparted pcmanfm xarchiver
+xournalpp sct flameshot diodon pavucontrol gparted pcmanfm xarchiver
 ```
 
 

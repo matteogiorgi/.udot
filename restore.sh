@@ -280,6 +280,7 @@ sudo apt purge -qq -y \
     xournalpp \
     sct \
     flameshot \
+    diodon \
     pavucontrol \
     gparted \
     pcmanfm \

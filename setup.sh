@@ -295,6 +295,7 @@ sudo apt install -qq -y \
     xournalpp \
     sct \
     flameshot \
+    diodon \
     pavucontrol \
     gparted \
     pcmanfm \

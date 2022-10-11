@@ -281,8 +281,9 @@ bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="sc
 bindsym $mod+space exec "i3focus"
 bindsym $mod+shift+space exec "i3term"
 
-bindsym $mod+n move workspace to output next
+bindsym $mod+y exec "diodon"
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p MENU"
+bindsym $mod+n move workspace to output next
 
 bindsym $mod+u exec "dcode"
 bindsym $mod+i exec "dbrowse"
