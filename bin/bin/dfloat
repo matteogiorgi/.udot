@@ -22,20 +22,20 @@ if [[ -x "$(command -v lxappearance)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Lxappearance" || NAMES="Lxappearance\n"$NAMES
 fi
 
-if [[ -x "$(command -v arandr)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
-fi
-
-if [[ -x "$(command -v gparted)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Gparted" || NAMES="Gparted\n"$NAMES
-fi
-
 if [[ -x "$(command -v xarchiver)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
 fi
 
 if [[ -x "$(command -v pcmanfm)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Pcmanfm" || NAMES="Pcmanfm\n"$NAMES
+fi
+
+if [[ -x "$(command -v gparted)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Gparted" || NAMES="Gparted\n"$NAMES
+fi
+
+if [[ -x "$(command -v arandr)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
 
 if [[ -x "$(command -v xournalpp)" ]]; then
@@ -53,17 +53,17 @@ case "$CHOICE" in
     Xournalpp)
         xournalpp
         ;;
+    Arandr)
+        arandr
+        ;;
+    Gparted)
+        gparted
+        ;;
     Pcmanfm)
         _launch "pcmanfm"
         ;;
     Xarchiver)
         _launch "xarchiver"
-        ;;
-    Gparted)
-        gparted
-        ;;
-    Arandr)
-        arandr
         ;;
     Lxappearance)
         _launch "lxappearance"
