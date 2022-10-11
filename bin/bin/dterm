@@ -45,7 +45,7 @@ case "$CHOICE" in
         uxterm
         ;;
     Xterm)
-        Xterm
+        xterm
         ;;
     *)
         exit 1
