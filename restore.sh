@@ -283,6 +283,7 @@ sudo apt purge -qq -y \
     diodon \
     pavucontrol \
     gparted \
+    wireshark \
     pcmanfm \
     xarchiver
 
