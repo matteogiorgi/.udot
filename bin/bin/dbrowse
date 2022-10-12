@@ -3,7 +3,7 @@
 
 _launch () {
     NAME="$1"; COMMAND="$2"
-    CHOICE=$(echo -e "Open\nStartpage\nNotewiki\nHome\nIncognito" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    CHOICE=$(echo -e "Open\nStartpage\nNotewiki\n\$HOME\nIncognito" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
     case "$CHOICE" in
         Open)
             $COMMAND
@@ -14,7 +14,7 @@ _launch () {
         Notewiki)
             $COMMAND --new-window $HOME/notewiki/pandoc/index.html
             ;;
-        Home)
+        \$HOME)
             $COMMAND --new-window $HOME
             ;;
         Incognito)

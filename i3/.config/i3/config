@@ -250,12 +250,13 @@ bar {
 ### Floating windows
 ####################
 
+for_window [class="Pcmanfm"] floating enable
+for_window [class="Xarchiver"] floating enable
 for_window [class="Xournalpp"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="GParted"] floating enable
-for_window [class="Pcmanfm"] floating enable
-for_window [class="Xarchiver"] floating enable
+for_window [class="Wireshark"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
 

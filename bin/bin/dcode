@@ -3,15 +3,15 @@
 
 _launch () {
     NAME="$1"; COMMAND="$2"
-    CHOICE=$(echo -e "Open\nFrame\nHome" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    CHOICE=$(echo -e "Open\nWindow\n\$HOME" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
     case "$CHOICE" in
         Open)
             $COMMAND
             ;;
-        Frame)
+        Window)
             $COMMAND --new-window
             ;;
-        Home)
+        \$HOME)
             $COMMAND $HOME
             ;;
         *)

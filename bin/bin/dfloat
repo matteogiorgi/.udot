@@ -2,12 +2,12 @@
 
 
 _launch () {
-    CHOICE=$(echo -e "$USER\nroot" | dmenu -i -b -p USER | cut -d ':' -f 1)
+    CHOICE=$(echo -e "$USER\nAdmin" | dmenu -i -b -p USER | cut -d ':' -f 1)
     case "$CHOICE" in
         $USER)
             "$*"
             ;;
-        root)
+        Admin)
             pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$*"
             ;;
     esac
@@ -19,19 +19,15 @@ if [[ -x "$(command -v qt5ct)" ]]; then
 fi
 
 if [[ -x "$(command -v lxappearance)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Lxappearance" || NAMES="Lxappearance\n"$NAMES
+    [[ ! -n $NAMES ]] && NAMES="LXappearance" || NAMES="LXappearance\n"$NAMES
 fi
 
-if [[ -x "$(command -v xarchiver)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
-fi
-
-if [[ -x "$(command -v pcmanfm)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Pcmanfm" || NAMES="Pcmanfm\n"$NAMES
+if [[ -x "$(command -v wireshark)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Wireshark" || NAMES="Wireshark\n"$NAMES
 fi
 
 if [[ -x "$(command -v gparted)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Gparted" || NAMES="Gparted\n"$NAMES
+    [[ ! -n $NAMES ]] && NAMES="GParted" || NAMES="GParted\n"$NAMES
 fi
 
 if [[ -x "$(command -v pavucontrol)" ]]; then
@@ -46,6 +42,14 @@ if [[ -x "$(command -v xournalpp)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xournalpp" || NAMES="Xournalpp\n"$NAMES
 fi
 
+if [[ -x "$(command -v xarchiver)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
+fi
+
+if [[ -x "$(command -v pcmanfm)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="PCmanFm" || NAMES="PCmanFm\n"$NAMES
+fi
+
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
@@ -54,6 +58,12 @@ fi
 
 CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p FLOAT | cut -d ':' -f 1)
 case "$CHOICE" in
+    PCmanFm)
+        _launch "pcmanfm"
+        ;;
+    Xarchiver)
+        _launch "xarchiver"
+        ;;
     Xournalpp)
         xournalpp
         ;;
@@ -63,16 +73,13 @@ case "$CHOICE" in
     Pavucontrol)
         pavucontrol
         ;;
-    Gparted)
+    GParted)
         gparted
         ;;
-    Pcmanfm)
-        _launch "pcmanfm"
+    Wireshark)
+        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY  wireshark
         ;;
-    Xarchiver)
-        _launch "xarchiver"
-        ;;
-    Lxappearance)
+    LXappearance)
         _launch "lxappearance"
         ;;
     Qt5ct)
