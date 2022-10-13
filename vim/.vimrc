@@ -225,6 +225,8 @@ nnoremap <silent>Y y$
 nnoremap <silent>QQ :qall<CR>
 nnoremap <silent>WW :wall<CR>
 tnoremap <silent><C-q> <C-\><C-n>
+nnoremap <silent><C-d> <C-d>zz
+nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 nnoremap <silent><Left> :vertical resize -5<CR>
