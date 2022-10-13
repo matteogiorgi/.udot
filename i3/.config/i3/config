@@ -203,7 +203,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 ### Borders (normal, none, pixel)
 ### Edges   (none, vertical, horizontal, both, smart)
-### Style   (default, stacking, tabbed)
+### Layout  (default, stacking, tabbed)
 #####################################################
 
 default_border normal
