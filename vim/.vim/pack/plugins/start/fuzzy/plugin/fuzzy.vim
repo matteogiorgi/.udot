@@ -26,17 +26,11 @@ function s:FuzzyGit()
 endfun
 
 
-augroup shutuponopen
-    autocmd!
-    autocmd VimEnter * silent! autocmd! FileExplorer *
-    autocmd BufEnter * call utility#LaunchOnOpen('FuzzyJump')
-augroup END
-
-
 command! FuzzyFind call <SID>FuzzyFind()
 command! FuzzyJump call <SID>FuzzyJump()
 command! FuzzyGit call <SID>FuzzyGit()
 
 
-nnoremap <leader>e :FuzzyJump<CR>
-nnoremap <leader>E :FuzzyFind<CR>
+nnoremap <leader>j :FuzzyJump<CR>
+nnoremap <leader>k :FuzzyFind<CR>
+nnoremap <leader>i :FuzzyGit<CR>

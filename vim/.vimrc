@@ -5,10 +5,10 @@
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
-"     vim-fugitive ················· https://github.com/tpope/vim-fugitive
+""    vim-fugitive ················· https://github.com/tpope/vim-fugitive
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    undotree ····················· https://github.com/mbbill/undotree
-"     vim-fzf ······················ https://github.com/junegunn/fzf.vim
+""    vim-fzf ······················ https://github.com/junegunn/fzf.vim
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""

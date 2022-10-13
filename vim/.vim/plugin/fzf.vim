@@ -54,6 +54,7 @@ let g:fzf_layout = { 'window': 'enew' }
 
 
 " Locate
+nnoremap <leader><Tab> :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <leader>c :Commands<CR>
 nnoremap <leader>s :GFiles?<CR>
@@ -62,7 +63,6 @@ nnoremap <leader>F :GFiles<CR>
 nnoremap <leader>g :BCommits<CR>
 nnoremap <leader>G :Commits<CR>
 nnoremap <leader>h :History<CR>
-nnoremap <leader>j :Buffers<CR>
-nnoremap <leader>k :Rg<CR>
+nnoremap <leader>r :Rg<CR>
 nnoremap <leader>l :BLines<CR>
 nnoremap <leader>L :Lines<CR>

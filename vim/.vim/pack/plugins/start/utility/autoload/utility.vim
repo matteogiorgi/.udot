@@ -162,6 +162,7 @@ endfunction
 
 
 " Launch explorer on open{{{
+" UNUSED
 function! utility#LaunchOnOpen(explorer)
     let l:directory = expand('%:p')
     if <SID>isdir(l:directory)
@@ -177,6 +178,7 @@ endfunction
 
 
 " Jump current directory{{{
+" UNUSED
 function! utility#Current()
     echon 'cwd: '
     cd %:p:h
