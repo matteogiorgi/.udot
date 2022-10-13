@@ -7,34 +7,11 @@ function! s:build_quickfix_list(lines)
     cc
 endfunction
 
-function! FzfExplore(...)
-    let inpath = substitute(a:1, "'", '', 'g')
-    if inpath == "" || matchend(inpath, '/') == strlen(inpath)
-        execute "cd" getcwd() . '/' . inpath
-        let cwpath = getcwd() . '/'
-        let g:preview_window = g:fzf_preview_window
-        let g:fzf_preview_window = []
-        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': '/bin/ls -1a --ignore="." --ignore=".git" --group-directories-first --color=always', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--ansi', '--reverse', '--prompt', cwpath]})))
-    else
-        let file = getcwd() . '/' . inpath
-        execute "e" file
-    endif
-    let g:fzf_preview_window = g:preview_window
-endfunction
-
 function! s:FzfBufName()
     0f
     file [Fzf]
 endfunction
 
-
-" FZF as file manager lunched
-" on-open instead of Netrw
-augroup shutuponopen
-    autocmd!
-    autocmd VimEnter * silent! autocmd! FileExplorer *
-    autocmd BufEnter * call utility#LaunchOnOpen('FZFExplore')
-augroup END
 
 " In case you use window mode,
 " you'll need a new statusline ;)
@@ -46,7 +23,7 @@ augroup END
 
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
-let $FZF_DEFAULT_OPTS='--bind "ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up" --reverse'
+let $FZF_DEFAULT_OPTS='--bind "ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up" --height 100% --margin 0% --reverse --info=hidden --header-first'
 
 " standard colors for FZF with the exception of:
 " 'border' : ['fg', 'Ignore'],
@@ -72,22 +49,12 @@ let g:fzf_action = {
             \ 'ctrl-v' : 'vsplit'
             \ }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_preview_window = ['down:80%', 'ctrl-/']
+let g:fzf_preview_window = ['down:80%,border-sharp', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
-
-if !exists("g:fzf_explore")
-    let g:fzf_explore = 1
-endif
-
-
-" This function use FZF as simple file manager
-" It is fully functional but remember there is FuzzyJump too!
-command! -nargs=* FZFExplore call FzfExplore(shellescape(<q-args>))
 
 
 " Locate
 nnoremap <leader>w :Windows<CR>
-nnoremap <leader>e :FZFExplore<CR>
 nnoremap <leader>c :Commands<CR>
 nnoremap <leader>s :GFiles?<CR>
 nnoremap <leader>f :Files<CR>

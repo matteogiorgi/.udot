@@ -65,11 +65,9 @@ function! utility#WinMove(key)
             wincmd s
         endif
         exec 'wincmd '.a:key
-        " add `exec 'Explore'` here to
-        " open Netrw inside new window
-        if exists("g:fzf_explore")
-            exec 'FZFExplore'
-        endif
+        " add `exec 'Explore'` here to open Netrw inside
+        " new window or aother file explorer as follows:
+        " if exists("g:fzf_explore") | exec 'FZFExplore' | endif
     endif
     return bufname('%')
 endfunction
@@ -207,7 +205,7 @@ function! utility#GitDir()
     endif
 
     if isdirectory('.git')
-        " echon 'cwd: ' . getcwd()
+        echon 'cwd: ' . getcwd()
         return
     else
         let l:parent = fnamemodify('getcwd()', ':p:h:h')
