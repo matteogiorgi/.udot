@@ -14,7 +14,7 @@ function! FzfExplore(...)
         let cwpath = getcwd() . '/'
         let g:preview_window = g:fzf_preview_window
         let g:fzf_preview_window = []
-        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': '/bin/ls -1ap --ignore="." --ignore=".git" --group-directories-first', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--prompt', cwpath]})))
+        call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': '/bin/ls -1a --ignore="." --ignore=".git" --group-directories-first --color=always', 'dir': cwpath, 'sink': 'FZFExplore', 'options': ['--ansi', '--reverse', '--prompt', cwpath]})))
     else
         let file = getcwd() . '/' . inpath
         execute "e" file
@@ -40,13 +40,13 @@ augroup END
 " you'll need a new statusline ;)
 augroup fzflines
     autocmd!
-    autocmd User FzfStatusLine setlocal statusline=\ >>\ fzf  " %#Fzf1#
+    autocmd User FzfStatusLine setlocal statusline=>>\ fzf  " %#Fzf1#
     autocmd BufCreate,BufWinEnter,WinEnter term://*#FZF,term://*/run call s:FzfBufName()
 augroup END
 
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
-let $FZF_DEFAULT_OPTS='--bind "Right:preview-page-down,Left:preview-page-up"'  " Down:preview-down,Up:preview-up
+let $FZF_DEFAULT_OPTS='--bind "ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up" --reverse'
 
 " standard colors for FZF with the exception of:
 " 'border' : ['fg', 'Ignore'],
@@ -72,8 +72,12 @@ let g:fzf_action = {
             \ 'ctrl-v' : 'vsplit'
             \ }
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-let g:fzf_preview_window = ['up:80%', 'ctrl-/']
+let g:fzf_preview_window = ['down:80%', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
+
+if !exists("g:fzf_explore")
+    let g:fzf_explore = 1
+endif
 
 
 " This function use FZF as simple file manager

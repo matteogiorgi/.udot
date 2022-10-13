@@ -67,6 +67,9 @@ function! utility#WinMove(key)
         exec 'wincmd '.a:key
         " add `exec 'Explore'` here to
         " open Netrw inside new window
+        if exists("g:fzf_explore")
+            exec 'FZFExplore'
+        endif
     endif
     return bufname('%')
 endfunction
