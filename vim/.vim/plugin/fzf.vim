@@ -17,7 +17,7 @@ endfunction
 " you'll need a new statusline ;)
 augroup fzflines
     autocmd!
-    autocmd User FzfStatusLine setlocal statusline=>>\ fzf  " %#Fzf1#
+    autocmd User FzfStatusLine setlocal statusline=>>FZF  " %#Fzf1#
     autocmd BufCreate,BufWinEnter,WinEnter term://*#FZF,term://*/run call s:FzfBufName()
 augroup END
 
