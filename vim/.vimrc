@@ -5,8 +5,10 @@
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
+"     vim-fugitive ················· https://github.com/tpope/vim-fugitive
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    undotree ····················· https://github.com/mbbill/undotree
+"     vim-fzf ······················ https://github.com/junegunn/fzf.vim
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -56,8 +58,11 @@ if ! exists('noplugin')
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-commentary'
+        Plug 'tpope/vim-fugitive'
         Plug 'jiangmiao/auto-pairs'
         Plug 'mbbill/undotree'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
     call plug#end()
 endif
 "}}}

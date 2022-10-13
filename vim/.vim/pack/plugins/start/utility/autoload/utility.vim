@@ -149,8 +149,33 @@ endfunction
 "}}}
 
 
-" Jump current directory{{{
+" Check if directory{{{
 " UNUSED
+function! s:isdir(dir) abort
+    let l:isempty = !empty(a:dir)
+    let l:isdirectory = isdirectory(a:dir)
+    let l:systemshit = !empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)
+    return l:isempty && (l:isdirectory || l:systemshit)
+endfunction
+"}}}
+
+
+" Launch explorer on open{{{
+function! utility#LaunchOnOpen(explorer)
+    let l:directory = expand('%:p')
+    if <SID>isdir(l:directory)
+        execute 'Bclose'
+        if len(getbufinfo({'buflisted':1})) !=? 1 || bufname('%') !=? ''
+            execute 'tabnew'
+        endif
+        execute 'cd ' . l:directory
+        execute a:explorer
+    endif
+endfunction
+"}}}
+
+
+" Jump current directory{{{
 function! utility#Current()
     echon 'cwd: '
     cd %:p:h
@@ -185,33 +210,6 @@ function! utility#GitDir()
         let l:parent = fnamemodify('getcwd()', ':p:h:h')
         execute 'cd ' . l:parent
         execute 'call utility#GitDir()'
-    endif
-endfunction
-"}}}
-
-
-" Check if directory{{{
-" UNUSED
-function! s:isdir(dir) abort
-    let l:isempty = !empty(a:dir)
-    let l:isdirectory = isdirectory(a:dir)
-    let l:systemshit = !empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)
-    return l:isempty && (l:isdirectory || l:systemshit)
-endfunction
-"}}}
-
-
-" Launch explorer on open{{{
-" UNUSED
-function! utility#LaunchOnOpen(explorer)
-    let l:directory = expand('%:p')
-    if <SID>isdir(l:directory)
-        execute 'Bclose'
-        if len(getbufinfo({'buflisted':1})) !=? 1 || bufname('%') !=? ''
-            execute 'tabnew'
-        endif
-        execute 'cd ' . l:directory
-        execute a:explorer
     endif
 endfunction
 "}}}

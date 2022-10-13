@@ -43,11 +43,9 @@
 
 if v:version < 700 | finish | endif
 
-exe "nnoremap <unique>" "<localleader>" " :cal <SID>init(1)<cr>:cal SBRun()<cr>"
-exe "cnoremap <unique>" "<localleader>" "<Esc>"
-
-if !exists("g:qb_hotkey") || g:qb_hotkey == "" | let g:qb_hotkey = "<leader>l" | endif
+if !exists("g:qb_hotkey") || g:qb_hotkey == "" | let g:qb_hotkey = "<localleader>" | endif
 exe "nnoremap <unique>" g:qb_hotkey " :cal <SID>init(1)<cr>:cal SBRun()<cr>"
+exe "cnoremap <unique>" g:qb_hotkey "<Esc>"
 
 if exists("g:qb_loaded") && g:qb_loaded | finish | endif
 let g:qb_loaded = 1

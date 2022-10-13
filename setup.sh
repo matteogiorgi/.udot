@@ -127,9 +127,6 @@ backup () {
     # nano
     [[ -f $HOME/.nanorc ]] && clean $HOME/.nanorc
 
-    # neovim
-    [[ -d $HOME/.config/nvim ]] && clean $HOME/.config/nvim
-
     # sxiv
     [[ -d $HOME/.config/sxiv ]] && clean $HOME/.config/sxiv
 
@@ -274,7 +271,6 @@ sudo apt install -qq -y \
     tmux \
     kakoune \
     kitty \
-    neovim \
     vim-gtk3 \
     nano \
     tig \
@@ -422,7 +418,6 @@ stow i3
 stow kakoune
 stow kitty
 stow nano
-stow neovim
 stow sxiv
 stow tig
 stow tmux

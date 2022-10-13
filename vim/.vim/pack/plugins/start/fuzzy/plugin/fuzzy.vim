@@ -29,7 +29,3 @@ endfun
 command! FuzzyFind call <SID>FuzzyFind()
 command! FuzzyJump call <SID>FuzzyJump()
 command! FuzzyGit call <SID>FuzzyGit()
-
-nnoremap <leader>f :FuzzyFind<CR>
-nnoremap <leader>j :FuzzyJump<CR>
-nnoremap <leader>g :FuzzyGit<CR>

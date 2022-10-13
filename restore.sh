@@ -116,9 +116,6 @@ restore () {
     # nano
     [[ -f $RESTORE/.nanorc ]] && mv $RESTORE/.nanorc $HOME
 
-    # neovim
-    [[ -d $RESTORE/nvim ]] && mv $RESTORE/nvim $HOME/.config
-
     # sxiv
     [[ -d $RESTORE/sxiv ]] && mv $RESTORE/sxiv $HOME/.config
 
@@ -186,7 +183,6 @@ stow -D i3
 stow -D kakoune
 stow -D kitty
 stow -D nano
-stow -D neovim
 stow -D sxiv
 stow -D tig
 stow -D tmux
@@ -263,7 +259,6 @@ sudo apt purge -qq -y \
     tmux \
     kakoune \
     kitty \
-    neovim \
     vim-gtk3 \
     nano \
     tig \
