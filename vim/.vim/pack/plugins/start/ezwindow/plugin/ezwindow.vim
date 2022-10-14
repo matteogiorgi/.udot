@@ -64,7 +64,7 @@ let s:code_list = {
             \  'down'   :'106',
             \  'up'     :'107',
             \  'right'  :'108',
-            \  'finish' :'27',
+            \  'finish' :'13',
             \ }
 
 
@@ -113,7 +113,7 @@ endfun
 
 " Resize Splits
 function! s:ResizeMode(commands)
-    echo "Start Resizing. Press 'q' to quit"
+    echo "Start Resizing. Press CR again to quit"
     let l:commands = a:commands
     while 1
         let l:c = getchar()
