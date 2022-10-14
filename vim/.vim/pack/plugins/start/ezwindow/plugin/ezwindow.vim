@@ -1,7 +1,7 @@
 " QuickBuf (https://github.com/AnotherProksY/ez-window)
 " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-" - anotherproksy <k.fazilov@icloud.com>
-" - geoteo        <matteo.giorgi@protonmail.com>
+" - kamil  <k.fazilov@icloud.com>
+" - geoteo <matteo.giorgi@protonmail.com>
 
 " Brief description
 " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
@@ -10,8 +10,10 @@
 
 " Keybindings and behavior
 " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-" +
-" +
+" + ctrl+w[h,j,k,l] : move/create the window towards that direction
+" + ctrl+wr : enter resize mode
+"     - [h,j,k,l] : resize
+"     - q : quit resize mode
 
 
 if exists('g:loaded_ez_window') || &cp
