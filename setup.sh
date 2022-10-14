@@ -294,7 +294,6 @@ sudo apt install -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    wireshark \
     pcmanfm \
     xarchiver
 

@@ -22,10 +22,6 @@ if [[ -x "$(command -v lxappearance)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="LXappearance" || NAMES="LXappearance\n"$NAMES
 fi
 
-if [[ -x "$(command -v wireshark)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Wireshark" || NAMES="Wireshark\n"$NAMES
-fi
-
 if [[ -x "$(command -v gparted)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="GParted" || NAMES="GParted\n"$NAMES
 fi
@@ -36,10 +32,6 @@ fi
 
 if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
-fi
-
-if [[ -x "$(command -v xournalpp)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Xournalpp" || NAMES="Xournalpp\n"$NAMES
 fi
 
 if [[ -x "$(command -v xarchiver)" ]]; then
@@ -64,9 +56,6 @@ case "$CHOICE" in
     Xarchiver)
         _launch "xarchiver"
         ;;
-    Xournalpp)
-        xournalpp
-        ;;
     Arandr)
         arandr
         ;;
@@ -75,9 +64,6 @@ case "$CHOICE" in
         ;;
     GParted)
         gparted
-        ;;
-    Wireshark)
-        pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY  wireshark
         ;;
     LXappearance)
         _launch "lxappearance"
