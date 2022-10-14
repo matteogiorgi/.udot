@@ -1,6 +1,17 @@
-" Simple and small plugin for fast navigation between windows.
-" Maintainer:	AnotherProksY <k.fazilov@icloud.com>
-" Repository: https://github.com/AnotherProksY/ez-window
+" QuickBuf (https://github.com/AnotherProksY/ez-window)
+" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+" - anotherproksy <k.fazilov@icloud.com>
+" - geoteo        <matteo.giorgi@protonmail.com>
+
+" Brief description
+" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+" Simple and small plugin for resizing
+" and fast navigation between windows.
+
+" Keybindings and behavior
+" ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+" +
+" +
 
 
 if exists('g:loaded_ez_window') || &cp
