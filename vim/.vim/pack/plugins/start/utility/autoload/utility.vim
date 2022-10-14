@@ -54,26 +54,6 @@ endfunction
 "}}}
 
 
-" WinMove{{{
-function! utility#WinMove(key)
-    let t:curwin = winnr()
-    exec 'wincmd '.a:key
-    if t:curwin ==? winnr()
-        if match(a:key,'[jk]')
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec 'wincmd '.a:key
-        " add `exec 'Explore'` here to open Netrw inside
-        " new window or aother file explorer as follows:
-        " if exists("g:fzf_explore") | exec 'FZFExplore' | endif
-    endif
-    return bufname('%')
-endfunction
-"}}}
-
-
 " Mkdir{{{
 function! utility#Mkdir()
     let dir = expand('%:p:h')
@@ -81,6 +61,44 @@ function! utility#Mkdir()
     if !isdirectory(dir)
         call mkdir(dir, 'p')
         echo 'Created non-existing directory: '.dir
+    endif
+endfunction
+"}}}
+
+
+" Jump current directory{{{
+function! utility#Current()
+    echon 'cwd: '
+    cd %:p:h
+    echon getcwd()
+endfunction
+"}}}
+
+
+" Jump parent directory{{{
+function! utility#Parent()
+    echon 'cwd: '
+    let l:parent = fnamemodify('getcwd()', ':p:h:h')
+    execute 'cd ' . l:parent
+    echon getcwd()
+endfunction
+"}}}
+
+
+" Jump git directory{{{
+function! utility#GitDir()
+    if getcwd() ==? $HOME
+        " echon 'Not in a git repository'
+        return
+    endif
+
+    if isdirectory('.git')
+        echon 'cwd: ' . getcwd()
+        return
+    else
+        let l:parent = fnamemodify('getcwd()', ':p:h:h')
+        execute 'cd ' . l:parent
+        execute 'call utility#GitDir()'
     endif
 endfunction
 "}}}
@@ -150,6 +168,27 @@ endfunction
 "}}}
 
 
+" WinMove{{{
+" UNUSED
+function! utility#WinMove(key)
+    let t:curwin = winnr()
+    exec 'wincmd '.a:key
+    if t:curwin ==? winnr()
+        if match(a:key,'[jk]')
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec 'wincmd '.a:key
+        " add `exec 'Explore'` here to open Netrw inside
+        " new window or aother file explorer as follows:
+        " if exists("g:fzf_explore") | exec 'FZFExplore' | endif
+    endif
+    return bufname('%')
+endfunction
+"}}}
+
+
 " Check if directory{{{
 " UNUSED
 function! s:isdir(dir) abort
@@ -172,47 +211,6 @@ function! utility#LaunchOnOpen(explorer)
         endif
         execute 'cd ' . l:directory
         execute a:explorer
-    endif
-endfunction
-"}}}
-
-
-" Jump current directory{{{
-" UNUSED
-function! utility#Current()
-    echon 'cwd: '
-    cd %:p:h
-    echon getcwd()
-endfunction
-"}}}
-
-
-" Jump parent directory{{{
-" UNUSED
-function! utility#Parent()
-    echon 'cwd: '
-    let l:parent = fnamemodify('getcwd()', ':p:h:h')
-    execute 'cd ' . l:parent
-    echon getcwd()
-endfunction
-"}}}
-
-
-" Jump git directory{{{
-" UNUSED
-function! utility#GitDir()
-    if getcwd() ==? $HOME
-        " echon 'Not in a git repository'
-        return
-    endif
-
-    if isdirectory('.git')
-        echon 'cwd: ' . getcwd()
-        return
-    else
-        let l:parent = fnamemodify('getcwd()', ':p:h:h')
-        execute 'cd ' . l:parent
-        execute 'call utility#GitDir()'
     endif
 endfunction
 "}}}

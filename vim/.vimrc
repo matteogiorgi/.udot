@@ -222,10 +222,8 @@ nnoremap <silent><Tab> :wincmd w<cr>
 nnoremap <silent><Backspace> :b#<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
-nnoremap <silent><C-Left> :tabmove -1<cr>
-nnoremap <silent><C-Right> :tabmove +1<cr>
-nnoremap <silent><C-Down> :$tabmove<cr>
-nnoremap <silent><C-Up> :0tabmove<cr>
+nnoremap <silent><C-p> :tabmove -1<cr>
+nnoremap <silent><C-n> :tabmove +1<cr>
 nnoremap <silent>Y y$
 nnoremap <silent>QQ :qall<CR>
 nnoremap <silent>WW :wall<CR>
@@ -234,10 +232,6 @@ nnoremap <silent><C-d> <C-d>zz
 nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
-nnoremap <silent><Left> :vertical resize -5<CR>
-nnoremap <silent><Right> :vertical resize +5<CR>
-nnoremap <silent><Down> :resize -5<CR>
-nnoremap <silent><Up> :resize +5<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
