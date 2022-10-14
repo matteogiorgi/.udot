@@ -64,7 +64,7 @@ let s:code_list = {
             \  'down'   :'106',
             \  'up'     :'107',
             \  'right'  :'108',
-            \  'finish' :'113',
+            \  'finish' :'27',
             \ }
 
 
@@ -144,7 +144,7 @@ command! EzWindowStartResize call s:ResizeMode(s:ResizeCommands())
 
 
 " List of Mappings
-let s:default_start_key = '<C-w>r'
+let s:default_start_key = '<Return>'
 let s:default_ez_window_keys = {
             \ 'left'  : '<C-w>h',
             \ 'down'  : '<C-w>j',

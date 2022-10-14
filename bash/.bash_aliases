@@ -55,8 +55,9 @@ alias kswap="xmodmap ~/.Xmodmap"
 alias xload="xrdb ~/.Xresources"
 
 
-alias xmono="autorandr --load mono"
 alias xdual="autorandr --load dual"
+alias xmaster="autorandr --load master"
+alias xslave="autorandr --load slave"
 
 
 alias reboot="systemctl reboot"
@@ -70,6 +71,4 @@ alias unstow="stow -D"
 
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
-alias xshift="redshift-gtk -Pr -t 8000:5000"
 alias ltree="tree -aC --dirsfirst | less -R -~"
-alias ical="ikhal"

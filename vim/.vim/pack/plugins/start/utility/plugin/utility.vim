@@ -6,6 +6,8 @@ autocmd! BufWritePre * call utility#Mkdir()
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()
 command! ChBackground call utility#ChBackground()
+command! -nargs=1 -complete=file SaveSession call utility#SaveSession(<f-args>)
+command! -nargs=1 -complete=file LoadSession call utility#LoadSession(<f-args>)
 command! -nargs=1 SSelection call utility#SSelection(<f-args>)
 command! Current call utility#Current()
 command! Parent call utility#Parent()
@@ -18,7 +20,7 @@ nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>^ :ChBackground<CR>
 
 
-" I'm using EzWindow now, that it does the same thing
+" I am already using ezwindow that does the same thing
 " nnoremap <C-w>h :call utility#WinMove('h')<CR>
 " nnoremap <C-w>j :call utility#WinMove('j')<CR>
 " nnoremap <C-w>k :call utility#WinMove('k')<CR>

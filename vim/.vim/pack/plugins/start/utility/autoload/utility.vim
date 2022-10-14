@@ -54,6 +54,20 @@ endfunction
 "}}}
 
 
+" Save Session{{{
+function! utility#SaveSession(session)
+    exec 'mksession! $HOME/.vim/sessions/'.a:session
+endfunction
+"}}}
+
+
+" Load Session{{{
+function! utility#LoadSession(session)
+    exec 'source $HOME/.vim/sessions/'.a:session
+endfunction
+"}}}
+
+
 " Mkdir{{{
 function! utility#Mkdir()
     let dir = expand('%:p:h')

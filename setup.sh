@@ -223,7 +223,7 @@ sudo apt install -qq -y \
     atool \
     trash-cli \
     htop \
-    khal \
+    ncal \
     tree \
     make \
     gcc \
