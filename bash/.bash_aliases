@@ -6,9 +6,10 @@
 
 
 
-alias ll='ls -alFtr'
-alias la='ls -A'
 alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alFtr'
+alias lt="tree -aC --dirsfirst | less -R -~"
 
 
 alias cp="cp -i"
@@ -55,9 +56,9 @@ alias kswap="xmodmap ~/.Xmodmap"
 alias xload="xrdb ~/.Xresources"
 
 
-alias xdual="autorandr --load dual"
-alias xmaster="autorandr --load master"
-alias xslave="autorandr --load slave"
+alias autodual="autorandr --load dual"
+alias automaster="autorandr --load master"
+alias autoslave="autorandr --load slave"
 
 
 alias reboot="systemctl reboot"
@@ -71,4 +72,3 @@ alias unstow="stow -D"
 
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
-alias ltree="tree -aC --dirsfirst | less -R -~"
