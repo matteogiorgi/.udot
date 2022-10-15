@@ -29,7 +29,7 @@ NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 if [[ -n $PIC && -f ${PIC:1:-1} ]]; then
     ~/.fehbg
 else
-    feh --bg-fill "$SCRIPTPATH/default.jpeg"
+    feh --bg-fill "$SCRIPTPATH/wallpaper"
 fi
 
 
