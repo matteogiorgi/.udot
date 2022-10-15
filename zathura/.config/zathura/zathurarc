@@ -4,10 +4,13 @@
 set adjust-open width
 set recolor false
 
-set font "Ubuntu Mono 10"
+set font "Ubuntu Mono 9"
 set first-page-column 2
 
 set guioptions sv
+
+set window-height 800
+set window-width 600
 
 set window-title-basename "true"
 set selection-clipboard "clipboard"
