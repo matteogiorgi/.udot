@@ -295,7 +295,9 @@ sudo apt install -qq -y \
     pavucontrol \
     gparted \
     pcmanfm \
-    xarchiver
+    xarchiver \
+    vlc \
+    x11-apps
 
 
 

@@ -250,13 +250,20 @@ bar {
 ### Floating windows
 ####################
 
+# dfloat apps
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Xarchiver"] floating enable
+for_window [class="Xournalpp"] floating enable
+for_window [class="vlc"] floating enable
+for_window [class="XCalc"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
+
+# more floats
+for_window [class="Zathura"] floating enable
 
 
 

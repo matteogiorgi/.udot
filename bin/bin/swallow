@@ -48,13 +48,13 @@ case $(file --mime-type "${FILE}" -bL) in
         _xhide "mpv --force-window '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xhide "zathura '${FILE}'"
+        _xshow "zathura '${FILE}' 2>/dev/null"
         ;;
     application/zip | application/gzip)
         if [[ "${FILE##*.}" == "xopp" ]]; then
-            _xhide "xournalpp '${FILE}'"
+            _xshow "xournalpp '${FILE}' 2>/dev/null"
         else
-            [[ -x "$(command -v xarchiver)" ]] && _xhide "xarchiver '${FILE}'" || less -R -~ "${FILE}"
+            [[ -x "$(command -v xarchiver)" ]] && _xshow "xarchiver '${FILE}' 2>/dev/null" || less -R -~ "${FILE}"
         fi
         ;;
     image/*)

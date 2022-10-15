@@ -34,6 +34,18 @@ if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
 
+if [[ -x "$(command -v xcalc)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="XCalc" || NAMES="XCalc\n"$NAMES
+fi
+
+if [[ -x "$(command -v vlc)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Vlc" || NAMES="Vlc\n"$NAMES
+fi
+
+if [[ -x "$(command -v xournalpp)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Xournal" || NAMES="Xournal\n"$NAMES
+fi
+
 if [[ -x "$(command -v xarchiver)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
 fi
@@ -55,6 +67,15 @@ case "$CHOICE" in
         ;;
     Xarchiver)
         _launch "xarchiver"
+        ;;
+    Xournal)
+        xournalpp
+        ;;
+    Vlc)
+        vlc
+        ;;
+    XCalc)
+        xcalc
         ;;
     Arandr)
         arandr
