@@ -280,8 +280,7 @@ sudo apt purge -qq -y \
     gparted \
     pcmanfm \
     xarchiver \
-    vlc \
-    x11-apps
+    vlc
 
 
 
