@@ -84,7 +84,7 @@ endif
 " Syntax{{{
 syntax on
 filetype plugin indent on
-colorscheme hemisu
+colorscheme sahara
 "}}}
 
 
