@@ -19,3 +19,7 @@ endfunction
 
 
 command! -bang -complete=buffer -nargs=? Bclose call bclose#Bclose('<bang>', '<args>')
+
+
+nnoremap <leader>k :close<CR>
+nnoremap <leader>K :Bclose<CR>
