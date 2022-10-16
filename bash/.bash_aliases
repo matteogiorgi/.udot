@@ -72,3 +72,4 @@ alias unstow="stow -D"
 
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
+alias xcal="ncal -y"
