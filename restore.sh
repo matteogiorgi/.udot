@@ -280,7 +280,8 @@ sudo apt purge -qq -y \
     gparted \
     pcmanfm \
     xarchiver \
-    vlc
+    vlc \
+    galculator
 
 
 

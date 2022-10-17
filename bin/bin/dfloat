@@ -34,8 +34,8 @@ if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
 
-if [[ -x "$(command -v xcalc)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="XCalc" || NAMES="XCalc\n"$NAMES
+if [[ -x "$(command -v galculator)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Galculator" || NAMES="Galculator\n"$NAMES
 fi
 
 if [[ -x "$(command -v vlc)" ]]; then
@@ -74,8 +74,8 @@ case "$CHOICE" in
     Vlc)
         vlc
         ;;
-    XCalc)
-        xcalc
+    Galculator)
+        galculator
         ;;
     Arandr)
         arandr

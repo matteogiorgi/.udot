@@ -298,7 +298,7 @@ sudo apt install -qq -y \
     pcmanfm \
     xarchiver \
     vlc \
-    x11-apps
+    galculator
 
 
 

@@ -26,10 +26,10 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 ## Essential utilities
 
 ```
-wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal tree make
+wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal tree make jq
 gcc lxpolkit libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev xclip
 fzf ripgrep wamerican witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils
-mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono jq poppler-utils
+mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono poppler-utils
 ```
 
 
@@ -38,10 +38,10 @@ mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono jq popp
 ## Main packages
 
 ```
-i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune vim-gtk3 nano tig
+i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune vim-gtk3 nano tig vlc
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance
-qt5ct xournalpp sct flameshot diodon pavucontrol gparted pcmanfm xarchiver vlc x11-apps
+qt5ct xournalpp sct flameshot diodon pavucontrol gparted pcmanfm xarchiver galculator
 ```
 
 
@@ -50,7 +50,7 @@ qt5ct xournalpp sct flameshot diodon pavucontrol gparted pcmanfm xarchiver vlc x
 ## Snap/extra packages
 
 ```
-code codium brave google-chrome
+code codium brave google-chrome chromium
 ```
 
 
