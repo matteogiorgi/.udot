@@ -362,9 +362,24 @@ function _xopp2pdf () {
     YLW='\033[1;35m'
     NC='\033[0m'
 
-    LIST=$(find *.xopp)
-    for FILE in $LIST; do
-        echo "$FILE" "->" "${FILE%.*}.pdf"
-        xournalpp "$FILE" -p "${FILE%.*}.pdf" 2>/dev/null
-    done
+    ARGS="$*"
+    if [[ "$ARGS" == "" ]]; then
+        LIST=$(find *.xopp)
+        for FILE in $LIST; do
+            printf "${YLW}%s${NC} -> ${RED}%s${NC}\n" "$FILE" "${FILE%.*}.pdf"
+            xournalpp "$FILE" -p "${FILE%.*}.pdf" 2>/dev/null
+        done
+    else
+        printf "${YLW}%s${NC} -> ${RED}%s${NC}\n" "$ARGS" "${ARGS%.*}.pdf"
+        xournalpp "$ARGS" -p "${ARGS%.*}.pdf" 2>/dev/null
+    fi
+}
+
+function _mergepdf () {
+    ARGS="$*"
+    if [[ "$ARGS" == "" ]]; then
+        pdfunite *.pdf merge.pdf
+    else
+        pdfunite $ARGS merge.pdf
+    fi
 }
