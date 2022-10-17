@@ -46,8 +46,8 @@ let colors_name = 'sahara'
 
 highlight Comment
             \ term=NONE
-            \ cterm=NONE ctermfg=241 ctermbg=NONE
-            \ gui=NONE guifg=#777777 guibg=NONE
+            \ cterm=NONE ctermfg=110 ctermbg=NONE
+            \ gui=NONE guifg=#87afd7 guibg=NONE
 highlight Constant
             \ term=NONE
             \ cterm=NONE ctermfg=217 ctermbg=NONE
