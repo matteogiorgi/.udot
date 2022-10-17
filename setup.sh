@@ -250,7 +250,8 @@ sudo apt install -qq -y \
     texlive \
     fonts-ubuntu \
     fonts-jetbrains-mono \
-    jq
+    jq \
+    poppler-utils
 
 
 

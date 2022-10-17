@@ -29,7 +29,7 @@ These repo contains a minimal configuration of my dotfiles, I keep them organize
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal tree make
 gcc lxpolkit libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev xclip
 fzf ripgrep wamerican witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils
-mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono jq
+mediainfo brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono jq poppler-utils
 ```
 
 
