@@ -165,14 +165,6 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-          "before": ["<C-d>"],
-          "after": ["<C-d>", "zz"]
-        },
-        {
-          "before": ["<C-u>"],
-          "after": ["<C-u>", "zz"]
-        },
-        {
           "before": ["<C-j>"],
           "after": ["}"]
         },
