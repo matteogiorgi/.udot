@@ -116,7 +116,6 @@ set ignorecase smartcase smartindent
 set noswapfile nobackup
 set showmode showcmd
 set cursorline noerrorbells novisualbell
-set cursorlineopt=number  " number,line
 set splitbelow splitright
 set equalalways
 set nofoldenable foldmethod=marker  "zf zd za zo zc zi zE zR zM
@@ -132,10 +131,12 @@ set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
 if ! exists('noplugin')
+    set cursorlineopt=number,line
     set fillchars+=vert:\│,eob:\ ,fold:-
     set laststatus=2
     set showtabline=1
 else
+    set cursorlineopt=number
     set fillchars+=vert:\│,eob:~,fold:-
     set laststatus=0
     set showtabline=0
