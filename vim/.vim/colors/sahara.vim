@@ -1,9 +1,11 @@
-"" sahara, a 256-color retake on desert256 with the color detection code
-"" removed for clarity.  Written by Tom Ryder (tejr).
+"" sahara.vim - vim color scheme
+""""""""""""""""""""""""""""""""
+
+"" a 256-color retake on desert256 with color detection code removed
+"" written by Tom Ryder (tejr) and modded by Matteo Giorgi (geoteo)
 ""
-"" <http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim>
-"" <https://sanctum.geek.nz/arabesque/sahara-vim-colorscheme/>
-"" <https://sanctum.geek.nz/>
+"" check Xterm256 color names for console Vim at:
+"" https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
 
 
 
@@ -44,8 +46,8 @@ let colors_name = 'sahara'
 
 highlight Comment
             \ term=NONE
-            \ cterm=NONE ctermfg=110 ctermbg=NONE
-            \ gui=NONE guifg=#87afd7 guibg=NONE
+            \ cterm=NONE ctermfg=241 ctermbg=NONE
+            \ gui=NONE guifg=#777777 guibg=NONE
 highlight Constant
             \ term=NONE
             \ cterm=NONE ctermfg=217 ctermbg=NONE
@@ -58,6 +60,10 @@ highlight CursorLine
             \ term=NONE
             \ cterm=NONE ctermfg=NONE ctermbg=233
             \ gui=NONE guifg=NONE guibg=#121212
+highlight CursorLineNr
+            \ term=NONE
+            \ cterm=bold ctermfg=251 ctermbg=NONE
+            \ gui=bold guifg=#c6c6c6 guibg=NONE
 highlight DiffAdd
             \ term=NONE
             \ cterm=NONE ctermfg=NONE ctermbg=22
@@ -108,7 +114,7 @@ highlight NonText
             \ gui=NONE guifg=#3a3a3a guibg=NONE
 highlight Normal
             \ term=NONE
-            \ cterm=NONE ctermfg=NONE ctermbg=NONE
+            \ cterm=NONE ctermfg=251 ctermbg=NONE
             \ gui=NONE guifg=#c6c6c6 guibg=#000000
 highlight Pmenu
             \ term=NONE
@@ -144,12 +150,12 @@ highlight Statement
             \ gui=NONE guifg=#ffd787 guibg=NONE
 highlight StatusLine
             \ term=NONE
-            \ cterm=NONE ctermfg=231 ctermbg=237
-            \ gui=NONE guifg=#ffffff guibg=#3a3a3a
+            \ cterm=bold ctermfg=231 ctermbg=237
+            \ gui=bold guifg=#ffffff guibg=#3a3a3a
 highlight StatusLineNC
             \ term=NONE
-            \ cterm=NONE ctermfg=16 ctermbg=237
-            \ gui=NONE guifg=#000000 guibg=#3a3a3a
+            \ cterm=bold ctermfg=16 ctermbg=237
+            \ gui=bold guifg=#000000 guibg=#3a3a3a
 highlight Todo
             \ term=NONE
             \ cterm=NONE ctermfg=196 ctermbg=226
@@ -182,7 +188,6 @@ highlight WarningMsg
 """""""""""""""""""""""""""""""""""
 
 highlight! link CursorColumn CursorLine
-highlight! link CursorLineNr LineNr
 highlight! link LineNr NonText
 highlight! link SpellCap SpellBad
 highlight! link SpellLocal SpellBad

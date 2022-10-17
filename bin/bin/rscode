@@ -122,7 +122,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.rulers": [],
     "editor.folding": false,
     "editor.cursorBlinking": "solid",
-    "editor.renderLineHighlight": "gutter",
+    "editor.renderLineHighlight": "line",
     "editor.lineHeight": 1.4,
     "editor.lineNumbers": "relative",
     "editor.scrollbar.vertical": "auto",
@@ -151,22 +151,49 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
         {
           "before": ["j", "j"],
           "after": ["<Esc>"]
-        }
+        },
+    ],
+    "vim.visualModeKeyBindings": [
+        {
+            "before": ["<Tab>"],
+            "commands": ["editor.action.indentLines"]
+        },
+        {
+            "before": ["<S-Tab>"],
+            "commands": ["editor.action.outdentLines"]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-          "before": ["<leader>", "d"],
-          "after": ["d", "d"]
+          "before": ["<C-d>"],
+          "after": ["<C-d>", "zz"]
         },
         {
-          "before": ["<C-n>"],
-          "commands": [":nohl"]
+          "before": ["<C-u>"],
+          "after": ["<C-u>", "zz"]
         },
         {
-          "before": ["K"],
-          "commands": ["lineBreakInsert"],
-          "silent": true
-        }
+          "before": ["<C-j>"],
+          "after": ["}"]
+        },
+        {
+          "before": ["<C-k>"],
+          "after": ["{"]
+        },
+        {
+          "before": ["Y"],
+          "after": ["y", "$"]
+        },
+        {
+            "before": ["u"],
+            "commands": ["undo"],
+            "silent": true
+        },
+        {
+            "before": ["C-r"],
+            "commands": ["redo"],
+            "silent": true
+        },
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {

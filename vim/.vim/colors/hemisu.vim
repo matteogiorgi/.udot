@@ -1,18 +1,16 @@
-" hemisu.vim - Vim color scheme
-"
-" check Xterm256 color names for console Vim at:
-" https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
-"
-" ----------------------------------------------------------
-" Authors:  Noah Frederick (http://noahfrederick.com/)
-"           Matteo Giorgi  (https://www.geoteo.net/)
-" Version:  3.4
-" License:  Creative Commons Attribution-NonCommercial
-"           3.0 Unported License       (see README.md)
-" ----------------------------------------------------------
+"" hemisu.vim - vim color scheme
+""""""""""""""""""""""""""""""""
+
+"" written by Noah Frederick (http://noahfrederick.com/)
+"" and modded by Matteo Giorgi (https://www.geoteo.net/)
+""
+"" check Xterm256 color names for console Vim at:
+"" https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
 
 
-" Setup ----------------------------------------------------{{{
+
+
+" SETUP {{{
 " Reset syntax highlighting
 hi clear
 if exists("syntax_on")
@@ -21,9 +19,12 @@ endif
 
 " Declare theme name
 let g:colors_name = "hemisu"
-
 "}}}
-" The Colors -----------------------------------------------{{{
+
+
+
+
+" THE COLORS {{{
 " Define reusable colors
 let s:black            = { "gui": "#000000", "cterm": "16"  }
 let s:white            = { "gui": "#FFFFFF", "cterm": "231" }
@@ -90,9 +91,12 @@ else
   let s:faintGreen = s:lightGreen
   let s:faintBlue  = s:lightBlue
 endif
-
 "}}}
-" Utility Function -----------------------------------------{{{
+
+
+
+
+" UTILITY FUNCTION {{{
 function! s:h(group, style)
   execute "highlight" a:group
         \ "guifg="   (has_key(a:style, "fg")    ? a:style.fg.gui   : "NONE")
@@ -103,9 +107,12 @@ function! s:h(group, style)
         \ "ctermbg=" (has_key(a:style, "bg")    ? a:style.bg.cterm : "NONE")
         \ "cterm="   (has_key(a:style, "cterm") ? a:style.cterm    : "NONE")
 endfunction
-
 "}}}
-" Highlights - Vim >= 7 ------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - VIM>=7 {{{
 if version >= 700
   call s:h("CursorLineNr",  { "gui": "bold", "cterm": "bold" })
   call s:h("CursorLine",    { "bg": s:faint })
@@ -127,9 +134,12 @@ if version >= 700
   execute "hi! SpellRare  ctermbg=" s:faintGreen.cterm
   execute "hi! SpellLocal ctermbg=" s:faint.cterm
 endif
-
 "}}}
-" Highlights - UI ------------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - UI {{{
 call s:h("Normal",       { "fg": s:norm, "bg": s:bg })
 call s:h("NonText",      { "fg": s:subtle })
 call s:h("Cursor",       { "fg": s:bg, "bg": s:accent3 })
@@ -162,9 +172,12 @@ hi! link ModeMsg      MoreMsg
 hi! link TabLineFill  StatusLineNC
 hi! link LineNr       NonText
 hi! link SpecialKey   NonText
-
 "}}}
-" Highlights - Generic Syntax ------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - GENERIC SYNTAX {{{
 call s:h("Delimiter",  { "fg": s:dimmed })
 call s:h("Comment",    { "fg": s:comment, "gui": "italic" })
 call s:h("Underlined", { "fg": s:accent1, "gui": "underline", "cterm": "underline" })
@@ -180,43 +193,60 @@ hi! link Number      Constant
 hi! link Special     Constant
 hi! link PreProc     Constant
 hi! link Error       ErrorMsg
-
 "}}}
-" Highlights - HTML ----------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - HTML {{{
 hi! link htmlLink    Underlined
 hi! link htmlTag     Type
 hi! link htmlEndTag  htmlTag
-
 "}}}
-" Highlights - CSS -----------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - CSS {{{
 hi! link cssBraces      Delimiter
 hi! link cssSelectorOp  cssBraces
 hi! link cssClassName   Normal
-
 "}}}
-" Highlights - Markdown ------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - MARKDOWN {{{
 hi! link mkdListItem  mkdDelimiter
-
 "}}}
-" Highlights - Shell ---------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - SHELL {{{
 hi! link shOperator  Delimiter
 hi! link shCaseBar   Delimiter
-
 "}}}
-" Highlights - JavaScript ----------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - JAVASCRIPT {{{
 hi! link javaScriptValue   Constant
 hi! link javaScriptNull    Constant
 hi! link javaScriptBraces  Normal
-
 "}}}
-" Highlights - Help ----------------------------------------{{{
+
+
+
+
+" HIGHLIGHTS - HELP {{{
 hi! link helpExample         String
 hi! link helpHeadline        Title
 hi! link helpSectionDelim    Comment
 hi! link helpHyperTextEntry  Statement
 hi! link helpHyperTextJump   Underlined
 hi! link helpURL             Underlined
-
 "}}}
 
 " vim: fdm=marker:sw=2:sts=2:et
