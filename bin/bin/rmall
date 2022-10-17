@@ -7,33 +7,33 @@ NC='\033[0m'
 
 
 for arg in "$@"; do
-	list=$(find *.$arg)
-	if [[ $list == ""  ]]; then
-		printf "${YLW}%s ${RED}%s ${YLW}%s${NC}\n" "No file with" ".$arg" "extention found in $PWD"
-		continue
-	fi
-	printf "${RED}%s ${YLW}%s${NC}\n" ".$arg" "files:"
-	for file in $list; do
-		echo $file
-	done
-	printf "${YLW}%s${NC} " "Are you sure you wanna delete them? (Y/n)"
+    list=$(find *.$arg)
+    if [[ $list == ""  ]]; then
+        printf "${YLW}%s ${RED}%s ${YLW}%s${NC}\n" "No file with" ".$arg" "extention found in $PWD"
+        continue
+    fi
+    printf "${RED}%s ${YLW}%s${NC}\n" ".$arg" "files:"
+    for file in $list; do
+        echo $file
+    done
+    printf "${YLW}%s${NC} " "Are you sure you wanna delete them? (Y/n)"
 
-	while read response; do
-		case $response in
-			"y" | "Y" | "yes" | "Yes" | "YES")
+    while read response; do
+        case $response in
+            "y" | "Y" | "yes" | "Yes" | "YES")
                 rm *.$arg
                 printf "$list\nremoved\n"
                 break
                 ;;
-			"n" | "N" | "no" | "No" | "NO" | "")
+            "n" | "N" | "no" | "No" | "NO" | "")
                 printf "No file removed\n"
                 break
                 ;;
-			*)
+            *)
                 printf "${YLW}%s${NC}\n" "Answer Y(yes) or n(no)"
                 ;;
-		esac
-	done
+        esac
+    done
 done
 
 

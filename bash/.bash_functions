@@ -355,3 +355,16 @@ function _ipreview () {
         printf "${RED}%s${NC}\n" "Can't preview shit, do something!"
     fi
 }
+
+
+function _xopp2pdf () {
+    RED='\033[1;36m'
+    YLW='\033[1;35m'
+    NC='\033[0m'
+
+    LIST=$(find *.xopp)
+    for FILE in $LIST; do
+        echo "$FILE" "->" "${FILE%.*}.pdf"
+        xournalpp "$FILE" -p "${FILE%.*}.pdf" 2>/dev/null
+    done
+}

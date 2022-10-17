@@ -40,6 +40,7 @@ alias tig="_tig"
 alias sxiv="_sxiv"
 alias chbg="_chbg"
 alias ipreview="_ipreview"
+alias xopp2pdf="_xopp2pdf"
 
 
 alias atooladd="atool --add"
