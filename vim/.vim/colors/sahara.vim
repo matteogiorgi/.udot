@@ -64,6 +64,10 @@ highlight CursorLineNr
             \ term=NONE
             \ cterm=bold ctermfg=251 ctermbg=NONE
             \ gui=bold guifg=#c6c6c6 guibg=NONE
+highlight ColorColumn
+            \ term=NONE
+            \ cterm=NONE ctermfg=NONE ctermbg=233
+            \ gui=NONE guifg=NONE guibg=#121212
 highlight DiffAdd
             \ term=NONE
             \ cterm=NONE ctermfg=NONE ctermbg=22
