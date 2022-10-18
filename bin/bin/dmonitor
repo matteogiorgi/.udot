@@ -13,7 +13,7 @@ NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
 [[ $NMON -eq 1 ]] && LIST="Master"
 [[ $NMON -eq 2 ]] && LIST="Dual\nMaster\nSlave"
 
-CHOICE=$(echo -e $LIST | dmenu -i -b -p DISPLAY | cut -d ':' -f 1)
+CHOICE=$(echo -e $LIST | dmenu -i -b -p MONITOR | cut -d ':' -f 1)
 case "$CHOICE" in
     Dual)
         autorandr --load dual

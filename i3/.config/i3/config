@@ -127,8 +127,10 @@ bindsym $mod+Shift+Tab workspace prev
 ##################
 
 mode "move" {
-    bindsym Tab move container to workspace prev; workspace prev
-    bindsym Shift+Tab move container to workspace next; workspace next
+    bindsym h move container to workspace number $ws1; workspace number $ws1
+    bindsym j move container to workspace next; workspace next
+    bindsym k move container to workspace prev; workspace prev
+    bindsym l move container to workspace number $ws10; workspace number $ws10
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -310,7 +312,7 @@ bindsym $mod+u exec "dcode"
 bindsym $mod+i exec "dbrowse"
 bindsym $mod+o exec "dfloat"
 bindsym $mod+p exec "dquit"
-bindsym $mod+d exec "ddisplay"
+bindsym $mod+d exec "dmonitor"
 
 
 
