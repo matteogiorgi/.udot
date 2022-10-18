@@ -127,8 +127,8 @@ bindsym $mod+Shift+Tab workspace prev
 ##################
 
 mode "move" {
-    bindsym h move container to workspace next; workspace next
-    bindsym l move container to workspace prev; workspace prev
+    bindsym h move container to workspace prev; workspace prev
+    bindsym l move container to workspace next; workspace next
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
