@@ -70,13 +70,13 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+q split v
 bindsym $mod+w split h
 bindsym $mod+e layout toggle tabbed stacking splith splitv
+bindsym $mod+f fullscreen toggle
 
 bindsym $mod+a focus child
 bindsym $mod+s focus parent
 
-bindsym $mod+f fullscreen toggle
-bindsym $mod+g focus mode_toggle
-bindsym $mod+Shift+g floating toggle
+bindsym $mod+BackSpace focus mode_toggle
+bindsym $mod+Shift+BackSpace floating toggle
 
 
 
@@ -118,10 +118,25 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Tab workspace next
-bindsym $mod+BackSpace workspace prev
+bindsym $mod+Shift+Tab workspace prev
 
-bindsym $mod+Shift+Tab move container to workspace next
-bindsym $mod+Shift+BackSpace move container to workspace prev
+
+
+
+### Move container
+##################
+
+mode "move" {
+    bindsym Tab move container to workspace prev; workspace prev
+    bindsym Shift+Tab move container to workspace next; workspace next
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+    bindsym $mod+m mode "default"
+}
+
+bindsym $mod+m mode "move"
 
 
 
@@ -286,7 +301,7 @@ bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="sc
 
 bindsym $mod+space exec --no-startup-id "dmenu_run -i -b -p MENU"
 bindsym $mod+Shift+space exec "dterm"
-bindsym $mod+d exec "i3focus"
+bindsym $mod+g exec "i3focus"
 
 bindsym $mod+y exec "diodon"
 bindsym $mod+n move workspace to output next
@@ -295,7 +310,7 @@ bindsym $mod+u exec "dcode"
 bindsym $mod+i exec "dbrowse"
 bindsym $mod+o exec "dfloat"
 bindsym $mod+p exec "dquit"
-bindsym $mod+m exec "dmonitor"
+bindsym $mod+d exec "ddisplay"
 
 
 
