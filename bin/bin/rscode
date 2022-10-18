@@ -162,6 +162,14 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
             "before": ["<S-Tab>"],
             "commands": ["editor.action.outdentLines"]
         },
+        {
+            "before": ["J"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
