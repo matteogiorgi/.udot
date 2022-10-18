@@ -71,11 +71,11 @@ bindsym $mod+s split v
 bindsym $mod+v split h
 bindsym $mod+f fullscreen toggle
 
-bindsym $mod+u focus child
-bindsym $mod+i focus parent
+bindsym $mod+u exec "i3focus"
+bindsym $mod+i layout toggle tabbed stacking splith splitv
 
-bindsym $mod+Shift+u exec "i3focus"
-bindsym $mod+Shift+i layout toggle tabbed stacking splith splitv
+bindsym $mod+Shift+u focus child
+bindsym $mod+Shift+i focus parent
 
 bindsym $mod+BackSpace focus mode_toggle
 bindsym $mod+Shift+BackSpace floating toggle
