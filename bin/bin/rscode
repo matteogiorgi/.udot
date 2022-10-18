@@ -119,7 +119,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.fontSize": 11,
     "editor.guides.indentation": false,
     "editor.minimap.enabled": false,
-    "editor.rulers": [],
+    "editor.rulers": [120],
     "editor.folding": false,
     "editor.cursorBlinking": "solid",
     "editor.renderLineHighlight": "line",
