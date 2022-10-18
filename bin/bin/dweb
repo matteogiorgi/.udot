@@ -45,7 +45,7 @@ if [[ ! -n $NAMES ]]; then
 fi
 
 
-CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p BROWSER | cut -d ':' -f 1)
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p WEB | cut -d ':' -f 1)
 case "$CHOICE" in
     Brave)
         _launch "BRAVE" "brave"
