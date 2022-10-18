@@ -262,13 +262,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+Enter",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "terminal.active"
-    },
-    {
-        "key": "alt+Enter",
-        "command": "workbench.action.terminal.toggleTerminal",
-        "when": "!terminal.active"
+        "command": "workbench.action.togglePanel"
     },
     {
         "key": "ctrl+j",
@@ -299,6 +293,16 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "key": "ctrl+k",
         "command": "showPrevParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
     },
 ]
 EOF
