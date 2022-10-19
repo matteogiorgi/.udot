@@ -274,6 +274,14 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
     {
+        "key": "alt+s",
+        "command": "workbench.action.newGroupBelow"
+    },
+    {
+        "key": "alt+v",
+        "command": "workbench.action.newGroupRight"
+    },
+    {
         "key": "alt+space",
         "command": "workbench.action.showCommands"
     },
