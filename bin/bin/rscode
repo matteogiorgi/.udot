@@ -139,7 +139,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
-    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.closeEmptyGroups": false,
     "workbench.list.openMode": "singleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
@@ -190,6 +190,10 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
             "after": ["y", "$"]
         },
         {
+            "before": ["<Tab>"],
+            "after": ["C-w", "w"]
+        },
+        {
             "before": ["u"],
             "commands": ["undo"],
             "silent": true
@@ -224,6 +228,10 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "command": "workbench.action.quit"
     },
     {
+        "key": "alt+w",
+        "command": "workbench.action.closeWindow"
+    },
+    {
         "key": "alt+h",
         "command": "workbench.action.openRecent"
     },
@@ -233,12 +241,22 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+k",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
         "key": "alt+l",
-        "command": "workbench.action.moveView"
+        "command": "workbench.action.focusSideBar",
+        "when": "!sideBarFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus"
     },
     {
         "key": "alt+n",
@@ -246,19 +264,14 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "when": "editorFocus"
     },
     {
-        "key": "shift+alt+N",
+        "key": "shift+alt+n",
         "command": "editor.action.marker.prev",
         "when": "editorFocus"
     },
     {
-        "key": "alt+e",
-        "command": "workbench.action.focusSideBar",
-        "when": "!sideBarFocus"
-    },
-    {
-        "key": "alt+e",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "sideBarFocus"
+        "key": "alt+f",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
     {
         "key": "alt+space",
