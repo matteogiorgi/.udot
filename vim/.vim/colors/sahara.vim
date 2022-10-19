@@ -62,8 +62,8 @@ highlight CursorLine
             \ gui=NONE guifg=NONE guibg=#121212
 highlight CursorLineNr
             \ term=NONE
-            \ cterm=bold ctermfg=251 ctermbg=NONE
-            \ gui=bold guifg=#c6c6c6 guibg=NONE
+            \ cterm=bold ctermfg=178 ctermbg=NONE
+            \ gui=bold guifg=#d7af00 guibg=NONE
 highlight ColorColumn
             \ term=NONE
             \ cterm=NONE ctermfg=NONE ctermbg=233
@@ -106,8 +106,8 @@ highlight IncSearch
             \ gui=NONE guifg=#afafff guibg=#005f87
 highlight ModeMsg
             \ term=NONE
-            \ cterm=NONE ctermfg=178 ctermbg=NONE
-            \ gui=NONE guifg=#d7af00 guibg=NONE
+            \ cterm=bold ctermfg=178 ctermbg=NONE
+            \ gui=bold guifg=#d7af00 guibg=NONE
 highlight MoreMsg
             \ term=NONE
             \ cterm=NONE ctermfg=29 ctermbg=NONE

@@ -8,7 +8,8 @@
 ""    vim-fugitive ················· https://github.com/tpope/vim-fugitive
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    undotree ····················· https://github.com/mbbill/undotree
-""    vim-fzf ······················ https://github.com/junegunn/fzf.vim
+""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
+""    context.vim ·················· https://github.com/wellle/context.vim
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -62,6 +63,7 @@ if ! exists('noplugin')
         Plug 'jiangmiao/auto-pairs'
         Plug 'mbbill/undotree'
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
+        Plug 'wellle/context.vim'
     call plug#end()
 endif
 "}}}
@@ -83,7 +85,11 @@ endif
 " Syntax{{{
 syntax on
 filetype plugin indent on
-colorscheme sahara
+if ! exists('noplugin')
+    colorscheme hemisu
+else
+    colorscheme sahara
+endif
 "}}}
 
 

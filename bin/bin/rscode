@@ -129,6 +129,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 10,
     "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.experimental.stickyScroll.enabled": true,
     "terminal.integrated.fontFamily": "'JetBrains Mono', 'monospace'",
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.lineHeight": 1,
