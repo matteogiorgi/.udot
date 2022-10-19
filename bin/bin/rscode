@@ -143,15 +143,15 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.list.openMode": "singleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
-    "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useSystemClipboard": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.leader": "<space>",
     "vim.insertModeKeyBindings": [
         {
-          "before": ["j", "j"],
-          "after": ["<Esc>"]
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
         },
     ],
     "vim.visualModeKeyBindings": [
@@ -171,19 +171,23 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
             "before": ["K"],
             "commands": ["editor.action.moveLinesUpAction"]
         },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["editor.action.commentLine"]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-          "before": ["<C-j>"],
-          "after": ["}"]
+            "before": ["<C-j>"],
+            "after": ["}"]
         },
         {
-          "before": ["<C-k>"],
-          "after": ["{"]
+            "before": ["<C-k>"],
+            "after": ["{"]
         },
         {
-          "before": ["Y"],
-          "after": ["y", "$"]
+            "before": ["Y"],
+            "after": ["y", "$"]
         },
         {
             "before": ["u"],
@@ -195,12 +199,17 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
             "commands": ["redo"],
             "silent": true
         },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": ["editor.action.commentLine"],
+            "silent": true
+        },
+        {
+            "before": ["<leader>", "f"],
+            "commands": ["actions.find"],
+            "silent": true
+        },
     ],
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-        "<C-a>": false,
-        "<C-f>": false
-    },
 }
 EOF
 
@@ -220,26 +229,40 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+j",
-        "command": "workbench.action.showCommands"
-    },
-    {
-        "key": "alt+k",
         "command": "workbench.action.quickOpen"
     },
     {
+        "key": "alt+k",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
         "key": "alt+l",
+        "command": "workbench.action.moveView"
+    },
+    {
+        "key": "alt+n",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+alt+N",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+e",
         "command": "workbench.action.focusSideBar",
         "when": "!sideBarFocus"
     },
     {
-        "key": "alt+l",
+        "key": "alt+e",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "sideBarFocus"
     },
     {
         "key": "alt+space",
-        "command": "editor.action.commentLine",
-        "when": "editorTextFocus && !editorReadonly"
+        "command": "workbench.action.showCommands"
     },
     {
         "key": "alt+tab",
