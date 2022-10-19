@@ -61,8 +61,7 @@ if ! exists('noplugin')
         Plug 'tpope/vim-fugitive'
         Plug 'jiangmiao/auto-pairs'
         Plug 'mbbill/undotree'
-        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-        Plug 'junegunn/fzf.vim'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
     call plug#end()
 endif
 "}}}
