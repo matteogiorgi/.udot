@@ -37,8 +37,7 @@ echo "$1" | grep "\.sent$" && {
 ### MIME-type opener (inode/directory not necessary)
 ####################################################
 
-2>&1
-1>/dev/null
+&>/dev/null
 
 # check the relative mime-type here:
 # https://www.iana.org/assignments/media-types/media-types.xhtml
@@ -48,7 +47,7 @@ case $(file --mime-type "${FILE}" -bL) in
         _mpv --really-quiet "${FILE}"
         ;;
     video/*)
-        _xshow "mpv --force-window --really-quiet --no-terminal '${FILE}'"
+        _xshow "mpv --force-window --really-quiet --no-terminal --display-tags-clr --msg-level=cplayer=error '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         _xshow "zathura '${FILE}'"
