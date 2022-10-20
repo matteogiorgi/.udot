@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
 # Spawn a scratchpad as long as i3 is running
+# Add the following settings to ~/.config/i3/config to call easily the scratchpad:
+#     for_window [instance="scratchpad"] floating enable
+#     for_window [instance="scratchpad"] resize set 800 600
+#     for_window [instance="scratchpad"] move scratchpad
+#     bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
+
+
 while pgrep -x "i3"; do
     i3-sensible-terminal -n scratchpad -e tmux &
     wait $!
