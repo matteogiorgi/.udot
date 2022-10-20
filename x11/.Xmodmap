@@ -1,9 +1,32 @@
-! place this file in the `$HOME`
-! directory and run `xmodmap ~/.Xmodmap`
+!! Place this file in the `$HOME` directory and run `xmodmap ~/.Xmodmap`.
+!! Uncomment one of the following maps to make the best use of CapsLk.
 
 
-! swap caps lock and escape
+!! SWAP CapsLk Esc
+!!!!!!!!!!!!!!!!!!
+
+!remove Lock = Caps_Lock
+!keysym Escape = Caps_Lock
+!keysym Caps_Lock = Escape
+!add Lock = Caps_Lock
+
+
+
+
+!! CapsLk := Esc
+!!!!!!!!!!!!!!!!
+
+! remove Lock = Caps_Lock
+! keysym Caps_Lock = Escape
+! add Lock = Caps_Lock
+
+
+
+
+!! CapsLk := Ctrl + Esc
+!!!!!!!!!!!!!!!!!!!!!!!
+
 remove Lock = Caps_Lock
-keysym Escape = Caps_Lock
-keysym Caps_Lock = Escape
-add Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
+keycode 66 = Escape

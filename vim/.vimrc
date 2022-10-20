@@ -213,15 +213,15 @@ command! LastSession :source $HOME/.vim/sessions/last.vim
 
 
 " Copy/Pasta commands{{{
-"(`pacman -S gvim` for it)
+"(`apt intall -yy vim-gtk3`)
 command! Copy execute 'visual "+y'
 command! Pasta execute 'normal "+p'
 "}}}
 
 
 " Keymaps{{{
-xnoremap K :move '<-2<CR>gv=gv
-xnoremap J :move '>+1<CR>gv=gv
+xnoremap <silent>K :move '<-2<CR>gv=gv
+xnoremap <silent>J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
 nnoremap <silent><Tab> :wincmd w<cr>
