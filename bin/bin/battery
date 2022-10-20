@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # SET ALIASES FOR SECURITY
 alias echo="/usr/bin/echo" cat="/usr/bin/cat"
 

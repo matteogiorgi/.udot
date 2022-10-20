@@ -3,6 +3,7 @@
 # FZF_DEFAULT_COMMAND to fuzzy-find directories with rg (not perfect):
 # 'rg --sort-files --files --null 2>/dev/null | xargs -0 dirname | uniq -u'
 
+
 OPENER="swallow"
 FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
 

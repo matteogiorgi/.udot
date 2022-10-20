@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -eu
-
 # Lists the current directory's files in Vim, so you can edit it and save to rename them
 # USAGE: vimv [file1 file2]
 # https://github.com/thameera/vimv
@@ -17,6 +15,8 @@ set -eu
 # You can use `/some/path/filename` format to move the file elsewhere during renaming. If the path is non-existent, it will be automatically created before moving.
 # Don't delete or swap the lines while in Vim or things will get ugly.
 
+
+set -eu
 
 declare -r FILENAMES_FILE=$(mktemp "${TMPDIR:-/tmp}/vimv.XXX")
 

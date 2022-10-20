@@ -10,6 +10,7 @@
 #
 # Full source-code at: https://github.com/knazarov/markdown.awk
 
+
 BEGIN {
 	body = ""
 	first_paragraph = 1

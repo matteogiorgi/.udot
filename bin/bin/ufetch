@@ -1,8 +1,8 @@
 #!/bin/sh
-#
-# ufetch-linux - tiny system info for linux
+
 
 ## INFO
+#######
 
 # user is already defined
 host="$(hostname)"
@@ -13,7 +13,11 @@ uptime="$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//'
 packages=$(dpkg-query -f '${binary:Package}\n' -W | wc -l)
 shell="$(basename "${SHELL}")"
 
+
+
+
 ## UI DETECTION
+###############
 
 parse_rcs() {
 	for f in "${@}"; do
@@ -47,7 +51,11 @@ fi
 
 ui="$(basename "${ui}")"
 
+
+
+
 ## DEFINE COLORS
+################
 
 # probably don't change these
 if [ -x "$(command -v tput)" ]; then

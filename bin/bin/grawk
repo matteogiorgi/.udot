@@ -1,14 +1,10 @@
 #!/usr/bin/awk -f
 
-
 # Simple Awk script for generating simple ASCII graphs.
 # Use the following commands to change height, width and offset:
 #     ht  (height)   -> "-v ht=N"
 #     wid (width)    -> "-v wid=N"
 #     ox  (x offset) -> "-v ox=N"
-
-
-
 
 # This script requires input files with following structure:    |    Example:
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯    |    ¯¯¯¯¯¯¯¯

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 [[ ! -x "$(command -v sct)" ]] && exit 1
 [[ ! -f ~/.xtemp ]] && printf "#!/bin/sh\nsct 6500\n" > ~/.xtemp
 

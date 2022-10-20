@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
 # Focus the next window on the current workspace
 # (doesn't work with non-window container focused)
+
 
 ws=$(i3-msg -t get_workspaces|jq "map(select(.focused))[]|.name")
 windows=$(i3-msg -t get_tree|jq ".nodes|map(.nodes[])|map(.nodes[])|map(select(.type==\"workspace\" and .name==$ws))[0].nodes|map(recurse(.nodes[]))|map(.window)|.[]|values")

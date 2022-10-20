@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-
 # this function close every window controlled by
 # the window-manager (to be used befor a Logout)
+
+
 _killapps () {
     while read -r app; do
         wmctrl -i -c "$app"

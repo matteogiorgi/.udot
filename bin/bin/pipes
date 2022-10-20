@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Animated pipes.sh terminal screensaver at an angle.
 # Copyright (c) 2013-2015 Yu-Jie Lin
 #
@@ -21,6 +22,7 @@
 # THE SOFTWARE.
 #
 # Website: https://github.com/pipeseroni/pipesX.sh
+
 
 VERSION=1.1.0
 

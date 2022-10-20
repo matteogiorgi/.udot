@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#
 # fet: a fetch in pure POSIX shell
 #
 # fet has basic options using environment variables,
@@ -11,7 +10,7 @@
 #     - info
 #     - separator
 #     - colourblocks
-#
+
 
 # supress errors
 exec 2>/dev/null
