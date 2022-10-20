@@ -338,6 +338,7 @@ function _xlayout () {
     chmod 755 ~/.xlayout
     ~/.xlayout
     xmodmap ~/.Xmodmap
+    xcape -e "Control_L=Escape"
 }
 
 

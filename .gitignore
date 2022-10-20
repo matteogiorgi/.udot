@@ -70,6 +70,19 @@
 
 
 
+### XCAPE
+#########
+
+/xcape/*
+!/xcape/LICENSE
+!/xcape/Makefile
+!/xcape/README.md
+!/xcape/xcape.1
+!/xcape/xcape.c
+
+
+
+
 ### VIM
 #######
 

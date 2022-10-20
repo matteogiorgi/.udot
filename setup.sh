@@ -227,12 +227,15 @@ sudo apt install -qq -y \
     tree \
     make \
     gcc \
+    pkg-config \
     lxpolkit \
     libx11-dev \
     libxinerama-dev \
     libxft-dev \
     libncurses-dev \
     libxrandr-dev \
+    libxtst-dev \
+    libxi-dev \
     xclip \
     fzf \
     ripgrep \
@@ -392,16 +395,17 @@ fi
 
 
 
-### Dmenu, St and Slock
-#######################
+### Dmenu, St, Slock and Xcape
+##############################
 
 printf "\n"
-read -p "    Compiling dmenu, st and slock (enter to continue)"
+read -p "    Compiling dmenu, st, slock and xcape (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean install
 cd ../st && sudo make clean install
 cd ../slock && sudo make clean install
+cd ../xcape && make && sudo make install
 cd ..
 
 

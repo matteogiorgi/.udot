@@ -65,6 +65,7 @@ fi
 
 if [[ -x "$(command -v xmodmap)" && -f ~/.Xmodmap ]]; then
     xmodmap ~/.Xmodmap
+    xcape -e "Control_L=Escape"
 fi
 
 

@@ -1,5 +1,16 @@
 !! Place this file in the `$HOME` directory and run `xmodmap ~/.Xmodmap`.
 !! Uncomment one of the following maps to make the best use of CapsLk.
+!! To map Esc over CapsLk add `keycode 66 = Escape` or just use Xcape
+
+
+!! CapsLk := Ctrl
+!!!!!!!!!!!!!!!!!
+
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
+
+
 
 
 !! SWAP CapsLk Esc
@@ -9,34 +20,3 @@
 !keysym Escape = Caps_Lock
 !keysym Caps_Lock = Escape
 !add Lock = Caps_Lock
-
-
-
-
-!! CapsLk := Esc
-!!!!!!!!!!!!!!!!
-
-! remove Lock = Caps_Lock
-! keysym Caps_Lock = Escape
-! add Lock = Caps_Lock
-
-
-
-
-!! CapsLk := Ctrl
-!!!!!!!!!!!!!!!!!
-
-! remove Lock = Caps_Lock
-! keysym Caps_Lock = Control_L
-! add Control = Control_L
-
-
-
-
-!! CapsLk := Ctrl + Esc
-!!!!!!!!!!!!!!!!!!!!!!!
-
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
-add Control = Control_L
-keycode 66 = Escape
