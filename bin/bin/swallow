@@ -37,28 +37,31 @@ echo "$1" | grep "\.sent$" && {
 ### MIME-type opener (inode/directory not necessary)
 ####################################################
 
+2>&1
+1>/dev/null
+
 # check the relative mime-type here:
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
         clear &&
-        _mpv "${FILE}"
+        _mpv --really-quiet "${FILE}"
         ;;
     video/*)
-        _xhide "mpv --force-window '${FILE}'"
+        _xshow "mpv --force-window --really-quiet --no-terminal '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xshow "zathura '${FILE}' 2>/dev/null"
+        _xshow "zathura '${FILE}'"
         ;;
     application/zip | application/gzip)
         if [[ "${FILE##*.}" == "xopp" ]]; then
-            _xshow "xournalpp '${FILE}' 2>/dev/null"
+            _xshow "xournalpp '${FILE}'"
         else
-            [[ -x "$(command -v xarchiver)" ]] && _xshow "xarchiver '${FILE}' 2>/dev/null" || less -R -~ "${FILE}"
+            [[ -x "$(command -v xarchiver)" ]] && _xshow "xarchiver '${FILE}'" || less -R -~ "${FILE}"
         fi
         ;;
     image/*)
-        _xhide "esxiv '${FILE}'"
+        _xshow "esxiv '${FILE}'"
         ;;
     *)
         if [[ ! -n $NAMES  || ! -f "/bin/fzf" ]]; then
