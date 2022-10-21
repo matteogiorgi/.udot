@@ -44,7 +44,7 @@ echo "$1" | grep "\.sent$" && {
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
         clear &&
-        _mpv --really-quiet "${FILE}"
+        _mpv "${FILE}"
         ;;
     video/*)
         _xshow "mpv --force-window --really-quiet --no-terminal --display-tags-clr --msg-level=cplayer=error '${FILE}'"
