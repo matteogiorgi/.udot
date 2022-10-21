@@ -63,9 +63,8 @@ if [[ -x "$(command -v setxkbmap)" ]]; then
     ~/.xlayout
 fi
 
-if [[ -x "$(command -v xmodmap)" && -f ~/.Xmodmap ]]; then
-    xmodmap ~/.Xmodmap
-    xcape -e "Control_L=Escape"
+if [[ -f ~/bin/xmap ]]; then
+    ~/bin/xmap
 fi
 
 
