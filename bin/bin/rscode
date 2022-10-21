@@ -141,7 +141,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
     "workbench.editor.closeEmptyGroups": false,
-    "workbench.list.openMode": "singleClick",
+    "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
     "vim.incsearch": true,
