@@ -39,10 +39,11 @@ brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono poppler-utils
 ## Main packages
 
 ```
-i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune vim-gtk3 nano tig vlc
-zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
-humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance
-qt5ct xournalpp sct flameshot diodon pavucontrol gparted pcmanfm xarchiver galculator
+i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune vim-gtk3 nano
+tig vlc zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman
+network-manager humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra
+adwaita-qt lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol
+gparted pcmanfm xarchiver galculator
 ```
 
 
