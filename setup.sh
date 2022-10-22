@@ -254,7 +254,8 @@ sudo apt install -qq -y \
     fonts-ubuntu \
     fonts-jetbrains-mono \
     jq \
-    poppler-utils
+    poppler-utils \
+    xdotool
 
 
 

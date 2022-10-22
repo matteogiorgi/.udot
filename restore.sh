@@ -251,6 +251,7 @@ sudo apt purge -qq -y \
     texlive \
     fonts-jetbrains-mono \
     jq \
+    xdotool \
     i3-wm \
     xautolock \
     arandr \
