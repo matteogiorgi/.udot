@@ -255,7 +255,8 @@ sudo apt install -qq -y \
     fonts-jetbrains-mono \
     jq \
     poppler-utils \
-    xdotool
+    xdotool \
+    exuberant-ctags
 
 
 

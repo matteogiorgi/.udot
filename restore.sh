@@ -252,6 +252,7 @@ sudo apt purge -qq -y \
     fonts-jetbrains-mono \
     jq \
     xdotool \
+    exuberant-ctags \
     i3-wm \
     xautolock \
     arandr \

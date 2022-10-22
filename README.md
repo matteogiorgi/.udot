@@ -31,7 +31,7 @@ tree make jq gcc pkg-config lxpolkit libx11-dev libxinerama-dev libxft-dev
 libncurses-dev libxrandr-dev libxtst-dev libxi-dev xclip fzf ripgrep wamerican
 witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
 brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono poppler-utils
-xdotool
+xdotool exuberant-ctags
 ```
 
 
