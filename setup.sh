@@ -395,17 +395,16 @@ fi
 
 
 
-### Dmenu, St, Slock and Xcape
-##############################
+### Dmenu, St, and Slock
+########################
 
 printf "\n"
-read -p "    Compiling dmenu, st, slock and xcape (enter to continue)"
+read -p "    Compiling dmenu, st and slock (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean install
 cd ../st && sudo make clean install
 cd ../slock && sudo make clean install
-cd ../xcape && make && sudo make install
 cd ..
 
 

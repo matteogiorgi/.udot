@@ -201,16 +201,15 @@ rmdir $HOME/Pictures/backgrounds 2>/dev/null
 
 
 
-### Dmenu, St, Slock and Xcape
-##############################
+### Dmenu, St and Slock
+#######################
 
-read -p "    Removing dmenu, st, slock and xcape (enter to continue)"
+read -p "    Removing dmenu, st and slock (enter to continue)"
 printf "\n"
 
 cd dmenu && sudo make clean uninstall
 cd ../st && sudo make clean uninstall
 cd ../slock && sudo make clean uninstall
-cd ../xcape && sudo make clean
 cd ..
 
 
