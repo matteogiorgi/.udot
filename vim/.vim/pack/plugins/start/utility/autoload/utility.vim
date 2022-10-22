@@ -1,3 +1,19 @@
+" Confirm{{{
+function! utility#Confirm(msg)
+    echo a:msg . ' '
+    let l:answer = nr2char(getchar())
+    if l:answer ==? 'Y'
+        return 1
+    elseif l:answer ==? 'n'
+        return 0
+    else
+        echo 'Enter "Y" or "n" dummy!'
+        return utility#Confirm(a:msg)
+    endif
+endfun
+"}}}
+
+
 " LongLine{{{
 function! utility#LongLine()
     if !exists('g:longline')
@@ -81,8 +97,8 @@ endfunction
 
 
 " Jump current directory{{{
-function! utility#Current()
-    echon 'cwd: '
+function! utility#CurrentDir()
+    echon 'CWD: '
     cd %:p:h
     echon getcwd()
 endfunction
@@ -90,8 +106,8 @@ endfunction
 
 
 " Jump parent directory{{{
-function! utility#Parent()
-    echon 'cwd: '
+function! utility#ParentDir()
+    echon 'CWD: '
     let l:parent = fnamemodify('getcwd()', ':p:h:h')
     execute 'cd ' . l:parent
     echon getcwd()
@@ -102,12 +118,12 @@ endfunction
 " Jump git directory{{{
 function! utility#GitDir()
     if getcwd() ==? $HOME
-        " echon 'Not in a git repository'
+        echon 'Not a repo -- CWD: ' . getcwd()
         return
     endif
 
     if isdirectory('.git')
-        echon 'cwd: ' . getcwd()
+        echon 'CWD: ' . getcwd()
         return
     else
         let l:parent = fnamemodify('getcwd()', ':p:h:h')
@@ -120,8 +136,10 @@ endfunction
 
 " Delete{{{
 function! utility#Delete()
-    delete(expand('%'))
-    Bclose
+    if utility#Confirm("Delete curent file? (Y/n)")
+        call delete(expand('%'))
+        Bclose
+    endif
 endfunction
 "}}}
 

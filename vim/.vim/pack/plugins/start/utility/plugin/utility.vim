@@ -9,8 +9,8 @@ command! ChBackground call utility#ChBackground()
 command! -nargs=1 -complete=file SaveSession call utility#SaveSession(<f-args>)
 command! -nargs=1 -complete=file LoadSession call utility#LoadSession(<f-args>)
 command! -nargs=1 SSelection call utility#SSelection(<f-args>)
-command! Current call utility#Current()
-command! Parent call utility#Parent()
+command! CurrentDir call utility#CurrentDir()
+command! ParentDir call utility#ParentDir()
 command! GitDir call utility#GitDir()
 command! Delete call utility#Delete()
 command! -nargs=* -complete=file -bang Rename call utility#Rename(<q-args>, '<bang>')
@@ -18,6 +18,9 @@ command! -nargs=* -complete=file -bang Rename call utility#Rename(<q-args>, '<ba
 
 nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>^ :ChBackground<CR>
+nnoremap <leader>i :GitDir<CR>
+nnoremap <leader>d :ParentDir<CR>
+nnoremap <leader>D :CurrentDir<CR>
 
 
 " I am already using ezwindow that does the same thing
