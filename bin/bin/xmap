@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 
-if [[ -x "$(command -v xmodmap)" && -f ~/.Xmodmap ]]; then
-    xmodmap ~/.Xmodmap
+if [[ -x "$(command -v xmodmap)" ]]; then
+    xmodmap -e 'remove Lock = Caps_Lock'
+    xmodmap -e 'keysym Caps_Lock = Control_L'
+    xmodmap -e 'add Control = Control_L'
 fi
 
 if [[ -x "$(command -v xcape)" ]]; then
-    xcape -e "Control_L=Escape"
+    xcape -e 'Control_L=Escape' -t 250
 fi
