@@ -240,6 +240,7 @@ nnoremap <silent><C-d> <C-d>zz
 nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
+nnoremap <leader>p :echon 'CWD: '.getcwd()<CR>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
