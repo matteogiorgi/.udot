@@ -233,6 +233,10 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "command": "workbench.action.closeWindow"
     },
     {
+        "key": "alt+a",
+        "command": "workbench.action.toggleActivityBarVisibility"
+    },
+    {
         "key": "alt+h",
         "command": "workbench.action.openRecent"
     },
