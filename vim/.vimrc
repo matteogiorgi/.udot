@@ -10,6 +10,7 @@
 ""    undotree ····················· https://github.com/mbbill/undotree
 ""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
 ""    context.vim ·················· https://github.com/wellle/context.vim
+""    vim-autotag ·················· https://github.com/craigemery/vim-autotag
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -64,6 +65,7 @@ if ! exists('noplugin')
         Plug 'mbbill/undotree'
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
         Plug 'wellle/context.vim'
+        Plug 'craigemery/vim-autotag'
     call plug#end()
 endif
 "}}}
