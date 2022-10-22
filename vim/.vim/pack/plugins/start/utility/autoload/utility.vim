@@ -2,12 +2,11 @@
 function! utility#Confirm(msg)
     echo a:msg . ' '
     let l:answer = nr2char(getchar())
-    if l:answer ==? 'Y'
+    if l:answer ==? 'y'
         return 1
     elseif l:answer ==? 'n'
         return 0
     else
-        echo 'Enter "Y" or "n" dummy!'
         return utility#Confirm(a:msg)
     endif
 endfun
@@ -138,7 +137,9 @@ endfunction
 function! utility#Delete()
     if utility#Confirm("Delete curent file? (Y/n)")
         call delete(expand('%'))
-        Bclose
+        if exists(':Bclose')
+            Bclose
+        endif
     endif
 endfunction
 "}}}
