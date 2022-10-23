@@ -124,6 +124,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.minimap.enabled": false,
     "editor.rulers": [120],
     "editor.folding": false,
+    "editor.wordWrap": "on",
     "editor.cursorBlinking": "solid",
     "editor.scrollbar.vertical": "auto",
     "editor.scrollbar.horizontal": "hidden",
