@@ -6,7 +6,7 @@
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alFtr'
-alias lt="tree -aC --dirsfirst | less -R -~"
+alias lt='tree -aC -I ".git" --dirsfirst | less -R -~'
 
 
 alias cp="cp -i"
