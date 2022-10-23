@@ -247,8 +247,8 @@ sudo apt purge -qq -y \
     feh \
     mediainfo \
     brightnessctl \
+    texlive-full \
     pandoc \
-    texlive \
     fonts-jetbrains-mono \
     jq \
     xdotool \

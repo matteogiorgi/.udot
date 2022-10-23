@@ -30,8 +30,8 @@ wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal
 tree make jq gcc pkg-config lxpolkit libx11-dev libxinerama-dev libxft-dev
 libncurses-dev libxrandr-dev libxtst-dev libxi-dev xclip fzf ripgrep wamerican
 witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-brightnessctl pandoc texlive fonts-ubuntu fonts-jetbrains-mono poppler-utils
-xdotool exuberant-ctags
+brightnessctl texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
+poppler-utils exuberant-ctags
 ```
 
 

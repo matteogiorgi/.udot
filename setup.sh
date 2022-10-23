@@ -249,8 +249,8 @@ sudo apt install -qq -y \
     poppler-utils \
     mediainfo \
     brightnessctl \
+    texlive-full \
     pandoc \
-    texlive \
     fonts-ubuntu \
     fonts-jetbrains-mono \
     jq \
