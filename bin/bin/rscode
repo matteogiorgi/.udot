@@ -141,8 +141,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
-    "workbench.editor.closeEmptyGroups": false,
-    "workbench.list.openMode": "doubleClick",
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.list.openMode": "singleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
     "vim.incsearch": true,
@@ -278,14 +278,6 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "key": "alt+f",
         "command": "editor.action.quickFix",
         "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+s",
-        "command": "workbench.action.newGroupBelow"
-    },
-    {
-        "key": "alt+v",
-        "command": "workbench.action.newGroupRight"
     },
     {
         "key": "alt+space",
