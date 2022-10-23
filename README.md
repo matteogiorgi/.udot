@@ -69,15 +69,13 @@ code codium brave google-chrome chromium
 
 ## Language support
 
-```
-C/C++   -> build-essential valgrind gdb
-Java    -> default-jdk default-jdk-doc ant maven gradle
-Python  -> python3 python3-pip
-Go      -> golang-go golang-golang-x-tools
-Ocaml   -> ocaml-batteries-included ocaml-man opam opam-doc
-Haskell -> https://get-ghcup.haskell.org
-Rust    -> https://sh.rustup.rs
-```
+- C/C++: `build-essential valgrind gdb`
+- Java: `default-jdk default-jdk-doc ant maven gradle`
+- Python: `python3 python3-pip`
+- Go: `golang-go golang-golang-x-tools`
+- Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
+- Haskell: `https://get-ghcup.haskell.org`
+- Rust: `https://sh.rustup.rs`
 
 
 
