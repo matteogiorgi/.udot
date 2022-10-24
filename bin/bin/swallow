@@ -6,7 +6,8 @@
 
 FILE="$*"
 [[ -x "$(command -v nano)" ]] && NAMES="Nano\n"$NAMES
-[[ -x "$(command -v vim)" ]] && NAMES="Vim\n"$NAMES
+[[ -x "$(command -v nvim)" ]] && NAMES="NVim\n"$NAMES
+[[ -x "$(command -v vim)" ]] && NAMES="Vim\nEVim\n"$NAMES
 [[ -x "$(command -v kak)" ]] && NAMES="Kak\n"$NAMES
 
 
@@ -73,6 +74,12 @@ case $(file --mime-type "${FILE}" -bL) in
                 ;;
             Vim)
                 _vimnoplugin "${FILE}"
+                ;;
+            EVim)
+                _vim "${FILE}"
+                ;;
+            NVim)
+                nvim "${FILE}"
                 ;;
             Nano)
                 nano "${FILE}"
