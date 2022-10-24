@@ -51,6 +51,15 @@ function _vimlastsession () {
 }
 
 
+function _nvimlastsession () {
+    if [[ -f "$HOME/.config/nvim/sessions/last.vim" ]]; then
+        env nvim --cmd "let lastsession=1" -S $HOME/.config/nvim/sessions/last.vim
+    else
+        nvim
+    fi
+}
+
+
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
     if [[ -n "$TMUX" ]]; then
@@ -141,33 +150,33 @@ function _sxiv () {
 
 function _chbg () {
     BACKGROUNDS="$HOME/Pictures/backgrounds"
-    [[ -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]] && exit 1
+    if [[ ! -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]]; then
+        RED='\033[1;36m'
+        YLW='\033[1;35m'
+        NC='\033[0m'
 
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
+        count=1
+        list=$(/usr/bin/ls $BACKGROUNDS)
+        max=$(($(/usr/bin/ls $BACKGROUNDS | wc -w)+1))
 
-    count=1
-    list=$(/usr/bin/ls $BACKGROUNDS)
-    max=$(($(/usr/bin/ls $BACKGROUNDS | wc -w)+1))
-
-    printf "${RED}%s${NC}\n" "Choose a background:"
-    for file in $list
-    do
-        echo "$count $file"
-        ((count++))
-    done
-    printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
-
-    while read response; do
-        re='^[0-9]+$'
-        [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$max" ]] && break
+        printf "${RED}%s${NC}\n" "Choose a background:"
+        for file in $list
+        do
+            echo "$count $file"
+            ((count++))
+        done
         printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
-    done
 
-    bgrnd=$(/usr/bin/ls $BACKGROUNDS | head -n $response | tail -n 1)
-    feh --bg-fill "$BACKGROUNDS/$bgrnd"
-    printf "${YLW}%s\n${NC}" "Done."
+        while read response; do
+            re='^[0-9]+$'
+            [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$max" ]] && break
+            printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
+        done
+
+        bgrnd=$(/usr/bin/ls $BACKGROUNDS | head -n $response | tail -n 1)
+        feh --bg-fill "$BACKGROUNDS/$bgrnd"
+        printf "${YLW}%s\n${NC}" "Done."
+    fi
 }
 
 
@@ -186,28 +195,27 @@ function _woutput () {
     while read response; do
         if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
             printf "${YLW}%s${NC}\n" "Wacom not conected"
-            exit 1
+        else
+            case $response in
+                1)
+                    MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+                    printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "master"
+                    break
+                    ;;
+                2)
+                    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
+                        MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+                        printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "slave"
+                    else
+                        printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "No " "slave" " detected"
+                    fi
+                    break
+                    ;;
+                *)
+                    printf "${RED}%s${NC} " "Enter an index (1-2):"
+                    ;;
+            esac
         fi
-
-        case $response in
-            1)
-                MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
-                printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "master"
-                break
-                ;;
-            2)
-                if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
-                    MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
-                    printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "slave"
-                else
-                    printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "No " "slave" " detected"
-                fi
-                break
-                ;;
-            *)
-                printf "${RED}%s${NC} " "Enter an index (1-2):"
-                ;;
-        esac
     done
 
     xinput map-to-output $(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
@@ -233,34 +241,33 @@ function _wrotate () {
     while read response; do
         if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
             printf "${YLW}%s${NC}\n" "Wacom not conected"
-            exit 1
+        else
+            case $response in
+                0)
+                    ROTATION="none"
+                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "0°"
+                    break
+                    ;;
+                1)
+                    ROTATION="ccw"
+                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "90°"
+                    break
+                    ;;
+                2)
+                    ROTATION="half"
+                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "180°"
+                    break
+                    ;;
+                3)
+                    ROTATION="cw"
+                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "270°"
+                    break
+                    ;;
+                *)
+                    printf "${RED}%s${NC} " "Enter an index (0-3):"
+                    ;;
+            esac
         fi
-
-        case $response in
-            0)
-                ROTATION="none"
-                printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "0°"
-                break
-                ;;
-            1)
-                ROTATION="ccw"
-                printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "90°"
-                break
-                ;;
-            2)
-                ROTATION="half"
-                printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "180°"
-                break
-                ;;
-            3)
-                ROTATION="cw"
-                printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "270°"
-                break
-                ;;
-            *)
-                printf "${RED}%s${NC} " "Enter an index (0-3):"
-                ;;
-        esac
     done
 
     xsetwacom --set $XWACOMID Rotate $ROTATION
@@ -375,6 +382,7 @@ function _xopp2pdf () {
     fi
 }
 
+
 function _mergepdf () {
     ARGS="$*"
     if [[ "$ARGS" == "" ]]; then
@@ -382,4 +390,32 @@ function _mergepdf () {
     else
         pdfunite $ARGS merge.pdf
     fi
+}
+
+
+function _edit () {
+    case $(printf "EVim\nNVim" | fzf --prompt="Edit with: " --height 100% --reverse --info=hidden --header-first) in
+        EVim)
+            _vim
+            ;;
+        NVim)
+            nvim
+            ;;
+        *)
+            ;;
+    esac
+}
+
+
+function _lastsession () {
+    case $(printf "EVim\nNVim" | fzf --prompt="Last session of: " --height 100% --reverse --info=hidden --header-first) in
+        EVim)
+            _vimlastsession
+            ;;
+        NVim)
+            _nvimlastsession
+            ;;
+        *)
+            ;;
+    esac
 }

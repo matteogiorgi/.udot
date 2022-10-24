@@ -36,13 +36,15 @@ augroup end
 
 
 " Netrw on open{{{
-augroup onopen
-    autocmd!
-    autocmd VimEnter *
-                \ if argc() == 0 |
-                \     Explore! |
-                \ endif
-augroup END
+if ! exists('lastsession')
+    augroup onopen
+        autocmd!
+        autocmd VimEnter *
+                    \ if argc() == 0 |
+                    \     Explore! |
+                    \ endif
+    augroup END
+endif
 "}}}
 
 

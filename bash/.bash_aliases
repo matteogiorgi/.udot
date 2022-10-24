@@ -39,6 +39,8 @@ alias chbg="_chbg"
 alias ipreview="_ipreview"
 alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
+alias edit="_edit"
+alias lastsession="_lastsession"
 
 
 alias atooladd="atool --add"
