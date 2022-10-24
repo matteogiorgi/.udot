@@ -8,6 +8,8 @@
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-autotag ·················· https://github.com/craigemery/vim-autotag
+""    gruvbox ······················ https://github.com/morhetz/gruvbox
+""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""
 ""    For full documentation and other stuff visit https://neovim.io
 ""
@@ -65,6 +67,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
     Plug 'craigemery/vim-autotag'
+    Plug 'morhetz/gruvbox'
+    Plug 'itchyny/lightline.vim'
 call plug#end()
 "}}}
 
@@ -82,10 +86,8 @@ endif
 "}}}
 
 
-" Color syntax{{{
+" Syntax{{{
 syntax on
-set background=dark
-colorscheme spacecamp
 filetype plugin indent on
 "}}}
 
@@ -105,7 +107,7 @@ set hlsearch incsearch
 set nowrap nospell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
-set showmode showcmd
+set noshowmode showcmd
 set cursorline noerrorbells novisualbell
 set cursorlineopt=number,line
 set splitbelow splitright
@@ -123,6 +125,8 @@ set cmdheight=1
 set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set nrformats-=alpha
+set laststatus=2
+set showtabline=2
 "}}}
 
 " Set completion{{{
