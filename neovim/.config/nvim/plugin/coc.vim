@@ -40,12 +40,6 @@ let g:coc_global_extensions = [
 "" Autogroups
 """""""""""""
 
-augroup cocstatusline
-    autocmd!
-    autocmd FileType list set laststatus=0 noshowmode noruler
-                \ | autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-augroup end
-
 augroup hlcursor
     autocmd!
     autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -101,8 +95,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-nnoremap <silent>K :call <SID>ShowDocumentation()<CR>
-
+nnoremap <silent>K :call ShowDocumentation()<CR>
 nnoremap <leader><Tab> :CocList buffers<CR>
 nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>

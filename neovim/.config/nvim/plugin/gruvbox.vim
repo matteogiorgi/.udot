@@ -2,7 +2,7 @@ set background=dark
 colorscheme gruvbox
 
 
-highlight! Normal       ctermbg=NONE  guibg=NONE
+highlight! Normal       ctermbg='16'  guibg='#000000'
 highlight! Visual       ctermbg='24'  guibg='#076678' cterm=NONE gui=NONE
 highlight! ColorColumn  ctermbg='234' guibg='#1d2021'
 highlight! CursorLine   ctermbg='234' guibg='#1d2021'
