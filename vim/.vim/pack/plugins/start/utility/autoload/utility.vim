@@ -117,7 +117,7 @@ endfunction
 " Jump git directory{{{
 function! utility#GitDir()
     if getcwd() ==? $HOME
-        echon 'Not a repo -- CWD: ' . getcwd()
+        echon 'Not in git repository -- CWD: ' . getcwd()
         return
     endif
 

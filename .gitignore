@@ -92,3 +92,17 @@
 !/vim/.vim/colors
 !/vim/.vim/pack
 !/vim/.vim/plugin
+
+
+
+
+### NEOVIM
+##########
+
+/neovim/.config/nvim/*
+!/neovim/.config/nvim/after
+!/neovim/.config/nvim/autoload
+!/neovim/.config/nvim/colors
+!/neovim/.config/nvim/plugin
+!/neovim/.config/nvim/coc-settings.json
+!/neovim/.config/nvim/init.vim

@@ -183,6 +183,7 @@ stow -D i3
 stow -D kakoune
 stow -D kitty
 stow -D nano
+stow -D neovim
 stow -D sxiv
 stow -D tig
 stow -D tmux
@@ -262,6 +263,7 @@ sudo apt purge -qq -y \
     kakoune \
     kitty \
     vim-gtk3 \
+    neovim \
     nano \
     tig \
     zathura \

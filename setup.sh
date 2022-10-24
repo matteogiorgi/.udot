@@ -278,6 +278,7 @@ sudo apt install -qq -y \
     kakoune \
     kitty \
     vim-gtk3 \
+    neovim \
     nano \
     tig \
     zathura \
@@ -425,6 +426,7 @@ stow i3
 stow kakoune
 stow kitty
 stow nano
+stow neovim
 stow sxiv
 stow tig
 stow tmux
@@ -458,8 +460,9 @@ if ask "    Add language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
+    printf "\n    Need NodeJS? (yes, if you use my NeoVim conf.) -> curl -sL install-node.vercel.app/lts | bash"
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
+    printf "\n    Need Rust? -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
 fi
 
 

@@ -1,0 +1,24 @@
+{
+    // general coc.nvim config
+    "coc.preferences.extensionUpdateCheck": "weekly",
+    "session.directory": "~/.config/nvim/sessions",
+
+    // coc-highlight config
+    "highlight.disableLanguages": ["", "startscreen"],
+
+    // coc-list config
+    "list.source.files.args": ["--hidden", "--files"],
+    "list.source.files.excludePatterns": ["~/notewiki/html/*", "~/notewiki/pdf/*", "~/notewiki/beamer/*"],
+    "list.source.mru.maxLength": 1000,
+    "list.source.mru.ignoreGitIgnore": false,
+    "list.source.mru.excludePatterns": ["**/.git/*","/tmp/*"],
+
+    // coc-git config
+    "git.enableGutters": true,
+    "git.showCommitInFloating": false,
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete"
+}
