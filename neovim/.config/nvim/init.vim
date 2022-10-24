@@ -5,6 +5,7 @@
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
+""    undotree ····················· https://github.com/mbbill/undotree
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-autotag ·················· https://github.com/craigemery/vim-autotag
@@ -13,9 +14,6 @@
 ""
 ""    For full documentation and other stuff visit https://neovim.io
 ""
-""    This neovim configuration is done using just coc.nvim and few other
-""    simple plugins. All is still done in vimscript using VimPlug but if
-""    this experiment works, I will switch to init.lua and Packer.nvim.
 
 
 
@@ -64,6 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
+    Plug 'mbbill/undotree'
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
     Plug 'craigemery/vim-autotag'
