@@ -49,14 +49,14 @@ case $(file --mime-type "${FILE}" -bL) in
         _mpv "${FILE}"
         ;;
     video/*)
-        _xshow "mpv --force-window --really-quiet --no-terminal --display-tags-clr --msg-level=cplayer=error '${FILE}'"
+        _xhide "mpv --force-window --really-quiet --no-terminal --display-tags-clr --msg-level=cplayer=error '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         _xshow "zathura '${FILE}'"
         ;;
     application/zip | application/gzip)
         if [[ "${FILE##*.}" == "xopp" ]]; then
-            _xshow "xournalpp '${FILE}'"
+            _xhide "xournalpp '${FILE}'"
         else
             [[ -x "$(command -v xarchiver)" ]] && _xshow "xarchiver '${FILE}'" || less -R -~ "${FILE}"
         fi

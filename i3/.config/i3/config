@@ -271,7 +271,7 @@ bar {
 # dfloat apps
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Xarchiver"] floating enable
-for_window [class="Xournalpp"] floating enable
+for_window [class="Xournalpp"] floating disable
 for_window [class="vlc"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="Arandr"] floating enable
@@ -281,7 +281,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
 
 # more floats
-for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating disable
 for_window [class="Zathura"] floating enable
 for_window [class="Sxiv"] floating enable
 
