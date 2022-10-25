@@ -437,6 +437,18 @@ stow zathura
 
 
 
+### Add NodeJS for Coc.nvim
+###########################
+
+printf "\n"
+read -p "    Installing NodeJS for Coc.nvim (enter to continue)"
+printf "\n"
+
+curl -sL install-node.vercel.app/lts | sudo bash
+
+
+
+
 ### Add language support
 ########################
 
@@ -460,9 +472,8 @@ if ask "    Add language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
-    printf "\n    Need NodeJS? (yes, if you use my NeoVim conf.) -> curl -sL install-node.vercel.app/lts | bash"
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust? -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
+    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
 fi
 
 

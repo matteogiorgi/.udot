@@ -308,6 +308,18 @@ fi
 
 
 
+### Remove NodeJS for Coc.nvim
+##############################
+
+printf "\n"
+read -p "    Removing NodeJS (enter to continue)"
+printf "\n"
+
+sudo rm -rf $(find $(echo $PATH | sed 's/:/ /g') -name "node" 2>/dev/null)
+
+
+
+
 ### Remove language support
 ###########################
 
