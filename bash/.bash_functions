@@ -28,7 +28,7 @@ function _mpv () {
 
 function _vim () {
     if [[ -n "$TMUX" ]]; then
-        /bin/vim
+        vim "$@"
     else
         [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
         [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
