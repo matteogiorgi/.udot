@@ -1,6 +1,6 @@
 # A very effective GNU/Linux config
 
-These repo contains a minimal configuration of my dotfiles, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are ment to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
+This repo contains a minimal configuration of my dotfiles, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are ment to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
 
 
 
@@ -60,7 +60,7 @@ code codium brave google-chrome chromium
 ### Chrome extensions
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
-- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim simulation
+- [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
 
@@ -71,12 +71,10 @@ code codium brave google-chrome chromium
 
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
-- Python: `python3 python3-pip`
-- Go: `golang-go golang-golang-x-tools`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
-- Haskell: `https://get-ghcup.haskell.org`
-- Rust: `https://sh.rustup.rs`
-- NodeJS: `https://nodejs.org`
+- Golang: `golang-go golang-golang-x-tools`
+- Python: `python3 python3-pip`
+- Javascript: `nodejs`
 
 
 
