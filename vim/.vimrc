@@ -19,7 +19,7 @@
 
 
 " Plug check (it only works on GNU/Linux){{{
-if ! exists('noplugin')
+if !exists('noplugin')
     augroup vimenter
         autocmd VimEnter *
                     \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
@@ -38,7 +38,7 @@ endif
 
 
 " Save last session{{{
-if ! exists('noplugin')
+if !exists('noplugin')
     augroup vimleave
         " a better way would be to check buffers on all opened windows
         autocmd VimLeave *
@@ -55,7 +55,7 @@ endif
 
 
 " Plugin list{{{
-if ! exists('noplugin')
+if !exists('noplugin')
     call plug#begin('~/.vim/plugged')
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
@@ -76,7 +76,7 @@ if exists('+termguicolors') | set termguicolors | endif
 if has('linebreak') | let &showbreak='⤷ ' | endif
 if has('persistent_undo')
     if !isdirectory(expand('~/.vim/undodir'))
-        execute "!mkdir ~/.vim/undodir"
+        execute "!mkdir ~/.vim/undodir &>/dev/null"
     endif
     set undodir=$HOME/.vim/undodir
     set undofile
@@ -87,7 +87,7 @@ endif
 " Syntax{{{
 syntax on
 filetype plugin indent on
-if ! exists('noplugin')
+if !exists('noplugin')
     colorscheme hemisu
 else
     colorscheme sahara

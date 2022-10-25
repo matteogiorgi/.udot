@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+
+cat 2>/dev/null > $HOME/.config/nvim/coc-settings.json <<-EOF
 {
     // general coc.nvim config
     "coc.preferences.extensionUpdateCheck": "weekly",
@@ -19,3 +23,4 @@
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete"
 }
+EOF

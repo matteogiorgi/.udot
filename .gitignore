@@ -103,5 +103,5 @@
 !/neovim/.config/nvim/after
 !/neovim/.config/nvim/autoload
 !/neovim/.config/nvim/plugin
-!/neovim/.config/nvim/coc-settings.json
+!/neovim/.config/nvim/cocsettings
 !/neovim/.config/nvim/init.vim

@@ -40,6 +40,16 @@ let g:coc_global_extensions = [
 "" Autogroups
 """""""""""""
 
+if empty(glob("$HOME/.config/nvim/coc-settings.json"))
+    augroup cocsettings
+        autocmd!
+        autocmd VimEnter *
+                    \ if !empty(glob("$HOME/.config/nvim/cocsettings")) |
+                    \     execute "!$HOME/.config/nvim/cocsettings" |
+                    \ endif
+    augroup end
+endif
+
 augroup hlcursor
     autocmd!
     autocmd CursorHold * silent call CocActionAsync('highlight')

@@ -316,7 +316,6 @@ bindsym $mod+e exec "dedit"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
 
-bindsym Ctrl+Return exec "i3kitty"
 bindsym Ctrl+space exec "i3focus"
 
 

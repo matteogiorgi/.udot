@@ -394,12 +394,12 @@ function _mergepdf () {
 
 
 function _lastsession () {
-    case $(printf "EVim\nNVim" | fzf --prompt="Last session of: " --height 100% --reverse --info=hidden --header-first) in
-        EVim)
-            _vimlastsession
-            ;;
-        NVim)
+    case $(printf "NeoVim\nEvilVim" | fzf --prompt="Last session of: " --height 100% --reverse --info=hidden --header-first) in
+        NeoVim)
             _nvimlastsession
+            ;;
+        EvilVim)
+            _vimlastsession
             ;;
         *)
             ;;
@@ -408,12 +408,12 @@ function _lastsession () {
 
 
 function _pde () {
-    case $(printf "EVim\nNVim" | fzf --prompt="Personal development environment: " --height 100% --reverse --info=hidden --header-first) in
-        EVim)
-            _vim
-            ;;
-        NVim)
+    case $(printf "NeoVim\nEvilVim" | fzf --prompt="Personal development environment: " --height 100% --reverse --info=hidden --header-first) in
+        NeoVim)
             nvim
+            ;;
+        EvilVim)
+            _vim
             ;;
         *)
             ;;

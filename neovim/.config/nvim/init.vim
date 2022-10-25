@@ -36,7 +36,7 @@ augroup end
 
 
 " Netrw on open{{{
-if ! exists('lastsession')
+if !exists('lastsession')
     augroup onopen
         autocmd!
         autocmd VimEnter *
@@ -79,7 +79,7 @@ if exists('+termguicolors') | set termguicolors | endif
 if has('linebreak') | let &showbreak='⤷ ' | endif
 if has('persistent_undo')
     if !isdirectory(expand('~/.config/nvim/undodir'))
-        execute "!mkdir ~/.config/nvim/undodir"
+        execute "!mkdir ~/.config/nvim/undodir &>/dev/null"
     endif
     set undodir=$HOME/.config/nvim/undodir
     set undofile
