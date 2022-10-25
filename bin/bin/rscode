@@ -275,7 +275,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "when": "editorFocus"
     },
     {
-        "key": "alt+f",
+        "key": "alt+i",
         "command": "editor.action.quickFix",
         "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
