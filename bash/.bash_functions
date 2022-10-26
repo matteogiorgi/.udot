@@ -51,15 +51,6 @@ function _vimlastsession () {
 }
 
 
-function _nvimlastsession () {
-    if [[ -f "$HOME/.config/nvim/sessions/last.vim" ]]; then
-        env nvim --cmd "let lastsession=1" -S $HOME/.config/nvim/sessions/last.vim
-    else
-        nvim
-    fi
-}
-
-
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
     if [[ -n "$TMUX" ]]; then
@@ -390,34 +381,6 @@ function _mergepdf () {
     else
         pdfunite $ARGS merge.pdf
     fi
-}
-
-
-function _lastsession () {
-    case $(printf "NeoVim\nEvilVim" | fzf --prompt="Last session of: " --height 100% --reverse --info=hidden --header-first) in
-        NeoVim)
-            _nvimlastsession
-            ;;
-        EvilVim)
-            _vimlastsession
-            ;;
-        *)
-            ;;
-    esac
-}
-
-
-function _pde () {
-    case $(printf "NeoVim\nEvilVim" | fzf --prompt="Personal development environment: " --height 100% --reverse --info=hidden --header-first) in
-        NeoVim)
-            nvim
-            ;;
-        EvilVim)
-            _vim
-            ;;
-        *)
-            ;;
-    esac
 }
 
 

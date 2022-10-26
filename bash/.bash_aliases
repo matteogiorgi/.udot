@@ -39,8 +39,7 @@ alias chbg="_chbg"
 alias ipreview="_ipreview"
 alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
-alias lastsession="_lastsession"
-alias pde="_pde"
+alias vimlastsession="_vimlastsession"
 alias gitinit="_gitinit"
 
 

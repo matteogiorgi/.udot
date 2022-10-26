@@ -36,26 +36,13 @@ augroup end
 
 
 " Netrw on open{{{
-if !exists('lastsession')
-    augroup onopen
-        autocmd!
-        autocmd VimEnter *
-                    \ if argc() == 0 |
-                    \     Explore! |
-                    \ endif
-    augroup END
-endif
-"}}}
-
-
-" Save last session{{{
-augroup vimleave
-    autocmd VimLeave *
-                \ if !isdirectory('$HOME/.config/nvim/sessions') |
-                \     execute "!mkdir -p $HOME/.config/nvim/sessions" |
-                \ endif |
-                \ mksession! $HOME/.config/nvim/sessions/last.vim
-augroup end
+augroup onopen
+    autocmd!
+    autocmd VimEnter *
+                \ if argc() == 0 |
+                \     Explore! |
+                \ endif
+augroup END
 "}}}
 
 
