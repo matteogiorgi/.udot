@@ -125,7 +125,6 @@ nnoremap <leader>g :CocList bcommits<CR>
 nnoremap <leader>G :CocList commits<CR>
 nnoremap <leader>h :CocList mru<CR>
 nnoremap <leader>j :CocList<CR>
-nnoremap <leader>J :CocCommand<CR>
 nnoremap <leader>k :close<CR>
 nnoremap <leader>K :bdelete<CR>
 nnoremap <leader>l :CocList words<CR>
