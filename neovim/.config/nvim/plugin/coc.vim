@@ -4,9 +4,10 @@
 "
 "     coc-marketplace ········· https://github.com/fannheyward/coc-marketplace
 "     coc-dictionary ·········· https://github.com/neoclide/coc-sources
-"     coc-snippets  ··········· https://github.com/neoclide/coc-sources
+"     coc-tabnine ············· https://github.com/neoclide/coc-tabnine
+"     coc-snippets  ··········· https://github.com/neoclide/coc-snippets
 "     coc-highlight ··········· https://github.com/neoclide/coc-highlight
-"     coc-pairs ··············· https://github.com/neoclide/coc-highlight
+"     coc-pairs ··············· https://github.com/neoclide/coc-pairs
 "     coc-lists ··············· https://github.com/neoclide/coc-lists
 "     coc-git ················· https://github.com/neoclide/coc-git
 "     coc-yank ················ https://github.com/neoclide/coc-yank
@@ -26,6 +27,7 @@ let g:coc_config_home = '~/.config/nvim'
 let g:coc_global_extensions = [
             \ 'coc-marketplace',
             \ 'coc-dictionary',
+            \ 'coc-tabnine',
             \ 'coc-snippets',
             \ 'coc-highlight',
             \ 'coc-pairs',

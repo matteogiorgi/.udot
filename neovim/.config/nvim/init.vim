@@ -9,6 +9,7 @@
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
+""    vim-snippets ················· https://github.com/honza/vim-snippets
 ""    gruvbox ······················ https://github.com/morhetz/gruvbox
 ""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""
@@ -18,7 +19,7 @@
 
 
 
-" Plug check{{{
+" Plug check (it only works on GNU/Linux){{{
 augroup vimenter
     autocmd VimEnter *
                 \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
@@ -46,6 +47,14 @@ augroup END
 "}}}
 
 
+" Terminal settings{{{
+augroup termsettings
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+"}}}
+
+
 " Plugin list{{{
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
@@ -55,6 +64,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
+    Plug 'honza/vim-snippets'
     Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'
 call plug#end()

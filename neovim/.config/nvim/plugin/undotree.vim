@@ -8,7 +8,7 @@ let g:undotree_HelpLine = 0
 
 
 function! s:ToggleUT()
-    if &filetype ==? 'netrw' || buffer_name() =~ 'term://*' | return | endif
+    if &filetype ==? 'netrw' || buffer_name() =~ 'term://*' || buffer_name() =~ '!bash' | return | endif
     if !exists('g:toggleUT') | let g:toggleUT = 0 | endif
 
     if g:toggleUT ==? 0
