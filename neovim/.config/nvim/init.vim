@@ -8,7 +8,7 @@
 ""    undotree ····················· https://github.com/mbbill/undotree
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
-""    vim-autotag ·················· https://github.com/craigemery/vim-autotag
+""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
 ""    gruvbox ······················ https://github.com/morhetz/gruvbox
 ""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""
@@ -67,7 +67,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'mbbill/undotree'
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
-    Plug 'craigemery/vim-autotag'
+    Plug 'ludovicchabant/vim-gutentags'
     Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'
 call plug#end()
