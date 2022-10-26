@@ -109,6 +109,7 @@ nnoremap <silent>K :call ShowDocumentation()<CR>
 nnoremap <leader><Tab> :CocList buffers<CR>
 nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>
+nnoremap <leader>T :CocCommand tags.generate<CR>
 nnoremap <leader>r :CocList grep<CR>
 nnoremap <leader>y :CocList yank<CR>
 nmap     <leader>i <Plug>(coc-references)
