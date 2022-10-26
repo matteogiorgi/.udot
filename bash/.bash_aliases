@@ -41,6 +41,7 @@ alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
 alias lastsession="_lastsession"
 alias pde="_pde"
+alias gitinit="_gitinit"
 
 
 alias atooladd="atool --add"
