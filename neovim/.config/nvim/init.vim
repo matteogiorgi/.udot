@@ -9,7 +9,6 @@
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-""    vim-snippets ················· https://github.com/honza/vim-snippets
 ""    gruvbox ······················ https://github.com/morhetz/gruvbox
 ""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""
@@ -64,7 +63,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
-    Plug 'honza/vim-snippets'
     Plug 'morhetz/gruvbox'
     Plug 'itchyny/lightline.vim'
 call plug#end()
