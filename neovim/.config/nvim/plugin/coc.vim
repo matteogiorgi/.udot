@@ -97,29 +97,29 @@ command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport
 """"""""""
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+            \ coc#pum#visible() ? coc#pum#next(1) :
+            \ CheckBackspace() ? "\<Tab>" :
+            \ coc#refresh()
 
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
 nnoremap <leader><Tab> :CocList buffers<CR>
+
+nmap     <leader>q <Plug>(coc-definition)
 nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>
 nnoremap <leader>T :CocCommand tags.generate<CR>
 nnoremap <leader>r :CocList grep<CR>
 nnoremap <leader>y :CocList yank<CR>
-nmap     <leader>i <Plug>(coc-references)
-nmap     <leader>I <Plug>(coc-implementation)
-nmap     <leader>a <Plug>(coc-diagnostic-next)
-nmap     <leader>A <Plug>(coc-diagnostic-prev)
+nmap     <leader>i <Plug>(coc-diagnostic-next)
+nmap     <leader>I <Plug>(coc-diagnostic-prev)
+nmap     <leader>a <Plug>(coc-references)
 nnoremap <leader>s :CocList gstatus<CR>
-nmap     <leader>d <Plug>(coc-definition)
-nnoremap <leader>D :CocList diagnostics<CR>
-nnoremap <leader>f :CocList files<CR>
+nnoremap <leader>d :CocList diagnostics<CR>
+nnoremap <leader>f :CocList files %:p:h<CR>
 nnoremap <leader>F :CocList gfiles<CR>
 nnoremap <leader>g :CocList bcommits<CR>
 nnoremap <leader>G :CocList commits<CR>
@@ -128,6 +128,7 @@ nnoremap <leader>j :CocList<CR>
 nnoremap <leader>k :close<CR>
 nnoremap <leader>K :bdelete<CR>
 nnoremap <leader>l :CocList words<CR>
+nmap     <leader>z <Plug>(coc-implementation)
 nnoremap <leader>c :CocList changes<CR>
 nnoremap <leader>m :CocList marks<CR>
 
