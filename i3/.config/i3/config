@@ -307,16 +307,13 @@ bindsym $mod+Shift+Return exec "i3-sensible-terminal -n scratchpad"
 bindsym $mod+space exec --no-startup-id "dmenu_run -i -b -p MENU"
 bindsym $mod+Shift+space exec "dterm"
 
-bindsym $mod+y exec "diodon"
-bindsym $mod+n move workspace to output next
-
 bindsym $mod+q exec "dquit"
 bindsym $mod+w exec "dweb"
 bindsym $mod+e exec "dedit"
+bindsym $mod+y exec "diodon"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
-
-bindsym Ctrl+space exec "i3focus"
+bindsym $mod+n move workspace to output next
 
 
 
@@ -324,11 +321,13 @@ bindsym Ctrl+space exec "i3focus"
 ### Bind programs (use xprop)
 #############################
 
-# assign [class="Brave-browser"] $ws1
-# assign [class="Google-chrome"] $ws1
-# assign [class="Chromium"] $ws1
-# assign [class="Code"] $ws2
-# assign [class="VSCodium"] $ws2
+assign [class="Brave-browser"] $ws1
+assign [class="Google-chrome"] $ws1
+assign [class="Chromium"] $ws1
+
+assign [class="Code"] $ws2
+assign [class="VSCodium"] $ws2
+assign [class="kitty"] $ws2
 
 
 
