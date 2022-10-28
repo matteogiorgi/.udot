@@ -95,15 +95,16 @@ command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport
 
 "" Keymaps
 """"""""""
+inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <TAB>
             \ coc#pum#visible() ? coc#pum#next(1) :
             \ CheckBackspace() ? "\<Tab>" :
             \ coc#refresh()
-
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <backspace> coc#pum#visible()
+            \ ? "\<bs>\<c-r>=coc#start()\<CR>" : "\<bs>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
 nnoremap <leader><Tab> :CocList buffers<CR>
