@@ -194,12 +194,6 @@ vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
 nnoremap <silent><Tab> :wincmd w<cr>
 nnoremap <silent><Backspace> :b#<cr>
-nnoremap <silent><C-w>+ :resize +10<cr>
-nnoremap <silent><C-w>- :resize -10<cr>
-nnoremap <silent><C-w>_ :resize 45<cr>
-nnoremap <silent><C-w>> :vertical resize +15<cr>
-nnoremap <silent><C-w>< :vertical resize -15<cr>
-nnoremap <silent><C-w>\| :vertical resize 126<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
 nnoremap <silent><C-p> :tabmove -1<cr>
