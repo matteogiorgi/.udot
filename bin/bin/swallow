@@ -37,8 +37,6 @@ echo "$1" | grep "\.sent$" && {
 ### MIME-type opener (inode/directory not necessary)
 ####################################################
 
-&>/dev/null
-
 # check the relative mime-type here:
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "${FILE}" -bL) in
@@ -53,7 +51,7 @@ case $(file --mime-type "${FILE}" -bL) in
         _xshow "zathura '${FILE}'"
         ;;
      application/x-tar | application/zip | application/gzip)
-        _xshow "xarchiver '${FILE}'"
+        [[ "${FILE##*.}" == "xopp" ]] && _xshow "xournalpp '${FILE}'" || _xshow "xarchiver '${FILE}'"
         ;;
     image/*)
         _xshow "esxiv '${FILE}'"

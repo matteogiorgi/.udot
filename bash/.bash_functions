@@ -15,7 +15,9 @@ function _xhide () {
 
 
 function _xshow () {
-    sh -c "$*" & disown >/dev/null 2>&1
+    nohup sh -c "$*" 2>/dev/null & disown
+    sleep 0.25s
+    [[ -f "nohup.out" ]] && rm -f nohup.out
 }
 
 
