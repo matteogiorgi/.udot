@@ -53,7 +53,7 @@ let g:fzf_preview_window = ['down:80%,border-sharp', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
 
 
-" Locate
+" Keymaps
 nnoremap <leader><Tab> :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <leader>r :Rg<CR>

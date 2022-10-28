@@ -109,17 +109,17 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 nnoremap <silent>K :call ShowDocumentation()<CR>
 nnoremap <leader><Tab> :CocList buffers<CR>
 
-nmap     <leader>q <Plug>(coc-definition)
+nmap <leader>d <Plug>(coc-definition)
+nmap <leader>r <Plug>(coc-references)
+nmap <leader>i <Plug>(coc-implementation)
+nmap <leader>a <Plug>(coc-diagnostic-next)
+nmap <leader>A <Plug>(coc-diagnostic-prev)
+
 nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>
 nnoremap <leader>T :CocCommand tags.generate<CR>
-nnoremap <leader>r :CocList grep<CR>
 nnoremap <leader>y :CocList yank<CR>
-nmap     <leader>i <Plug>(coc-diagnostic-next)
-nmap     <leader>I <Plug>(coc-diagnostic-prev)
-nmap     <leader>a <Plug>(coc-references)
 nnoremap <leader>s :CocList gstatus<CR>
-nnoremap <leader>d :CocList diagnostics<CR>
 nnoremap <leader>f :CocList files %:p:h<CR>
 nnoremap <leader>F :CocList gfiles<CR>
 nnoremap <leader>g :CocList bcommits<CR>
@@ -129,7 +129,7 @@ nnoremap <leader>j :CocList<CR>
 nnoremap <leader>k :close<CR>
 nnoremap <leader>K :bdelete<CR>
 nnoremap <leader>l :CocList words<CR>
-nmap     <leader>z <Plug>(coc-implementation)
+nnoremap <leader>L :CocList grep<CR>
 nnoremap <leader>c :CocList changes<CR>
 nnoremap <leader>m :CocList marks<CR>
 
