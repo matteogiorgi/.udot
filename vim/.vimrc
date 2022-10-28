@@ -90,7 +90,7 @@ filetype plugin indent on
 if !exists('noplugin')
     colorscheme hemisu
 else
-    colorscheme sahara
+    colorscheme spacecamp
 endif
 "}}}
 
