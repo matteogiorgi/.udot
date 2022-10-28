@@ -64,8 +64,9 @@ bindsym $mod+Shift+Right move right
 
 
 
-### split, layout, mode
-#######################
+### Split  (vertical, horizontal)
+### Layout (tabbed, stacking, splitv, splith)
+#############################################
 
 bindsym $mod+s split v
 bindsym $mod+v split h
@@ -73,7 +74,7 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 bindsym $mod+f fullscreen toggle
-bindsym $mod+u layout toggle tabbed stacking splith splitv
+bindsym $mod+u layout toggle  splith splitv tabbed
 
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
@@ -206,10 +207,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ### Layout  (default, stacking, tabbed)
 #####################################################
 
-default_border normal
-default_floating_border normal
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders none
-workspace_layout tabbed
+workspace_layout default
 
 
 
@@ -293,6 +294,7 @@ bindsym $mod+q exec "dquit"
 bindsym $mod+w exec "dweb"
 bindsym $mod+e exec "dedit"
 bindsym $mod+y exec "diodon"
+bindsym $mod+o exec "i3kitty"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
 bindsym $mod+n move workspace to output next
@@ -300,16 +302,16 @@ bindsym $mod+n move workspace to output next
 
 
 
-### Bind programs (use xprop)
-#############################
+### Bind programs to workspaces (use xprop)
+###########################################
 
 assign [class="Brave-browser"] $ws1
 assign [class="Google-chrome"] $ws1
-assign [class="Chromium"] $ws1
-
 assign [class="Code"] $ws2
 assign [class="VSCodium"] $ws2
-assign [class="kitty"] $ws2
+assign [class="kitty"] $ws3
+assign [class="URxvt"] $ws3
+assign [class="Chromium"] $ws10
 
 
 

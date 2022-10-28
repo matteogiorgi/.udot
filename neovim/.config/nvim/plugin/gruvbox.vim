@@ -20,7 +20,5 @@ highlight! GruvboxOrangeSign ctermbg=NONE guibg=NONE
 
 
 if has_key(plugs, "lightline.vim")
-    let g:lightline = {
-                \ 'colorscheme': 'gruvbox',
-                \ }
+    let g:lightline = { 'colorscheme': 'gruvbox' }
 endif

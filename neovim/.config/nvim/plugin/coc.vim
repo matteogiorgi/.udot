@@ -110,34 +110,23 @@ nnoremap <leader><Tab> :CocList buffers<CR>
 nmap <leader>d <Plug>(coc-definition)
 nmap <leader>r <Plug>(coc-references)
 nmap <leader>i <Plug>(coc-implementation)
-nmap <leader>a <Plug>(coc-diagnostic-next)
-nmap <leader>A <Plug>(coc-diagnostic-prev)
+nmap <leader>n <Plug>(coc-diagnostic-next)
+nmap <leader>N <Plug>(coc-diagnostic-prev)
 
 nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>
 nnoremap <leader>T :CocCommand tags.generate<CR>
 nnoremap <leader>y :CocList yank<CR>
+nnoremap <leader>a :CocList<CR>
 nnoremap <leader>s :CocList gstatus<CR>
 nnoremap <leader>f :CocList files %:p:h<CR>
 nnoremap <leader>F :CocList gfiles<CR>
 nnoremap <leader>g :CocList bcommits<CR>
 nnoremap <leader>G :CocList commits<CR>
 nnoremap <leader>h :CocList mru<CR>
-nnoremap <leader>j :CocList<CR>
 nnoremap <leader>k :close<CR>
 nnoremap <leader>K :bdelete<CR>
 nnoremap <leader>l :CocList words<CR>
 nnoremap <leader>L :CocList grep<CR>
 nnoremap <leader>c :CocList changes<CR>
 nnoremap <leader>m :CocList marks<CR>
-
-nnoremap <leader>0 0gt
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
