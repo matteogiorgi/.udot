@@ -390,7 +390,7 @@ function _gitinit () {
     if [[ ! -d "./.git" ]]; then
         git init
 cat 2>/dev/null > ./.gitignore <<-EOF
-tags
+tags*
 EOF
     fi
 }
