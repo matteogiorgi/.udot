@@ -42,7 +42,7 @@ augroup onopen
                 \ if argc() == 0 |
                 \     Explore! |
                 \ endif
-augroup END
+augroup end
 "}}}
 
 
@@ -50,7 +50,7 @@ augroup END
 augroup termsettings
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber
-augroup END
+augroup end
 "}}}
 
 
