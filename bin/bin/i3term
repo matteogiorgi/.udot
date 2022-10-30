@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# This script control OpenGL drivers version before openining some
+# terminal-emulators ordered by priority (kitty > urxvt > st).
+# If nothing works, i3-sensible-terminal is opened instead.
+
+
+GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
+if [[ -x "$(command -v kitty)" && (( $(echo "$GLX > 3.3" | bc -l) )) ]]; then
+    kitty $*
+elif [[ -x "$(command -v urxvt)" ]]; then
+    urxvt $*
+elif [[ -x "$(command -v st)" ]]; then
+    st $*
+else
+    i3-sensible-terminal $*
+fi

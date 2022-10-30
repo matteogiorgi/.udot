@@ -9,6 +9,6 @@
 
 
 while pgrep -x "i3"; do
-    i3-sensible-terminal -n scratchpad -e tmux &
+    i3-sensible-terminal -name scratchpad -e tmux &
     wait $!
 done
