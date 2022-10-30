@@ -3,8 +3,8 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
+alias l='ls -CF'
 alias la='ls -A'
-alias lf='ls -CF'
 alias ll='ls -alFtr'
 
 
@@ -72,6 +72,6 @@ alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias xcal="ncal -y"
 
-alias jj="shfm"
-alias kk="fgit"
-alias ll="xtree"
+alias gg="fgit"
+alias ff="shfm"
+alias kk="xtree"
