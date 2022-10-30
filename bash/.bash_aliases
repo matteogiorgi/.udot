@@ -3,10 +3,9 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
-alias l='ls -CF'
 alias la='ls -A'
+alias lf='ls -CF'
 alias ll='ls -alFtr'
-alias lt='tree -aC -I ".git" --dirsfirst | less -R -~'
 
 
 alias cp="cp -i"
@@ -67,7 +66,12 @@ alias restow="stow -R"
 alias unstow="stow -D"
 
 
+alias xtree='tree -aC -I ".git" --dirsfirst | less -R -~'
 alias xload="xrdb ~/.Xresources"
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias xcal="ncal -y"
+
+alias jj="shfm"
+alias kk="fgit"
+alias ll="xtree"

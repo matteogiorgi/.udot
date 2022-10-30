@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 
+PARENTPID="$*"
 CLICOLOR_FORCE=1
 OPENER="swallow"
 LIST="/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=always"
@@ -9,7 +10,7 @@ LIST="/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=
 
 function main () {
     while true; do
-        printf '%s\n' "$PWD" >~/.fjump.tmp
+        printf '%s\n' "$PWD" > /tmp/fjump${PARENTPID}
         [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
         FILE="$(${LIST} | fzf --ansi --preview 'mess {}' --preview-window 'down,80%,border-sharp' `
                 `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH > " `

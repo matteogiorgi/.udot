@@ -70,20 +70,20 @@ function _tmux () {
 function _shfm () {
     PROMPT=${PS1@P}
     ~/bin/shfm/shfm "$@"
-    cd "$(cat ~/.shfm.tmp)"
+    cd "$(cat /tmp/shfm)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-    rm -f ~/.shfm.tmp
+    rm -f /tmp/shfm
 }
 
 
 function _fjump () {
     PROMPT=${PS1@P}
-    ~/bin/fjump
-    cd "$(cat ~/.fjump.tmp)"
+    ~/bin/fjump $$
+    cd "$(cat /tmp/fjump$$)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-    rm -f ~/.fjump.tmp
+    rm -f /tmp/fjump$$
 }
 
 
