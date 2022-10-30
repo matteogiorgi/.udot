@@ -286,7 +286,7 @@ for_window [instance="scratchpad"] move position center
 #################
 
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+Shift+Return exec "i3-sensible-terminal -n scratchpad"
+bindsym $mod+Shift+Return exec "i3-sensible-terminal -name scratchpad"
 
 bindsym $mod+space exec --no-startup-id "dmenu_run -i -b -p MENU"
 bindsym $mod+Shift+space exec "dterm"
