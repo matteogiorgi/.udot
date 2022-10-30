@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-# Spawn an st scratchpad as long as i3 is running
-# Add the following settings to ~/.config/i3/config to call easily the scratchpad:
-#     for_window [instance="scratchpad"] floating enable
-#     for_window [instance="scratchpad"] resize set 800 600
-#     for_window [instance="scratchpad"] move scratchpad
-#     bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
+# This script spawns an scratchpad as long as i3 is running (I'm no longer using this)
+# Add the following setting lines to ~/.config/i3/config to easily call the scratchpad:
+#
+# for_window [instance="scratchpad"] floating enable
+# for_window [instance="scratchpad"] resize set 800 600
+# for_window [instance="scratchpad"] move scratchpad
+# bindsym $mod+Shift+Return [instance="scratchpad"] scratchpad show; [instance="scratchpad"] move position center
+#
+# Remember to add the exec to this script too: `exec --no-startup-id "~/.config/i3/i3scratchpad"`
+# This is usefull if you want a single terminal scratchpad always available.
 
 
 while pgrep -x "i3"; do
-    st -n scratchpad -e tmux &
+    urxvt -name scratchpad -e tmux &
     wait $!
 done
