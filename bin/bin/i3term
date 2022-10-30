@@ -7,7 +7,7 @@
 
 GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
 if [[ -x "$(command -v kitty)" && (( $(echo "$GLX > 3.3" | bc -l) )) ]]; then
-    kitty $*
+    kitty $* 2>/dev/null
 elif [[ -x "$(command -v urxvt)" ]]; then
     urxvt $*
 elif [[ -x "$(command -v st)" ]]; then
