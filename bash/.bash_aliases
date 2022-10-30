@@ -66,12 +66,8 @@ alias restow="stow -R"
 alias unstow="stow -D"
 
 
-alias xtree='tree -aC -I ".git" --dirsfirst | less -R -~'
+alias ltree='tree -aC -I ".git" --dirsfirst | less -R -~'
 alias xload="xrdb ~/.Xresources"
 alias xbgrnd="$HOME/.fehbg"
 alias xpipes="pipes -n 5 -i 0.025"
 alias xcal="ncal -y"
-
-alias gg="fgit"
-alias ff="shfm"
-alias kk="xtree"
