@@ -5,5 +5,4 @@
 
 
 GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
-[[ -x "$(command -v urxvt)" ]] && I3TERM="urxvt" || I3TERM="i3-sensible-terminal"
-[[ -x "$(command -v kitty)" && (( $(echo "$GLX > 3.3" | bc -l) )) ]] && kitty $* || "$I3TERM" $*
+[[ -x "$(command -v kitty)" && (( $(echo "$GLX > 3.3" | bc -l) )) ]] && kitty $* || i3-sensible-terminal $*
