@@ -69,16 +69,36 @@ endfunction
 "}}}
 
 
+" Complete Words{{{
+function! utility#CompleteWords(ArgLead, CmdLine, ...)
+  return getline(1, '$')->join(' ')->split('\s\+')
+              \ ->filter({_,x->match(x, '^\h\w\+$') > -1})
+              \ ->filter({_,x->match(x, '^' . a:CmdLine) > -1})
+              \ ->sort()->uniq()
+endfunction
+"}}}
+
+
 " Save Session{{{
-function! utility#SaveSession(session)
-    exec 'mksession! $HOME/.vim/sessions/'.a:session
+function! utility#SaveSession()
+    call inputsave()
+    let l:session = input('Save session as: ', '', 'customlist,utility#CompleteWords')
+    call inputrestore()
+    if l:session != ""
+        exec 'mksession! ~/.vim/sessions/'.l:session
+    endif
 endfunction
 "}}}
 
 
 " Load Session{{{
-function! utility#LoadSession(session)
-    exec 'source $HOME/.vim/sessions/'.a:session
+function! utility#LoadSession()
+    call inputsave()
+    let l:session = input('Load session: ', '', 'customlist,utility#CompleteWords')
+    call inputrestore()
+    if l:session != ""
+        exec 'source ~/.vim/sessions/'.l:session
+    endif
 endfunction
 "}}}
 
