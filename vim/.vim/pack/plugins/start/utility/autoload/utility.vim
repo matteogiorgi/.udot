@@ -167,11 +167,12 @@ endfunction
 " Rename{{{
 function! utility#Rename(bang)
     call inputsave()
+    let l:file = expand('%:p:t')
     let l:name = input('Rename '.expand('%:p:t').' as: ')
     call inputrestore()
     if l:name ==? ""
         redraw
-        echo 'I need a name mate!'
+        echo l:file.' hasnt been renamed'
         return 1
     endif
 	let l:oldfile = expand('%:p')
@@ -222,6 +223,8 @@ function! utility#Rename(bang)
 		let l:status = 0
 	endif
 
+    redraw
+    echo l:file.' is now '.l:name
 	return l:status
 endfunction
 "}}}
