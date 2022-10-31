@@ -1,18 +1,3 @@
-" Confirm{{{
-function! utility#Confirm(msg)
-    echo a:msg . ' '
-    let l:answer = nr2char(getchar())
-    if l:answer ==? 'y'
-        return 1
-    elseif l:answer ==? 'n'
-        return 0
-    else
-        return utility#Confirm(a:msg)
-    endif
-endfun
-"}}}
-
-
 " LongLine{{{
 function! utility#LongLine()
     if !exists('g:longline')
@@ -62,9 +47,14 @@ endfunction
 "}}}
 
 
-" Substitute{{{
-function! utility#SSelection(new)
-    exec '%s//'.a:new.'/gc'
+" Replace Selection{{{
+function! utility#ReplaceSelection()
+    call inputsave()
+    let l:replace = input('Replace selection with: ', '', 'customlist,utility#CompleteWords')
+    call inputrestore()
+    if l:replace != ""
+        exec '%s//'.l:replace.'/gc'
+    endif
 endfunction
 "}}}
 
@@ -155,19 +145,35 @@ endfunction
 
 " Delete{{{
 function! utility#Delete()
-    if utility#Confirm("Delete curent file? (Y/n)")
+    call inputsave()
+    let l:file = expand('%:p:t')
+    let l:answer = input('Delete '.l:file.'? (Y/n)')
+    call inputrestore()
+    if l:answer ==? "Y"
         call delete(expand('%'))
         if exists(':Bclose')
             Bclose
         endif
+        redraw
+        echo l:file.' is dead'
+    else
+        redraw
+        echo l:file.' is still alive'
     endif
 endfunction
 "}}}
 
 
 " Rename{{{
-function! utility#Rename(name, bang)
-	let l:name    = a:name
+function! utility#Rename(bang)
+    call inputsave()
+    let l:name = input('Rename '.expand('%:p:t').' as: ')
+    call inputrestore()
+    if l:name ==? ""
+        redraw
+        echo 'I need a name mate!'
+        return 1
+    endif
 	let l:oldfile = expand('%:p')
 
 	if bufexists(fnamemodify(l:name, ':p'))
@@ -266,4 +272,20 @@ function! utility#LaunchOnOpen(explorer)
         execute a:explorer
     endif
 endfunction
+"}}}
+
+
+" Confirm{{{
+" UNUSED
+function! utility#Confirm(msg)
+    echo a:msg . ' '
+    let l:answer = nr2char(getchar())
+    if l:answer ==? 'y'
+        return 1
+    elseif l:answer ==? 'n'
+        return 0
+    else
+        return utility#Confirm(a:msg)
+    endif
+endfun
 "}}}

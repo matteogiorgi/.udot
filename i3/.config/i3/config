@@ -72,7 +72,7 @@ bindsym $mod+s split v
 bindsym $mod+v split h
 
 bindsym $mod+f fullscreen toggle
-bindsym $mod+u layout toggle tabbed splith splitv
+bindsym $mod+u layout toggle tabbed stacking splith splitv
 
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
