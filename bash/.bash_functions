@@ -28,19 +28,32 @@ function _mpv () {
 }
 
 
-function _vim () {
-    if [[ -n "$TMUX" ]]; then
-        vim "$@"
-    else
-        [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
-        [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
-        env vim --cmd "let theme=$BGCOLOR" "$@"
+function _setbackgroundcolor () {
+    if [[ -f "/bin/xtermcontrol" ]]; then
+        if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
+            export BACKGROUNDCOLOR="'light'"
+        else
+            export BACKGROUNDCOLOR="'dark'"
+        fi
     fi
 }
 
 
+function _nvim () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env nvim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
+function _vim () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
 function _vimnoplugin () {
-    env vim --noplugin -n -i NONE --cmd "let noplugin=1" "$@"
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env vim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
@@ -49,17 +62,6 @@ function _vimlastsession () {
         _vim -S $HOME/.vim/sessions/last.vim
     else
         _vim
-    fi
-}
-
-
-function _nvim () {
-    if [[ -n "$TMUX" ]]; then
-        nvim "$@"
-    else
-        [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
-        [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
-        env nvim --cmd "let theme=$BGCOLOR" "$@"
     fi
 }
 
@@ -74,7 +76,8 @@ function _tmux () {
         printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
         return
     fi
-    /bin/tmux >/dev/null
+    _setbackgroundcolor
+    /bin/tmux 2>/dev/null
 }
 
 
