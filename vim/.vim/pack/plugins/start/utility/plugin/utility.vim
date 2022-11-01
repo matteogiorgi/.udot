@@ -13,15 +13,19 @@ autocmd! BufWritePre * call utility#Mkdir()
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()
 command! ChBackground call utility#ChBackground()
-command! SaveSession call utility#SaveSession()
-command! LoadSession call utility#LoadSession()
-command! ReplaceSelection call utility#ReplaceSelection()
+command! SessionSave call utility#SessionSave()
+command! SessionLoad call utility#SessionLoad()
+command! ReplaceSearch call utility#ReplaceSearch()
 command! CurrentDir call utility#CurrentDir()
 command! ParentDir call utility#ParentDir()
 command! GitDir call utility#GitDir()
 command! Delete call utility#Delete()
 command! -bang Rename call utility#Rename('<bang>')
 
+
+" ALTERNATIVE TO REPLACESEARCH COMMAND:
+" nnoremap <leader>s :%s///gc<Left><Left><Left>
+" xnoremap <leader>s :s///gc<Left><Left><Left>
 
 nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>^ :ChBackground<CR>

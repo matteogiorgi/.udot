@@ -1,3 +1,13 @@
+" Complete Words{{{
+function! utility#CompleteWords(ArgLead, CmdLine, ...)
+  return getline(1, '$')->join(' ')->split('\s\+')
+              \ ->filter({_,x->match(x, '^\h\w\+$') > -1})
+              \ ->filter({_,x->match(x, '^' . a:CmdLine) > -1})
+              \ ->sort()->uniq()
+endfunction
+"}}}
+
+
 " LongLine{{{
 function! utility#LongLine()
     if !exists('g:longline')
@@ -47,47 +57,50 @@ endfunction
 "}}}
 
 
-" Replace Selection{{{
-function! utility#ReplaceSelection()
+" Replace{{{
+function! utility#ReplaceSearch()
     call inputsave()
-    let l:replace = input('Replace selection with: ', '', 'customlist,utility#CompleteWords')
+    let l:replace = input('Replace searched pattern with: ', '', 'customlist,utility#CompleteWords')
     call inputrestore()
     if l:replace != ""
         exec '%s//'.l:replace.'/gc'
+    else
+        redraw
+        echo 'No substitution done'
     endif
 endfunction
 "}}}
 
 
-" Complete Words{{{
-function! utility#CompleteWords(ArgLead, CmdLine, ...)
-  return getline(1, '$')->join(' ')->split('\s\+')
-              \ ->filter({_,x->match(x, '^\h\w\+$') > -1})
-              \ ->filter({_,x->match(x, '^' . a:CmdLine) > -1})
-              \ ->sort()->uniq()
-endfunction
-"}}}
-
-
 " Save Session{{{
-function! utility#SaveSession()
+function! utility#SessionSave()
     call inputsave()
     let l:session = input('Save session as: ', '', 'customlist,utility#CompleteWords')
     call inputrestore()
     if l:session != ""
         exec 'mksession! ~/.vim/sessions/'.l:session
+        redraw
+        echo 'Session saved as '.l:session
+    else
+        redraw
+        echo 'No session saved'
     endif
 endfunction
 "}}}
 
 
 " Load Session{{{
-function! utility#LoadSession()
+function! utility#SessionLoad()
     call inputsave()
     let l:session = input('Load session: ', '', 'customlist,utility#CompleteWords')
     call inputrestore()
     if l:session != ""
         exec 'source ~/.vim/sessions/'.l:session
+        redraw
+        echo 'Loaded session '.l:session
+    else
+        redraw
+        echo 'No session loaded'
     endif
 endfunction
 "}}}
