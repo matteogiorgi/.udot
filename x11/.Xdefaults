@@ -40,7 +40,7 @@ XTerm.vt100.translations: #override \n\
 XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
 XTerm*cursorOffTime: 250
-XTerm*cursorColor: #FFFFFF
+XTerm*cursorColor: #000000
 
 
 
@@ -73,7 +73,7 @@ UXTerm.vt100.translations: #override \n\
 UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
 UXTerm*cursorOffTime: 250
-UXTerm*cursorColor: #FFFFFF
+UXTerm*cursorColor: #000000
 
 
 
