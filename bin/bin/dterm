@@ -9,12 +9,12 @@ if [[ -x "$(command -v xterm)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xterm" || NAMES="Xterm\n"$NAMES
 fi
 
-if [[ -x "$(command -v st)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="ST" || NAMES="ST\n"$NAMES
-fi
-
 if [[ -x "$(command -v urxvt)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Urxvt" || NAMES="Urxvt\n"$NAMES
+fi
+
+if [[ -x "$(command -v st)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="ST" || NAMES="ST\n"$NAMES
 fi
 
 if [[ -x "$(command -v kitty)" ]]; then
@@ -35,11 +35,11 @@ case "$CHOICE" in
     Kitty)
         kitty
         ;;
-    Urxvt)
-        urxvt
-        ;;
     ST)
         st
+        ;;
+    Urxvt)
+        urxvt
         ;;
     Xterm)
         xterm

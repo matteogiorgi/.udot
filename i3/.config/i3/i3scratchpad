@@ -13,6 +13,6 @@
 
 
 while pgrep -x "i3"; do
-    urxvt -name scratchpad -e tmux &
+    st -n scratchpad -e tmux &
     wait $!
 done

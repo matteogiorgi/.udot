@@ -285,8 +285,8 @@ for_window [instance="scratchpad"] move position center
 ### Usefull binds
 #################
 
-bindsym $mod+Return exec "urxvt"
-bindsym $mod+Shift+Return exec "urxvt -name scratchpad"
+bindsym $mod+Return exec "st"
+bindsym $mod+Shift+Return exec "st -n scratchpad"
 
 bindsym $mod+space exec --no-startup-id "dmenu_run -i -b -p MENU"
 bindsym $mod+Shift+space exec "dterm"
