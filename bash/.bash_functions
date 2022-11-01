@@ -53,6 +53,17 @@ function _vimlastsession () {
 }
 
 
+function _nvim () {
+    if [[ -n "$TMUX" ]]; then
+        vim "$@"
+    else
+        [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
+        [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
+        env nvim --cmd "let theme=$BGCOLOR" "$@"
+    fi
+}
+
+
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
     if [[ -n "$TMUX" ]]; then

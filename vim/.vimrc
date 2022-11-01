@@ -87,11 +87,7 @@ endif
 " Syntax{{{
 syntax on
 filetype plugin indent on
-if !exists('noplugin')
-    colorscheme hemisu
-else
-    colorscheme spacecamp
-endif
+colorscheme hemisu
 "}}}
 
 
@@ -137,7 +133,7 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
-if ! exists('noplugin')
+if !exists('noplugin')
     set cursorlineopt=number,line
     set fillchars+=vert:\│,eob:\ ,fold:-
     set laststatus=2

@@ -21,6 +21,7 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
+alias nvim="_nvim"
 alias vim="_vim"
 alias vimlastsession="_vimlastsession"
 alias vimnoplugin="_vimnoplugin"
