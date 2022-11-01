@@ -55,7 +55,7 @@ function _vimlastsession () {
 
 function _nvim () {
     if [[ -n "$TMUX" ]]; then
-        vim "$@"
+        nvim "$@"
     else
         [[ -f "/bin/xtermcontrol" ]] && BACKGROUND=$(xtermcontrol --get-bg 2>/dev/null) || BACKGROUND=""
         [[ "$BACKGROUND" == "rgb:ffff/ffff/ffff" ]] && BGCOLOR="'light'" || BGCOLOR="'dark'"
