@@ -47,9 +47,8 @@ alias atooladd="atool --add"
 alias atoolext="atool --extract"
 
 
-alias woutput="_woutput"
-alias wrotate="_wrotate"
-alias xtouchp="_xtouchp"
+alias xwacom="_xwacom"
+alias xtouch="_xtouch"
 alias xlayout="_xlayout"
 
 

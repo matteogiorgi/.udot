@@ -35,6 +35,14 @@ fi
 
 
 
+### Load Wacom config
+#####################
+
+[[ -f ~/.xwacom ]] && ~/.xwacom 2>/dev/null
+
+
+
+
 ### Touchpad properties (xinput list-props "$TOUCHPADID")
 #########################################################
 

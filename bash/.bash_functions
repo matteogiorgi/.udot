@@ -187,101 +187,99 @@ function _chbg () {
 }
 
 
-function _woutput () {
+function _xwacom () {
     source $HOME/.xinput.bash
 
     RED='\033[1;36m'
     YLW='\033[1;35m'
     NC='\033[0m'
 
-    printf "${RED}%s${NC}\n" "Choose wacom monitor"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "master"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "slave"
-    printf "${RED}%s${NC} " "Enter an index (1-2):"
-
-    while read response; do
-        if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
-            printf "${YLW}%s${NC}\n" "Wacom not conected"
-        else
-            case $response in
-                1)
-                    MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
-                    printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "master"
-                    break
-                    ;;
-                2)
-                    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
-                        MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
-                        printf "${RED}%s${YLW}%s${NC}\n" "Wacom to " "slave"
-                    else
-                        printf "${RED}%s${YLW}%s${RED}%s${NC}\n" "No " "slave" " detected"
-                    fi
-                    break
-                    ;;
-                *)
-                    printf "${RED}%s${NC} " "Enter an index (1-2):"
-                    ;;
-            esac
-        fi
-    done
-
-    xinput map-to-output $(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}') $MONITOR
-}
-
-
-function _wrotate () {
-    source $HOME/.xinput.bash
-
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
+    if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
+        printf "${YLW}%s${NC}\n" "Wacom not conected"
+        return
+    fi
 
     XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
 
-    printf "${RED}%s${NC}\n" "Rotata wacom"
-    printf "%s${YLW}%s${NC}\n" "  (0) " "0°"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "90°"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "180°"
-    printf "%s${YLW}%s${NC}\n" "  (3) " "270°"
-    printf "${RED}%s${NC} " "Enter an index (0-3):"
-
-    while read response; do
-        if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
-            printf "${YLW}%s${NC}\n" "Wacom not conected"
-        else
+    if [[ -f ~/.xwacom ]]; then
+        printf "${RED}%s${NC} " "Reload Wacom conf? (Y/n)"
+        while read response; do
             case $response in
-                0)
-                    ROTATION="none"
-                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "0°"
-                    break
+                Y | y)
+                    ~/.xwacom 2>/dev/null
+                    printf "${YLW}%s${NC}\n" "~/.xwacom reloaded"
+                    return
                     ;;
-                1)
-                    ROTATION="ccw"
-                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "90°"
-                    break
-                    ;;
-                2)
-                    ROTATION="half"
-                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "180°"
-                    break
-                    ;;
-                3)
-                    ROTATION="cw"
-                    printf "${RED}%s${YLW}%s${NC}\n" "Rotation by " "270°"
+                N | n)
                     break
                     ;;
                 *)
-                    printf "${RED}%s${NC} " "Enter an index (0-3):"
+                    printf "${RED}%s${NC} " "Reload Wacom conf? (Y/n)"
                     ;;
             esac
-        fi
+        done
+    fi
+
+    printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
+    while read response; do
+        case $response in
+            0)
+                ROTATION="none"
+                PRINT1="ROTATION -> 0°"
+                break
+                ;;
+            90)
+                ROTATION="ccw"
+                PRINT1="ROTATION -> 90°"
+                break
+                ;;
+            180)
+                ROTATION="half"
+                PRINT1="ROTATION -> 180°"
+                break
+                ;;
+            270)
+                ROTATION="cw"
+                PRINT1="ROTATION -> 270°"
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
+                ;;
+        esac
     done
 
-    xsetwacom --set $XWACOMID Rotate $ROTATION
+    printf "${RED}%s${NC} " "Wacom MONITOR (master/slave):"
+    while read response; do
+        case $response in
+            master)
+                MONITOR=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+                PRINT2="MONITOR  -> master"
+                break
+                ;;
+            slave)
+                if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
+                    MONITOR=$(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+                    PRINT2="MONITOR  -> slave"
+                else
+                    PRINT2="MONITOR  -> no slave detected"
+                fi
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Wacom MONITOR (master/slave):"
+                ;;
+        esac
+    done
+
+    printf "#!/bin/sh\nxsetwacom --set $XWACOMID Rotate $ROTATION\nxinput map-to-output $XWACOMID $MONITOR\n" > ~/.xwacom
+    chmod 755 ~/.xwacom
+    ~/.xwacom 2>/dev/null
+    printf "${YLW}%s\n%s${NC}\n" "$PRINT1" "$PRINT2"
 }
 
 
-function _xtouchp () {
+function _xtouch () {
     source $HOME/.xinput.bash
 
     RED='\033[1;36m'
@@ -290,25 +288,21 @@ function _xtouchp () {
 
     TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
 
-    printf "${RED}%s${NC}\n" "Touchpad"
-    printf "%s${YLW}%s${NC}\n" "  (0) " "disable"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "enable"
-    printf "${RED}%s${NC} " "Enter an index (0-1):"
-
+    printf "${RED}%s${NC} " "Choose TOUCHPAD behavior (enable/disable):"
     while read response; do
         case $response in
-            0)
-                xinput set-prop $TOUCH "Device Enabled" 0
-                printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "disabled"
+            enable)
+                xinput set-prop $TOUCH "Device Enabled" 1
+                printf "${YLW}%s${NC}\n" "TOUCHPAD -> enabled"
                 break
                 ;;
-            1)
-                xinput set-prop $TOUCH "Device Enabled" 1
-                printf "${RED}%s${YLW}%s${NC}\n" "Touchpad " "enabled"
+            disable)
+                xinput set-prop $TOUCH "Device Enabled" 0
+                printf "${YLW}%s${NC}\n" "TOUCHPAD -> disabled"
                 break
                 ;;
             *)
-                printf "${RED}%s${NC} " "Enter an index (0-1):"
+                printf "${RED}%s${NC} " "Choose TOUCHPAD behavior (enable/disable):"
                 ;;
         esac
     done
@@ -320,38 +314,23 @@ function _xlayout () {
     YLW='\033[1;35m'
     NC='\033[0m'
 
-    printf "${RED}%s${NC}\n" "Layout"
-    printf "%s${YLW}%s${NC}\n" "  (0) " "US"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "GB"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "IT"
-    printf "${RED}%s${NC} " "Enter an index (1-3):"
-
+    printf "${RED}%s${NC} " "Select keyboard LAYOUT (us/gb/it):"
     while read response; do
         case $response in
-            0)
-                printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.xlayout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "US"
-                break
-                ;;
-            1)
-                printf "#!/bin/sh\nsetxkbmap -layout gb\n" > ~/.xlayout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "GB"
-                break
-                ;;
-            2)
-                printf "#!/bin/sh\nsetxkbmap -layout it\n" > ~/.xlayout
-                printf "${RED}%s${YLW}%s${NC}\n" "Layout " "IT"
+            us | gb | it)
                 break
                 ;;
             *)
-                printf "${RED}%s${NC} " "Enter an index (1-3):"
+                printf "${RED}%s${NC} " "Select keyboard LAYOUT (us/gb/it):"
                 ;;
         esac
     done
 
+    printf "#!/bin/sh\nsetxkbmap -layout $response\n" > ~/.xlayout
     chmod 755 ~/.xlayout
     ~/.xlayout
     [[ -f ~/bin/xmap ]] && ~/bin/xmap
+    printf "${YLW}%s${NC}\n" "LAYOUT -> $response"
 }
 
 
