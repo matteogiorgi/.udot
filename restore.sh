@@ -285,7 +285,8 @@ sudo apt purge -qq -y \
     pcmanfm \
     xarchiver \
     vlc \
-    galculator
+    galculator \
+    filezilla
 
 
 

@@ -304,7 +304,8 @@ sudo apt install -qq -y \
     pcmanfm \
     xarchiver \
     vlc \
-    galculator
+    galculator \
+    filezilla
 
 
 
