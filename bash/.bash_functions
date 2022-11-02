@@ -76,8 +76,8 @@ function _tmux () {
         printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
         return
     fi
-    _setbackgroundcolor
-    /bin/tmux 2>/dev/null
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    /bin/tmux -L $BACKGROUNDCOLOR 2>/dev/null
 }
 
 
