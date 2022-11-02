@@ -255,6 +255,7 @@ bar {
 # dfloat apps
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Xarchiver"] floating enable
+for_window [class="Filezilla"] floating enable
 for_window [class="Xournalpp"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Galculator"] floating enable
