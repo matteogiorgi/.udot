@@ -201,25 +201,6 @@ function _xwacom () {
 
     XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
 
-    if [[ -f ~/.xwacom ]]; then
-        printf "${RED}%s${NC} " "Reload Wacom conf? (Y/n)"
-        while read response; do
-            case $response in
-                Y | y)
-                    ~/.xwacom 2>/dev/null
-                    printf "${YLW}%s${NC}\n" "~/.xwacom reloaded"
-                    return
-                    ;;
-                N | n)
-                    break
-                    ;;
-                *)
-                    printf "${RED}%s${NC} " "Reload Wacom conf? (Y/n)"
-                    ;;
-            esac
-        done
-    fi
-
     printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
     while read response; do
         case $response in
@@ -272,9 +253,8 @@ function _xwacom () {
         esac
     done
 
-    printf "#!/bin/sh\nxsetwacom --set $XWACOMID Rotate $ROTATION\nxinput map-to-output $XWACOMID $MONITOR\n" > ~/.xwacom
-    chmod 755 ~/.xwacom
-    ~/.xwacom 2>/dev/null
+    xsetwacom --set $XWACOMID Rotate $ROTATION
+    xinput map-to-output $XWACOMID $MONITOR
     printf "${YLW}%s\n%s${NC}\n" "$PRINT1" "$PRINT2"
 }
 
