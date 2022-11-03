@@ -3,7 +3,7 @@
 
 if [[ -x "$(command -v xmodmap)" ]]; then
     xmodmap -e 'remove Lock = Caps_Lock'
-    xmodmap -e 'keysym Caps_Lock = Control_L'
-    xmodmap -e 'add Control = Control_L'
-    xmodmap -e 'keycode 66 = Escape'
+    xmodmap -e 'keysym Escape = Caps_Lock'
+    xmodmap -e 'keysym Caps_Lock = Escape'
+    xmodmap -e 'add Lock = Caps_Lock'
 fi
