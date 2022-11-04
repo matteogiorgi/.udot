@@ -39,7 +39,7 @@ if [[ -x "$(command -v galculator)" ]]; then
 fi
 
 if [[ -x "$(command -v simplescreenrecorder)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="SimpleScreenRecorder" || NAMES="SimpleScreenRecorder\n"$NAMES
+    [[ ! -n $NAMES ]] && NAMES="ScreenRecorder" || NAMES="ScreenRecorder\n"$NAMES
 fi
 
 if [[ -x "$(command -v vlc)" ]]; then
@@ -85,7 +85,7 @@ case "$CHOICE" in
     Vlc)
         vlc
         ;;
-    SimpleScreenRecorder)
+    ScreenRecorder)
         simplescreenrecorder
         ;;
     Galculator)
