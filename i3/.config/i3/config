@@ -274,6 +274,13 @@ for_window [class="Sxiv"] floating enable
 
 
 
+### Bind programs to workspaces (use xprop)
+### assign [class="CLASS_NAME"] $WORKSPACE
+###########################################
+
+
+
+
 ### Scratchpads
 ###############
 
@@ -300,15 +307,6 @@ bindsym $mod+y exec "diodon"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
 bindsym $mod+n move workspace to output next
-
-
-
-
-### Bind programs to workspaces (use xprop)
-###########################################
-
-assign [class="Brave-browser"] $ws1
-assign [class="Code"] $ws2
 
 
 
