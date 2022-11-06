@@ -111,6 +111,7 @@ tags*
 !/neovim/.config/nvim/after
 !/neovim/.config/nvim/autoload
 !/neovim/.config/nvim/colors
+!/neovim/.config/nvim/ftplugin
 !/neovim/.config/nvim/pack
 !/neovim/.config/nvim/plugin
 !/neovim/.config/nvim/cocsettings

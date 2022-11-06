@@ -165,8 +165,14 @@ augroup end
 " Overlength behaviour{{{
 augroup overlengthtoggle
     autocmd!
-    autocmd InsertEnter * let &colorcolumn = '121,'.join(range(121,999),',')
-    autocmd InsertLeave * set colorcolumn=
+    autocmd InsertEnter *
+                \ if &filetype !=? 'markdown' && &filetype !=? 'markdown.pandoc' && &filetype !=? 'pandoc' |
+                \     let &colorcolumn = '121,'.join(range(121,999),',') |
+                \ endif
+    autocmd InsertLeave *
+                \ if &filetype !=? 'markdown' && &filetype !=? 'markdown.pandoc' && &filetype !=? 'pandoc' |
+                \     set colorcolumn= |
+                \ endif
 augroup end
 "}}}
 
