@@ -14,6 +14,13 @@ endfunction
 "}}}
 
 
+" Reset Gruvbox{{{
+function! utility#ResetGruvbox()
+    source $HOME/.config/nvim/plugin/gruvbox.vim
+endfunction
+"}}}
+
+
 " ToggleAccent{{{
 function! utility#ToggleAccent()
     let withAccentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
@@ -186,25 +193,3 @@ function! utility#Rename(bang)
 	return l:status
 endfunction
 "}}}
-
-
-
-
-if !exists("g:mkdir_loaded") | let g:mkdir_loaded=1 | endif
-autocmd! BufWritePre * call utility#Mkdir()
-
-
-command! LongLine call utility#LongLine()
-command! ToggleAccent call utility#ToggleAccent()
-command! ReplaceSearch call utility#ReplaceSearch()
-command! JumpCurrentDir call utility#JumpCurrentDir()
-command! JumpParentDir call utility#JumpParentDir()
-command! JumpGitDir call utility#JumpGitDir()
-command! Delete call utility#Delete()
-command! -bang Rename call utility#Rename('<bang>')
-
-
-nnoremap <silent>' :ToggleAccent<CR>
-nnoremap <leader>o :JumpGitDir<CR>
-nnoremap <leader>j :JumpParentDir<CR>
-nnoremap <leader>J :JumpCurrentDir<CR>
