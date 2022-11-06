@@ -111,6 +111,9 @@ backup () {
     # bin
     [[ -d $HOME/bin ]] && clean $HOME/bin
 
+    # ctags
+    [[ -d $HOME/ctags ]] && clean $HOME/ctags
+
     # fzf
     [[ -d $HOME/.config/fzf ]] && clean $HOME/.config/fzf
 
@@ -423,6 +426,7 @@ mkdir -p $HOME/Pictures/backgrounds
 
 stow bash
 stow bin
+stow ctags
 stow fzf
 stow i3
 stow kakoune

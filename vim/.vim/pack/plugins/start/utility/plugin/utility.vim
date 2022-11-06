@@ -16,9 +16,9 @@ command! ChBackground call utility#ChBackground()
 command! SessionSave call utility#SessionSave()
 command! SessionLoad call utility#SessionLoad()
 command! ReplaceSearch call utility#ReplaceSearch()
-command! CurrentDir call utility#CurrentDir()
-command! ParentDir call utility#ParentDir()
-command! GitDir call utility#GitDir()
+command! JumpCurrentDir call utility#JumpCurrentDir()
+command! JumpParentDir call utility#JumpParentDir()
+command! JumpGitDir call utility#JumpGitDir()
 command! Delete call utility#Delete()
 command! -bang Rename call utility#Rename('<bang>')
 
@@ -29,10 +29,9 @@ command! -bang Rename call utility#Rename('<bang>')
 
 nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>^ :ChBackground<CR>
-nnoremap <leader>i :GitDir<CR>
-nnoremap <leader>d :ParentDir<CR>
-nnoremap <leader>D :CurrentDir<CR>
-nnoremap <leader>p :echon 'CWD: '.getcwd()<CR>
+nnoremap <leader>i :JumpGitDir<CR>
+nnoremap <leader>d :JumpParentDir<CR>
+nnoremap <leader>D :JumpCurrentDir<CR>
 
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

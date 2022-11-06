@@ -1,13 +1,3 @@
-" Complete Words{{{
-function! utility#CompleteWords(ArgLead, CmdLine, ...)
-  return getline(1, '$')->join(' ')->split('\s\+')
-              \ ->filter({_,x->match(x, '^\h\w\+$') > -1})
-              \ ->filter({_,x->match(x, '^' . a:CmdLine) > -1})
-              \ ->sort()->uniq()
-endfunction
-"}}}
-
-
 " LongLine{{{
 function! utility#LongLine()
     if !exists('g:longline')
@@ -19,17 +9,6 @@ function! utility#LongLine()
     else
         let g:longline = 'none'
         setlocal virtualedit=
-    endif
-endfunction
-"}}}
-
-
-" Background{{{
-function! utility#ChBackground()
-    if &background ==? 'dark'
-        set background=light
-    else
-        set background=dark
     endif
 endfunction
 "}}}
@@ -67,40 +46,6 @@ function! utility#ReplaceSearch()
     else
         redraw
         echo 'No substitution done'
-    endif
-endfunction
-"}}}
-
-
-" Save Session{{{
-function! utility#SessionSave()
-    call inputsave()
-    let l:session = input('Save session as: ', '', 'customlist,utility#CompleteWords')
-    call inputrestore()
-    if l:session != ""
-        exec 'mksession! ~/.vim/sessions/'.l:session
-        redraw
-        echo 'Session saved as '.l:session
-    else
-        redraw
-        echo 'No session saved'
-    endif
-endfunction
-"}}}
-
-
-" Load Session{{{
-function! utility#SessionLoad()
-    call inputsave()
-    let l:session = input('Load session: ', '', 'customlist,utility#CompleteWords')
-    call inputrestore()
-    if l:session != ""
-        exec 'source ~/.vim/sessions/'.l:session
-        redraw
-        echo 'Loaded session '.l:session
-    else
-        redraw
-        echo 'No session loaded'
     endif
 endfunction
 "}}}
@@ -243,65 +188,23 @@ endfunction
 "}}}
 
 
-" WinMove{{{
-" UNUSED
-function! utility#WinMove(key)
-    let t:curwin = winnr()
-    exec 'wincmd '.a:key
-    if t:curwin ==? winnr()
-        if match(a:key,'[jk]')
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec 'wincmd '.a:key
-        " add `exec 'Explore'` here to open Netrw inside
-        " new window or aother file explorer as follows:
-        " if exists("g:fzf_explore") | exec 'FZFExplore' | endif
-    endif
-    return bufname('%')
-endfunction
-"}}}
 
 
-" Check if directory{{{
-" UNUSED
-function! s:isdir(dir) abort
-    let l:isempty = !empty(a:dir)
-    let l:isdirectory = isdirectory(a:dir)
-    let l:systemshit = !empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)
-    return l:isempty && (l:isdirectory || l:systemshit)
-endfunction
-"}}}
+if !exists("g:mkdir_loaded") | let g:mkdir_loaded=1 | endif
+autocmd! BufWritePre * call utility#Mkdir()
 
 
-" Launch explorer on open{{{
-" UNUSED
-function! utility#LaunchOnOpen(explorer)
-    let l:directory = expand('%:p')
-    if <SID>isdir(l:directory)
-        execute 'Bclose'
-        if len(getbufinfo({'buflisted':1})) !=? 1 || bufname('%') !=? ''
-            execute 'tabnew'
-        endif
-        execute 'cd ' . l:directory
-        execute a:explorer
-    endif
-endfunction
-"}}}
+command! LongLine call utility#LongLine()
+command! ToggleAccent call utility#ToggleAccent()
+command! ReplaceSearch call utility#ReplaceSearch()
+command! JumpCurrentDir call utility#JumpCurrentDir()
+command! JumpParentDir call utility#JumpParentDir()
+command! JumpGitDir call utility#JumpGitDir()
+command! Delete call utility#Delete()
+command! -bang Rename call utility#Rename('<bang>')
 
 
-" Confirm{{{
-" UNUSED
-function! utility#Confirm(msg)
-    echo a:msg . ' '
-    let l:answer = nr2char(getchar())
-    if l:answer ==? 'y'
-        return 1
-    elseif l:answer ==? 'n'
-        return 0
-    else
-        return utility#Confirm(a:msg)
-    endif
-endfun
-"}}}
+nnoremap <silent>' :ToggleAccent<CR>
+nnoremap <leader>o :JumpGitDir<CR>
+nnoremap <leader>j :JumpParentDir<CR>
+nnoremap <leader>J :JumpCurrentDir<CR>

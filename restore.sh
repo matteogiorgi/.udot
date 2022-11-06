@@ -100,6 +100,9 @@ restore () {
     # bin
     [[ -d $RESTORE/bin ]] && mv $RESTORE/bin $HOME
 
+    # ctags
+    [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
+
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
@@ -178,6 +181,7 @@ fi
 
 stow -D bash
 stow -D bin
+stow -D ctags
 stow -D fzf
 stow -D i3
 stow -D kakoune
