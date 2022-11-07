@@ -110,7 +110,7 @@ set runtimepath+=~/.vim_runtime  " add whatever
 set clipboard=unnamedplus
 set number relativenumber mouse=a  " a,n,v,i,c
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
-set ruler scrolloff=8 sidescrolloff=8
+set ruler scrolloff=8 sidescrolloff=16
 set autoindent
 set formatoptions+=l
 set hlsearch incsearch
