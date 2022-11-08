@@ -122,7 +122,7 @@ set fillchars+=vert:\│,eob:\ ,fold:-
 set wildchar=<Tab> wildmenu wildmode=full
 set nrformats-=alpha
 set laststatus=2
-set showtabline=2
+set showtabline=1
 "}}}
 
 " Set completion{{{
