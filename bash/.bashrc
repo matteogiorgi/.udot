@@ -223,12 +223,20 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 set -o vi
 PROMPT=${PS1@P}
 
-bind -m vi-command -x '"\C-f": ffind'
-bind -m vi-command -x '"\C-g": fgit'
+bind -m vi-command -x '"\C-f": shfm'
+bind -m vi-command -x '"\C-g": tig'
+bind -m vi-command -x '"\C-h": fgit'
 bind -m vi-command -x '"\C-j": fjump'
+bind -m vi-command -x '"\C-k": ffind'
 bind -m vi-command -x '"\C-l": clear; echo ${PROMPT%????}'
 
-bind -m vi-insert -x '"\C-f": ffind'
-bind -m vi-insert -x '"\C-g": fgit'
+bind -m vi-insert -x '"\C-f": shfm'
+bind -m vi-insert -x '"\C-g": tig'
+bind -m vi-insert -x '"\C-h": fgit'
 bind -m vi-insert -x '"\C-j": fjump'
+bind -m vi-insert -x '"\C-k": ffind'
 bind -m vi-insert -x '"\C-l": clear; echo ${PROMPT%????}'
+
+bind 'TAB:menu-complete'
+bind '"\e[Z":menu-complete-backward'
+bind 'set show-all-if-ambiguous on'
