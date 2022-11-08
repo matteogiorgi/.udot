@@ -308,7 +308,6 @@ sudo apt install -qq -y \
     xarchiver \
     vlc \
     galculator \
-    filezilla \
     simplescreenrecorder
 
 

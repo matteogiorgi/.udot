@@ -44,7 +44,7 @@ i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune vim-gtk3 nano
 tig vlc zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman
 network-manager humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra
 adwaita-qt lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol
-gparted pcmanfm xarchiver galculator neovim filezilla simplescreenrecorder
+gparted pcmanfm xarchiver galculator neovim simplescreenrecorder
 ```
 
 
@@ -69,12 +69,12 @@ code codium brave google-chrome chromium
 
 ## Language support
 
+- Javascript: `nodejs` (at least for Coc.nvim)
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
-- Javascript: `nodejs` (just for Coc.nvim)
 
 
 

@@ -290,7 +290,6 @@ sudo apt purge -qq -y \
     xarchiver \
     vlc \
     galculator \
-    filezilla \
     simplescreenrecorder
 
 

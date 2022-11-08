@@ -50,10 +50,6 @@ if [[ -x "$(command -v xournalpp)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xournal" || NAMES="Xournal\n"$NAMES
 fi
 
-if [[ -x "$(command -v filezilla)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="FileZilla" || NAMES="FileZilla\n"$NAMES
-fi
-
 if [[ -x "$(command -v xarchiver)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
 fi
