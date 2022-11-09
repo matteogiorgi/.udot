@@ -69,7 +69,7 @@ function _vimlastsession () {
 function _tmux () {
     YLW='\033[1;35m'; NC='\033[0m'
     if [[ -n "$TMUX" ]]; then
-        printf "${YLW}%s${NC}\n" "WTF mate, you're already in tmux session!"
+        printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"
         return
     fi
     if [[ $(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$)) == "kitty" ]]; then
