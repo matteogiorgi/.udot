@@ -287,10 +287,7 @@ sudo apt purge -qq -y \
     pavucontrol \
     gparted \
     pcmanfm \
-    xarchiver \
-    vlc \
-    galculator \
-    simplescreenrecorder
+    xarchiver
 
 
 
@@ -308,6 +305,7 @@ if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
+    [[ -x "$(command -v ferdium)" ]] && sudo snap remove --purge ferdium
 fi
 
 

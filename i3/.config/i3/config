@@ -261,16 +261,11 @@ for_window [class="GParted"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
 
-# other floating apps
+# swallow floating apps
 for_window [class="mpv"] floating enable
 for_window [class="Zathura"] floating enable
 for_window [class="Sxiv"] floating enable
-
-# more floats
 for_window [class="Xournalpp"] floating enable
-for_window [class="vlc"] floating enable
-for_window [class="SimpleScreenRecorder"] floating enable
-for_window [class="Galculator"] floating enable
 
 
 
