@@ -150,12 +150,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
     "vim.leader": "<space>",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
-        },
-    ],
+    "vim.insertModeKeyBindings": [],
     "vim.visualModeKeyBindings": [
         {
             "before": ["<Tab>"],
@@ -192,10 +187,6 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
             "after": ["y", "$"]
         },
         {
-            "before": ["<Tab>"],
-            "after": ["C-w", "w"]
-        },
-        {
             "before": ["u"],
             "commands": ["undo"],
             "silent": true
@@ -217,41 +208,56 @@ EOF
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 [
     {
-        "key": "alt+v",
+        "key": "alt+t",
         "command": "toggleVim"
-    },
-    {
-        "key": "alt+q",
-        "command": "workbench.action.quit"
-    },
-    {
-        "key": "alt+w",
-        "command": "workbench.action.closeWindow"
     },
     {
         "key": "alt+a",
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
-        "key": "alt+s",
-        "command": "actions.find"
+        "key": "alt+q",
+        "command": "workbench.action.closeWindow"
+    },
+    {
+        "key": "alt+shift+q",
+        "command": "workbench.action.quit"
+    },
+    {
+        "key": "alt+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "alt+w",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
         "key": "alt+h",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+shift+h",
         "command": "workbench.action.openRecent"
     },
     {
         "key": "alt+j",
-        "command": "workbench.action.quickOpen"
+        "command": "actions.find"
+    },
+    {
+        "key": "alt+shift+j",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
     {
         "key": "alt+k",
-        "command": "workbench.action.closeActiveEditor"
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
     },
     {
-        "key": "alt+k",
-        "command": "workbench.action.closeGroup",
-        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+        "key": "alt+shift+k",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
     },
     {
         "key": "alt+l",
@@ -262,21 +268,6 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "key": "alt+l",
         "command": "workbench.action.toggleSidebarVisibility",
         "when": "sideBarFocus"
-    },
-    {
-        "key": "alt+d",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+u",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
-    },
-    {
-        "key": "alt+i",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
     {
         "key": "alt+space",
