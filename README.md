@@ -69,7 +69,7 @@ code codium brave google-chrome chromium
 
 ## Language support
 
-- Javascript: `nodejs` (at least for Coc.nvim)
+- Javascript: `nodejs` (required for coc.nvim)
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`

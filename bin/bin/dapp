@@ -34,22 +34,6 @@ if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
 
-if [[ -x "$(command -v galculator)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Galculator" || NAMES="Galculator\n"$NAMES
-fi
-
-if [[ -x "$(command -v simplescreenrecorder)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="SSRecorder" || NAMES="SSRecorder\n"$NAMES
-fi
-
-if [[ -x "$(command -v vlc)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Vlc" || NAMES="Vlc\n"$NAMES
-fi
-
-if [[ -x "$(command -v xournalpp)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Xournal" || NAMES="Xournal\n"$NAMES
-fi
-
 if [[ -x "$(command -v xarchiver)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
 fi
@@ -67,25 +51,10 @@ fi
 CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p APPLICATION | cut -d ':' -f 1)
 case "$CHOICE" in
     PCmanFm)
-        _launch "pcmanfm"
+        pcmanfm
         ;;
     Xarchiver)
         xarchiver
-        ;;
-    FileZilla)
-        filezilla
-        ;;
-    Xournal)
-        xournalpp
-        ;;
-    Vlc)
-        vlc
-        ;;
-    SSRecorder)
-        simplescreenrecorder
-        ;;
-    Galculator)
-        galculator
         ;;
     Arandr)
         arandr
