@@ -124,7 +124,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.minimap.enabled": false,
     "editor.rulers": [120],
     "editor.folding": false,
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "off",
     "editor.cursorBlinking": "solid",
     "editor.scrollbar.vertical": "auto",
     "editor.scrollbar.horizontal": "hidden",
@@ -142,7 +142,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
     "workbench.editor.closeEmptyGroups": true,
-    "workbench.list.openMode": "singleClick",
+    "workbench.list.openMode": "doubleClick",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.tree.indent": 20,
     "vim.incsearch": true,
@@ -208,29 +208,20 @@ EOF
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
 [
     {
-        "key": "alt+t",
-        "command": "toggleVim"
+        "key": "alt+shift+q",
+        "command": "workbench.action.quit"
+    },
+    {
+        "key": "alt+shift+w",
+        "command": "workbench.action.closeWindow"
     },
     {
         "key": "alt+a",
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
-        "key": "alt+q",
-        "command": "workbench.action.closeWindow"
-    },
-    {
-        "key": "alt+shift+q",
-        "command": "workbench.action.quit"
-    },
-    {
-        "key": "alt+w",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "alt+w",
-        "command": "workbench.action.closeGroup",
-        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+        "key": "alt+t",
+        "command": "toggleVim"
     },
     {
         "key": "alt+h",
@@ -261,13 +252,22 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+l",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "alt+l",
         "command": "workbench.action.focusSideBar",
         "when": "!sideBarFocus"
     },
     {
-        "key": "alt+l",
-        "command": "workbench.action.toggleSidebarVisibility",
-        "when": "sideBarFocus"
+        "key": "alt+shift+l",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "alt+shift+l",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
         "key": "alt+space",
