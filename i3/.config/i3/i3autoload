@@ -13,7 +13,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 [[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
 [[ -x "$(command -v flameshot)" ]] && flameshot &
 [[ -x "$(command -v diodon)" ]] && diodon &
-[[ -x "$(command -v xautolock)" ]] && xautolock -time 10 -locker slock &
+[[ -x "$(command -v xautolock)" ]] && xautolock -time 20 -locker slock &
 
 
 
