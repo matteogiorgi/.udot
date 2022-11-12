@@ -2,11 +2,7 @@
 
 
 if [[ -x "$(command -v uxterm)" ]]; then
-    NAMES="UXterm"
-fi
-
-if [[ -x "$(command -v xterm)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Xterm" || NAMES="Xterm\n"$NAMES
+    NAMES="Xterm"
 fi
 
 if [[ -x "$(command -v urxvt)" ]]; then
@@ -43,9 +39,6 @@ case "$CHOICE" in
         ;;
     Xterm)
         xterm
-        ;;
-    UXterm)
-        uxterm
         ;;
     *)
         exit 1

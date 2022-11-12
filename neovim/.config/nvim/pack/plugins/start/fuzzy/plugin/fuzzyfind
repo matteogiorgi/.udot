@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+[[ -x "$(command -v rg)" ]] && FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
+if [[ -x "$(command -v mess)" ]]; then
+    FILE="$(fzf --preview 'mess {}' --preview-window 'down,80%,border-sharp' `
+            `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " `
+            `--height 100% --margin 0% --reverse --info=hidden --header-first)"
+else
+    FILE="$(fzf --preview 'less {}' --preview-window 'down,80%,border-sharp' `
+            `--bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD > " `
+            `--height 100% --margin 0% --reverse --info=hidden --header-first)"
+fi
+
+[[ -z "$FILE" ]] && exit 1
+echo "${PWD}/${FILE}" > /tmp/vim_fuzzy_current_file

@@ -284,6 +284,11 @@ for_window [instance="scratchpad"] floating enable
 for_window [instance="scratchpad"] resize set 800 600
 for_window [instance="scratchpad"] move position center
 
+for_window [instance="fuzzy"] floating enable
+for_window [instance="fuzzy"] resize set 800 600
+for_window [instance="fuzzy"] move position center
+for_window [instance="fuzzy"] border pixel 2
+
 
 
 
