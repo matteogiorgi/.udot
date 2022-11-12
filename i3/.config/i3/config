@@ -301,7 +301,6 @@ bindsym $mod+e exec "dedit"
 bindsym $mod+y exec "diodon"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
-bindsym $mod+g exec "gvim"
 bindsym $mod+b exec "dweb"
 bindsym $mod+n move workspace to output next
 
