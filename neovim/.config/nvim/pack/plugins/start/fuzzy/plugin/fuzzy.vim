@@ -1,10 +1,6 @@
 function s:FuzzyFind()
     if has('gui_running') || has('nvim')
-        if &background ==? 'light'
-            exec "silent !urxvt -bg white -fg black -name fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind " . expand("%:p:h")
-        else
-            exec "silent !urxvt -name fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind " . expand("%:p:h")
-        endif
+        exec "silent !st -n fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind " . expand("%:p:h")
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind " . expand("%:p:h")
     endif
@@ -17,11 +13,7 @@ endfun
 
 function s:FuzzyJump()
     if has('gui_running') || has('nvim')
-        if &background ==? 'light'
-            exec "silent !urxvt -bg white -fg black -name fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump " . expand("%:p:h")
-        else
-            exec "silent !urxvt -name fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump " . expand("%:p:h")
-        endif
+        exec "silent !st -n fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump " . expand("%:p:h")
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump " . expand("%:p:h")
     endif
@@ -38,11 +30,7 @@ endfun
 
 function s:FuzzyGit()
     if has('gui_running') || has('nvim')
-        if &background ==? 'light'
-            exec "silent !urxvt -bg white -fg black -name fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
-        else
-            exec "silent !urxvt -name fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
-        endif
+        exec "silent !st -n fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     endif
