@@ -81,6 +81,11 @@ endfunction
 
 " Jump parent directory{{{
 function! utility#JumpParentDir()
+    if getcwd() ==? $HOME
+        echon 'No more jumping -- CWD: ' . getcwd()
+        return
+    endif
+
     echon 'CWD: '
     let l:parent = fnamemodify('getcwd()', ':p:h:h')
     execute 'cd ' . l:parent
