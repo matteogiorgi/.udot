@@ -56,7 +56,7 @@ let g:fzf_layout = { 'window': 'enew' }
 " Keymaps
 nnoremap <leader><Tab> :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
-nnoremap <leader>i :Rg<CR>
+nnoremap <leader>r :Rg<CR>
 nnoremap <leader>s :GFiles?<CR>
 nnoremap <leader>t :BTags<CR>
 nnoremap <leader>T :Tags<CR>

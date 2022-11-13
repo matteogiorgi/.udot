@@ -77,8 +77,8 @@ bindsym $mod+u layout toggle tabbed stacking splith splitv
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
-bindsym $mod+o focus parent
-bindsym $mod+Shift+o focus child
+bindsym $mod+space focus parent
+bindsym $mod+Shift+space focus child
 
 bindsym $mod+BackSpace focus mode_toggle
 bindsym $mod+Shift+BackSpace floating toggle
@@ -156,7 +156,7 @@ bindsym $mod+r mode "resize"
 ### Adjust temperature
 ######################
 
-mode "temperature" {
+mode "gtemp" {
     bindsym j exec "xtemp -1"
     bindsym k exec "xtemp +1"
     bindsym z exec "xtemp"
@@ -164,10 +164,10 @@ mode "temperature" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
-    bindsym $mod+t mode "default"
+    bindsym $mod+g mode "default"
 }
 
-bindsym $mod+t mode "temperature"
+bindsym $mod+g mode "gtemp"
 
 
 
@@ -298,16 +298,15 @@ for_window [instance="fuzzy"] border pixel 2
 bindsym $mod+Return exec "st"
 bindsym $mod+Shift+Return exec "st -n scratchpad"
 
-bindsym $mod+space exec --no-startup-id "dmenu_run -i -b -p MENU"
-bindsym $mod+Shift+space exec "dterm"
-
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "dedit"
+bindsym $mod+t exec "dterm"
 bindsym $mod+y exec "diodon"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
-bindsym $mod+b exec "dweb"
+bindsym $mod+b exec "dbrowser"
 bindsym $mod+n move workspace to output next
+bindsym $mod+m exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 
 
