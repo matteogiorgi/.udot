@@ -29,9 +29,9 @@ command! -bang Rename call utility#Rename('<bang>')
 
 nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>^ :ChBackground<CR>
-nnoremap <leader>i :JumpGitDir<CR>
-nnoremap <leader>d :JumpParentDir<CR>
-nnoremap <leader>D :JumpCurrentDir<CR>
+nnoremap <leader>x :JumpGitDir<CR>
+nnoremap <leader>z :JumpParentDir<CR>
+nnoremap <leader>Z :JumpCurrentDir<CR>
 
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

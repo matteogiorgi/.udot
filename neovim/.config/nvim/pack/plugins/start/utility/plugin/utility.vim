@@ -18,3 +18,14 @@ nnoremap <silent>^ :ResetGruvbox<CR>
 nnoremap <leader>x :JumpGitDir<CR>
 nnoremap <leader>z :JumpParentDir<CR>
 nnoremap <leader>Z :JumpCurrentDir<CR>
+
+nnoremap <leader>0 0gt
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
