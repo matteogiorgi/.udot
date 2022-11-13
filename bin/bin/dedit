@@ -21,8 +21,12 @@ _launch () {
 }
 
 
+if [[ -x "$(command -v gvim)" ]]; then
+    NAMES="Gvim"
+fi
+
 if [[ -x "$(command -v codium)" ]]; then
-    NAMES="Codium"
+    [[ ! -n $NAMES ]] && NAMES="Codium" || NAMES="Codium\n"$NAMES
 fi
 
 if [[ -x "$(command -v code)" ]]; then
@@ -42,6 +46,9 @@ case "$CHOICE" in
         ;;
     Codium)
         _launch "CODIUM" "codium"
+        ;;
+    Gvim)
+        gvim
         ;;
     *)
         exit 1

@@ -15,6 +15,6 @@ command! -bang Rename call utility#Rename('<bang>')
 
 nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>^ :ResetGruvbox<CR>
-nnoremap <leader>o :JumpGitDir<CR>
-nnoremap <leader>p :JumpParentDir<CR>
-nnoremap <leader>P :JumpCurrentDir<CR>
+nnoremap <leader>x :JumpGitDir<CR>
+nnoremap <leader>z :JumpParentDir<CR>
+nnoremap <leader>Z :JumpCurrentDir<CR>
