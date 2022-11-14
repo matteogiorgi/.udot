@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 
 
+_gvimlastsession () {
+    if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
+        gvim -S $HOME/.vim/sessions/last.vim
+    else
+        gvim
+    fi
+}
+
 _launch () {
     NAME="$1"; COMMAND="$2"
-    CHOICE=$(echo -e "Open\nWindow\n\$HOME" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    CHOICE=$(echo -e "Reopen\nOpen" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
     case "$CHOICE" in
+        Reopen)
+            [[ "$NAME" == "GVIM" ]] && _gvimlastsession || $COMMAND
+            ;;
         Open)
-            $COMMAND
-            ;;
-        Window)
-            $COMMAND --new-window
-            ;;
-        \$HOME)
-            $COMMAND $HOME
+            [[ "$NAME" == "GVIM" ]] && $COMMAND || $COMMAND --new-window
             ;;
         *)
             exit 1
@@ -21,16 +26,16 @@ _launch () {
 }
 
 
-if [[ -x "$(command -v gvim)" ]]; then
-    NAMES="Gvim"
-fi
-
 if [[ -x "$(command -v codium)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Codium" || NAMES="Codium\n"$NAMES
+    NAMES="Codium"
 fi
 
 if [[ -x "$(command -v code)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Code" || NAMES="Code\n"$NAMES
+fi
+
+if [[ -x "$(command -v gvim)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="GVim" || NAMES="GVim\n"$NAMES
 fi
 
 if [[ ! -n $NAMES ]]; then
@@ -47,8 +52,8 @@ case "$CHOICE" in
     Codium)
         _launch "CODIUM" "codium"
         ;;
-    Gvim)
-        gvim
+    GVim)
+        _launch "GVIM" "gvim"
         ;;
     *)
         exit 1
