@@ -11,9 +11,9 @@ _gvimlastsession () {
 
 _launch () {
     NAME="$1"; COMMAND="$2"
-    CHOICE=$(echo -e "Reopen\nOpen" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
+    CHOICE=$(echo -e "Restore\nOpen" | dmenu -i -b -p $NAME | cut -d ':' -f 1)
     case "$CHOICE" in
-        Reopen)
+        Restore)
             [[ "$NAME" == "GVIM" ]] && _gvimlastsession || $COMMAND
             ;;
         Open)
