@@ -283,11 +283,7 @@ for_window [class="Xournalpp"] floating enable
 for_window [instance="scratchpad"] floating enable
 for_window [instance="scratchpad"] resize set 800 600
 for_window [instance="scratchpad"] move position center
-
-for_window [instance="fuzzy"] floating enable
-for_window [instance="fuzzy"] resize set 800 600
-for_window [instance="fuzzy"] move position center
-for_window [instance="fuzzy"] border pixel 2
+for_window [instance="scratchpad"] border pixel 2
 
 
 
@@ -296,7 +292,7 @@ for_window [instance="fuzzy"] border pixel 2
 #################
 
 bindsym $mod+Return exec "st"
-bindsym $mod+Shift+Return exec "st -n scratchpad"
+bindsym $mod+Shift+Return exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "dedit"
@@ -306,7 +302,6 @@ bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+n move workspace to output next
-bindsym $mod+m exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 
 

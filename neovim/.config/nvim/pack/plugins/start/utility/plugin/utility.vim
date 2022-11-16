@@ -4,7 +4,7 @@ autocmd! BufWritePre * call utility#Mkdir()
 
 command! LongLine call utility#LongLine()
 command! ToggleAccent call utility#ToggleAccent()
-command! ResetGruvbox call utility#ResetGruvbox()
+command! ChBackground call utility#ChBackground()()
 command! ReplaceSearch call utility#ReplaceSearch()
 command! JumpCurrentDir call utility#JumpCurrentDir()
 command! JumpParentDir call utility#JumpParentDir()
@@ -14,7 +14,7 @@ command! -bang Rename call utility#Rename('<bang>')
 
 
 nnoremap <silent>' :ToggleAccent<CR>
-nnoremap <silent>^ :ResetGruvbox<CR>
+nnoremap <silent>^ :ChBackground<CR>
 nnoremap <leader>x :JumpGitDir<CR>
 nnoremap <leader>z :JumpParentDir<CR>
 nnoremap <leader>Z :JumpCurrentDir<CR>

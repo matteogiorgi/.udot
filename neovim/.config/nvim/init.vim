@@ -9,8 +9,6 @@
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-""    gruvbox ······················ https://github.com/morhetz/gruvbox
-""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""
 ""    For full documentation and other stuff visit https://neovim.io
 ""
@@ -63,8 +61,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
-    Plug 'morhetz/gruvbox'
-    Plug 'itchyny/lightline.vim'
 call plug#end()
 "}}}
 
@@ -85,6 +81,7 @@ endif
 " Syntax{{{
 syntax on
 filetype plugin indent on
+colorscheme one
 "}}}
 
 
@@ -103,7 +100,7 @@ set hlsearch incsearch
 set nowrap nospell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
-set noshowmode showcmd
+set showmode showcmd
 set cursorline noerrorbells novisualbell
 set cursorlineopt=number,line
 set splitbelow splitright

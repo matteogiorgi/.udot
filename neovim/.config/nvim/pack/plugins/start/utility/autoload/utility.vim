@@ -14,9 +14,13 @@ endfunction
 "}}}
 
 
-" Reset Gruvbox{{{
-function! utility#ResetGruvbox()
-    source $HOME/.config/nvim/plugin/gruvbox.vim
+" Background{{{
+function! utility#ChBackground()
+    if &background ==? 'dark'
+        set background=light
+    else
+        set background=dark
+    endif
 endfunction
 "}}}
 
