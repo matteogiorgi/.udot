@@ -18,7 +18,7 @@
 
 
 
-" Plug check (it only works on GNU/Linux){{{
+" Plug check (it only works on GNU/Linux) {{{
 if !exists('noplugin')
     augroup vimenter
         autocmd VimEnter *
@@ -34,10 +34,10 @@ if !exists('noplugin')
         endif
     augroup end
 endif
-"}}}
+" }}}
 
 
-" Save last session{{{
+" Save last session {{{
 if !exists('noplugin')
     augroup vimleave
         " a better way would be to check buffers on all opened windows
@@ -51,10 +51,10 @@ if !exists('noplugin')
                     \ mksession! $HOME/.vim/sessions/last.vim
     augroup end
 endif
-"}}}
+" }}}
 
 
-" Plugin list{{{
+" Plugin list {{{
 if !exists('noplugin')
     call plug#begin('~/.vim/plugged')
         Plug 'tpope/vim-surround'
@@ -68,10 +68,10 @@ if !exists('noplugin')
         Plug 'ludovicchabant/vim-gutentags'
     call plug#end()
 endif
-"}}}
+" }}}
 
 
-" Some settings to load early{{{
+" Some settings to load early {{{
 if exists('+termguicolors') | set termguicolors | endif
 if has('linebreak') | let &showbreak='⤷ ' | endif
 if has('persistent_undo')
@@ -81,26 +81,26 @@ if has('persistent_undo')
     set undodir=$HOME/.vim/undodir
     set undofile
 endif
-"}}}
+" }}}
 
 
-" Syntax{{{
+" Syntax {{{
 syntax on
 filetype plugin indent on
 colorscheme hemisu
-"}}}
+" }}}
 
 
-" Dynamic background{{{
+" Dynamic background {{{
 if exists('theme') && theme == 'light'
     set background=light
 else
     set background=dark
 endif
-"}}}
+" }}}
 
 
-" Set mainstuff{{{
+" Set mainstuff {{{
 set exrc
 set title
 set shell=bash  " zsh,bash
@@ -144,10 +144,10 @@ else
     set laststatus=0
     set showtabline=0
 endif
-"}}}
+" }}}
 
 
-" Set completion{{{
+" Set completion {{{
 set path+=**
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,longest,noinsert,noselect
@@ -161,19 +161,19 @@ set wildchar=<Tab> wildmode=full  " wildmode=list:longest,list:full
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set shortmess+=c
 set belloff+=ctrlg
-"}}}
+" }}}
 
 
-" Variables to load early{{{
+" Variables to load early {{{
 let g:mapleader = "\<space>"
 let g:maplocalleader = ","
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
 endif
-"}}}
+" }}}
 
 
-" Linenumber behaviour{{{
+" Linenumber behaviour {{{
 augroup numbertoggle
     autocmd!
     autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
@@ -181,10 +181,10 @@ augroup numbertoggle
     autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
                 \ if &number ==? 1 | set norelativenumber | endif | set nocursorline
 augroup end
-"}}}
+" }}}
 
 
-" Overlength behaviour{{{
+" Overlength behaviour {{{
 augroup overlengthtoggle
     autocmd!
     autocmd InsertEnter *
@@ -196,10 +196,10 @@ augroup overlengthtoggle
                 \     set colorcolumn= |
                 \ endif
 augroup end
-"}}}
+" }}}
 
 
-" Simple commands{{{
+" Simple commands {{{
 command! Date execute 'r !printf "\n\# " && date && printf "\n"'
 command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
@@ -207,17 +207,17 @@ command! RemoveSpaces :%s/\s\+$//e
 command! Squish execute "normal \ggVGgq"
 command! ClearLastSearch :let @/=""
 command! LastSession :source $HOME/.vim/sessions/last.vim
-"}}}
+" }}}
 
 
-" Copy/Pasta commands{{{
+" Copy/Pasta commands {{{
 "(`apt intall -yy vim-gtk3`)
 command! Copy execute 'visual "+y'
 command! Pasta execute 'normal "+p'
-"}}}
+" }}}
 
 
-" Keymaps{{{
+" Keymaps {{{
 xnoremap <silent>K :move '<-2<CR>gv=gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
@@ -236,4 +236,4 @@ nnoremap <silent><C-d> <C-d>zz
 nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
-"}}}
+" }}}

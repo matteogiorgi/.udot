@@ -16,7 +16,7 @@
 
 
 
-" Plug check (it only works on GNU/Linux){{{
+" Plug check (it only works on GNU/Linux) {{{
 augroup vimenter
     autocmd VimEnter *
                 \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
@@ -30,10 +30,10 @@ augroup vimenter
         autocmd VimEnter * PlugInstall
     endif
 augroup end
-"}}}
+" }}}
 
 
-" Netrw on open{{{
+" Netrw on open {{{
 augroup onopen
     autocmd!
     autocmd VimEnter *
@@ -41,18 +41,18 @@ augroup onopen
                 \     Explore! |
                 \ endif
 augroup end
-"}}}
+" }}}
 
 
-" Terminal settings{{{
+" Terminal settings {{{
 augroup termsettings
     autocmd!
     autocmd TermOpen * setlocal nonumber norelativenumber
 augroup end
-"}}}
+" }}}
 
 
-" Plugin list{{{
+" Plugin list {{{
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
@@ -62,10 +62,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
-"}}}
+" }}}
 
 
-" Some settings to load early{{{
+" Some settings to load early {{{
 if exists('+termguicolors') | set termguicolors | endif
 if has('linebreak') | let &showbreak='⤷ ' | endif
 if has('persistent_undo')
@@ -75,17 +75,26 @@ if has('persistent_undo')
     set undodir=$HOME/.config/nvim/undodir
     set undofile
 endif
-"}}}
+" }}}
 
 
-" Syntax{{{
+" Syntax {{{
 syntax on
 filetype plugin indent on
 colorscheme one
-"}}}
+" }}}
 
 
-" Set mainstuff{{{
+" Dynamic background {{{
+if exists('theme') && theme == 'light'
+    set background=light
+else
+    set background=dark
+endif
+" }}}
+
+
+" Set mainstuff {{{
 set exrc
 set title
 set shell=bash
@@ -120,9 +129,9 @@ set wildchar=<Tab> wildmenu wildmode=full
 set nrformats-=alpha
 set laststatus=2
 set showtabline=1
-"}}}
+" }}}
 
-" Set completion{{{
+" Set completion {{{
 set path+=**
 set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,longest,noinsert,noselect
@@ -135,20 +144,20 @@ set wildmenu
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 set shortmess+=c
 set belloff+=ctrlg
-"}}}
+" }}}
 
 
-" Variables to load early{{{
+" Variables to load early {{{
 let g:mapleader = "\<space>"
 let g:maplocalleader = ","
 let g:coc_node_path = trim(system('which node'))
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
 endif
-"}}}
+" }}}
 
 
-" Linenumber behaviour{{{
+" Linenumber behaviour {{{
 augroup numbertoggle
     autocmd!
     autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
@@ -156,10 +165,10 @@ augroup numbertoggle
     autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
                 \ if &number ==? 1 | set norelativenumber | endif | set nocursorline
 augroup end
-"}}}
+" }}}
 
 
-" Overlength behaviour{{{
+" Overlength behaviour {{{
 augroup overlengthtoggle
     autocmd!
     autocmd InsertEnter *
@@ -171,26 +180,26 @@ augroup overlengthtoggle
                 \     set colorcolumn= |
                 \ endif
 augroup end
-"}}}
+" }}}
 
 
-" Simple commands{{{
+" Simple commands {{{
 command! Date execute 'r !printf "\n\# " && date && printf "\n"'
 command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
 command! Squish execute "normal \ggVGgq"
 command! ClearLastSearch :let @/=""
-"}}}
+" }}}
 
 
-" Copy/Pasta commands{{{
+" Copy/Pasta commands {{{
 command! Copy execute 'visual "+y'
 command! Pasta execute 'normal "+p'
-"}}}
+" }}}
 
 
-" Keymaps{{{
+" Keymaps {{{
 xnoremap K :move '<-2<CR>gv=gv
 xnoremap J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
@@ -209,4 +218,4 @@ nnoremap <silent><C-d> <C-d>zz
 nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
-"}}}
+" }}}
