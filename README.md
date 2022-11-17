@@ -53,7 +53,7 @@ gparted pcmanfm xarchiver
 ## Snap/extra packages
 
 ```
-code codium brave google-chrome chromium
+code codium brave google-chrome chromium ferdium
 ```
 
 
