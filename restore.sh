@@ -287,7 +287,9 @@ sudo apt purge -qq -y \
     pavucontrol \
     gparted \
     pcmanfm \
-    xarchiver
+    xarchiver \
+    vlc \
+    simplescreenrecorder
 
 
 
