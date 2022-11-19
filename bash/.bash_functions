@@ -337,7 +337,7 @@ function _xopp2pdf () {
 
     ARGS="$*"
     if [[ "$ARGS" == "" ]]; then
-        mkdir ./pdf
+        [[ ! -d ./pdf ]] && mkdir ./pdf
         LIST=$(find *.xopp)
         for FILE in $LIST; do
             printf "${YLW}%s${NC} -> ${RED}%s${NC}\n" "$FILE" "./pdf/${FILE%.*}.pdf"
