@@ -337,11 +337,11 @@ function _xopp2pdf () {
 
     ARGS="$*"
     if [[ "$ARGS" == "" ]]; then
-        [[ ! -d ./pdf ]] && mkdir ./pdf
+        [[ ! -d ./xopp2pdf ]] && mkdir ./xopp2pdf
         LIST=$(find *.xopp)
         for FILE in $LIST; do
-            printf "${YLW}%s${NC} -> ${RED}%s${NC}\n" "$FILE" "./pdf/${FILE%.*}.pdf"
-            xournalpp "$FILE" -p ./pdf/"${FILE%.*}.pdf" 2>/dev/null
+            printf "${YLW}%s${NC} -> ${RED}%s${NC}\n" "$FILE" "./xopp2pdf/${FILE%.*}.pdf"
+            xournalpp "$FILE" -p ./xopp2pdf/"${FILE%.*}.pdf" 2>/dev/null
         done
     else
         printf "${YLW}%s${NC} -> ${RED}%s${NC}\n" "$ARGS" "${ARGS%.*}.pdf"
