@@ -305,7 +305,7 @@ bindsym $mod+y exec "diodon"
 bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
 bindsym $mod+b exec "dbrowser"
-bindsym $mod+n move workspace to output next
+bindsym $mod+m move workspace to output next
 
 
 
