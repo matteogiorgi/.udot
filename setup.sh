@@ -307,7 +307,9 @@ sudo apt install -qq -y \
     pcmanfm \
     xarchiver \
     vlc \
-    simplescreenrecorder
+    simplescreenrecorder \
+    gimp \
+    libreoffice
 
 
 

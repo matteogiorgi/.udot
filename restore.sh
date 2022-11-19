@@ -289,7 +289,9 @@ sudo apt purge -qq -y \
     pcmanfm \
     xarchiver \
     vlc \
-    simplescreenrecorder
+    simplescreenrecorder \
+    gimp \
+    libreoffice
 
 
 
