@@ -352,10 +352,11 @@ function _xopp2pdf () {
 
 function _mergepdf () {
     ARGS="$*"
+    [[ -f "merge.pdf" ]] && rm -f merge.pdf
     if [[ "$ARGS" == "" ]]; then
         pdfunite *.pdf merge.pdf
     else
-        pdfunite $ARGS merge.pdf
+        pdfunite "$ARGS" merge.pdf
     fi
 }
 
