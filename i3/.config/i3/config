@@ -304,9 +304,9 @@ bindsym $mod+Shift+Return exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
-bindsym $mod+t exec "dtool"
+bindsym $mod+t exec "dterminal"
 bindsym $mod+y exec "diodon"
-bindsym $mod+a exec "dterminal"
+bindsym $mod+a exec "dapptool"
 bindsym $mod+d exec "ddisplay"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m move workspace to output next

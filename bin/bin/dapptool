@@ -2,12 +2,12 @@
 
 
 _launch () {
-    CHOICE=$(echo -e "$USER\nAdmin" | dmenu -i -b -p USER | cut -d ':' -f 1)
+    CHOICE=$(echo -e "$USER\nroot" | dmenu -i -b -p USER | cut -d ':' -f 1)
     case "$CHOICE" in
         $USER)
             "$*"
             ;;
-        Admin)
+        root)
             pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY "$*"
             ;;
     esac
@@ -52,7 +52,7 @@ if [[ ! -n $NAMES ]]; then
 fi
 
 
-CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p TOOL | cut -d ':' -f 1)
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p APPTOOL | cut -d ':' -f 1)
 case "$CHOICE" in
     PCmanFm)
         _launch "pcmanfm"
