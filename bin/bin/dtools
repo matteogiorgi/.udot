@@ -34,6 +34,10 @@ if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
 
+if [[ -x "$(command -v xournalpp)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Xournal" || NAMES="Xournal\n"$NAMES
+fi
+
 if [[ -x "$(command -v xarchiver)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Xarchiver" || NAMES="Xarchiver\n"$NAMES
 fi
@@ -42,19 +46,29 @@ if [[ -x "$(command -v pcmanfm)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="PCmanFm" || NAMES="PCmanFm\n"$NAMES
 fi
 
+if [[ -x "$(command -v i3term)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="I3term" || NAMES="I3term\n"$NAMES
+fi
+
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
 fi
 
 
-CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p APPLICATION | cut -d ':' -f 1)
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p TOOLS | cut -d ':' -f 1)
 case "$CHOICE" in
+    I3term)
+        i3term --scratchpad
+        ;;
     PCmanFm)
-        pcmanfm
+        _launch "pcmanfm"
         ;;
     Xarchiver)
         xarchiver
+        ;;
+    Xournal)
+        xournalpp
         ;;
     Arandr)
         arandr
