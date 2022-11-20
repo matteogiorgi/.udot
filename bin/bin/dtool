@@ -46,21 +46,14 @@ if [[ -x "$(command -v pcmanfm)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="PCmanFm" || NAMES="PCmanFm\n"$NAMES
 fi
 
-if [[ -x "$(command -v i3term)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="I3term" || NAMES="I3term\n"$NAMES
-fi
-
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
 fi
 
 
-CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p TOOLS | cut -d ':' -f 1)
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p TOOL | cut -d ':' -f 1)
 case "$CHOICE" in
-    I3term)
-        i3term --scratchpad
-        ;;
     PCmanFm)
         _launch "pcmanfm"
         ;;
