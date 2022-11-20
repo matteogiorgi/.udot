@@ -306,7 +306,7 @@ bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
 bindsym $mod+t exec "dterminal"
 bindsym $mod+y exec "diodon"
-bindsym $mod+a exec "dapptool"
+bindsym $mod+a exec "dapp"
 bindsym $mod+d exec "ddisplay"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m move workspace to output next

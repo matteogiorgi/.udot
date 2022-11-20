@@ -52,7 +52,7 @@ if [[ ! -n $NAMES ]]; then
 fi
 
 
-CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p APPTOOL | cut -d ':' -f 1)
+CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p APP | cut -d ':' -f 1)
 case "$CHOICE" in
     PCmanFm)
         _launch "pcmanfm"
