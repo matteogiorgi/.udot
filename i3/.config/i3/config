@@ -267,6 +267,8 @@ for_window [class="mpv"] floating enable
 for_window [class="Zathura"] floating enable
 for_window [class="Sxiv"] floating enable
 for_window [class="Xournalpp"] floating enable
+
+# other floating apps
 for_window [class="vlc"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Gimp"] floating enable
@@ -276,8 +278,9 @@ for_window [class="libreoffice"] floating enable
 
 
 ### Bind programs to workspaces (use xprop)
-### assign [class="CLASS_NAME"] $WORKSPACE
 ###########################################
+
+assign [class="Ferdium"] $ws10
 
 
 
