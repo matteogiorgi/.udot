@@ -273,6 +273,7 @@ for_window [class="vlc"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Gimp"] floating enable
 for_window [class="libreoffice"] floating enable
+for_window [class="flameshot"] floating enable
 
 
 
