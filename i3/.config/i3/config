@@ -77,8 +77,8 @@ bindsym $mod+u layout toggle tabbed stacking splith splitv
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
-bindsym $mod+a focus mode_toggle
-bindsym $mod+Shift+a floating toggle
+bindsym $mod+BackSpace focus mode_toggle
+bindsym $mod+Shift+BackSpace floating toggle
 
 bindsym $mod+space focus parent
 bindsym $mod+Shift+space focus child
@@ -157,7 +157,7 @@ bindsym $mod+r mode "resize"
 ### Adjust temperature
 ######################
 
-mode "xtemp" {
+mode "temperature" {
     bindsym j exec "xtemp -1"
     bindsym k exec "xtemp +1"
     bindsym z exec "xtemp"
@@ -165,10 +165,10 @@ mode "xtemp" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
-    bindsym $mod+x mode "default"
+    bindsym $mod+t mode "default"
 }
 
-bindsym $mod+x mode "xtemp"
+bindsym $mod+t mode "temperature"
 
 
 
@@ -306,10 +306,10 @@ bindsym $mod+Shift+Return exec --no-startup-id "dmenu_run -i -b -p MENU"
 
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
-bindsym $mod+t exec "dterminal"
+bindsym $mod+a exec "dterminal"
 bindsym $mod+y exec "diodon"
 bindsym $mod+d exec "ddisplay"
-bindsym $mod+g exec "dguia"
+bindsym $mod+g exec "dguitool"
 bindsym $mod+b exec "dbrowser"
 
 
