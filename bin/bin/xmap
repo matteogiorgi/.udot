@@ -2,7 +2,10 @@
 
 
 if [[ -x "$(command -v xmodmap)" ]]; then
-    xmodmap -e 'remove Lock = Caps_Lock'
-    xmodmap -e 'keysym Caps_Lock = Escape'
-    xmodmap -e 'add Lock = Caps_Lock'
+    ## the following 4 lines sets CapsLock as a
+    ## second Super key and as Escape on key-press
+    xmodmap -e 'clear Lock'
+    xmodmap -e 'keysym Caps_Lock = Super_L'
+    xmodmap -e 'add mod4 = Super_L'
+    xmodmap -e 'keycode 66 = Escape'
 fi
