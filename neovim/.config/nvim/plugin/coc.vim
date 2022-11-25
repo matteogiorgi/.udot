@@ -105,13 +105,13 @@ inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>\<c-r>=coc#start()
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
+nnoremap <leader><CR> :CocList<CR>
 nnoremap <leader><Tab> :CocList buffers<CR>
 
 nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>
 nnoremap <leader>T :CocCommand tags.generate<CR>
 nnoremap <leader>y :CocList yank<CR>
-nnoremap <leader>a :CocList<CR>
 nnoremap <leader>s :CocList gstatus<CR>
 nnoremap <leader>f :CocList files<CR>
 nnoremap <leader>F :CocList gfiles<CR>

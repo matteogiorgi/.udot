@@ -223,7 +223,6 @@ xnoremap <silent>J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
 nnoremap <silent><Tab> :wincmd w<cr>
-nnoremap <silent><Backspace> :b#<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
 nnoremap <silent><C-p> :tabmove -1<cr>
