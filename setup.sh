@@ -259,7 +259,8 @@ sudo apt install -qq -y \
     jq \
     poppler-utils \
     xdotool \
-    exuberant-ctags
+    exuberant-ctags \
+    dconf-editor
 
 
 

@@ -258,6 +258,7 @@ sudo apt purge -qq -y \
     jq \
     xdotool \
     exuberant-ctags \
+    dconf-editor \
     i3-wm \
     xautolock \
     arandr \
