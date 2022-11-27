@@ -2,13 +2,13 @@
 
 
 _launch () {
-    CHOICE=$(echo -e "Float\nTile" | dmenu -i -b -p WINDOW | cut -d ':' -f 1)
+    CHOICE=$(echo -e "Tile\nFloat" | dmenu -i -b -p WINDOW | cut -d ':' -f 1)
     case "$CHOICE" in
-        Float)
-            $*
-            ;;
         Tile)
             "$1"
+            ;;
+        Float)
+            $*
             ;;
     esac
 }
@@ -22,15 +22,15 @@ if [[ -x "$(command -v urxvt)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Urxvt" || NAMES="Urxvt\n"$NAMES
 fi
 
+if [[ -x "$(command -v st)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="ST" || NAMES="ST\n"$NAMES
+fi
+
 if [[ -x "$(command -v kitty)" ]]; then
     GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
     if (( $(echo "$GLX > 3.3" | bc -l) )); then
         [[ ! -n $NAMES ]] && NAMES="Kitty" || NAMES="Kitty\n"$NAMES
     fi
-fi
-
-if [[ -x "$(command -v st)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="ST" || NAMES="ST\n"$NAMES
 fi
 
 if [[ ! -n $NAMES ]]; then
@@ -41,11 +41,11 @@ fi
 
 CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p TERMINAL | cut -d ':' -f 1)
 case "$CHOICE" in
-    ST)
-        _launch "st" "-n scratchpad"
-        ;;
     Kitty)
         _launch "kitty" "--name scratchpad"
+        ;;
+    ST)
+        _launch "st" "-n scratchpad"
         ;;
     Urxvt)
         _launch "urxvt" "-name scratchpad"

@@ -4,7 +4,16 @@
 ### Funcions and colors definition
 ##################################
 
-add_codium_marketplace () {
+_rmextensions () {
+    CODE="$*"
+    LIST=$($CODE --list-extensions)
+    for EXTENSION in $LIST; do
+        $CODE --uninstall-extension $EXTENSION
+    done
+}
+
+
+_addmarketplace () {
 cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
 {
     "extensionsGallery": {
@@ -18,93 +27,96 @@ cat 2>/dev/null > $HOME/.config/VSCodium/product.json <<-EOF
 EOF
 }
 
-RED='\033[1;36m'
-YLW='\033[1;35m'
-NC='\033[0m'
 
-
-
-
-### Choose editor
-#################
-
-if [[ -x "$(command -v codium)" ]]; then
-    CODE="codium"
-    FOLDER="VSCodium"
-    NAMES="Codium\n"$NAMES
-fi
-
-if [[ -x "$(command -v code)" ]]; then
-    CODE="code"
-    FOLDER="Code"
-    NAMES="Code\n"$NAMES
-fi
-
-if [[ ! -n $NAMES ]]; then
-    printf "${YLW}%s${NC}\n" "WTF mate, Code/Codium are not installed!"
-    exit 1
-fi
-
-if [[ -f "/bin/fzf" ]]; then
-    case $(printf "$NAMES" | fzf --prompt="Choose editor to reset: " --height 100% --reverse --info=hidden --header-first) in
-        Code)
-            CODE="code"
-            FOLDER="Code"
-            ;;
-        Codium)
-            CODE="codium"
-            FOLDER="VSCodium"
-            add_codium_marketplace
-            ;;
-        *)
-            exit 1
-    esac
-else
-    clear
-    printf "${RED}%s${NC}\n" "Choose editor to reset:"
-    printf "%s${YLW}%s${NC}\n" "  (1) " "Code"
-    printf "%s${YLW}%s${NC}\n" "  (2) " "Codium"
-    printf "${RED}%s${NC} " "Enter an index (1-2):"
-
+_addconf () {
+    CODE="$*"
+    printf "${RED}%s${NC} " "Choose CONFIG (simple/full):"
     while read response; do
         case $response in
-            1)
-                CODE="code"
-                FOLDER="Code"
+            "simple")
+                _simpleconf "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> simple"
                 break
                 ;;
-            2)
-                CODE="codium"
-                FOLDER="VSCodium"
-                add_codium_marketplace
+            "full")
+                _fullconf "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> full"
                 break
                 ;;
             *)
-                printf "${RED}%s${NC} " "Enter an index (1-2):"
+                printf "${RED}%s${NC} " "Choose CONFIG (simple/full):"
                 ;;
         esac
     done
-fi
+}
 
 
+_simpleconf () {
+[[ "$*" == "code" ]] && FOLDER="Code"
+[[ "$*" == "codium" ]] && FOLDER="VSCodium"
+[[ -z $FOLDER ]] && exit 1 || CODE="$*"
 
-
-### Remove extensions, add reinstall
-####################################
-
-LIST=$($CODE --list-extensions)
-for EXTENSION in $LIST; do
-    $CODE --uninstall-extension $EXTENSION
-done
-
-$CODE --install-extension vscodevim.vim
+_rmextensions "$CODE"
 $CODE --install-extension monokai.theme-monokai-pro-vscode
 
+cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
+{
+    "keyboard.dispatch": "keyCode",
+    "breadcrumbs.enabled": false,
+    "telemetry.telemetryLevel": "off",
+    "security.workspace.trust.startupPrompt": "never",
+    "window.menuBarVisibility": "hidden",
+    "window.restoreWindows": "all",
+    "editor.fontFamily": "'JetBrains Mono', 'monospace'",
+    "editor.fontSize": 11,
+    "editor.lineHeight": 1.4,
+    "editor.lineNumbers": "on",
+    "editor.renderLineHighlight": "gutter",
+    "editor.fontLigatures": true,
+    "editor.guides.indentation": false,
+    "editor.minimap.enabled": false,
+    "editor.rulers": [],
+    "editor.folding": false,
+    "editor.wordWrap": "off",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 10,
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.stickyScroll.enabled": true,
+    "terminal.integrated.fontFamily": "'JetBrains Mono', 'monospace'",
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.lineHeight": 1,
+    "workbench.editor.showTabs": true,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Monokai Pro",
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.list.openMode": "doubleClick",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 20,
+}
+EOF
+
+cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
+[
+]
+EOF
+}
 
 
+_fullconf () {
+[[ "$*" == "code" ]] && FOLDER="Code"
+[[ "$*" == "codium" ]] && FOLDER="VSCodium"
+[[ -z $FOLDER ]] && exit 1 || CODE="$*"
 
-### Reset VSCode settings
-#########################
+_rmextensions "$CODE"
+$CODE --install-extension vscodevim.vim
+$CODE --install-extension monokai.theme-monokai-pro-vscode
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
@@ -126,6 +138,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.folding": false,
     "editor.wordWrap": "off",
     "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
     "editor.scrollbar.vertical": "auto",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 10,
@@ -339,3 +352,35 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
 ]
 EOF
+}
+
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
+### Choose editor
+#################
+
+printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
+while read response; do
+    case $response in
+        "code")
+            [[ -x "$(command -v code)" ]] || (printf "${YLW}%s${NC}" "code is not installed mate!"; exit 1)
+            _addconf "code"
+            break
+            ;;
+        "codium")
+            [[ -x "$(command -v codium)" ]] || (printf "${YLW}%s${NC}" "codium is not installed mate!"; exit 1)
+            _addmarketplace
+            _addconf "codium"
+            break
+            ;;
+        *)
+            printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
+            ;;
+    esac
+done

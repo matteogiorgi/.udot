@@ -272,7 +272,6 @@ for_window [class="Xournalpp"] floating enable
 for_window [class="flameshot"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
-for_window [class="Ferdium"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Gimp"] floating enable
