@@ -255,11 +255,9 @@ bar {
 
 # guitool menu
 for_window [class="Pcmanfm"] floating enable
-for_window [class="Xarchiver"] floating enable
-for_window [class="Xournalpp"] floating enable
-for_window [class="Arandr"] floating enable
-for_window [class="Pavucontrol"] floating enable
 for_window [class="GParted"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
 
@@ -267,11 +265,13 @@ for_window [class="qt5ct"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Zathura"] floating enable
 for_window [class="Sxiv"] floating enable
+for_window [class="Xournalpp"] floating enable
 
 # other floating apps
 for_window [class="flameshot"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Xarchiver"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="libreoffice"] floating enable
 for_window [class="Gimp"] floating enable
