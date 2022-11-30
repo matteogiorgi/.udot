@@ -51,6 +51,9 @@ case $(file --mime-type "${FILE}" -bL) in
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         _xshow "zathura '${FILE}'"
         ;;
+     application/vnd.openxmlformats-officedocument.* | application/vnd.oasis.opendocument.* | application/vnd.ms-* | application/msword)
+        _xshow "libreoffice '${FILE}'"
+        ;;
      application/x-tar | application/zip | application/gzip)
         [[ "${FILE##*.}" == "xopp" ]] && _xshow "xournalpp '${FILE}'" || _xshow "xarchiver '${FILE}'"
         ;;

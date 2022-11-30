@@ -8,7 +8,7 @@ _rmextensions () {
     CODE="$*"
     LIST=$($CODE --list-extensions)
     for EXTENSION in $LIST; do
-        $CODE --uninstall-extension $EXTENSION
+        $CODE --uninstall-extension $EXTENSION &>/dev/null
     done
 }
 
@@ -30,34 +30,33 @@ EOF
 
 _addconf () {
     CODE="$*"
-    printf "${RED}%s${NC} " "Choose CONFIG (simple/full):"
+    printf "${RED}%s${NC} " "Choose CONFIG (simple/vimlike):"
     while read response; do
         case $response in
             "simple")
-                _simpleconf "$CODE"
+                _simple "$CODE"
                 printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> simple"
                 break
                 ;;
-            "full")
-                _fullconf "$CODE"
-                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> full"
+            "vimlike")
+                _vimlike "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> vimlike"
                 break
                 ;;
             *)
-                printf "${RED}%s${NC} " "Choose CONFIG (simple/full):"
+                printf "${RED}%s${NC} " "Choose CONFIG (simple/vimlike):"
                 ;;
         esac
     done
 }
 
 
-_simpleconf () {
+_simple () {
 [[ "$*" == "code" ]] && FOLDER="Code"
 [[ "$*" == "codium" ]] && FOLDER="VSCodium"
 [[ -z $FOLDER ]] && exit 1 || CODE="$*"
 
 _rmextensions "$CODE"
-$CODE --install-extension monokai.theme-monokai-pro-vscode
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
@@ -90,8 +89,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "terminal.integrated.lineHeight": 1,
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Monokai Pro",
-    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.colorTheme": "Quiet Light",
+    "workbench.iconTheme": "vs-seti",
     "workbench.activityBar.visible": true,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
@@ -109,14 +108,14 @@ EOF
 }
 
 
-_fullconf () {
+_vimlike () {
 [[ "$*" == "code" ]] && FOLDER="Code"
 [[ "$*" == "codium" ]] && FOLDER="VSCodium"
 [[ -z $FOLDER ]] && exit 1 || CODE="$*"
 
 _rmextensions "$CODE"
-$CODE --install-extension vscodevim.vim
-$CODE --install-extension monokai.theme-monokai-pro-vscode
+$CODE --install-extension vscodevim.vim &>/dev/null
+$CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
