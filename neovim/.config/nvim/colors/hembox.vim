@@ -4,7 +4,7 @@
 " |  _  |  __/ | | | | | |_) | (_) >  <
 " |_| |_|\___|_| |_| |_|_.__/ \___/_/\_\
 "
-" A Hemmisu variant with Gruvbox colors.
+" A Hemisu variant with Gruvbox colors.
 " Matteo Giorgi (https://www.geoteo.net/)
 
 
@@ -198,6 +198,16 @@ hi! link Number      Constant
 hi! link Special     Constant
 hi! link PreProc     Constant
 hi! link Error       ErrorMsg
+" }}}
+
+
+
+
+" HIGHLIGHTS - GITGUTTER {{{
+call s:h("GitGutterAdd",          { "fg": s:darkGreen })
+call s:h("GitGutterDelete",       { "fg": s:darkPink })
+call s:h("GitGutterChange",       { "fg": s:darkBlue })
+call s:h("GitGutterChangeDelete", { "fg": s:darkBlue })
 " }}}
 
 

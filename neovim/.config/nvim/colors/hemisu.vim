@@ -5,7 +5,7 @@
 " |_| |_|\___|_| |_| |_|_|___/\__,_|
 "
 " Noah Frederick (http://noahfrederick.com/)
-" Matteo Giorgi (https://www.geoteo.net/)
+" Matteo Giorgi  (https://www.geoteo.net/)
 
 
 
@@ -198,6 +198,16 @@ hi! link Number      Constant
 hi! link Special     Constant
 hi! link PreProc     Constant
 hi! link Error       ErrorMsg
+" }}}
+
+
+
+
+" HIGHLIGHTS - GITGUTTER {{{
+call s:h("GitGutterAdd",          { "fg": s:darkGreen })
+call s:h("GitGutterDelete",       { "fg": s:darkPink })
+call s:h("GitGutterChange",       { "fg": s:darkBlue })
+call s:h("GitGutterChangeDelete", { "fg": s:darkBlue })
 " }}}
 
 
