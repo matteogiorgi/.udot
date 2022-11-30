@@ -36,7 +36,7 @@ endfun
 
 function s:FuzzyGit()
     if has('nvim')
-        exec "silent !st -n fuzzy-scratchpad -e $HOME/config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+        exec "silent !st -n fuzzy-scratchpad -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     elseif has('gui_running')
         exec "silent !st -n fuzzy-scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     else
