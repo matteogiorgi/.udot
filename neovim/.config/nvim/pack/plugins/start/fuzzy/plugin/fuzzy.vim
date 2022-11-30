@@ -1,6 +1,8 @@
 function s:FuzzyFind()
     let s:folder = expand("%:p:h")
-    if has('gui_running') || has('nvim')
+    if has('nvim')
+        exec "silent !st -n fuzzy-scratchpad -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+    elseif has('gui_running')
         exec "silent !st -n fuzzy-scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
@@ -14,7 +16,9 @@ endfun
 
 function s:FuzzyJump()
     let s:folder = expand("%:p:h")
-    if has('gui_running') || has('nvim')
+    if has('nvim')
+        exec "silent !st -n fuzzy-scratchpad -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+    elseif has('gui_running')
         exec "silent !st -n fuzzy-scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
@@ -31,7 +35,9 @@ function s:FuzzyJump()
 endfun
 
 function s:FuzzyGit()
-    if has('gui_running') || has('nvim')
+    if has('nvim')
+        exec "silent !st -n fuzzy-scratchpad -e $HOME/config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+    elseif has('gui_running')
         exec "silent !st -n fuzzy-scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
