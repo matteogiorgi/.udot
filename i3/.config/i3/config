@@ -306,13 +306,14 @@ for_window [instance="scratchpad"] move position center
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
 
 bindsym $mod+Tab exec "i3focus"
-bindsym $mod+Return exec "i3term"
-bindsym $mod+Shift+Return exec "dterminal"
+bindsym $mod+Return exec "st"
+bindsym $mod+Shift+Return exec "st -n scratchpad"
 
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
 bindsym $mod+y exec "diodon"
 bindsym $mod+g exec "dguitool"
+bindsym $mod+x exec "dterminal"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"
 
