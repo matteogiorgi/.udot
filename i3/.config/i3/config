@@ -275,6 +275,7 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enable
+for_window [class="Galculator"] floating enable
 
 
 
@@ -296,11 +297,6 @@ for_window [instance="scratchpad"] floating enable
 for_window [instance="scratchpad"] resize set 800 600
 for_window [instance="scratchpad"] move position center
 
-for_window [instance="fuzzy-scratchpad"] floating enable
-for_window [instance="fuzzy-scratchpad"] resize set 800 600
-for_window [instance="fuzzy-scratchpad"] move position center
-for_window [instance="fuzzy-scratchpad"] border pixel 2
-
 
 
 
@@ -310,7 +306,7 @@ for_window [instance="fuzzy-scratchpad"] border pixel 2
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
 
 bindsym $mod+Tab exec "i3focus"
-bindsym $mod+Return exec "st"
+bindsym $mod+Return exec "i3term"
 bindsym $mod+Shift+Return exec "dterminal"
 
 bindsym $mod+q exec "dquit"

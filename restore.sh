@@ -292,7 +292,8 @@ sudo apt purge -qq -y \
     vlc \
     simplescreenrecorder \
     gimp \
-    libreoffice
+    libreoffice \
+    galculator
 
 
 

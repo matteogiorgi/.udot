@@ -310,7 +310,8 @@ sudo apt install -qq -y \
     vlc \
     simplescreenrecorder \
     gimp \
-    libreoffice
+    libreoffice \
+    galculator
 
 
 
