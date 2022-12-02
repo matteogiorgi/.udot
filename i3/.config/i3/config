@@ -124,7 +124,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+p workspace prev
 bindsym $mod+n workspace next
-bindsym $mod+o move workspace to output next
+bindsym $mod+a move workspace to output next
 
 
 
@@ -312,7 +312,7 @@ bindsym $mod+Shift+Return exec "st -n scratchpad"
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
 bindsym $mod+y exec "diodon"
-bindsym $mod+a exec "dterminal"
+bindsym $mod+o exec "dterminal"
 bindsym $mod+g exec "dguitool"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"
