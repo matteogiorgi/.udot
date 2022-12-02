@@ -122,8 +122,8 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-bindsym $mod+p workspace prev
-bindsym $mod+n workspace next
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+a move workspace to output next
 
 
@@ -157,18 +157,18 @@ bindsym $mod+r mode "resize"
 ### Adjust temperature
 ######################
 
-mode "temperature" {
-    bindsym j exec "xtemp -1"
-    bindsym k exec "xtemp +1"
-    bindsym 0 exec "xtemp"
+mode "color" {
+    bindsym j exec "xcolor -1"
+    bindsym k exec "xcolor +1"
+    bindsym 0 exec "xcolor"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
-    bindsym $mod+t mode "default"
+    bindsym $mod+c mode "default"
 }
 
-bindsym $mod+t mode "temperature"
+bindsym $mod+c mode "color"
 
 
 
@@ -305,14 +305,13 @@ for_window [instance="scratchpad"] move position center
 
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
 
-bindsym $mod+Tab exec "i3focus"
 bindsym $mod+Return exec "st"
 bindsym $mod+Shift+Return exec "st -n scratchpad"
 
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
+bindsym $mod+t exec "dterminal"
 bindsym $mod+y exec "diodon"
-bindsym $mod+o exec "dterminal"
 bindsym $mod+g exec "dguitool"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"

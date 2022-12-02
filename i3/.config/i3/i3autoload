@@ -74,11 +74,11 @@ fi
 ###########################
 
 if [[ -x "$(command -v sct)" ]]; then
-    if [[ ! -f ~/.xtemp ]]; then
-        printf "#!/bin/sh\nsct 6500\n" > ~/.xtemp
-        chmod 755 ~/.xtemp
+    if [[ ! -f ~/.xcolor ]]; then
+        printf "#!/bin/sh\nsct 6500\n" > ~/.xcolor
+        chmod 755 ~/.xcolor
     fi
-    ~/.xtemp
+    ~/.xcolor
 fi
 
 
