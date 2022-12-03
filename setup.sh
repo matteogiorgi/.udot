@@ -310,8 +310,7 @@ sudo apt install -qq -y \
     vlc \
     simplescreenrecorder \
     gimp \
-    libreoffice \
-    galculator
+    libreoffice
 
 
 
@@ -397,27 +396,6 @@ if ask "    Add snap/extra packages?" Y; then
                 ;;
             *)
                 printf "    WTF 're doing mate, just enter an index from 0 to 4: "
-                ;;
-        esac
-    done
-
-    printf "\n    Would you like to install ferdium too?"
-    printf "\n        (0) NO"
-    printf "\n        (1) YES"
-    printf "\n    Enter an index (0-1): "
-
-    while read response; do
-        case $response in
-            0)
-                break
-                ;;
-            1)
-                printf "\n"
-                sudo snap install ferdium
-                break
-                ;;
-            *)
-                printf "    WTF 're doing mate, just enter an index from 0 to 1: "
                 ;;
         esac
     done

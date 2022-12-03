@@ -273,7 +273,6 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enable
-for_window [class="Galculator"] floating enable
 
 
 
@@ -281,9 +280,7 @@ for_window [class="Galculator"] floating enable
 ### Bind programs to workspaces (use xprop)
 ###########################################
 
-assign [class="SimpleScreenRecorder"] $ws8
-assign [class="Gimp"] $ws9
-assign [class="Ferdium"] $ws10
+assign [class="SimpleScreenRecorder"] $ws10
 
 
 
