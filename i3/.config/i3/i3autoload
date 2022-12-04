@@ -74,11 +74,11 @@ fi
 ###########################
 
 if [[ -x "$(command -v sct)" ]]; then
-    if [[ ! -f ~/.xcolor ]]; then
-        printf "#!/bin/sh\nsct 6500\n" > ~/.xcolor
-        chmod 755 ~/.xcolor
+    if [[ ! -f ~/.xtemperature ]]; then
+        printf "#!/bin/sh\nsct 6500\n" > ~/.xtemperature
+        chmod 755 ~/.xtemperature
     fi
-    ~/.xcolor
+    ~/.xtemperature
 fi
 
 

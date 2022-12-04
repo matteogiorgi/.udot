@@ -122,7 +122,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+u move workspace to output next
+bindsym $mod+n move workspace to output next
 
 
 
@@ -155,18 +155,18 @@ bindsym $mod+r mode "resize"
 ### Adjust temperature
 ######################
 
-mode "color" {
-    bindsym j exec "xcolor -1"
-    bindsym k exec "xcolor +1"
-    bindsym 0 exec "xcolor"
+mode "temperature" {
+    bindsym j exec "xtemperature -1"
+    bindsym k exec "xtemperature +1"
+    bindsym 0 exec "xtemperature"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym Caps_Lock mode "default"
-    bindsym $mod+c mode "default"
+    bindsym $mod+t mode "default"
 }
 
-bindsym $mod+c mode "color"
+bindsym $mod+t mode "temperature"
 
 
 
@@ -175,8 +175,8 @@ bindsym $mod+c mode "color"
 ##################
 
 mode "wallpaper" {
-    bindsym n exec "nxbg --next"
-    bindsym p exec "nxbg --prev"
+    bindsym l exec "nxbg --next"
+    bindsym h exec "nxbg --prev"
     bindsym r exec "nxbg --random"
     bindsym 0 exec "nxbg"
 
@@ -316,9 +316,9 @@ bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
 
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
-bindsym $mod+t exec "dterminal"
 bindsym $mod+y exec "diodon"
-bindsym $mod+g exec "dguitool"
+bindsym $mod+u exec "dutility"
+bindsym $mod+o exec "dopen"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"
 
