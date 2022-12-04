@@ -1,19 +1,6 @@
 #!/usr/bin/env bash
 
 
-_launch () {
-    CHOICE=$(echo -e "Tile\nFloat" | dmenu -i -b -p WINDOW | cut -d ':' -f 1)
-    case "$CHOICE" in
-        Tile)
-            "$1"
-            ;;
-        Float)
-            $*
-            ;;
-    esac
-}
-
-
 if [[ -x "$(command -v uxterm)" ]]; then
     NAMES="Xterm"
 fi
@@ -42,16 +29,16 @@ fi
 CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p TERMINAL | cut -d ':' -f 1)
 case "$CHOICE" in
     Kitty)
-        _launch "kitty" "--name scratchpad"
+        kitty
         ;;
     ST)
-        _launch "st" "-n scratchpad"
+        st
         ;;
     Urxvt)
-        _launch "urxvt" "-name scratchpad"
+        urxvt
         ;;
     Xterm)
-        _launch "xterm" "-name scratchpad"
+        xterm
         ;;
     *)
         exit 1
