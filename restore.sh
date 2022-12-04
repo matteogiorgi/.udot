@@ -291,8 +291,8 @@ sudo apt purge -qq -y \
     xarchiver \
     vlc \
     simplescreenrecorder \
-    gimp \
-    libreoffice
+    libreoffice \
+    mypaint
 
 
 

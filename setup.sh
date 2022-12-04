@@ -309,8 +309,8 @@ sudo apt install -qq -y \
     xarchiver \
     vlc \
     simplescreenrecorder \
-    gimp \
-    libreoffice
+    libreoffice \
+    mypaint
 
 
 
