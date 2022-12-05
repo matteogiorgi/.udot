@@ -278,10 +278,8 @@ for_window [class="MyPaint"] floating enable
 # floating options
 for_window [class="mpv"] resize set 800 600;
 for_window [class="mpv"] move position center
-
 for_window [class="Xournalpp"] resize set 800 600
 for_window [class="Xournalpp"] move position center
-
 for_window [class="MyPaint"] resize set 800 600
 for_window [class="MyPaint"] move position center
 
@@ -318,7 +316,7 @@ bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
 bindsym $mod+y exec "diodon"
 bindsym $mod+u exec "dutility"
-bindsym $mod+o exec "dopen"
+bindsym $mod+Shift+u exec "dterminal"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"
 
