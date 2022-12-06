@@ -260,11 +260,17 @@ for_window [instance="scratchpad"] move position center
 #################
 
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+Shift+Return focus mode_toggle
+bindsym $mod+BackSpace focus mode_toggle
+
+# focus
 bindsym $mod+space focus parent
 bindsym $mod+Shift+space focus child
+
+# scratchpad
 bindsym $mod+i scratchpad show
 bindsym $mod+o move scratchpad
+
+# floating, fullscreen
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
 
