@@ -37,18 +37,13 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && $ref
 
 
 
-### Change/move focus
-#####################
+### Change focus
+################
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 set $winmove 30px
 bindsym $mod+Shift+h move left $winmove
@@ -56,10 +51,58 @@ bindsym $mod+Shift+j move down $winmove
 bindsym $mod+Shift+k move up $winmove
 bindsym $mod+Shift+l move right $winmove
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+
+
+
+### Modes
+#########
+
+mode "focus" {
+    bindsym space focus parent
+    bindsym Shift+space focus child
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+}
+
+mode "workspace" {
+    bindsym h workspace prev
+    bindsym l workspace next
+    bindsym Shift+h move workspace to output left
+    bindsym Shift+l move workspace to output right
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+}
+
+mode "resize" {
+    bindsym h resize shrink width 30 px or 10 ppt
+    bindsym j resize grow height 30 px or 10 ppt
+    bindsym k resize shrink height 30 px or 10 ppt
+    bindsym l resize grow width 30 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+}
+
+mode "temperature" {
+    bindsym j exec "xtemperature -1"
+    bindsym k exec "xtemperature +1"
+    bindsym 0 exec "xtemperature"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+}
+
+mode "wallpaper" {
+    bindsym h exec "nxbg --prev"
+    bindsym l exec "nxbg --next"
+    bindsym r exec "nxbg --random"
+    bindsym 0 exec "nxbg"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Caps_Lock mode "default"
+}
 
 
 
@@ -68,18 +111,8 @@ bindsym $mod+Shift+Right move right
 ### Layout (tabbed, stacking, splitv, splith)
 #############################################
 
-bindsym $mod+a layout toggle tabbed stacking splith splitv
 bindsym $mod+s split toggle
-bindsym $mod+f fullscreen toggle
-
-bindsym $mod+i scratchpad show
-bindsym $mod+Shift+i move scratchpad
-
-bindsym $mod+BackSpace focus mode_toggle
-bindsym $mod+Shift+BackSpace floating toggle
-
-bindsym $mod+space focus parent
-bindsym $mod+Shift+space focus child
+bindsym $mod+a layout toggle tabbed stacking splith splitv
 
 
 
@@ -119,74 +152,6 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
-
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+n move workspace to output next
-
-
-
-
-### Resize window
-#################
-
-mode "resize" {
-    bindsym h resize shrink width 30 px or 10 ppt
-    bindsym j resize grow height 30 px or 10 ppt
-    bindsym k resize shrink height 30 px or 10 ppt
-    bindsym l resize grow width 30 px or 10 ppt
-
-    bindsym Left resize shrink width 30 px or 10 ppt
-    bindsym Down resize grow height 30 px or 10 ppt
-    bindsym Up resize shrink height 30 px or 10 ppt
-    bindsym Right resize grow width 30 px or 10 ppt
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Caps_Lock mode "default"
-    bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-
-
-
-### Adjust temperature
-######################
-
-mode "temperature" {
-    bindsym j exec "xtemperature -1"
-    bindsym k exec "xtemperature +1"
-    bindsym 0 exec "xtemperature"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Caps_Lock mode "default"
-    bindsym $mod+t mode "default"
-}
-
-bindsym $mod+t mode "temperature"
-
-
-
-
-### Set background
-##################
-
-mode "wallpaper" {
-    bindsym l exec "nxbg --next"
-    bindsym h exec "nxbg --prev"
-    bindsym r exec "nxbg --random"
-    bindsym 0 exec "nxbg"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Caps_Lock mode "default"
-    bindsym $mod+w mode "default"
-}
-
-bindsym $mod+w mode "wallpaper"
 
 
 
@@ -307,16 +272,26 @@ for_window [instance="scratchpad"] move position center
 ### Usefull binds
 #################
 
-bindsym $mod+Return exec "urxvt"
-bindsym $mod+Shift+Return exec "urxvt -name scratchpad"
+bindsym $mod+Return exec "i3-sensible-terminal"
+bindsym $mod+BackSpace focus mode_toggle
+bindsym $mod+i scratchpad show
+bindsym $mod+o move scratchpad
+bindsym $mod+f floating toggle
+bindsym $mod+g fullscreen toggle
 
+# modes
+bindsym $mod+space mode "focus"
+bindsym $mod+Tab mode "workspace"
+bindsym $mod+w mode "wallpaper"
+bindsym $mod+r mode "resize"
+bindsym $mod+t mode "temperature"
+
+#dmenu
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
-
 bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
 bindsym $mod+y exec "diodon"
 bindsym $mod+u exec "dutility"
-bindsym $mod+p exec "dterminal"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"
 

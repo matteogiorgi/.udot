@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# next wallpaper     -> nxbg --next
+# previews wallpaper -> nxbg --prev
+# random wallpaper   -> nxbg --random
+# no wallpaper       -> nxbg
+
 
 # this function chose a random background inside the $BACKGROUNDS
 # directory carefully excluding the one already in use
