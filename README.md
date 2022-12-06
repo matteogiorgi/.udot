@@ -64,7 +64,7 @@ code codium brave google-chrome chromium
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
-- [Bookmarks](media/bookmarks.html): basic bookmark list
+- <a href="/images/myw3schoolsimage.jpg" download>Bookmarks</a>: basic bookmark list
 
 
 
