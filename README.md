@@ -57,24 +57,26 @@ code codium brave google-chrome chromium
 ```
 
 
-### Chrome extensions
+
+### Chrome extensions/bookmarks
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
+- [Bookmarks](media/bookmarks.html): basic bookmark list
 
 
 
 
 ## Language support
 
-- Javascript: `nodejs` (required for coc.nvim)
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
+- Javascript: `nodejs` (required for coc.nvim)
 
 
 
