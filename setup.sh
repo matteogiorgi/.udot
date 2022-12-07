@@ -304,6 +304,7 @@ sudo apt install -qq -y \
     flameshot \
     diodon \
     pavucontrol \
+    synaptic \
     gparted \
     pcmanfm \
     xarchiver \

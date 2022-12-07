@@ -286,6 +286,7 @@ sudo apt purge -qq -y \
     flameshot \
     diodon \
     pavucontrol \
+    synaptic \
     gparted \
     pcmanfm \
     xarchiver \

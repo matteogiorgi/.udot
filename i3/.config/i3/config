@@ -205,7 +205,7 @@ bar {
 
 # utility menu
 for_window [class="Pcmanfm"] floating enable
-for_window [class="Software-properties-gtk"] floating enable
+for_window [class="Synaptic"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Arandr"] floating enable
@@ -227,6 +227,7 @@ for_window [class="Xarchiver"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="MyPaint"] floating enable
+for_window [class="Software-properties-gtk"] floating enable
 
 # floating options
 for_window [class="mpv"] resize set 800 600;
