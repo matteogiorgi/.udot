@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+
+if [[ -x "$(command -v uxterm)" ]]; then
+    TERMIAL_NAMES="Xterm"
+fi
+if [[ -x "$(command -v urxvt)" ]]; then
+    [[ ! -n $TERMIAL_NAMES ]] && TERMIAL_NAMES="Urxvt" || TERMIAL_NAMES="Urxvt\n"$TERMIAL_NAMES
+fi
+if [[ -x "$(command -v st)" ]]; then
+    [[ ! -n $TERMIAL_NAMES ]] && TERMIAL_NAMES="ST" || TERMIAL_NAMES="ST\n"$TERMIAL_NAMES
+fi
+if [[ -x "$(command -v kitty)" ]]; then
+    GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
+    if (( $(echo "$GLX > 3.3" | bc -l) )); then
+        [[ ! -n $TERMIAL_NAMES ]] && TERMIAL_NAMES="Kitty" || TERMIAL_NAMES="Kitty\n"$TERMIAL_NAMES
+    fi
+fi
+if [[ ! -n $TERMIAL_NAMES ]]; then
+    dmenu_run -i -b -p MENU
+    exit 0
+fi
+
+
+TERMINAL_CHOICE=$(echo -e "$TERMIAL_NAMES" | dmenu -i -b -p TERMINAL | cut -d ':' -f 1)
+case "$TERMINAL_CHOICE" in
+    Kitty)
+        kitty
+        ;;
+    ST)
+        st
+        ;;
+    Urxvt)
+        urxvt
+        ;;
+    Xterm)
+        xterm
+        ;;
+    *)
+        exit 1
+        ;;
+esac

@@ -57,7 +57,7 @@ bindsym $mod+Shift+l move right $winmove
 ### Modes
 #########
 
-mode "resize" {
+mode "Resize" {
     bindsym h resize shrink width 30 px or 10 ppt
     bindsym j resize grow height 30 px or 10 ppt
     bindsym k resize shrink height 30 px or 10 ppt
@@ -67,7 +67,7 @@ mode "resize" {
     bindsym Caps_Lock mode "default"
 }
 
-mode "temperature" {
+mode "Temperature" {
     bindsym j exec "xtemperature -1"
     bindsym k exec "xtemperature +1"
     bindsym 0 exec "xtemperature"
@@ -76,7 +76,7 @@ mode "temperature" {
     bindsym Caps_Lock mode "default"
 }
 
-mode "wallpaper" {
+mode "Wallpaper" {
     bindsym h exec "nxbg --prev"
     bindsym l exec "nxbg --next"
     bindsym r exec "nxbg --random"
@@ -259,8 +259,9 @@ for_window [instance="scratchpad"] move position center
 ### Usefull binds
 #################
 
+# terminal
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+BackSpace focus mode_toggle
+bindsym $mod+shift+Return exec "dterminal"
 
 # focus
 bindsym $mod+space focus parent
@@ -273,11 +274,12 @@ bindsym $mod+o move scratchpad
 # floating, fullscreen
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
+bindsym $mod+c focus mode_toggle
 
 # modes
-bindsym $mod+r mode "resize"
-bindsym $mod+t mode "temperature"
-bindsym $mod+w mode "wallpaper"
+bindsym $mod+r mode "Resize"
+bindsym $mod+t mode "Temperature"
+bindsym $mod+w mode "Wallpaper"
 
 #dmenu
 bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
