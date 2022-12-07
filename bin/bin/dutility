@@ -29,6 +29,9 @@ fi
 if [[ -x "$(command -v gparted)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="GParted" || NAMES="GParted\n"$NAMES
 fi
+if [[ -x "$(command -v software-properties-gtk)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Software" || NAMES="Software\n"$NAMES
+fi
 if [[ -x "$(command -v pcmanfm)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="PCmanFm" || NAMES="PCmanFm\n"$NAMES
 fi
@@ -42,6 +45,9 @@ CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p UTILITY | cut -d ':' -f 1)
 case "$CHOICE" in
     PCmanFm)
         _launch "pcmanfm"
+        ;;
+    Software)
+        software-properties-gtk
         ;;
     GParted)
         gparted

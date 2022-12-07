@@ -203,8 +203,9 @@ bar {
 ### Floating windows
 ####################
 
-# guitool menu
+# utility menu
 for_window [class="Pcmanfm"] floating enable
+for_window [class="Software-properties-gtk"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Arandr"] floating enable
