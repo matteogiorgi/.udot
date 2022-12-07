@@ -58,13 +58,18 @@ code codium brave google-chrome chromium
 
 
 
-### Chrome extensions/bookmarks
+### Chrome extensions
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
-- [Bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/media/bookmarks.html): basic bookmarks list
+
+
+
+
+### Bookmarks
+- [Minimal bookmarks list](https://raw.githubusercontent.com/matteogiorgi/.udot/master/media/bookmarks.html)
 
 
 

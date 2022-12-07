@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-# This script spawns an scratchpad as long as i3 is running (it needs st)
+# This script spawns a scratchpad as long as i3 is running using st
 # It is very usefull if you want a terminal scratchpad always available.
 
-# I usually have the following lines in my i3 config file too, in order
-# to make this script work properly:
+# I do not use it anymore but if you do, add the following lines to
+# your i3 config file in order to make the script work properly:
 #
 #   for_window [instance="scratchpad"] floating enable;
 #              [instance="scratchpad"] resize set 800 600;
