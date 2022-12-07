@@ -270,12 +270,12 @@ bindsym $mod+Shift+space focus child
 
 # scratchpad
 bindsym $mod+i scratchpad show
-bindsym $mod+o move scratchpad
+bindsym $mod+Shift+i move scratchpad
 
 # floating, fullscreen
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
-bindsym $mod+c focus mode_toggle
+bindsym $mod+o focus mode_toggle
 
 # modes
 bindsym $mod+r mode "Resize"
