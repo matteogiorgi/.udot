@@ -112,6 +112,7 @@ nnoremap <leader>w :CocList windows<CR>
 nnoremap <leader>t :CocList tags<CR>
 nnoremap <leader>T :CocCommand tags.generate<CR>
 nnoremap <leader>y :CocList yank<CR>
+nnoremap <leader>o :CocList diagnostics<CR>
 nnoremap <leader>s :CocList gstatus<CR>
 nnoremap <leader>f :CocList files<CR>
 nnoremap <leader>F :CocList gfiles<CR>

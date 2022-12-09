@@ -54,6 +54,6 @@ command! FuzzyJump call <SID>FuzzyJump()
 command! FuzzyGit call <SID>FuzzyGit()
 
 
-nnoremap <leader>j :FuzzyJump<CR>
-nnoremap <leader>a :FuzzyFind<CR>
-nnoremap <leader>q :FuzzyGit<CR>
+nnoremap <leader>jj :FuzzyJump<CR>
+nnoremap <leader>jf :FuzzyFind<CR>
+nnoremap <leader>jg :FuzzyGit<CR>
