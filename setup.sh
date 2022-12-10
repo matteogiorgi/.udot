@@ -262,7 +262,8 @@ sudo apt install -qq -y \
     exuberant-ctags \
     dconf-editor \
     ufw \
-    vsftpd
+    vsftpd \
+    cups
 
 
 
@@ -313,7 +314,8 @@ sudo apt install -qq -y \
     vlc \
     simplescreenrecorder \
     libreoffice \
-    mypaint
+    mypaint \
+    system-config-printer
 
 
 
@@ -500,6 +502,19 @@ sudo systemctl start vsftpd
 sudo systemctl enable vsftpd
 sudo ufw allow 20/tcp
 sudo ufw allow 21/tcp
+
+
+
+
+### Enable CUPS
+###############
+
+printf "\n"
+read -p "    Enabling CUPS (enter to continue)"
+printf "\n"
+
+sudo systemctl start cups
+sudo systemctl enable cups
 
 
 

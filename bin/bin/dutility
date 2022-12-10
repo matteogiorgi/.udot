@@ -23,6 +23,9 @@ fi
 if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
+if [[ -x "$(command -v system-config-printer)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="CUPS" || NAMES="CUPS\n"$NAMES
+fi
 if [[ -x "$(command -v pavucontrol)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Pavucontrol" || NAMES="Pavucontrol\n"$NAMES
 fi
@@ -54,6 +57,9 @@ case "$CHOICE" in
         ;;
     Pavucontrol)
         pavucontrol
+        ;;
+    CUPS)
+        system-config-printer
         ;;
     Arandr)
         arandr
