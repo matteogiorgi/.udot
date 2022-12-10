@@ -55,7 +55,13 @@ case $(file --mime-type "${FILE}" -bL) in
         _xshow "libreoffice '${FILE}'"
         ;;
      application/x-tar | application/zip | application/gzip)
-        [[ "${FILE##*.}" == "xopp" ]] && _xshow "xournalpp '${FILE}'" || _xshow "xarchiver '${FILE}'"
+        if [[ "${FILE##*.}" == "xopp" ]]; then
+            _xshow "xournalpp '${FILE}'"
+        elif [[ "${FILE##*.}" == "ora" ]]; then
+            _xshow "mypaint '${FILE}'"
+        else
+            _xshow "xarchiver '${FILE}'"
+        fi
         ;;
     image/*)
         _xshow "esxiv '${FILE}'"
