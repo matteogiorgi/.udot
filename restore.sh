@@ -176,6 +176,21 @@ fi
 
 
 
+### Disable FTP
+###############
+
+printf "\n"
+read -p "    Disabling FTP (enter to continue)"
+printf "\n"
+
+sudo systemctl stop vsftpd
+sudo systemctl disable vsftpd
+sudo ufw deny 20/tcp
+sudo ufw deny 21/tcp
+
+
+
+
 ### Remove symlinks
 ###################
 
@@ -259,6 +274,7 @@ sudo apt purge -qq -y \
     xdotool \
     exuberant-ctags \
     dconf-editor \
+    vsftpd \
     i3-wm \
     xautolock \
     arandr \
@@ -337,7 +353,7 @@ printf "\n"
 
 # the following packages aren't going to be uninstalled:
 # ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-# build-essential python3
+# build-essential python3 ...
 
 sudo apt purge -qq -y \
     valgrind \

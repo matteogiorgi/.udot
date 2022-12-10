@@ -260,7 +260,9 @@ sudo apt install -qq -y \
     poppler-utils \
     xdotool \
     exuberant-ctags \
-    dconf-editor
+    dconf-editor \
+    ufw \
+    vsftpd
 
 
 
@@ -483,6 +485,21 @@ if ask "    Add language support?" Y; then
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
     printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
 fi
+
+
+
+
+### Enable FTP
+##############
+
+printf "\n"
+read -p "    Enabling FTP (enter to continue)"
+printf "\n"
+
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
+sudo ufw allow 20/tcp
+sudo ufw allow 21/tcp
 
 
 
