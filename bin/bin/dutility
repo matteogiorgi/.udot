@@ -24,10 +24,13 @@ if [[ -x "$(command -v arandr)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Arandr" || NAMES="Arandr\n"$NAMES
 fi
 if [[ -x "$(command -v system-config-printer)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="CUPS" || NAMES="CUPS\n"$NAMES
+    [[ ! -n $NAMES ]] && NAMES="Printers" || NAMES="Printers\n"$NAMES
 fi
 if [[ -x "$(command -v pavucontrol)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Pavucontrol" || NAMES="Pavucontrol\n"$NAMES
+fi
+if [[ -x "$(command -v nm-connection-editor)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Networks" || NAMES="Networks\n"$NAMES
 fi
 if [[ -x "$(command -v gparted)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="GParted" || NAMES="GParted\n"$NAMES
@@ -55,10 +58,13 @@ case "$CHOICE" in
     GParted)
         gparted
         ;;
+    Networks)
+        nm-connection-editor
+        ;;
     Pavucontrol)
         pavucontrol
         ;;
-    CUPS)
+    Printers)
         system-config-printer
         ;;
     Arandr)

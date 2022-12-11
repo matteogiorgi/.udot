@@ -291,6 +291,7 @@ bindsym $mod+q exec "dquit"
 bindsym $mod+e exec "deditor"
 bindsym $mod+y exec "diodon"
 bindsym $mod+u exec "dutility"
+bindsym $mod+c exec "flameshot gui"
 bindsym $mod+b exec "dbrowser"
 bindsym $mod+m exec "dmonitor"
 
