@@ -261,6 +261,7 @@ sudo apt install -qq -y \
     xdotool \
     exuberant-ctags \
     dconf-editor \
+    gnome-shell-extension-prefs \
     ufw \
     vsftpd \
     cups

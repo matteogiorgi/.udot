@@ -274,6 +274,7 @@ sudo apt purge -qq -y \
     xdotool \
     exuberant-ctags \
     dconf-editor \
+    gnome-shell-extension-prefs \
     vsftpd \
     i3-wm \
     xautolock \

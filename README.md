@@ -31,7 +31,7 @@ tree make jq gcc pkg-config lxpolkit libx11-dev libxinerama-dev libxft-dev
 libncurses-dev libxrandr-dev libxtst-dev libxi-dev xclip fzf ripgrep wamerican
 witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
 brightnessctl texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-poppler-utils exuberant-ctags dconf-editor nodejs ufw vsftpd
+poppler-utils exuberant-ctags nodejs ufw vsftpd
 ```
 
 
@@ -45,7 +45,7 @@ nano tig zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman
 network-manager humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra
 adwaita-qt lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
 gparted pcmanfm xarchiver vlc simplescreenrecorder libreoffice mypaint cups
-system-config-printer
+system-config-printer dconf-editor gnome-shell-extension-prefs
 ```
 
 
