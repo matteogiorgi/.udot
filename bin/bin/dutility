@@ -29,6 +29,9 @@ fi
 if [[ -x "$(command -v pavucontrol)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Pavucontrol" || NAMES="Pavucontrol\n"$NAMES
 fi
+if [[ -x "$(command -v blueman-manager)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Bluetooth" || NAMES="Bluetooth\n"$NAMES
+fi
 if [[ -x "$(command -v nm-connection-editor)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Networks" || NAMES="Networks\n"$NAMES
 fi
@@ -60,6 +63,9 @@ case "$CHOICE" in
         ;;
     Networks)
         nm-connection-editor
+        ;;
+    Bluetooth)
+        blueman-manager
         ;;
     Pavucontrol)
         pavucontrol

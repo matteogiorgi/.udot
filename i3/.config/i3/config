@@ -224,6 +224,7 @@ for_window [class="libreoffice"] floating enable
 # other floating apps
 for_window [class="flameshot"] floating enable
 for_window [class="Blueman-manager"] floating enable
+for_window [class="Blueman-services"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
