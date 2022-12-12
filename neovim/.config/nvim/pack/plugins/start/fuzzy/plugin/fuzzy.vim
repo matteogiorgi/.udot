@@ -4,9 +4,9 @@
 function s:FuzzyFind()
     let s:folder = expand("%:p:h")
     if has('nvim')
-        exec "silent !urxvt -name scratchpad -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+        exec "silent !lxterminal -t fuzzy -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
     elseif has('gui_running')
-        exec "silent !urxvt -name scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+        exec "silent !lxterminal -t fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
     endif
@@ -20,9 +20,9 @@ endfun
 function s:FuzzyJump()
     let s:folder = expand("%:p:h")
     if has('nvim')
-        exec "silent !urxvt -name scratchpad -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+        exec "silent !lxterminal -t fuzzy -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
     elseif has('gui_running')
-        exec "silent !urxvt -name scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+        exec "silent !lxterminal -t fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
     endif
@@ -39,9 +39,9 @@ endfun
 
 function s:FuzzyGit()
     if has('nvim')
-        exec "silent !urxvt -name scratchpad -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+        exec "silent !lxterminal -t fuzzy -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     elseif has('gui_running')
-        exec "silent !urxvt -name scratchpad -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+        exec "silent !lxterminal -t fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     else
         exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     endif
