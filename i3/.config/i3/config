@@ -259,7 +259,7 @@ for_window [instance="scratchpad"] resize set 800 600
 for_window [instance="scratchpad"] move position center
 
 for_window [title="fuzzy"] floating enable
-for_window [title="fuzzy"] resize set 600 800
+for_window [title="fuzzy"] resize set 800 600
 for_window [title="fuzzy"] move position center
 
 
