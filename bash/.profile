@@ -87,7 +87,7 @@ fi
 ### i3-sensible-variables and others
 ####################################
 
-export TERMINAL="/usr/bin/urxvt"
+export TERMINAL="/usr/local/bin/st"
 export VISUAL="/bin/vi"
 
 
