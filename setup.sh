@@ -311,6 +311,7 @@ sudo apt install -qq -y \
     synaptic \
     gparted \
     pcmanfm \
+    lxterminal \
     xarchiver \
     vlc \
     simplescreenrecorder \

@@ -306,6 +306,7 @@ sudo apt purge -qq -y \
     synaptic \
     gparted \
     pcmanfm \
+    lxterminal \
     xarchiver \
     vlc \
     simplescreenrecorder \
