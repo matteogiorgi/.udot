@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script spawns a scratchpad as long as i3 is running using st
+# This script spawns a scratchpad as long as i3 is running using i3-sensible-terminal
 # It is very usefull if you want a terminal scratchpad always available.
 
 # I do not use it anymore but if you do, add the following lines to
@@ -15,6 +15,6 @@
 
 
 while pgrep -x "i3"; do
-    st -n scratchpad -e tmux &
+    i3-sensible-terminal -T SCRATCHPAD -e tmux &
     wait $!
 done

@@ -254,13 +254,13 @@ assign [class="SimpleScreenRecorder"] $ws10
 ### Scratchpads
 ###############
 
-for_window [instance="scratchpad"] floating enable
-for_window [instance="scratchpad"] resize set 800 600
-for_window [instance="scratchpad"] move position center
+for_window [instance="SCRATCHPAD"] floating enable
+for_window [instance="SCRATCHPAD"] resize set 800 600
+for_window [instance="SCRATCHPAD"] move position center
 
-for_window [title="fuzzy"] floating enable
-for_window [title="fuzzy"] resize set 800 600
-for_window [title="fuzzy"] move position center
+for_window [title="SCRATCHPAD"] floating enable
+for_window [title="SCRATCHPAD"] resize set 800 600
+for_window [title="SCRATCHPAD"] move position center
 
 
 
@@ -269,7 +269,7 @@ for_window [title="fuzzy"] move position center
 #################
 
 # terminal
-bindsym $mod+Return exec "i3-sensible-terminal"
+bindsym $mod+Return exec "lxterminal"
 bindsym $mod+shift+Return exec "dterminal"
 
 # focus

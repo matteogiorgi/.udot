@@ -4,27 +4,22 @@
 function s:FuzzyFind()
     let s:folder = expand("%:p:h")
     if has('nvim')
-        exec "silent !lxterminal -t fuzzy -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
-    elseif has('gui_running')
-        exec "silent !lxterminal -t fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+        exec "silent !st -T SCRATCHPAD -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
     else
-        exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+        exec "silent !st -T SCRATCHPAD -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
     endif
     if filereadable('/tmp/vim_fuzzy_current_file')
         exec 'edit ' . system('cat /tmp/vim_fuzzy_current_file')
         call system('rm /tmp/vim_fuzzy_current_file')
     endif
-    redraw!
 endfun
 
 function s:FuzzyJump()
     let s:folder = expand("%:p:h")
     if has('nvim')
-        exec "silent !lxterminal -t fuzzy -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
-    elseif has('gui_running')
-        exec "silent !lxterminal -t fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+        exec "silent !st -T SCRATCHPAD -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
     else
-        exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+        exec "silent !st -T SCRATCHPAD -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
     endif
     if filereadable('/tmp/vim_fuzzy_current_dir')
         exec 'cd ' . system('cat /tmp/vim_fuzzy_current_dir')
@@ -34,26 +29,28 @@ function s:FuzzyJump()
         exec 'edit ' . system('cat /tmp/vim_fuzzy_current_file')
         call system('rm /tmp/vim_fuzzy_current_file')
     endif
-    redraw!
 endfun
 
 function s:FuzzyGit()
     if has('nvim')
-        exec "silent !lxterminal -t fuzzy -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
-    elseif has('gui_running')
-        exec "silent !lxterminal -t fuzzy -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+        exec "silent !st -T SCRATCHPAD -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     else
-        exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+        exec "silent !st -T SCRATCHPAD -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
     endif
-    redraw!
+endfun
+
+function s:FuzzyShell()
+    exec "silent !st -T SCRATCHPAD"
 endfun
 
 
 command! FuzzyFind call <SID>FuzzyFind()
 command! FuzzyJump call <SID>FuzzyJump()
 command! FuzzyGit call <SID>FuzzyGit()
+command! FuzzyShell call <SID>FuzzyShell()
 
 
 nnoremap <leader>jj :FuzzyJump<CR>
 nnoremap <leader>jf :FuzzyFind<CR>
 nnoremap <leader>jg :FuzzyGit<CR>
+nnoremap <leader>js :FuzzyShell<CR>

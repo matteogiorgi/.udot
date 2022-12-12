@@ -25,8 +25,8 @@ XTerm*locale: true
 XTerm*loginshell: true
 XTerm*savelines: 16384
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-XTerm*background: #FFFFFF
-XTerm*foreground: #000000
+XTerm*background: #000000
+XTerm*foreground: #FFFFFF
 XTerm*fullscreen: never
 
 XTerm.vt100.metaSendsEscape: true
@@ -40,7 +40,7 @@ XTerm.vt100.translations: #override \n\
 XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
 XTerm*cursorOffTime: 250
-XTerm*cursorColor: #000000
+XTerm*cursorColor: #FFFFFF
 
 
 
@@ -58,8 +58,8 @@ UXTerm*locale: true
 UXTerm*loginshell: true
 UXTerm*savelines: 16384
 UXTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-UXTerm*background: #FFFFFF
-UXTerm*foreground: #000000
+UXTerm*background: #000000
+UXTerm*foreground: #FFFFFF
 UXTerm*fullscreen: never
 
 UXTerm.vt100.metaSendsEscape: true
@@ -73,7 +73,7 @@ UXTerm.vt100.translations: #override \n\
 UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
 UXTerm*cursorOffTime: 250
-UXTerm*cursorColor: #000000
+UXTerm*cursorColor: #FFFFFF
 
 
 
