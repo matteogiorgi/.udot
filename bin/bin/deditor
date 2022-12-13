@@ -26,18 +26,15 @@ _launch () {
 }
 
 
-if [[ -x "$(command -v codium)" ]]; then
-    NAMES="Codium"
+if [[ -x "$(command -v gvim)" ]]; then
+    NAMES="GVim"
 fi
-
+if [[ -x "$(command -v codium)" ]]; then
+    [[ ! -n $NAMES ]] && NAMES="Codium" || NAMES="Codium\n"$NAMES
+fi
 if [[ -x "$(command -v code)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Code" || NAMES="Code\n"$NAMES
 fi
-
-if [[ -x "$(command -v gvim)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="GVim" || NAMES="GVim\n"$NAMES
-fi
-
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0

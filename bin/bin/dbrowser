@@ -30,15 +30,12 @@ _launch () {
 if [[ -x "$(command -v chromium)" ]]; then
     NAMES="Chromium"
 fi
-
 if [[ -x "$(command -v google-chrome)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Chrome" || NAMES="Chrome\n"$NAMES
 fi
-
 if [[ -x "$(command -v brave)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Brave" || NAMES="Brave\n"$NAMES
 fi
-
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
     exit 0
