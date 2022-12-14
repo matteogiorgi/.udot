@@ -54,7 +54,7 @@ cups system-config-printer dconf-editor gnome-shell-extension-prefs
 ## Snap/Extra packages
 
 ```
-code codium brave google-chrome chromium
+code codium google-chrome chromium brave
 ```
 
 
@@ -77,12 +77,12 @@ code codium brave google-chrome chromium
 
 ## Language support
 
+- Javascript: `nodejs` (required for coc.nvim)
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
-- Javascript: `nodejs` (required for coc.nvim)
 
 
 

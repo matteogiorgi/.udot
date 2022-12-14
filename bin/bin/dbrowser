@@ -27,14 +27,14 @@ _launch () {
 }
 
 
+if [[ -x "$(command -v brave)" ]]; then
+    NAMES="Brave"
+fi
 if [[ -x "$(command -v chromium)" ]]; then
-    NAMES="Chromium"
+    [[ ! -n $NAMES ]] && NAMES="Chromium" || NAMES="Chromium\n"$NAMES
 fi
 if [[ -x "$(command -v google-chrome)" ]]; then
     [[ ! -n $NAMES ]] && NAMES="Chrome" || NAMES="Chrome\n"$NAMES
-fi
-if [[ -x "$(command -v brave)" ]]; then
-    [[ ! -n $NAMES ]] && NAMES="Brave" || NAMES="Brave\n"$NAMES
 fi
 if [[ ! -n $NAMES ]]; then
     dmenu_run -i -b -p MENU
@@ -44,14 +44,14 @@ fi
 
 CHOICE=$(echo -e "$NAMES" | dmenu -i -b -p BROWSER | cut -d ':' -f 1)
 case "$CHOICE" in
-    Brave)
-        _launch "BRAVE" "brave"
-        ;;
     Chrome)
         _launch "CHROME" "google-chrome"
         ;;
     Chromium)
         _launch "CHROMIUM" "chromium"
+        ;;
+    Brave)
+        _launch "BRAVE" "brave"
         ;;
     *)
         exit 1
