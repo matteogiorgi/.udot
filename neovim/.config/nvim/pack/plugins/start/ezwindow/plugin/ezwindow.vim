@@ -144,7 +144,7 @@ command! EzWindowStartResize call s:ResizeMode(s:ResizeCommands())
 
 
 " List of Mappings
-let s:default_start_key = '<leader><Esc>'
+let s:default_start_key = '<leader>a'
 let s:default_ez_window_keys = {
             \ 'left'  : '<C-w>h',
             \ 'down'  : '<C-w>j',
