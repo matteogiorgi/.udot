@@ -30,6 +30,6 @@ cat 2>/dev/null > $HOME/.config/nvim/coc-settings.json <<-EOF
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
     // COC-JAVA CONFIG
-    "java.project.referencedLibraries": ["~/Documents/gson-2.10.jar"]
+    "java.project.referencedLibraries": ["~/.config/nvim/gson-2.10.jar"]
 }
 EOF

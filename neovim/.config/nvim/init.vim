@@ -9,6 +9,7 @@
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
+""    vim-hy ······················· https://github.com/hylang/vim-hy
 ""
 ""    For full documentation and other stuff visit https://neovim.io
 ""
@@ -61,6 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
+    Plug 'hylang/vim-hy'
 call plug#end()
 " }}}
 

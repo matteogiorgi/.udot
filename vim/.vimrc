@@ -11,6 +11,7 @@
 ""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
+""    vim-hy ······················· https://github.com/hylang/vim-hy
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -66,6 +67,7 @@ if !exists('noplugin')
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
         Plug 'wellle/context.vim'
         Plug 'ludovicchabant/vim-gutentags'
+        Plug 'hylang/vim-hy'
     call plug#end()
 endif
 " }}}
