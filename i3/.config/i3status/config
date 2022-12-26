@@ -21,41 +21,41 @@ order += "tztime local"
 
 
 cpu_usage {
-    format        = "<span background='#fec7cd'> CPU %usage </span>"
+    format        = "<span background='#3c3836'> CPU %usage </span>"
     max_threshold = 75
 }
 
 memory {
-    format             = "<span background='#f59335'> MEM %percentage_used </span>"
-    format_degraded    = "<span background='#f59335'> MEM: %free </span>"
+    format             = "<span background='#504945'> MEM %percentage_used </span>"
+    format_degraded    = "<span background='#504945'> MEM: %free </span>"
     threshold_degraded = "10%"
 }
 
 disk "/" {
-    format = "<span background='#a1d569'> HDD %percentage_used </span>"
+    format = "<span background='#665c54'> HDD %percentage_used </span>"
 }
 
 wireless _first_ {
-    format_up   = "<span background='#88c0d0'> WAN %quality %essid, %bitrate → IP %ip </span>"
-    format_down = "<span background='#88c0d0'> WAN disconnected </span>"
+    format_up   = "<span background='#7c6f64'> WAN %quality %essid, %bitrate → IP %ip </span>"
+    format_down = "<span background='#7c6f64'> WAN disconnected </span>"
 }
 
 ethernet _first_ {
-    format_up   = "<span background='#b48ead'> ETH %speed → IP %ip </span>"
-    format_down = "<span background='#b48ead'> ETH disconnected </span>"
+    format_up   = "<span background='#928374'> ETH %speed → IP %ip </span>"
+    format_down = "<span background='#928374'> ETH disconnected </span>"
 }
 
 volume master {
-    format       = "<span background='#ebcb8b'> VOL %volume </span>"
-    format_muted = "<span background='#ebcb8b'> VOL muted </span>"
+    format       = "<span background='#a89984'> VOL %volume </span>"
+    format_muted = "<span background='#a89984'> VOL muted </span>"
     device       = "default"
     mixer        = "Master"
     mixer_idx    = 0
 }
 
 battery all {
-    format        = "<span background='#a3be8c'> %status %percentage %remaining %emptytime </span>"
-    format_down   = "<span background='#a3be8c'> BAT null </span>"
+    format        = "<span background='#bdae93'> %status %percentage %remaining %emptytime </span>"
+    format_down   = "<span background='#bdae93'> BAT null </span>"
     status_chr    = "CHR"
     status_bat    = "BAT"
     status_unk    = "UNK"
@@ -65,6 +65,6 @@ battery all {
 }
 
 tztime local {
-    format = "<span background='#81a1c1'> %time </span>"
+    format = "<span background='#d5c4a1'> %time </span>"
     format_time = "%a %d %b, %H:%M"
 }

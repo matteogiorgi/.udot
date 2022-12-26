@@ -31,7 +31,7 @@ tree make jq gcc pkg-config lxpolkit libx11-dev libxinerama-dev libxft-dev
 libncurses-dev libxrandr-dev libxtst-dev libxi-dev xclip fzf ripgrep wamerican
 witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
 brightnessctl texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-poppler-utils exuberant-ctags nodejs ufw vsftpd
+poppler-utils exuberant-ctags nodejs ufw vsftpd bat
 ```
 
 
@@ -40,12 +40,12 @@ poppler-utils exuberant-ctags nodejs ufw vsftpd
 ## Main packages
 
 ```
-i3-wm xautolock arandr xterm rxvt-unicode kitty tmux kakoune vim-gtk3 neovim
-nano tig zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman
-network-manager humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra
-adwaita-qt lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
-gparted pcmanfm lxterminal xarchiver vlc simplescreenrecorder libreoffice mypaint
-cups system-config-printer dconf-editor gnome-shell-extension-prefs
+i3-wm xautolock arandr lxterminal kitty xterm tmux kakoune vim-gtk3 nano tig gpick
+zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
+humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance
+qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted pcmanfm lxterminal
+xarchiver vlc simplescreenrecorder libreoffice mypaint cups system-config-printer
+dconf-editor gnome-shell-extension-prefs
 ```
 
 
@@ -70,7 +70,7 @@ code codium google-chrome chromium brave
 
 
 ### Bookmarks
-- [Minimal bookmarks list](https://raw.githubusercontent.com/matteogiorgi/.udot/master/media/bookmarks.html)
+- [Minimal bookmarks list](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 
 
 

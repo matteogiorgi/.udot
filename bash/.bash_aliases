@@ -21,10 +21,10 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
-alias nvim="_nvim"
 alias vim="_vim"
-alias vimlastsession="_vimlastsession"
-alias vimnoplugin="_vimnoplugin"
+alias vimcoc="_vimcoc"
+alias vimnp="_vimnp"
+alias vimls="_vimls"
 
 
 alias tmux="_tmux"
@@ -39,7 +39,6 @@ alias chbg="_chbg"
 alias ipreview="_ipreview"
 alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
-alias vimlastsession="_vimlastsession"
 alias gitinit="_gitinit"
 
 
@@ -57,8 +56,9 @@ alias automaster="autorandr --load master"
 alias autoslave="autorandr --load slave"
 
 
-alias reboot="systemctl reboot"
-alias poweroff="systemctl -i poweroff"
+alias logouti3="_logouti3"
+alias reboot="_reboot"
+alias poweroff="_poweroff"
 
 
 alias stow="stow -S"

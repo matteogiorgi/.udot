@@ -1,3 +1,35 @@
+" Vim-commentary {{{
+nmap <silent><leader><space> gcc
+vmap <silent><leader><space> gc
+
+augroup personalcomments
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
+    autocmd FileType json,jsonc setlocal commentstring=//\ %s
+    autocmd FileType toml setlocal commentstring=#\ %s
+    autocmd FileType markdown,markdown.pandoc,pandoc setlocal commentstring=<!--\ %s\ -->
+augroup end
+" }}}
+
+
+
+
+" Vim-repeat {{{
+nnoremap <silent> <Plug>TransposeCharacters xp
+\:call repeat#set("\<Plug>TransposeCharacters")<CR>
+nmap cp <Plug>TransposeCharacters
+" }}}
+
+
+
+
+" Vim-surround {{{
+let g:surround_{char2nr('o')} = "/*\r*/"
+" }}}
+
+
+
+
+" Undootree {{{
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_WindowLayout = 2
 let g:undotree_ShortIndicators = 1
@@ -5,7 +37,6 @@ let g:undotree_SplitWidth = 30
 let g:undotree_DiffpanelHeight = 10
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_HelpLine = 0
-
 
 function! s:ToggleUT()
     if &filetype ==? 'netrw' || &filetype ==? 'startscreen' || buffer_name() =~ 'term://*' || buffer_name() =~ '!bash' | return | endif
@@ -21,6 +52,6 @@ function! s:ToggleUT()
     endif
 endfunction
 
-
 command! ToggleUT call <SID>ToggleUT()
 nnoremap <leader>u :ToggleUT<CR>
+" }}}

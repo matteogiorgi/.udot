@@ -1,6 +1,29 @@
-" This section is for general FZF,
-" it just needs to have FZF installed in the system
+"" FZF-MODE
+if !exists('fzf_mode')
+    finish
+endif
 
+
+
+
+" Auto-pairs {{{
+let g:AutoPairs = {
+            \ '(':')',
+            \ '[':']',
+            \ '{':'}',
+            \ "'":"'",
+            \ '"':'"',
+            \ "`":"`",
+            \ '```':'```',
+            \ '"""':'"""',
+            \ "'''":"'''",
+            \ }
+" }}}
+
+
+
+
+" Fzf.vim {{{
 function! s:build_quickfix_list(lines)
     call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
     copen
@@ -12,21 +35,14 @@ function! s:FzfBufName()
     file [Fzf]
 endfunction
 
-
-" In case you use window mode,
-" you'll need a new statusline ;)
 augroup fzflines
     autocmd!
     autocmd User FzfStatusLine setlocal statusline=>>FZF  " %#Fzf1#
     autocmd BufCreate,BufWinEnter,WinEnter term://*#FZF,term://*/run call s:FzfBufName()
 augroup END
 
-
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 let $FZF_DEFAULT_OPTS='--bind "ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up" --height 100% --margin 0% --reverse --info=hidden --header-first'
-
-" standard colors for FZF with the exception of:
-" 'border' : ['fg', 'Ignore'],
 let g:fzf_colors = {
             \ 'fg'      : ['fg', 'Normal'],
             \ 'bg'      : ['bg', 'Normal'],
@@ -52,8 +68,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_preview_window = ['down:80%,border-sharp', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
 
-
-" Keymaps
 nnoremap <leader><Tab> :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
 nnoremap <leader>r :Rg<CR>
@@ -69,3 +83,4 @@ nnoremap <leader>l :BLines<CR>
 nnoremap <leader>L :Lines<CR>
 nnoremap <leader>c :Commands<CR>
 nnoremap <leader>m :Marks<CR>
+" }}}

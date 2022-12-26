@@ -11,9 +11,9 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 [[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
 [[ -x "$(command -v nm-applet)" ]] && nm-applet &
 [[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
+[[ -x "$(command -v kupfer)" ]] && kupfer --no-splash &
 [[ -x "$(command -v flameshot)" ]] && flameshot &
 [[ -x "$(command -v diodon)" ]] && diodon &
-[[ -x "$(command -v xautolock)" ]] && xautolock -time 20 -locker slock &
 
 
 

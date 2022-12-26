@@ -78,36 +78,6 @@ UXTerm*cursorColor: #FFFFFF
 
 
 
-!! URxvt config
-!!!!!!!!!!!!!!!
-
-URxvt.font: xft:Ubuntu Mono:size=9
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
-URxvt.geometry: 80x24
-URxvt.internalBorder: 2
-URxvt.cursorBlink: false
-URxvt.cursorUnderline: false
-URxvt.saveline: 2048
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.urgentOnBell: true
-URxvt.depth: 24
-
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
-URxvt.perl-ext-common: ...,clipboard,resize-font
-URxvt.clipboard.copycmd: xclip -i -selection clipboard
-URxvt.clipboard.pastecmd: xclip -o -selection clipboard
-URxvt.keysym.C-M-c: perl:clipboard:copy
-URxvt.keysym.C-M-v: perl:clipboard:paste
-URxvt.keysym.C-M-Up: command:\033]720;1\007
-URxvt.keysym.C-M-Down: command:\033]721;1\007
-
-
-
-
 !!! Sxiv config
 !!!!!!!!!!!!!!!
 

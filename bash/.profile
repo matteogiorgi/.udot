@@ -87,8 +87,8 @@ fi
 ### i3-sensible-variables and others
 ####################################
 
-export TERMINAL="/usr/local/bin/st"
-export VISUAL="/bin/vi"
+export TERMINAL="/bin/lxterminal"
+export VISUAL="/bin/vim"
 
 
 

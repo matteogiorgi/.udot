@@ -11,7 +11,7 @@ cat 2>/dev/null > $HOME/.config/lxterminal/lxterminal.conf <<-EOF
 [general]
 fontname=Ubuntu Mono 9.5
 selchars=-A-Za-z0-9,./?%&#:_
-scrollback=1000
+scrollback=9999
 bgcolor=rgb(0,0,0)
 fgcolor=rgb(255,255,255)
 palette_color_0=rgb(23,20,33)

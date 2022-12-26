@@ -27,7 +27,7 @@ NC='\033[0m'
 ### Functions definition
 ########################
 
-banner () {
+_banner () {
     printf "\n${YLW}%s${NC}"          "     _   _ ____   ___ _____"
     printf "\n${YLW}%s ${RED}%s${NC}" "    | | | |  _ \ / _ \_   _|" "  Matteo Giorgi (Geoteo)"
     printf "\n${YLW}%s ${RED}%s${NC}" "    | | | | | | | | | || |  " "  https://www.geoteo.net"
@@ -35,7 +35,7 @@ banner () {
     printf "\n${YLW}%s${NC}\n\n"      "     \___/|____/ \___/ |_|"
 }
 
-warning () {
+_warning () {
     if [ "$(id -u)" = 0 ]; then
         printf "\n${RED}%s${NC}"     "    This script MUST NOT be run as root user since it makes changes"
         printf "\n${RED}%s${NC}"     "    to the \$HOME directory of the \$USER executing this script."
@@ -46,19 +46,19 @@ warning () {
     fi
 }
 
-kill_apps() {
+_kill_apps() {
     while read -r app; do
         wmctrl -i -c "$app"
     done < <(wmctrl -l | awk '{print $1}')
 }
 
-error () {
+_error () {
     clear
     printf "ERROR: %s\n" "$1" >&2
     exit 1
 }
 
-ask () {
+_ask () {
     while true; do
         if [ "${2:-}" = "Y" ]; then
             prompt="Y/n"
@@ -87,7 +87,7 @@ ask () {
     done
 }
 
-restore () {
+_restore () {
     # bash
     [[ -f $RESTORE/.bash_aliases ]] && mv $RESTORE/.bash_aliases $HOME
     [[ -f $RESTORE/.bash_functions ]] && mv $RESTORE/.bash_functions $HOME
@@ -150,11 +150,11 @@ restore () {
 ######################
 
 clear
-banner
-warning
+_banner
+_warning
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! ask "    This is not a Ubuntu distro, continue anyway?" N; then
+    if ! _ask "    This is not a Ubuntu distro, continue anyway?" N; then
         printf "\n"
         exit 0
     fi
@@ -168,7 +168,7 @@ else
     exit 1
 fi
 
-if ! ask "    Confirm to start the '.udot' restore script" Y; then
+if ! _ask "    Confirm to start the '.udot' restore script" Y; then
     printf "\n"
     exit 0
 fi
@@ -202,7 +202,6 @@ stow -D i3
 stow -D kakoune
 stow -D kitty
 stow -D nano
-stow -D neovim
 stow -D sxiv
 stow -D tig
 stow -D tmux
@@ -210,27 +209,12 @@ stow -D vim
 stow -D x11
 stow -D zathura
 
-restore
-rmdir $HOME/Pictures/backgrounds 2>/dev/null
+_restore
 
 [[ -d $RESTORE ]] && rm -rf $RESTORE
 [[ -d $HOME/.tmp ]] && rm -rf $HOME/.tmp
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
 [[ -f $HOME/.xtemp ]] && rm $HOME/.xtemp
-
-
-
-
-### Dmenu, St and Slock
-#######################
-
-read -p "    Removing dmenu, st and slock (enter to continue)"
-printf "\n"
-
-cd dmenu && sudo make clean uninstall
-cd ../st && sudo make clean uninstall
-cd ../slock && sudo make clean uninstall
-cd ..
 
 
 
@@ -276,16 +260,16 @@ sudo apt purge -qq -y \
     dconf-editor \
     gnome-shell-extension-prefs \
     vsftpd \
+    bat \
     i3-wm \
     xautolock \
     arandr \
+    lxterminal \
+    kitty \
     xterm \
-    rxvt-unicode \
     tmux \
     kakoune \
-    kitty \
     vim-gtk3 \
-    neovim \
     nano \
     tig \
     zathura \
@@ -306,12 +290,12 @@ sudo apt purge -qq -y \
     synaptic \
     gparted \
     pcmanfm \
-    lxterminal \
     xarchiver \
     vlc \
     simplescreenrecorder \
     libreoffice \
-    mypaint
+    mypaint \
+    gpick
 
 
 
@@ -383,7 +367,7 @@ printf "\n"
 read -p "    Launching autoremove (enter to continue)"
 printf "\n"
 
-sudo apt autoremove -qq -y || error "autoremove"
+sudo apt autoremove -qq -y || _error "autoremove"
 
 
 
@@ -395,5 +379,5 @@ printf "\n"
 read -p "    Restoring completed (enter to reboot)"
 printf "\n"
 
-kill_apps
+_kill_apps
 systemctl reboot

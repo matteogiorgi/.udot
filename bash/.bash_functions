@@ -28,6 +28,31 @@ function _mpv () {
 }
 
 
+_killapps () {
+    while read -r app; do
+        wmctrl -i -c "$app"
+    done < <(wmctrl -l | awk '{print $1}')
+}
+
+
+_logouti3 () {
+    _killapps
+    killall i3
+}
+
+
+_reboot () {
+    _killapps
+    systemctl reboot
+}
+
+
+_poweroff () {
+    _killapps
+    systemctl -i poweroff
+}
+
+
 function _setbackgroundcolor () {
     if [[ -f "/bin/xtermcontrol" ]]; then
         if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
@@ -39,25 +64,25 @@ function _setbackgroundcolor () {
 }
 
 
-function _nvim () {
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env nvim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
-}
-
-
 function _vim () {
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
     env vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
-function _vimnoplugin () {
+function _vimcoc () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
+function _vimnp () {
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
     env vim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
-function _vimlastsession () {
+function _vimls () {
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         _vim -S $HOME/.vim/sessions/last.vim
     else

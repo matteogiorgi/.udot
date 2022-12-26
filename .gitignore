@@ -6,91 +6,6 @@ tags*
 
 
 
-### DMENU
-#########
-
-/dmenu/*
-!/dmenu/arg.h
-!/dmenu/config.def.h
-!/dmenu/config.def.h.orig
-!/dmenu/config.mk
-!/dmenu/dmenu.1
-!/dmenu/dmenu.c
-!/dmenu/dmenu.c.orig
-!/dmenu/dmenu_path
-!/dmenu/dmenu_run
-!/dmenu/drw.c
-!/dmenu/drw.h
-!/dmenu/LICENSE
-!/dmenu/Makefile
-!/dmenu/README.md
-!/dmenu/stest.1
-!/dmenu/stest.c
-!/dmenu/util.c
-!/dmenu/util.h
-
-
-
-
-### ST
-######
-
-/st/*
-!/st/arg.h
-!/st/boxdraw.c
-!/st/boxdraw_data.h
-!/st/config.def.h
-!/st/config.mk
-!/st/FAQ
-!/st/LEGACY
-!/st/LICENSE
-!/st/Makefile
-!/st/README.md
-!/st/st.1
-!/st/st.c
-!/st/st.c.orig
-!/st/st.h
-!/st/st.h.orig
-!/st/st.info
-!/st/TODO
-!/st/win.h
-!/st/x.c
-!/st/x.c.orig
-
-
-
-
-### SLOCK
-#########
-
-/slock/*
-!/slock/arg.h
-!/slock/config.def.h
-!/slock/config.mk
-!/slock/explicit_bzero.c
-!/slock/LICENSE
-!/slock/Makefile
-!/slock/README.md
-!/slock/slock.1
-!/slock/slock.c
-!/slock/util.h
-
-
-
-
-### XCAPE
-#########
-
-/xcape/*
-!/xcape/LICENSE
-!/xcape/Makefile
-!/xcape/README.md
-!/xcape/xcape.1
-!/xcape/xcape.c
-
-
-
-
 ### VIM
 #######
 
@@ -99,21 +14,5 @@ tags*
 !/vim/.vim/autoload
 !/vim/.vim/colors
 !/vim/.vim/ftplugin
-!/vim/.vim/pack
+!/vim/.vim/packed
 !/vim/.vim/plugin
-
-
-
-
-### NEOVIM
-##########
-
-/neovim/.config/nvim/*
-!/neovim/.config/nvim/after
-!/neovim/.config/nvim/autoload
-!/neovim/.config/nvim/colors
-!/neovim/.config/nvim/ftplugin
-!/neovim/.config/nvim/pack
-!/neovim/.config/nvim/plugin
-!/neovim/.config/nvim/cocsettings
-!/neovim/.config/nvim/init.vim

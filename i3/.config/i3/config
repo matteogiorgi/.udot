@@ -64,26 +64,6 @@ mode "Resize" {
     bindsym l resize grow width 30 px or 10 ppt
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym Caps_Lock mode "default"
-}
-
-mode "Temperature" {
-    bindsym j exec "xtemperature -1"
-    bindsym k exec "xtemperature +1"
-    bindsym 0 exec "xtemperature"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Caps_Lock mode "default"
-}
-
-mode "Wallpaper" {
-    bindsym h exec "nxbg --prev"
-    bindsym l exec "nxbg --next"
-    bindsym r exec "nxbg --random"
-    bindsym 0 exec "nxbg"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym Caps_Lock mode "default"
 }
 
 
@@ -203,7 +183,7 @@ bar {
 ### Floating windows
 ####################
 
-# utility menu
+# utility
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Synaptic"] floating enable
 for_window [class="GParted"] floating enable
@@ -213,27 +193,43 @@ for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
 
-# swallow apps
+# swallow
 for_window [class="mpv"] floating enable
 for_window [class="Zathura"] floating enable
 for_window [class="Sxiv"] floating enable
 for_window [class="Xournalpp"] floating enable
 for_window [class="MyPaint"] floating enable
 for_window [class="libreoffice"] floating enable
+for_window [class="Xarchiver"] floating enable
 
-# other floating apps
+# other
 for_window [class="flameshot"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-services"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
-for_window [class="Xarchiver"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enable
+for_window [class="Gpick"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
+for_window [class="Kupfer.py"] floating enable
 
-# floating options
-for_window [class="mpv"] resize set 800 600;
+# options
+for_window [class="Pcmanfm"] resize set 800 600
+for_window [class="Pcmanfm"] move position center
+for_window [class="Synaptic"] resize set 800 600
+for_window [class="Synaptic"] move position center
+for_window [class="Pavucontrol"] resize set 800 600
+for_window [class="Pavucontrol"] move position center
+for_window [class="qt5ct"] resize set 800 600
+for_window [class="qt5ct"] move position center
+for_window [class="libreoffice"] resize set 800 600
+for_window [class="libreoffice"] move position center
+for_window [class="vlc"] resize set 800 600
+for_window [class="vlc"] move position center
+for_window [class="Gpick"] resize set 800 600
+for_window [class="Gpick"] move position center
+for_window [class="mpv"] resize set 800 600
 for_window [class="mpv"] move position center
 for_window [class="Xournalpp"] resize set 800 600
 for_window [class="Xournalpp"] move position center
@@ -269,8 +265,8 @@ for_window [title="SCRATCHPAD"] move position center
 #################
 
 # terminal
-bindsym $mod+Return exec "lxterminal"
-bindsym $mod+shift+Return exec "dterminal"
+bindsym $mod+Return exec "i3-sensible-terminal"
+bindsym $mod+shift+Return exec "i3-sensible-terminal -T SCRATCHPAD"
 
 # focus
 bindsym $mod+space focus parent
@@ -281,24 +277,16 @@ bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
 # floating, fullscreen
+bindsym $mod+d focus mode_toggle
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
-bindsym $mod+o focus mode_toggle
 
 # modes
 bindsym $mod+r mode "Resize"
-bindsym $mod+t mode "Temperature"
-bindsym $mod+w mode "Wallpaper"
 
-#dmenu
-bindsym $mod+d exec --no-startup-id "dmenu_run -i -b -p DMENU"
-bindsym $mod+q exec "dquit"
-bindsym $mod+e exec "deditor"
+# extra
 bindsym $mod+y exec "diodon"
-bindsym $mod+u exec "dutility"
-bindsym $mod+c exec "flameshot gui"
-bindsym $mod+b exec "dbrowser"
-bindsym $mod+m exec "dmonitor"
+bindsym $mod+u exec "flameshot gui"
 
 
 

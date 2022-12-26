@@ -6,12 +6,12 @@
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
 ""    vim-fugitive ················· https://github.com/tpope/vim-fugitive
-""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    undotree ····················· https://github.com/mbbill/undotree
-""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-""    vim-hy ······················· https://github.com/hylang/vim-hy
+""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
+""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
+""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -38,6 +38,8 @@ endif
 " }}}
 
 
+
+
 " Save last session {{{
 if !exists('noplugin')
     augroup vimleave
@@ -55,22 +57,43 @@ endif
 " }}}
 
 
+
+
 " Plugin list {{{
+if !exists('coc_mode') | let fzf_mode = 1 | endif
 if !exists('noplugin')
     call plug#begin('~/.vim/plugged')
+        Plug '$HOME/.vim/packed/bclose'
+        Plug '$HOME/.vim/packed/ezwindow'
+        Plug '$HOME/.vim/packed/fuzzy'
+        Plug '$HOME/.vim/packed/lines'
+        Plug '$HOME/.vim/packed/qbuf'
+        Plug '$HOME/.vim/packed/startscreen'
+        Plug '$HOME/.vim/packed/utility'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-commentary'
         Plug 'tpope/vim-fugitive'
-        Plug 'jiangmiao/auto-pairs'
         Plug 'mbbill/undotree'
-        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
         Plug 'wellle/context.vim'
         Plug 'ludovicchabant/vim-gutentags'
-        Plug 'hylang/vim-hy'
+
+        if exists('coc_mode')
+            Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+        endif
+
+        if exists('fzf_mode')
+            Plug '$HOME/.vim/packed/simple-complete'
+            Plug '$HOME/.vim/packed/notewiki'
+            Plug 'jiangmiao/auto-pairs'
+            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+            Plug 'junegunn/fzf.vim'
+        endif
     call plug#end()
 endif
 " }}}
+
+
 
 
 " Some settings to load early {{{
@@ -86,11 +109,6 @@ endif
 " }}}
 
 
-" Syntax {{{
-syntax on
-filetype plugin indent on
-colorscheme hemisu
-" }}}
 
 
 " Dynamic background {{{
@@ -100,6 +118,17 @@ else
     set background=dark
 endif
 " }}}
+
+
+
+
+" Syntax {{{
+syntax on
+filetype plugin indent on
+colorscheme hembox
+" }}}
+
+
 
 
 " Set mainstuff {{{
@@ -149,6 +178,8 @@ endif
 " }}}
 
 
+
+
 " Set completion {{{
 set path+=**
 set omnifunc=syntaxcomplete#Complete
@@ -166,6 +197,8 @@ set belloff+=ctrlg
 " }}}
 
 
+
+
 " Variables to load early {{{
 let g:mapleader = "\<space>"
 let g:maplocalleader = ","
@@ -173,6 +206,8 @@ if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
 endif
 " }}}
+
+
 
 
 " Linenumber behaviour {{{
@@ -184,6 +219,8 @@ augroup numbertoggle
                 \ if &number ==? 1 | set norelativenumber | endif | set nocursorline
 augroup end
 " }}}
+
+
 
 
 " Overlength behaviour {{{
@@ -201,6 +238,8 @@ augroup end
 " }}}
 
 
+
+
 " Simple commands {{{
 command! Date execute 'r !printf "\n\# " && date && printf "\n"'
 command! SelectAll execute "normal \ggVG"
@@ -212,11 +251,15 @@ command! LastSession :source $HOME/.vim/sessions/last.vim
 " }}}
 
 
+
+
 " Copy/Pasta commands {{{
 "(`apt intall -yy vim-gtk3`)
 command! Copy execute 'visual "+y'
 command! Pasta execute 'normal "+p'
 " }}}
+
+
 
 
 " Keymaps {{{

@@ -19,10 +19,18 @@
 
 
 
+"" COC-MODE
+if !exists('coc_mode')
+    finish
+endif
+
+
+
+
 "" Coc configuration file path and main extensions list
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:coc_config_home = '~/.config/nvim'
+let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
             \ 'coc-marketplace',
             \ 'coc-dictionary',
@@ -40,12 +48,12 @@ let g:coc_global_extensions = [
 "" Autogroups
 """""""""""""
 
-if empty(glob("$HOME/.config/nvim/coc-settings.json"))
+if empty(glob("$HOME/.vim/coc-settings.json"))
     augroup cocsettings
         autocmd!
         autocmd VimEnter *
-                    \ if !empty(glob("$HOME/.config/nvim/cocsettings")) |
-                    \     execute "!$HOME/.config/nvim/cocsettings" |
+                    \ if !empty(glob("$HOME/.vim/cocsettings")) |
+                    \     execute "!$HOME/.vim/cocsettings" |
                     \ endif
     augroup end
 endif
@@ -128,4 +136,4 @@ nmap <leader>d <Plug>(coc-definition)
 nmap <leader>r <Plug>(coc-references)
 nmap <leader>i <Plug>(coc-implementation)
 nmap <leader>n <Plug>(coc-diagnostic-next)
-nmap <leader>N <Plug>(coc-diagnostic-prev)
+nmap <leader>p <Plug>(coc-diagnostic-prev)

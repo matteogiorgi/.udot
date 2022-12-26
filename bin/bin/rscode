@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 
 
-### Funcions and colors definition
-##################################
+### Colors
+##########
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
+### Funcions
+############
 
 _rmextensions () {
     CODE="$*"
@@ -28,30 +38,7 @@ EOF
 }
 
 
-_addconf () {
-    CODE="$*"
-    printf "${RED}%s${NC} " "Choose CONFIG (simple/vimlike):"
-    while read response; do
-        case $response in
-            "simple")
-                _simple "$CODE"
-                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> simple"
-                break
-                ;;
-            "vimlike")
-                _vimlike "$CODE"
-                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> vimlike"
-                break
-                ;;
-            *)
-                printf "${RED}%s${NC} " "Choose CONFIG (simple/vimlike):"
-                ;;
-        esac
-    done
-}
-
-
-_simple () {
+_default () {
 [[ "$*" == "code" ]] && FOLDER="Code"
 [[ "$*" == "codium" ]] && FOLDER="VSCodium"
 [[ -z $FOLDER ]] && exit 1 || CODE="$*"
@@ -70,7 +57,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "editor.fontSize": 11,
     "editor.lineHeight": 1.4,
     "editor.lineNumbers": "on",
-    "editor.renderLineHighlight": "gutter",
+    "editor.renderLineHighlight": "none",
     "editor.fontLigatures": true,
     "editor.guides.indentation": false,
     "editor.minimap.enabled": false,
@@ -93,7 +80,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Quiet Light",
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": null,
+    "workbench.productIconTheme": "Default",
     "workbench.activityBar.visible": true,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
@@ -156,6 +144,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Monokai Pro",
     "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.productIconTheme": "Default",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.editor.enablePreview": false,
@@ -360,15 +349,33 @@ EOF
 }
 
 
-RED='\033[1;36m'
-YLW='\033[1;35m'
-NC='\033[0m'
+_addconf () {
+    CODE="$*"
+    printf "${RED}%s${NC} " "Choose CONFIG (default/vimlike):"
+    while read response; do
+        case $response in
+            "default")
+                _default "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> default"
+                break
+                ;;
+            "vimlike")
+                _vimlike "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> vimlike"
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Choose CONFIG (default/vimlike):"
+                ;;
+        esac
+    done
+}
 
 
 
 
-### Choose editor
-#################
+### Main
+########
 
 printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
 while read response; do

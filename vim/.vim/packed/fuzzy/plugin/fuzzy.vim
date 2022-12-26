@@ -4,12 +4,10 @@
 
 function s:FuzzyFind()
     let s:folder = expand("%:p:h")
-    if has('nvim')
-        exec "silent !st -T SCRATCHPAD -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
-    elseif has('gui_running')
-        exec "silent !st -T SCRATCHPAD -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+    if has('gui_running')
+        exec "silent !xterm -T SCRATCHPAD -e $HOME/.vim/packed/fuzzy/plugin/fuzzyfind s:folder"
     else
-        exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyfind s:folder"
+        exec "silent !$HOME/.vim/packed/fuzzy/plugin/fuzzyfind s:folder"
     endif
     if filereadable('/tmp/vim_fuzzy_current_file')
         exec 'edit ' . system('cat /tmp/vim_fuzzy_current_file')
@@ -20,12 +18,10 @@ endfun
 
 function s:FuzzyJump()
     let s:folder = expand("%:p:h")
-    if has('nvim')
-        exec "silent !st -T SCRATCHPAD -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
-    elseif has('gui_running')
-        exec "silent !st -T SCRATCHPAD -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+    if has('gui_running')
+        exec "silent !xterm -T SCRATCHPAD -e $HOME/.vim/packed/fuzzy/plugin/fuzzyjump s:folder"
     else
-        exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzyjump s:folder"
+        exec "silent !$HOME/.vim/packed/fuzzy/plugin/fuzzyjump s:folder"
     endif
     if filereadable('/tmp/vim_fuzzy_current_dir')
         exec 'cd ' . system('cat /tmp/vim_fuzzy_current_dir')
@@ -39,12 +35,10 @@ function s:FuzzyJump()
 endfun
 
 function s:FuzzyGit()
-    if has('nvim')
-        exec "silent !st -T SCRATCHPAD -e $HOME/.config/nvim/pack/plugins/start/fuzzy/plugin/fuzzygit"
-    elseif has('gui_running')
-        exec "silent !st -T SCRATCHPAD -e $HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+    if has('gui_running')
+        exec "silent !xterm -T SCRATCHPAD -e $HOME/.vim/packed/fuzzy/plugin/fuzzygit"
     else
-        exec "silent !$HOME/.vim/pack/plugins/start/fuzzy/plugin/fuzzygit"
+        exec "silent !$HOME/.vim/packed/fuzzy/plugin/fuzzygit"
     endif
     redraw!
 endfun
