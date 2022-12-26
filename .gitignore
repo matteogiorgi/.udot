@@ -16,3 +16,4 @@ tags*
 !/vim/.vim/ftplugin
 !/vim/.vim/packed
 !/vim/.vim/plugin
+!/vim/.vim/cocsettings
