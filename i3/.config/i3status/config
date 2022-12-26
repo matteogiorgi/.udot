@@ -1,11 +1,11 @@
 general {
-    output_format = "i3bar"
-    colors = false
-    markup = pango
-    interval = 5
-    color_good = '#2f343f'
-    color_degraded = '#ebcb8b'
-    color_bad = '#ba5e57'
+    output_format  = "i3bar"
+    colors         = false
+    markup         = pango
+    interval       = 5
+    color_good     = '#000000'
+    color_degraded = '#ffa800'
+    color_bad      = '#900000'
 }
 
 order += "cpu_usage"
@@ -21,41 +21,41 @@ order += "tztime local"
 
 
 cpu_usage {
-    format        = "<span background='#3c3836'> CPU %usage </span>"
+    format        = "<span background='#888888'> CPU %usage </span>"
     max_threshold = 75
 }
 
 memory {
-    format             = "<span background='#504945'> MEM %percentage_used </span>"
-    format_degraded    = "<span background='#504945'> MEM: %free </span>"
+    format             = "<span background='#888888'> MEM %percentage_used </span>"
+    format_degraded    = "<span background='#888888'> MEM: %free </span>"
     threshold_degraded = "10%"
 }
 
 disk "/" {
-    format = "<span background='#665c54'> HDD %percentage_used </span>"
+    format = "<span background='#888888'> HDD %percentage_used </span>"
 }
 
 wireless _first_ {
-    format_up   = "<span background='#7c6f64'> WAN %quality %essid, %bitrate → IP %ip </span>"
-    format_down = "<span background='#7c6f64'> WAN disconnected </span>"
+    format_up   = "<span background='#888888'> WAN %quality %essid, %bitrate → IP %ip </span>"
+    format_down = "<span background='#888888'> WAN disconnected </span>"
 }
 
 ethernet _first_ {
-    format_up   = "<span background='#928374'> ETH %speed → IP %ip </span>"
-    format_down = "<span background='#928374'> ETH disconnected </span>"
+    format_up   = "<span background='#888888'> ETH %speed → IP %ip </span>"
+    format_down = "<span background='#888888'> ETH disconnected </span>"
 }
 
 volume master {
-    format       = "<span background='#a89984'> VOL %volume </span>"
-    format_muted = "<span background='#a89984'> VOL muted </span>"
+    format       = "<span background='#888888'> VOL %volume </span>"
+    format_muted = "<span background='#888888'> VOL muted </span>"
     device       = "default"
     mixer        = "Master"
     mixer_idx    = 0
 }
 
 battery all {
-    format        = "<span background='#bdae93'> %status %percentage %remaining %emptytime </span>"
-    format_down   = "<span background='#bdae93'> BAT null </span>"
+    format        = "<span background='#888888'> %status %percentage %remaining %emptytime </span>"
+    format_down   = "<span background='#888888'> BAT null </span>"
     status_chr    = "CHR"
     status_bat    = "BAT"
     status_unk    = "UNK"
@@ -65,6 +65,6 @@ battery all {
 }
 
 tztime local {
-    format = "<span background='#d5c4a1'> %time </span>"
+    format = "<span background='#888888'> %time </span>"
     format_time = "%a %d %b, %H:%M"
 }

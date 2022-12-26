@@ -167,8 +167,15 @@ client.background       #e5e5e5
 bar {
     colors {
         background #111111
-        statusline #111111
+        statusline #000000
         separator  #333333
+
+        # workspaces color (border, background, text)
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
     }
     font pango:Ubuntu Mono Bold 9
     position bottom
