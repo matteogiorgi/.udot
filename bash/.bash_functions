@@ -5,6 +5,48 @@
 
 
 
+# COLORS
+########
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+
+
+# FUNCTIONS
+###########
+
+function _ask () {
+    while true; do
+        if [ "${2:-}" = "Y" ]; then
+            prompt="Y/n"
+            default=Y
+        elif [ "${2:-}" = "N" ]; then
+            prompt="y/N"
+            default=N
+        else
+            prompt="y/n"
+            default=
+        fi
+
+        # Ask the question
+        read -p "$1 [$prompt] " REPLY
+
+        # Default?
+        if [ -z "$REPLY" ]; then
+            REPLY=$default
+        fi
+
+        # Check if the reply is valid
+        case "$REPLY" in
+            Y*|y*) return 0 ;;
+            N*|n*) return 1 ;;
+        esac
+    done
+}
+
 
 function _xhide () {
     id=$(xdo id)
@@ -36,20 +78,26 @@ _killapps () {
 
 
 _logouti3 () {
-    _killapps
-    killall i3
+    if _ask "Do you really wanna exit i3?" N; then
+        _killapps
+        killall i3
+    fi
 }
 
 
-_reboot () {
-    _killapps
-    systemctl reboot
+_rebooti3 () {
+    if _ask "Do you really wanna reboot your system?" N; then
+        _killapps
+        systemctl reboot
+    fi
 }
 
 
-_poweroff () {
-    _killapps
-    systemctl -i poweroff
+_poweroffi3 () {
+    if _ask "Do you really wanna poweroff your system?" N; then
+        _killapps
+        systemctl -i poweroff
+    fi
 }
 
 
@@ -92,7 +140,6 @@ function _vimls () {
 
 
 function _tmux () {
-    YLW='\033[1;35m'; NC='\033[0m'
     if [[ -n "$TMUX" ]]; then
         printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"
         return
@@ -129,7 +176,6 @@ function _fjump () {
 function _fgit () {
     # FZF git commit browser:
     # [enter=show] [ctrl-d=diff] [`=sort]
-    YLW='\033[1;35m'; NC='\033[0m'
     if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
         local out shas sha q k
         while out=$(
@@ -156,7 +202,6 @@ function _fgit () {
 
 
 function _tig () {
-    YLW='\033[1;35m'; NC='\033[0m'
     if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
         tig
     else
@@ -183,10 +228,6 @@ function _sxiv () {
 function _chbg () {
     BACKGROUNDS="$HOME/Pictures/backgrounds"
     if [[ ! -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]]; then
-        RED='\033[1;36m'
-        YLW='\033[1;35m'
-        NC='\033[0m'
-
         count=1
         list=$(/usr/bin/ls $BACKGROUNDS)
         max=$(($(/usr/bin/ls $BACKGROUNDS | wc -w)+1))
@@ -214,18 +255,12 @@ function _chbg () {
 
 function _xwacom () {
     source $HOME/.xinput.bash
-
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
     if [[ $(xinput | grep "$WACOMID" | wc -l) -eq 0 ]]; then
         printf "${YLW}%s${NC}\n" "Wacom not conected"
         return
     fi
 
     XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
-
     printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
     while read response; do
         case $response in
@@ -286,13 +321,7 @@ function _xwacom () {
 
 function _xtouch () {
     source $HOME/.xinput.bash
-
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
     TOUCH=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
-
     printf "${RED}%s${NC} " "Choose TOUCHPAD behavior (enable/disable):"
     while read response; do
         case $response in
@@ -315,10 +344,6 @@ function _xtouch () {
 
 
 function _xlayout () {
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
     printf "${RED}%s${NC} " "Select keyboard LAYOUT (us/gb/it):"
     while read response; do
         case $response in
@@ -340,11 +365,9 @@ function _xlayout () {
 
 
 function _ipreview () {
+    # remember to install PIL/Pillow:
+    # pip3 install PIL/Pillow
     FILE=$*
-    RED='\033[1;36m'
-    NC='\033[0m'
-
-    # remember to install PIL/Pillow: pip3 install PIL/Pillow
     if [[ $(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$)) == "kitty" ]]; then
         kitty +kitten icat "$FILE"
     elif [[ -x "$(command -v tcv)" ]]; then
@@ -356,10 +379,6 @@ function _ipreview () {
 
 
 function _xopp2pdf () {
-    RED='\033[1;36m'
-    YLW='\033[1;35m'
-    NC='\033[0m'
-
     ARGS="$*"
     if [[ "$ARGS" == "" ]]; then
         [[ ! -d ./pdf ]] && mkdir ./pdf

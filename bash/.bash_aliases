@@ -57,8 +57,8 @@ alias autoslave="autorandr --load slave"
 
 
 alias logouti3="_logouti3"
-alias reboot="_reboot"
-alias poweroff="_poweroff"
+alias rebooti3="_rebooti3"
+alias poweroffi3="_poweroffi3"
 
 
 alias stow="stow -S"
