@@ -317,6 +317,7 @@ sudo apt install -qq -y \
     libreoffice \
     mypaint \
     system-config-printer \
+    kupfer \
     gpick
 
 
