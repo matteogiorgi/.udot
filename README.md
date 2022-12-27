@@ -40,12 +40,12 @@ poppler-utils exuberant-ctags nodejs ufw vsftpd bat
 ## Main packages
 
 ```
-i3-wm xautolock arandr lxterminal kitty xterm tmux kakoune vim-gtk3 nano tig gpick
+i3-wm xautolock arandr lxterminal kitty xterm tmux kakoune vim-gtk3 nano tig kupfer
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 humanity-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance
 qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted pcmanfm lxterminal
 xarchiver vlc simplescreenrecorder libreoffice mypaint cups system-config-printer
-dconf-editor gnome-shell-extension-prefs kupfer
+dconf-editor gnome-shell-extension-prefs
 ```
 
 

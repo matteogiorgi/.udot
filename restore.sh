@@ -295,8 +295,7 @@ sudo apt purge -qq -y \
     simplescreenrecorder \
     libreoffice \
     mypaint \
-    kupfer \
-    gpick
+    kupfer
 
 
 
