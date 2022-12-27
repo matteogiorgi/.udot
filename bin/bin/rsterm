@@ -5,6 +5,7 @@ RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
 
+
 printf "${RED}%s ${YLW}%s ${RED}%s${NC}\n" "Resetting" "LXTerminal" "to defaults"
 
 cat 2>/dev/null > $HOME/.config/lxterminal/lxterminal.conf <<-EOF

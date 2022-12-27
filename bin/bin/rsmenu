@@ -5,9 +5,13 @@ RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
 
+
 printf "${RED}%s ${YLW}%s ${RED}%s${NC}\n" "Resetting" "Kupfer" "to defaults"
 
 cat 2>/dev/null > $HOME/.config/kupfer/kupfer.cfg <<-EOF
+[Directories]
+direct = 
+
 [Kupfer]
 showstatusicon = False
 
@@ -15,6 +19,7 @@ showstatusicon = False
 terminal = kupfer.plugin.core.lxterminal
 
 [plugin_applications]
+desktop_filter = False
 desktop_type = 
 kupfer_toplevel_appsource = True
 
@@ -63,3 +68,6 @@ kupfer_toplevel_volumessource = True
 kupfer_enabled = False
 EOF
 
+
+kill -9 $(ps -e | grep kupfer | awk 'FNR==1 {print $1}')
+nohup kupfer --no-splash 2>/dev/null &
