@@ -16,7 +16,7 @@
 
 set $mod Mod4
 floating_modifier $mod
-font pango:Ubuntu Mono Bold 9
+font pango:Ubuntu Mono 9
 
 
 
@@ -167,7 +167,7 @@ client.background       #e5e5e5
 bar {
     colors {
         background #111111
-        statusline #000000
+        statusline #888888
         separator  #333333
 
         # workspaces color (border, background, text)
@@ -177,7 +177,7 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    font pango:Ubuntu Mono Bold 9
+    font pango:Ubuntu Mono 9
     position bottom
     separator_symbol "​"
     tray_output primary
