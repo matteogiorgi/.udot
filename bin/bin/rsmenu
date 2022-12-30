@@ -76,3 +76,5 @@ EOF
 KUPFERID=$(ps -e | grep kupfer | awk 'FNR==1 {print $1}')
 [[ ! $KUPFERID == "" ]] && kill -9 $KUPFERID
 nohup kupfer --no-splash 2>/dev/null &
+sleep 0.125s
+[[ -f "nohup.out" ]] && rm -f nohup.out
