@@ -12,7 +12,11 @@ cat 2>/dev/null > $HOME/.config/kupfer/kupfer.cfg <<-EOF
 [Directories]
 direct = 
 
+[Keybindings]
+compose_action = <Primary>space
+
 [Kupfer]
+keybinding = <Primary>Return
 showstatusicon = False
 
 [Tools]
@@ -66,6 +70,7 @@ kupfer_toplevel_volumessource = True
 
 [plugin_wikipedia]
 kupfer_enabled = False
+
 EOF
 
 
