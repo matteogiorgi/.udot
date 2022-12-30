@@ -118,6 +118,12 @@ function _vim () {
 }
 
 
+function _vimfzf () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env vim --cmd "let fzf_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
 function _vimcoc () {
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
     env vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"

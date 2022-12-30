@@ -5,19 +5,32 @@
 ########################
 
 FILE="$*"
-[[ -x "$(command -v nano)" ]] && NAMES="Nano\n"$NAMES
+[[ -x "$(command -v nano)" ]] && NAMES="η-Nano\n"$NAMES
 [[ -x "$(command -v kak)" ]] && NAMES="Kakoune\n"$NAMES
-[[ -x "$(command -v vim)" ]] && NAMES="Vim\nVim-COC\n"$NAMES
+[[ -x "$(command -v vim)" ]] && NAMES="Vim-FZF\nVim-COC\n"$NAMES
+
+
 
 
 ### Functions definition
 ########################
 
-# check a function with something like this:
-# [[ "$(type -t _vim)" == function ]] && _vim $FILE
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
+
+function _vimcall () {
+    VIMCALL="$1"
+    if [[ "$(type -t $VIMCALL)" == function ]]; then
+        $VIMCALL "${FILE}"
+    elif [[ "$(type -t _vim)" == function ]]; then
+        _vim "${FILE}"
+    else
+        vim "${FILE}"
+    fi
+}
+
+
 
 
 ### Greppers
@@ -32,6 +45,8 @@ echo "$1" | grep "\.sent$" && {
     _xhide sent "$1" &
     exit
 }
+
+
 
 
 ### MIME-type opener (inode/directory not necessary)
@@ -71,16 +86,16 @@ case $(file --mime-type "${FILE}" -bL) in
             exit 0
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            Vim)
-                _vim "${FILE}"
+            Vim-FZF)
+                _vimcall "_vimfzf" "${FILE}"
                 ;;
             Vim-COC)
-                _vimcoc "${FILE}"
+                _vimcall "_vimcoc" "${FILE}"
                 ;;
             Kakoune)
                 kak "${FILE}"
                 ;;
-            Nano)
+            η-Nano)
                 nano "${FILE}"
                 ;;
             *)

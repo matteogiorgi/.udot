@@ -22,6 +22,7 @@ alias xcut="xclip-cutfile"
 
 
 alias vim="_vim"
+alias vimfzf="_vimfzf"
 alias vimcoc="_vimcoc"
 alias vimnp="_vimnp"
 alias vimls="_vimls"
@@ -56,9 +57,9 @@ alias automaster="autorandr --load master"
 alias autoslave="autorandr --load slave"
 
 
-alias logouti3="_logouti3"
-alias rebooti3="_rebooti3"
-alias poweroffi3="_poweroffi3"
+alias logout-i3="_logouti3"
+alias reboot-i3="_rebooti3"
+alias poweroff-i3="_poweroffi3"
 
 
 alias stow="stow -S"

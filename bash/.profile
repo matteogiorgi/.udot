@@ -89,6 +89,9 @@ fi
 
 export TERMINAL="/bin/lxterminal"
 export VISUAL="/bin/vim"
+export KUPFER_NO_CUSTOM_PLUGINS='true'
+export KUPFER_NO_CACHE='true'
+export KUPFER_NO_KEYBINDER='true'
 
 
 

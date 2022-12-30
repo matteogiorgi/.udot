@@ -16,7 +16,7 @@ direct =
 compose_action = <Primary>space
 
 [Kupfer]
-keybinding = <Primary>Return
+keybinding = 
 showstatusicon = False
 
 [Tools]
@@ -70,7 +70,6 @@ kupfer_toplevel_volumessource = True
 
 [plugin_wikipedia]
 kupfer_enabled = False
-
 EOF
 
 

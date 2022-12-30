@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+read -p "WARNING: mimeapps.list will be overridden (enter to continue)"
+printf "${RED}%s ${YLW}%s ${RED}%s${NC}\n" "Resetting" "mimeapps.list" "to defaults"
+
+cat 2>/dev/null > $HOME/.config/mimeapps.list <<-EOF
+[Default Applications]
+audio/*=mpv.desktop
+video/*=mpv.desktop
+image/*=sxiv.desktop
+text/*=gvim.desktop
+inode/directory=pcmanfm.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/postscript=org.pwmt.zathura.desktop
+application/djvu=org.pwmt.zathura.desktop
+application/x-tar=xarchiver.desktop
+application/zip=xarchiver.desktop
+application/gzip=xarchiver.desktop
+EOF

@@ -190,6 +190,15 @@ bar {
 ### Floating windows
 ####################
 
+# swallow
+for_window [class="mpv"] floating enable
+for_window [class="Zathura"] floating enable
+for_window [class="Sxiv"] floating enable
+for_window [class="Xournalpp"] floating enable
+for_window [class="MyPaint"] floating enable
+for_window [class="libreoffice"] floating enable
+for_window [class="Xarchiver"] floating enable
+
 # utility
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Synaptic"] floating enable
@@ -199,15 +208,6 @@ for_window [class="System-config-printer.py"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
-
-# swallow
-for_window [class="mpv"] floating enable
-for_window [class="Zathura"] floating enable
-for_window [class="Sxiv"] floating enable
-for_window [class="Xournalpp"] floating enable
-for_window [class="MyPaint"] floating enable
-for_window [class="libreoffice"] floating enable
-for_window [class="Xarchiver"] floating enable
 
 # other
 for_window [class="flameshot"] floating enable
@@ -219,6 +219,7 @@ for_window [class="vlc"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
 for_window [class="Kupfer.py"] floating enable
+for_window [class="Gvim"] floating enable
 
 # options
 for_window [class="Pcmanfm"] resize set 800 600
@@ -239,6 +240,8 @@ for_window [class="Xournalpp"] resize set 800 600
 for_window [class="Xournalpp"] move position center
 for_window [class="MyPaint"] resize set 800 600
 for_window [class="MyPaint"] move position center
+for_window [class="Gvim"] resize set 800 600
+for_window [class="Gvim"] move position center
 
 
 
@@ -268,17 +271,20 @@ for_window [title="SCRATCHPAD"] move position center
 ### Usefull binds
 #################
 
+# menu
+bindsym $mod+space exec "kupfer"
+
 # terminal
 bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+shift+Return exec "i3-sensible-terminal -T SCRATCHPAD"
 
-# focus
-bindsym $mod+space focus parent
-bindsym $mod+Shift+space focus child
-
 # scratchpad
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
+
+# focus
+bindsym $mod+q focus parent
+bindsym $mod+w focus child
 
 # floating, fullscreen
 bindsym $mod+d focus mode_toggle

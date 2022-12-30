@@ -59,8 +59,20 @@ endif
 
 
 
+" Mode-selector {{{
+if exists('fzf_mode')
+    let plugin_mode = 'fzf'
+elseif exists('coc_mode')
+    let plugin_mode = 'coc'
+else
+    let plugin_mode = 'simple'
+endif
+" }}}
+
+
+
+
 " Plugin list {{{
-if !exists('coc_mode') | let fzf_mode = 1 | endif
 if !exists('noplugin')
     call plug#begin('~/.vim/plugged')
         Plug '$HOME/.vim/packed/bclose'
@@ -78,16 +90,19 @@ if !exists('noplugin')
         Plug 'wellle/context.vim'
         Plug 'ludovicchabant/vim-gutentags'
 
-        if exists('coc_mode')
-            Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-        endif
-
-        if exists('fzf_mode')
+        if plugin_mode ==? 'simple' || plugin_mode ==? 'fzf'
             Plug '$HOME/.vim/packed/simple-complete'
             Plug '$HOME/.vim/packed/notewiki'
             Plug 'jiangmiao/auto-pairs'
+        endif
+
+        if plugin_mode ==? 'fzf'
             Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
             Plug 'junegunn/fzf.vim'
+        endif
+
+        if plugin_mode ==? 'coc'
+            Plug 'neoclide/coc.nvim', {'branch' : 'release'}
         endif
     call plug#end()
 endif
