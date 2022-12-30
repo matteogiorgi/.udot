@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# check the relative mime-type here:
+# https://www.iana.org/assignments/media-types/media-types.xhtml
+
 
 RED='\033[1;36m'
 YLW='\033[1;35m'

@@ -10,7 +10,7 @@
 # User preference
 # ───────────────
 
-colorscheme blackbox
+colorscheme blacknight
 
 set global indentwidth 4
 set global tabstop 4
