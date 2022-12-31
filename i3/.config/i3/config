@@ -199,7 +199,7 @@ for_window [class="MyPaint"] floating enable
 for_window [class="libreoffice"] floating enable
 for_window [class="Xarchiver"] floating enable
 
-# utility
+# more floats
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Synaptic"] floating enable
 for_window [class="GParted"] floating enable
@@ -208,8 +208,6 @@ for_window [class="System-config-printer.py"] floating enable
 for_window [class="Arandr"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="qt5ct"] floating enable
-
-# other
 for_window [class="flameshot"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Blueman-services"] floating enable
@@ -218,10 +216,10 @@ for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
-for_window [class="Kupfer.py"] floating enable
 for_window [class="Gvim"] floating enable
+for_window [class="Kupfer.py"] floating enable
 
-# options
+# floating options
 for_window [class="Pcmanfm"] resize set 800 600
 for_window [class="Pcmanfm"] move position center
 for_window [class="Synaptic"] resize set 800 600
@@ -240,8 +238,10 @@ for_window [class="Xournalpp"] resize set 800 600
 for_window [class="Xournalpp"] move position center
 for_window [class="MyPaint"] resize set 800 600
 for_window [class="MyPaint"] move position center
-for_window [class="Gvim"] resize set 800 600
+for_window [class="Gvim"] resize set 800 900
 for_window [class="Gvim"] move position center
+for_window [class="Kupfer.py"] resize set 800 900
+for_window [class="Kupfer.py"] move position center
 
 
 
