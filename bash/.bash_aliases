@@ -43,8 +43,8 @@ alias mergepdf="_mergepdf"
 alias gitinit="_gitinit"
 
 
-alias atooladd="atool --add"
-alias atoolext="atool --extract"
+alias atool-add="atool --add"
+alias atool-ext="atool --extract"
 
 
 alias xwacom="_xwacom"
@@ -52,9 +52,9 @@ alias xtouch="_xtouch"
 alias xlayout="_xlayout"
 
 
-alias autodual="autorandr --load dual"
-alias automaster="autorandr --load master"
-alias autoslave="autorandr --load slave"
+alias auto-dual="autorandr --load dual"
+alias auto-master="autorandr --load master"
+alias auto-slave="autorandr --load slave"
 
 
 alias logout-i3="_logouti3"
