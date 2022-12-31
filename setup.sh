@@ -316,6 +316,8 @@ sudo apt install -qq -y \
     simplescreenrecorder \
     libreoffice \
     mypaint \
+    gpick \
+    transmission-gtk \
     system-config-printer \
     kupfer
 

@@ -218,6 +218,8 @@ for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
 for_window [class="Gvim"] floating enable
 for_window [class="Kupfer.py"] floating enable
+for_window [class="Gpick"] floating enable
+for_window [class="Transmission-gtk"] floating enable
 
 # floating options
 for_window [class="Pcmanfm"] resize set 800 600
@@ -242,6 +244,10 @@ for_window [class="Gvim"] resize set 800 900
 for_window [class="Gvim"] move position center
 for_window [class="Kupfer.py"] resize set 800 900
 for_window [class="Kupfer.py"] move position center
+for_window [class="Gpick"] resize set 800 600
+for_window [class="Gpick"] move position center
+for_window [class="Transmission-gtk"] resize set 800 600
+for_window [class="Transmission-gtk"] move position center
 
 
 
