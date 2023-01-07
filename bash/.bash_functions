@@ -70,14 +70,14 @@ function _mpv () {
 }
 
 
-_killapps () {
+function _killapps () {
     while read -r app; do
         wmctrl -i -c "$app"
     done < <(wmctrl -l | awk '{print $1}')
 }
 
 
-_logouti3 () {
+function _logouti3 () {
     if _ask "Do you really wanna exit i3?" N; then
         _killapps
         killall i3
@@ -85,7 +85,7 @@ _logouti3 () {
 }
 
 
-_rebooti3 () {
+function _rebooti3 () {
     if _ask "Do you really wanna reboot your system?" N; then
         _killapps
         systemctl reboot
@@ -93,7 +93,7 @@ _rebooti3 () {
 }
 
 
-_poweroffi3 () {
+function _poweroffi3 () {
     if _ask "Do you really wanna poweroff your system?" N; then
         _killapps
         systemctl -i poweroff

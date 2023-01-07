@@ -297,10 +297,11 @@ sudo apt install -qq -y \
     sxiv \
     blueman \
     network-manager \
-    humanity-icon-theme \
+    papirus-icon-theme \
     adwaita-icon-theme-full \
     gnome-themes-extra \
     adwaita-qt \
+    arc-theme \
     lxappearance \
     qt5ct \
     xournalpp \
@@ -319,7 +320,8 @@ sudo apt install -qq -y \
     gpick \
     transmission-gtk \
     system-config-printer \
-    kupfer
+    kupfer \
+    neovim
 
 
 
@@ -424,6 +426,19 @@ if ask "    Add full language support?" Y; then
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
     printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
 fi
+
+
+
+
+### Add gtk3-classic
+####################
+
+printf "\n"
+read -p "    Adding gtk3-classic (enter to continue)"
+printf "\n"
+
+sudo add-apt-repository ppa:lah7/gtk3-classic
+sudo apt dist-upgrade
 
 
 

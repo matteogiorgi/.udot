@@ -87,7 +87,7 @@ fi
 ### i3-sensible-variables and others
 ####################################
 
-export TERMINAL="/bin/lxterminal"
+export TERMINAL="/bin/xterm"
 export VISUAL="/bin/vim"
 export KUPFER_NO_CUSTOM_PLUGINS='true'
 export KUPFER_NO_CACHE='true'

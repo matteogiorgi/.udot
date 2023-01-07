@@ -134,7 +134,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 
 
 
-### Borders (normal, none, pixel)
+### Borders (normal, none, pixel #)
 ### Edges   (none, vertical, horizontal, both, smart)
 ### Layout  (default, stacking, tabbed)
 #####################################################
@@ -221,6 +221,17 @@ for_window [class="Kupfer.py"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [class="Transmission-gtk"] floating enable
 
+# gnome apps
+for_window [class="Org.gnome.Software"] floating enable
+for_window [class="Org.gnome.Nautilus"] floating enable
+for_window [class="File-roller"] floating enable
+for_window [class="Gedit"] floating enable
+for_window [class="Evince"] floating enable
+for_window [class="Eog"] floating enable
+for_window [class="Dconf-editor"] floating enable
+for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="Gnome-calculator"] floating enable
+
 # floating options
 for_window [class="Pcmanfm"] resize set 800 600
 for_window [class="Pcmanfm"] move position center
@@ -249,6 +260,24 @@ for_window [class="Gpick"] move position center
 for_window [class="Transmission-gtk"] resize set 800 600
 for_window [class="Transmission-gtk"] move position center
 
+# floating options for some gnome apps
+for_window [class="Org.gnome.Software"] resize set 800 600
+for_window [class="Org.gnome.Software"] move position center
+for_window [class="Org.gnome.Nautilus"] resize set 800 600
+for_window [class="Org.gnome.Nautilus"] move position center
+for_window [class="File-roller"] resize set 800 600
+for_window [class="File-roller"] move position center
+for_window [class="Gedit"] resize set 800 600
+for_window [class="Gedit"] move position center
+for_window [class="Evince"] resize set 800 600
+for_window [class="Evince"] move position center
+for_window [class="Eog"] resize set 800 600
+for_window [class="Eog"] move position center
+for_window [class="Dconf-editor"] resize set 800 600
+for_window [class="Dconf-editor"] move position center
+for_window [class="Gnome-system-monitor"] resize set 800 600
+for_window [class="Gnome-system-monitor"] move position center
+
 
 
 
@@ -266,10 +295,12 @@ assign [class="SimpleScreenRecorder"] $ws10
 for_window [instance="SCRATCHPAD"] floating enable
 for_window [instance="SCRATCHPAD"] resize set 800 600
 for_window [instance="SCRATCHPAD"] move position center
+for_window [instance="SCRATCHPAD"] border pixel 2
 
 for_window [title="SCRATCHPAD"] floating enable
 for_window [title="SCRATCHPAD"] resize set 800 600
 for_window [title="SCRATCHPAD"] move position center
+for_window [title="SCRATCHPAD"] border pixel 2
 
 
 
@@ -277,20 +308,17 @@ for_window [title="SCRATCHPAD"] move position center
 ### Usefull binds
 #################
 
-# menu
+# terminal and menu
+bindsym $mod+Return exec "lxterminal"
 bindsym $mod+space exec "kupfer"
 
-# terminal
-bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+shift+Return exec "i3-sensible-terminal -T SCRATCHPAD"
+# focus
+bindsym $mod+u focus parent
+bindsym $mod+Shift+u focus child
 
 # scratchpad
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
-
-# focus
-bindsym $mod+q focus parent
-bindsym $mod+w focus child
 
 # floating, fullscreen
 bindsym $mod+d focus mode_toggle
@@ -301,8 +329,8 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
+bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
-bindsym $mod+u exec "flameshot gui"
 
 
 

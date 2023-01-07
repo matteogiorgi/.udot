@@ -176,6 +176,19 @@ fi
 
 
 
+### Remove gtk3-classic
+#######################
+
+printf "\n"
+read -p "    Adding gtk3-classic (enter to continue)"
+printf "\n"
+
+sudo apt-get install ppa-purge
+sudo ppa-purge ppa:lah7/gtk3-classic
+
+
+
+
 ### Disable FTP
 ###############
 
@@ -279,7 +292,9 @@ sudo apt purge -qq -y \
     mpv \
     sxiv \
     blueman \
+    papirus-icon-theme \
     adwaita-qt \
+    arc-theme \
     lxappearance \
     qt5ct \
     xournalpp \
@@ -296,7 +311,8 @@ sudo apt purge -qq -y \
     libreoffice \
     mypaint \
     gpick \
-    kupfer
+    kupfer \
+    neovim
 
 
 

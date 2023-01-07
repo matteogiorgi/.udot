@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-# This scrip sets CapsLock as a second
-# SuperKey and as Escape on a single key-press.
-# As an alternative just maps CapsLock as Escape
-# with the following lines:
-#
-#   xmodmap -e 'remove Lock = Caps_Lock'
-#   xmodmap -e 'keysym Caps_Lock = Escape'
-#   xmodmap -e 'add Lock = Caps_Lock'
+# This scrip sets CapsLock as Escape or as
+# SuperKey plus Escape on a single key-press
+# (just comment the one you do not want)
 
 
 if [[ -x "$(command -v xmodmap)" ]]; then
+    # CAPSLOCK = ESCAPE
+    # xmodmap -e 'remove Lock = Caps_Lock'
+    # xmodmap -e 'keysym Caps_Lock = Escape'
+    # xmodmap -e 'add Lock = Caps_Lock'
+
+    # CAPSLOCK = SUPER + ESCAPE
     xmodmap -e 'remove Lock = Caps_Lock'
     xmodmap -e 'keysym Caps_Lock = Super_L'
     xmodmap -e 'add mod4 = Super_L'
     xmodmap -e 'keycode 66 = Escape'
 fi
-

@@ -41,9 +41,10 @@ endif
 
 
 " Save last session {{{
+" a better way would be to check
+" buffers on all opened windows
 if !exists('noplugin')
     augroup vimleave
-        " a better way would be to check buffers on all opened windows
         autocmd VimLeave *
                     \ if &filetype == 'startscreen' |
                     \     execute 'bdelete' |
@@ -51,7 +52,23 @@ if !exists('noplugin')
                     \ if !isdirectory('$HOME/.vim/sessions') |
                     \     execute "!mkdir -p $HOME/.vim/sessions" |
                     \ endif |
-                    \ mksession! $HOME/.vim/sessions/last.vim
+                    \ if has('nvim') |
+                    \     mksession! $HOME/.vim/sessions/last.nvim |
+                    \ else |
+                    \     mksession! $HOME/.vim/sessions/last.vim |
+                    \ endif
+    augroup end
+endif
+" }}}
+
+
+
+
+" Terminal settings {{{
+if has('nvim')
+    augroup termsettings
+        autocmd!
+        autocmd TermOpen * setlocal nonumber norelativenumber
     augroup end
 endif
 " }}}
@@ -150,8 +167,6 @@ colorscheme hembox
 set exrc
 set title
 set shell=bash  " zsh,bash
-set nocompatible
-set esckeys
 set runtimepath+=~/.vim_runtime  " add whatever
 set clipboard=unnamedplus
 set number relativenumber mouse=a  " a,n,v,i,c
@@ -179,6 +194,10 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
+if !has('nvim')
+    set nocompatible
+    set esckeys
+endif
 if !exists('noplugin')
     set cursorlineopt=number,line
     set fillchars+=vert:\│,eob:\ ,fold:-
@@ -296,3 +315,17 @@ nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 " }}}
+
+
+
+
+""
+""                         NVIM-CONFIG
+""
+""    To have a full-compatible neovim configuration, write
+""    the following three lines inside ~/.config/nvim/init.vim
+""
+""    set runtimepath^=~/.vim runtimepath+=~/.vim/after
+""    let &packpath = &runtimepath
+""    source ~/.vimrc
+""
