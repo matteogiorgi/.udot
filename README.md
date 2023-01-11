@@ -44,8 +44,8 @@ i3-wm xautolock arandr lxterminal kitty xterm tmux kakoune vim-gtk3 nano tig kup
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 papirus-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt arc-theme
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted pcmanfm
-lxterminal xarchiver vlc simplescreenrecorder libreoffice mypaint cups system-config-printer
-dconf-editor gnome-shell-extension-prefs gpick transmission-gtk nvim
+lxterminal xarchiver vlc simplescreenrecorder libreoffice mypaint transmission-gtk
+gpick nvim cups system-config-printer dconf-editor gnome-shell-extension-prefs
 ```
 
 
