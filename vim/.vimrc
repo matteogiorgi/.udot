@@ -2,6 +2,10 @@
 ""                                 E-VIM PLUGINS
 ""                    [ https://github.com/junegunn/vim-plug ]
 ""
+""                 bclose     --   qbuf          --   lines
+""                 ezwindow   --   startscreen   --   simple-complete
+""                 fuzzy      --   utility       --   notewiki
+""
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
@@ -9,9 +13,12 @@
 ""    undotree ····················· https://github.com/mbbill/undotree
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
+""
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
+""
+""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
+""    copilot.vim ·················· https://github.com/github/copilot.vim
 ""
 ""    For full documentation and other stuff visit https://www.vim.org
 ""
@@ -77,7 +84,9 @@ endif
 
 
 " Mode-selector {{{
-if exists('fzf_mode')
+if has('nvim')
+    let plugin_mode = 'copilot'
+elseif exists('fzf_mode')
     let plugin_mode = 'fzf'
 elseif exists('coc_mode')
     let plugin_mode = 'coc'
@@ -118,8 +127,15 @@ if !exists('noplugin')
             Plug 'junegunn/fzf.vim'
         endif
 
-        if plugin_mode ==? 'coc'
+        if plugin_mode ==? 'coc' || plugin_mode ==? 'copilot'
             Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+        endif
+
+        if plugin_mode ==? 'copilot'
+            imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+            let g:copilot_no_tab_map = v:true
+            let g:copilot_assume_mapped = v:true
+            Plug 'github/copilot.vim'
         endif
     call plug#end()
 endif
@@ -315,17 +331,3 @@ nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 " }}}
-
-
-
-
-""
-""                         NVIM-CONFIG
-""
-""    To have a full-compatible neovim configuration, write
-""    the following three lines inside ~/.config/nvim/init.vim
-""
-""    set runtimepath^=~/.vim runtimepath+=~/.vim/after
-""    let &packpath = &runtimepath
-""    source ~/.vimrc
-""

@@ -20,7 +20,7 @@
 
 
 "" COC-MODE
-if !exists('coc_mode')
+if plugin_mode !=? 'coc'
     finish
 endif
 

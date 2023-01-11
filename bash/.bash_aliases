@@ -28,6 +28,10 @@ alias vimnp="_vimnp"
 alias vimls="_vimls"
 
 
+alias nvim="_nvim"
+alias nvimls="_nvimls"
+
+
 alias tmux="_tmux"
 alias xhide="_xhide"
 alias xshow="_xshow"

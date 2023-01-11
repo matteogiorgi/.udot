@@ -1,5 +1,5 @@
 "" FZF-MODE
-if !exists('fzf_mode')
+if plugin_mode !=? 'fzf'
     finish
 endif
 

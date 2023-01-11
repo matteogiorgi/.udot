@@ -128,9 +128,10 @@ _restore () {
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
 
-    # vim
+    # vim/neovim
     [[ -d $RESTORE/.vim ]] && mv $RESTORE/.vim $HOME
     [[ -f $RESTORE/.vimrc ]] && mv $RESTORE/.vimrc $HOME
+    [[ -d $RESTORE/nvim ]] && mv $RESTORE/nvim $HOME/.config
 
     # x11
     [[ -f $RESTORE/.Xdefaults ]] && mv $RESTORE/.Xdefaults $HOME

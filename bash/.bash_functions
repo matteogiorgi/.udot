@@ -145,6 +145,21 @@ function _vimls () {
 }
 
 
+function _nvim () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env nvim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
+function _nvimls () {
+    if [[ -f "$HOME/.vim/sessions/last.nvim" ]]; then
+        _nvim -S $HOME/.vim/sessions/last.nvim
+    else
+        _nvim
+    fi
+}
+
+
 function _tmux () {
     if [[ -n "$TMUX" ]]; then
         printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"

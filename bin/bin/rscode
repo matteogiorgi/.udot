@@ -107,6 +107,7 @@ _vimlike () {
 
 _rmextensions "$CODE"
 $CODE --install-extension vscodevim.vim &>/dev/null
+$CODE --install-extension github.copilot &>/dev/null
 $CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF

@@ -139,9 +139,10 @@ _backup () {
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
 
-    # vim
+    # vim/neovim
     [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
+    [[ -d $HOME/.config/nvim ]] && _clean $HOME/.config/nvim
 
     # x11
     [[ -f $HOME/.Xdefaults ]] && _clean $HOME/.Xdefaults
