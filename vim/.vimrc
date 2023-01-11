@@ -84,11 +84,9 @@ endif
 
 
 " Mode-selector {{{
-if has('nvim')
-    let plugin_mode = 'copilot'
-elseif exists('fzf_mode')
+if exists('fzf_mode')
     let plugin_mode = 'fzf'
-elseif exists('coc_mode')
+elseif exists('coc_mode') || has('nvim')
     let plugin_mode = 'coc'
 else
     let plugin_mode = 'simple'
@@ -127,11 +125,11 @@ if !exists('noplugin')
             Plug 'junegunn/fzf.vim'
         endif
 
-        if plugin_mode ==? 'coc' || plugin_mode ==? 'copilot'
+        if plugin_mode ==? 'coc'
             Plug 'neoclide/coc.nvim', {'branch' : 'release'}
         endif
 
-        if plugin_mode ==? 'copilot'
+        if has('nvim')
             imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
             let g:copilot_no_tab_map = v:true
             let g:copilot_assume_mapped = v:true
