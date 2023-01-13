@@ -9,10 +9,8 @@
 ""    undotree ····················· https://github.com/mbbill/undotree
 ""    context.vim ·················· https://github.com/wellle/context.vim
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-""
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
-""
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    copilot.vim ·················· https://github.com/github/copilot.vim
 ""
@@ -126,11 +124,11 @@ if !exists('noplugin')
         endif
 
         if has('nvim')
-            imap <silent><C-O> <Plug>(copilot-suggest)
-            imap <silent><C-J> <Plug>(copilot-next)
-            imap <silent><C-K> <Plug>(copilot-previous)
+            imap <silent><C-K> <Plug>(copilot-next)
+            imap <silent><C-S-K> <Plug>(copilot-previous)
+            imap <silent><C-L> <Plug>(copilot-suggest)
             imap <silent><C-H> <Plug>(copilot-dismiss)
-            imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
+            imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
             let g:copilot_no_tab_map = v:true
             let g:copilot_assume_mapped = v:true
             Plug 'github/copilot.vim'
