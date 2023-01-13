@@ -7,8 +7,8 @@
 FILE="$*"
 [[ -x "$(command -v nano)" ]] && NAMES="η-Nano\n"$NAMES
 [[ -x "$(command -v kak)" ]] && NAMES="Kakoune\n"$NAMES
+[[ -x "$(command -v vim)" ]] && NAMES="Vim-COC\nVim-FZF\n"$NAMES
 [[ -x "$(command -v nvim)" ]] && NAMES="Neovim\n"$NAMES
-[[ -x "$(command -v vim)" ]] && NAMES="Vim-FZF\nVim-COC\n"$NAMES
 
 
 
@@ -87,14 +87,14 @@ case $(file --mime-type "${FILE}" -bL) in
             exit 0
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            Vim-FZF)
-                _vimcall "_vimfzf" "${FILE}"
+            Neovim)
+                _vimcall "_nvim" "${FILE}"
                 ;;
             Vim-COC)
                 _vimcall "_vimcoc" "${FILE}"
                 ;;
-            Neovim)
-                _vimcall "_nvim" "${FILE}"
+            Vim-FZF)
+                _vimcall "_vimfzf" "${FILE}"
                 ;;
             Kakoune)
                 kak "${FILE}"
