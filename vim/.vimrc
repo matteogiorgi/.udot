@@ -2,10 +2,6 @@
 ""                                 E-VIM PLUGINS
 ""                    [ https://github.com/junegunn/vim-plug ]
 ""
-""                 bclose     --   qbuf          --   lines
-""                 ezwindow   --   startscreen   --   simple-complete
-""                 fuzzy      --   utility       --   notewiki
-""
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
@@ -130,7 +126,11 @@ if !exists('noplugin')
         endif
 
         if has('nvim')
-            imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+            imap <silent><C-O> <Plug>(copilot-suggest)
+            imap <silent><C-J> <Plug>(copilot-next)
+            imap <silent><C-K> <Plug>(copilot-previous)
+            imap <silent><C-H> <Plug>(copilot-dismiss)
+            imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
             let g:copilot_no_tab_map = v:true
             let g:copilot_assume_mapped = v:true
             Plug 'github/copilot.vim'
