@@ -124,11 +124,11 @@ if !exists('noplugin')
         endif
 
         if has('nvim')
-            imap <silent><C-K> <Plug>(copilot-next)
-            imap <silent><C-S-K> <Plug>(copilot-previous)
-            imap <silent><C-L> <Plug>(copilot-suggest)
+            imap <silent><C-O> <Plug>(copilot-suggest)
             imap <silent><C-H> <Plug>(copilot-dismiss)
-            imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
+            imap <silent><C-J> <Plug>(copilot-next)
+            imap <silent><C-K> <Plug>(copilot-previous)
+            imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
             let g:copilot_no_tab_map = v:true
             let g:copilot_assume_mapped = v:true
             Plug 'github/copilot.vim'
