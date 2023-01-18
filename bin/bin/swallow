@@ -7,8 +7,7 @@
 FILE="$*"
 [[ -x "$(command -v nano)" ]] && NAMES="η-Nano\n"$NAMES
 [[ -x "$(command -v kak)" ]] && NAMES="Kakoune\n"$NAMES
-[[ -x "$(command -v vim)" ]] && NAMES="Vim-COC\nVim-FZF\n"$NAMES
-[[ -x "$(command -v nvim)" ]] && NAMES="Neovim\n"$NAMES
+[[ -x "$(command -v vim)" ]] && NAMES="Vim-FZF\nVim-COC\n"$NAMES
 
 
 
@@ -20,14 +19,13 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-function _vimcall () {
-    VIMCALL="$1"
-    if [[ "$(type -t $VIMCALL)" == function ]]; then
-        $VIMCALL "${FILE}"
-    elif [[ "$(type -t _vim)" == function ]]; then
-        _vim "${FILE}"
+function _run () {
+    CMD="$1"
+    FILE="$2"
+    if [[ -x "$(command -v $CMD)" ]]; then
+        _xshow "$CMD '${FILE}'"
     else
-        vim "${FILE}"
+        _xshow "xdg-open '${FILE}'"
     fi
 }
 
@@ -57,29 +55,33 @@ echo "$1" | grep "\.sent$" && {
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
-        clear &&
-        _mpv "${FILE}"
+        if [[ -x "$(command -v mpv)" && "$(type -t _mpv)" == function ]]; then
+            clear &&
+            _mpv "${FILE}"
+        else
+            _run "(ツ)" "${FILE}"
+        fi
         ;;
     video/*)
-        _xshow "mpv --force-window --no-terminal --msg-level=all=no '${FILE}'"
+        _run "mpv --force-window --no-terminal --msg-level=all=no" "${FILE}"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xshow "zathura '${FILE}'"
+        _run "zathura" "${FILE}"
         ;;
      application/vnd.openxmlformats-officedocument.* | application/vnd.oasis.opendocument.* | application/vnd.ms-* | application/msword)
-        _xshow "libreoffice '${FILE}'"
+        _run "libreoffice" "${FILE}"
         ;;
      application/x-tar | application/zip | application/gzip)
         if [[ "${FILE##*.}" == "xopp" ]]; then
-            _xshow "xournalpp '${FILE}'"
+            _run "xournalpp" "${FILE}"
         elif [[ "${FILE##*.}" == "ora" ]]; then
-            _xshow "mypaint '${FILE}'"
+            _run "mypaint" "${FILE}"
         else
-            _xshow "xarchiver '${FILE}'"
+            _run "(ツ)" "${FILE}"
         fi
         ;;
     image/*)
-        _xshow "esxiv '${FILE}'"
+        _run "esxiv" "${FILE}"
         ;;
     *)
         if [[ ! -n $NAMES  || ! -f "/bin/fzf" ]]; then
@@ -87,20 +89,29 @@ case $(file --mime-type "${FILE}" -bL) in
             exit 0
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            Neovim)
-                _vimcall "_nvim" "${FILE}"
+            Vim-FZF)
+                if [[ -x "$(command -v nvim)" && "$(type -t _nvim)" == function ]]; then
+                    _nvim "${FILE}"
+                elif [[ -x "$(command -v vim)" && "$(type -t _vim)" == function ]]; then
+                    _vim "${FILE}"
+                else
+                    _run "(ツ)" "${FILE}"
+                fi
                 ;;
             Vim-COC)
-                _vimcall "_vimcoc" "${FILE}"
-                ;;
-            Vim-FZF)
-                _vimcall "_vimfzf" "${FILE}"
+                if [[ -x "$(command -v nvim)" && "$(type -t _nvim_cocmode)" == function ]]; then
+                    _nvim_cocmode "${FILE}"
+                elif [[ -x "$(command -v vim)" && "$(type -t _vim_cocmode)" == function ]]; then
+                    _vim_cocmode "${FILE}"
+                else
+                    _run "(ツ)" "${FILE}"
+                fi
                 ;;
             Kakoune)
-                kak "${FILE}"
+                [[ -x "$(command -v kak)" ]] && kak "${FILE}" || _run "(ツ)" "${FILE}"
                 ;;
             η-Nano)
-                nano "${FILE}"
+                [[ -x "$(command -v nano)" ]] && nano "${FILE}" || _run "(ツ)" "${FILE}"
                 ;;
             *)
                 exit 1

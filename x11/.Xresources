@@ -1,5 +1,5 @@
-!!! A NOnonsens Xresources file with just some XTerm configs and Dracula palette
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! A NOnonsens Xresources file
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -16,8 +16,8 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
 
 XTerm*renderFont: true
-XTerm*faceName: xft:Ubuntu Mono
-XTerm*faceSize: 10
+XTerm*faceName: xft:JetBrains Mono
+XTerm*faceSize: 8
 XTerm*scaleHeight: 0.9
 XTerm*scaleWidth: 1.0
 XTerm*utf8: 2
@@ -49,8 +49,8 @@ XTerm*cursorColor: #FFFFFF
 !!!!!!!!!!!!!!!!
 
 UXTerm*renderFont: true
-UXTerm*faceName: xft:Ubuntu Mono
-UXTerm*faceSize: 10
+UXTerm*faceName: xft:JetBrains Mono
+UXTerm*faceSize: 8
 UXTerm*scaleHeight: 0.9
 UXTerm*scaleWidth: 1.0
 UXTerm*utf8: 2
@@ -83,7 +83,7 @@ UXTerm*cursorColor: #FFFFFF
 
 Sxiv.background: #E5E5E5
 Sxiv.foreground: #000000
-Sxiv.font: Ubuntu Mono:style=Regular:size=10
+Sxiv.font: JetBrains Mono:style=Regular:size=8
 
 
 

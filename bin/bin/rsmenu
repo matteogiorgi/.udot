@@ -19,12 +19,9 @@ compose_action = <Primary>space
 keybinding = 
 showstatusicon = False
 
-[Tools]
-terminal = kupfer.plugin.core.lxterminal
-
 [plugin_applications]
 desktop_filter = False
-desktop_type = 
+desktop_type = GNOME
 kupfer_toplevel_appsource = True
 
 [plugin_archivemanager]

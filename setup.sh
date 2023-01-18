@@ -233,13 +233,13 @@ sudo apt install -qq -y \
     gcc \
     pkg-config \
     lxpolkit \
-    libx11-dev \
-    libxinerama-dev \
-    libxft-dev \
-    libncurses-dev \
-    libxrandr-dev \
-    libxtst-dev \
-    libxi-dev \
+    # libx11-dev \
+    # libxinerama-dev \
+    # libxft-dev \
+    # libncurses-dev \
+    # libxrandr-dev \
+    # libxtst-dev \
+    # libxi-dev \
     xclip \
     fzf \
     ripgrep \
@@ -257,7 +257,7 @@ sudo apt install -qq -y \
     pandoc \
     fonts-ubuntu \
     fonts-jetbrains-mono \
-    jq \
+    # jq \
     poppler-utils \
     xdotool \
     exuberant-ctags \
@@ -282,7 +282,6 @@ sudo apt install -qq -y \
     i3-wm \
     xautolock \
     arandr \
-    lxterminal \
     kitty \
     xterm \
     tmux \
@@ -312,8 +311,9 @@ sudo apt install -qq -y \
     pavucontrol \
     synaptic \
     gparted \
-    pcmanfm \
-    xarchiver \
+    # lxterminal \
+    # pcmanfm \
+    # xarchiver \
     vlc \
     simplescreenrecorder \
     libreoffice \

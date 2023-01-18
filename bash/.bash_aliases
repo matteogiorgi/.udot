@@ -22,14 +22,15 @@ alias xcut="xclip-cutfile"
 
 
 alias vim="_vim"
-alias vimfzf="_vimfzf"
-alias vimcoc="_vimcoc"
-alias vimnp="_vimnp"
-alias vimls="_vimls"
+alias vim-cocmode="_vim_cocmode"
+alias vim-noplugin="_vim_noplugin"
+alias vim-last="_vim_last"
 
 
 alias nvim="_nvim"
-alias nvimls="_nvimls"
+alias nvim-cocmode="_nvim_cocmode"
+alias nvim-noplugin="_nvim_noplugin"
+alias nvim-last="_nvim_last"
 
 
 alias tmux="_tmux"

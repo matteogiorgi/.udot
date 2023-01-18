@@ -268,7 +268,7 @@ sudo apt purge -qq -y \
     texlive-full \
     pandoc \
     fonts-jetbrains-mono \
-    jq \
+    # jq \
     xdotool \
     exuberant-ctags \
     dconf-editor \
@@ -278,7 +278,6 @@ sudo apt purge -qq -y \
     i3-wm \
     xautolock \
     arandr \
-    lxterminal \
     kitty \
     xterm \
     tmux \
@@ -305,8 +304,9 @@ sudo apt purge -qq -y \
     pavucontrol \
     synaptic \
     gparted \
-    pcmanfm \
-    xarchiver \
+    # lxterminal \
+    # pcmanfm \
+    # xarchiver \
     vlc \
     simplescreenrecorder \
     libreoffice \

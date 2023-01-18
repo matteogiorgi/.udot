@@ -87,8 +87,17 @@ fi
 ### i3-sensible-variables and others
 ####################################
 
-export TERMINAL="/bin/xterm"
-export VISUAL="/bin/vim"
+# terminal: lxterminal > xterm
+GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
+[[ -x "$(command -v xterm)" ]] && export TERMINAL="/bin/xterm"
+[[ -x "$(command -v kitty)" && (( $(echo "$GLX > 3.3" | bc -l) )) ]] && export TERMINAL="/bin/kitty"
+
+# editor: nvim > vim
+export VISUAL="/bin/vi"
+[[ -x "$(command -v vim)" ]] && export VISUAL="/bin/vim"
+[[ -x "$(command -v nvim)" ]] && export VISUAL="/bin/nvim"
+
+# menu: kupfer
 export KUPFER_NO_CUSTOM_PLUGINS='true'
 export KUPFER_NO_CACHE='true'
 export KUPFER_NO_KEYBINDER='true'

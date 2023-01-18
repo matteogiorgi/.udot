@@ -118,25 +118,19 @@ function _vim () {
 }
 
 
-function _vimfzf () {
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env vim --cmd "let fzf_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
-}
-
-
-function _vimcoc () {
+function _vim_cocmode () {
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
     env vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
-function _vimnp () {
+function _vim_noplugin () {
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
     env vim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
-function _vimls () {
+function _vim_last () {
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         _vim -S $HOME/.vim/sessions/last.vim
     else
@@ -151,7 +145,19 @@ function _nvim () {
 }
 
 
-function _nvimls () {
+function _nvim_cocmode () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env nvim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
+function _nvim_noplugin () {
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    env nvim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
+}
+
+
+function _nvim_last () {
     if [[ -f "$HOME/.vim/sessions/last.nvim" ]]; then
         _nvim -S $HOME/.vim/sessions/last.nvim
     else
@@ -165,7 +171,7 @@ function _tmux () {
         printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"
         return
     fi
-    if [[ $(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$)) == "kitty" ]]; then
+    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
         printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
         return
     fi
@@ -389,7 +395,7 @@ function _ipreview () {
     # remember to install PIL/Pillow:
     # pip3 install PIL/Pillow
     FILE=$*
-    if [[ $(ps -o 'cmd=' -p $(ps -o 'ppid=' -p $$)) == "kitty" ]]; then
+    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
         kitty +kitten icat "$FILE"
     elif [[ -x "$(command -v tcv)" ]]; then
         tcv "$FILE" 2>/dev/null

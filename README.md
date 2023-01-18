@@ -27,12 +27,13 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 
 ```
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal
-tree make jq gcc pkg-config lxpolkit libx11-dev libxinerama-dev libxft-dev
-libncurses-dev libxrandr-dev libxtst-dev libxi-dev xclip fzf ripgrep wamerican
-witalian source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-brightnessctl texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-poppler-utils exuberant-ctags nodejs ufw vsftpd bat gtk3-classic
+tree make gcc pkg-config lxpolkit xclip fzf ripgrep wamerican witalian
+source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
+texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool poppler-utils
+exuberant-ctags nodejs ufw vsftpd bat gtk3-classic
 ```
+<!-- jq libx11-dev libxinerama-dev libxft-dev -->
+<!-- libncurses-dev libxrandr-dev libxtst-dev libxi-dev -->
 
 
 
@@ -40,12 +41,12 @@ poppler-utils exuberant-ctags nodejs ufw vsftpd bat gtk3-classic
 ## Main packages
 
 ```
-i3-wm xautolock arandr lxterminal kitty xterm tmux kakoune vim-gtk3 nano tig kupfer
+i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nano tig kupfer
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
 papirus-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt arc-theme
-lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted pcmanfm
-lxterminal xarchiver vlc simplescreenrecorder libreoffice mypaint transmission-gtk
-gpick nvim cups system-config-printer dconf-editor gnome-shell-extension-prefs
+lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted
+vlc simplescreenrecorder libreoffice mypaint transmission-gtk gpick nvim cups
+system-config-printer dconf-editor gnome-shell-extension-prefs
 ```
 
 

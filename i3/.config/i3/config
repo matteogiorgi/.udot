@@ -11,12 +11,13 @@
 
 
 
-### Mod-key (Mod1=Alt/Mod4=Sup), font
-#####################################
+### Mod-key (Mod1=Alt/Mod4=Sup)
+### Font (JetBrains Mono Bold 6.9 / Ubuntu Mono Bold 9)
+#######################################################
 
 set $mod Mod4
 floating_modifier $mod
-font pango:Ubuntu Mono Bold 9
+font pango:JetBrains Mono Bold 6.9
 
 
 
@@ -177,7 +178,7 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    font pango:Ubuntu Mono Bold 9
+    font pango:JetBrains Mono Bold 6.9
     position bottom
     separator_symbol "​"
     tray_output primary
@@ -197,10 +198,8 @@ for_window [class="Sxiv"] floating enable
 for_window [class="Xournalpp"] floating enable
 for_window [class="MyPaint"] floating enable
 for_window [class="libreoffice"] floating enable
-for_window [class="Xarchiver"] floating enable
 
 # more floats
-for_window [class="Pcmanfm"] floating enable
 for_window [class="Synaptic"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -220,6 +219,9 @@ for_window [class="Gvim"] floating enable
 for_window [class="Kupfer.py"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [class="Transmission-gtk"] floating enable
+for_window [class="TelegramDesktop"] floating enable
+# for_window [class="Pcmanfm"] floating enable
+# for_window [class="Xarchiver"] floating enable
 
 # gnome apps
 for_window [class="Org.gnome.Software"] floating enable
@@ -233,8 +235,6 @@ for_window [class="Gnome-system-monitor"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 
 # floating options
-for_window [class="Pcmanfm"] resize set 800 600
-for_window [class="Pcmanfm"] move position center
 for_window [class="Synaptic"] resize set 800 600
 for_window [class="Synaptic"] move position center
 for_window [class="Pavucontrol"] resize set 800 600
@@ -259,6 +259,12 @@ for_window [class="Gpick"] resize set 800 600
 for_window [class="Gpick"] move position center
 for_window [class="Transmission-gtk"] resize set 800 600
 for_window [class="Transmission-gtk"] move position center
+for_window [class="TelegramDesktop"] resize set 800 600
+for_window [class="TelegramDesktop"] move position center
+# for_window [class="Pcmanfm"] resize set 800 600
+# for_window [class="Pcmanfm"] move position center
+# for_window [class="Xarchiver"] resize set 800 600
+# for_window [class="Xarchiver"] move position center
 
 # floating options for some gnome apps
 for_window [class="Org.gnome.Software"] resize set 800 600
@@ -292,13 +298,14 @@ assign [class="SimpleScreenRecorder"] $ws10
 ### Scratchpads
 ###############
 
+# SCRATCHPAD instance and title
 for_window [instance="SCRATCHPAD"] floating enable
-for_window [instance="SCRATCHPAD"] resize set 800 600
+for_window [instance="SCRATCHPAD"] resize set 600 600
 for_window [instance="SCRATCHPAD"] move position center
 for_window [instance="SCRATCHPAD"] border pixel 2
 
 for_window [title="SCRATCHPAD"] floating enable
-for_window [title="SCRATCHPAD"] resize set 800 600
+for_window [title="SCRATCHPAD"] resize set 600 600
 for_window [title="SCRATCHPAD"] move position center
 for_window [title="SCRATCHPAD"] border pixel 2
 
@@ -309,7 +316,7 @@ for_window [title="SCRATCHPAD"] border pixel 2
 #################
 
 # terminal and menu
-bindsym $mod+Return exec "lxterminal"
+bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+space exec "kupfer"
 
 # focus
