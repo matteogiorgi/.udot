@@ -7,7 +7,7 @@
 FILE="$*"
 [[ -x "$(command -v nano)" ]] && NAMES="η-Nano\n"$NAMES
 [[ -x "$(command -v kak)" ]] && NAMES="Kakoune\n"$NAMES
-[[ -x "$(command -v vim)" ]] && NAMES="Vim-FZF\nVim-COC\n"$NAMES
+[[ -x "$(command -v vim)" ]] && NAMES="Vim-COC\nVim-FZF\n"$NAMES
 
 
 
@@ -89,20 +89,20 @@ case $(file --mime-type "${FILE}" -bL) in
             exit 0
         fi
         case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            Vim-FZF)
-                if [[ -x "$(command -v nvim)" && "$(type -t _nvim)" == function ]]; then
-                    _nvim "${FILE}"
-                elif [[ -x "$(command -v vim)" && "$(type -t _vim)" == function ]]; then
-                    _vim "${FILE}"
-                else
-                    _run "(ツ)" "${FILE}"
-                fi
-                ;;
             Vim-COC)
                 if [[ -x "$(command -v nvim)" && "$(type -t _nvim_cocmode)" == function ]]; then
                     _nvim_cocmode "${FILE}"
                 elif [[ -x "$(command -v vim)" && "$(type -t _vim_cocmode)" == function ]]; then
                     _vim_cocmode "${FILE}"
+                else
+                    _run "(ツ)" "${FILE}"
+                fi
+                ;;
+            Vim-FZF)
+                if [[ -x "$(command -v nvim)" && "$(type -t _nvim)" == function ]]; then
+                    _nvim "${FILE}"
+                elif [[ -x "$(command -v vim)" && "$(type -t _vim)" == function ]]; then
+                    _vim "${FILE}"
                 else
                     _run "(ツ)" "${FILE}"
                 fi
