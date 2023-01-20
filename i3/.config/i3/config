@@ -220,8 +220,6 @@ for_window [class="Kupfer.py"] floating enable
 for_window [class="Gpick"] floating enable
 for_window [class="Transmission-gtk"] floating enable
 for_window [class="TelegramDesktop"] floating enable
-# for_window [class="Pcmanfm"] floating enable
-# for_window [class="Xarchiver"] floating enable
 
 # gnome apps
 for_window [class="Org.gnome.Software"] floating enable
@@ -261,10 +259,6 @@ for_window [class="Transmission-gtk"] resize set 800 600
 for_window [class="Transmission-gtk"] move position center
 for_window [class="TelegramDesktop"] resize set 800 600
 for_window [class="TelegramDesktop"] move position center
-# for_window [class="Pcmanfm"] resize set 800 600
-# for_window [class="Pcmanfm"] move position center
-# for_window [class="Xarchiver"] resize set 800 600
-# for_window [class="Xarchiver"] move position center
 
 # floating options for some gnome apps
 for_window [class="Org.gnome.Software"] resize set 800 600
