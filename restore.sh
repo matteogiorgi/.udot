@@ -268,7 +268,6 @@ sudo apt purge -qq -y \
     texlive-full \
     pandoc \
     fonts-jetbrains-mono \
-    # jq \
     xdotool \
     exuberant-ctags \
     dconf-editor \
@@ -304,16 +303,14 @@ sudo apt purge -qq -y \
     pavucontrol \
     synaptic \
     gparted \
-    # lxterminal \
-    # pcmanfm \
-    # xarchiver \
     vlc \
     simplescreenrecorder \
     libreoffice \
     mypaint \
     gpick \
     kupfer \
-    neovim
+    neovim \
+    telegram-desktop
 
 
 

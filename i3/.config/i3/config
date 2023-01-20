@@ -17,7 +17,7 @@
 
 set $mod Mod4
 floating_modifier $mod
-font pango:JetBrains Mono Bold 6.9
+font pango:JetBrains Mono Bold 8
 
 
 
@@ -178,7 +178,7 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    font pango:JetBrains Mono Bold 6.9
+    font pango:JetBrains Mono Bold 8
     position bottom
     separator_symbol "​"
     tray_output primary

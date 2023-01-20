@@ -233,13 +233,6 @@ sudo apt install -qq -y \
     gcc \
     pkg-config \
     lxpolkit \
-    # libx11-dev \
-    # libxinerama-dev \
-    # libxft-dev \
-    # libncurses-dev \
-    # libxrandr-dev \
-    # libxtst-dev \
-    # libxi-dev \
     xclip \
     fzf \
     ripgrep \
@@ -257,7 +250,6 @@ sudo apt install -qq -y \
     pandoc \
     fonts-ubuntu \
     fonts-jetbrains-mono \
-    # jq \
     poppler-utils \
     xdotool \
     exuberant-ctags \
@@ -311,9 +303,6 @@ sudo apt install -qq -y \
     pavucontrol \
     synaptic \
     gparted \
-    # lxterminal \
-    # pcmanfm \
-    # xarchiver \
     vlc \
     simplescreenrecorder \
     libreoffice \
@@ -322,7 +311,8 @@ sudo apt install -qq -y \
     transmission-gtk \
     system-config-printer \
     kupfer \
-    neovim
+    neovim \
+    telegram-desktop
 
 
 

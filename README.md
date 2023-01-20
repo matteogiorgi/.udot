@@ -46,7 +46,7 @@ zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-man
 papirus-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt arc-theme
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted
 vlc simplescreenrecorder libreoffice mypaint transmission-gtk gpick nvim cups
-system-config-printer dconf-editor gnome-shell-extension-prefs
+system-config-printer dconf-editor gnome-shell-extension-prefs telegram-desktop
 ```
 
 
