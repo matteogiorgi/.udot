@@ -238,7 +238,6 @@ sudo apt install -qq -y \
     ripgrep \
     wamerican \
     witalian \
-    source-highlight \
     mesa-utils \
     xdo \
     feh \

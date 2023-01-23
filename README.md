@@ -28,12 +28,10 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 ```
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal
 tree make gcc pkg-config lxpolkit xclip fzf ripgrep wamerican witalian
-source-highlight mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool poppler-utils
-exuberant-ctags nodejs ufw vsftpd bat gtk3-classic
+mesa-utils xdo feh ffmpeg poppler-utils mediainfo texlive-full pandoc
+fonts-ubuntu fonts-jetbrains-mono xdotool poppler-utils exuberant-ctags
+nodejs ufw vsftpd bat gtk3-classic
 ```
-<!-- jq libx11-dev libxinerama-dev libxft-dev -->
-<!-- libncurses-dev libxrandr-dev libxtst-dev libxi-dev -->
 
 
 

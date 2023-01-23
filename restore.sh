@@ -259,7 +259,6 @@ sudo apt purge -qq -y \
     xclip \
     fzf \
     ripgrep \
-    source-highlight \
     mesa-utils \
     xdo \
     feh \

@@ -177,11 +177,21 @@ export VISUAL="${EDITOR=/bin/vi}"
 
 
 
-## FZF vars
+## Fzf vars
 ###########
 
 export FZF_ALT_C_COMMAND='/bin/ls -ap . | grep -E "/$" | tr -d "/"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
+
+
+
+
+## Bat vars
+###########
+
+[[ -z "$BACKGROUNDCOLOR" && "$(type -t _setbackgroundcolor)" == function ]] && _setbackgroundcolor
+[[ "$BACKGROUNDCOLOR" == "'light'" ]] && export BAT_THEME="gruvbox-light" || export BAT_THEME="gruvbox-dark"
+
 
 
 

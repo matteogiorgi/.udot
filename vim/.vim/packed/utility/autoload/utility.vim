@@ -10,9 +10,7 @@ endfunction
 
 " LongLine{{{
 function! utility#LongLine()
-    if !exists('g:longline')
-        let g:longline = 'none'
-    endif
+    let g:longline = !exists('g:longline') ? 'none' : g:longline
     if g:longline ==? 'none'
         let g:longline = 'all'
         setlocal virtualedit=all

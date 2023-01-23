@@ -68,12 +68,8 @@ else
     # check the relative mime-type here:
     # https://www.iana.org/assignments/media-types/media-types.xhtml
     case $(file --mime-type "$FILE" -bL) in
-        text/*)
-            if [[ -f "/usr/share/source-highlight/src-hilite-lesspipe.sh" ]]; then
-                /usr/share/source-highlight/src-hilite-lesspipe.sh "$FILE" | ${MESS}
-            else
-                ${MESS} "$FILE"
-            fi
+        text/* | application/json)
+            [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --color=always "$FILE" || ${MESS} "$FILE"
             ;;
         application/pdf | application/postscript | application/djvu)
             if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
@@ -119,6 +115,8 @@ else
             ;;
         image/*)
             # remember to install PIL/Pillow: pip3 install PIL/Pillow
+            # there could be another way using kitty's image protocol
+            # kitty icat --place 200x40@0x20 --transfer-mode file "$FILE"
             [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || _no_preview
             ;;
         *)

@@ -111,6 +111,21 @@ function _setbackgroundcolor () {
     fi
 }
 
+function _chkitty () {
+    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        if [[ "$BACKGROUNDCOLOR" == "'light'" ]]; then
+            kitty @ set-colors --all --configured $HOME/.config/kitty/colors/gnome-dark.conf
+            export BAT_THEME="gruvbox-dark"
+            export BACKGROUNDCOLOR="'dark'"
+        else
+            kitty @ set-colors --all --configured $HOME/.config/kitty/colors/gnome-light.conf
+            export BAT_THEME="gruvbox-light"
+            export BACKGROUNDCOLOR="'light'"
+        fi
+    fi
+}
+
 
 function _vim () {
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
