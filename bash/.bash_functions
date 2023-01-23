@@ -123,6 +123,8 @@ function _tkitty () {
             export BAT_THEME="gruvbox-light"
             export BACKGROUNDCOLOR="'light'"
         fi
+    else
+        printf "${YLW}%s${NC}\n" "You're not inside Kitty mate!"
     fi
 }
 
