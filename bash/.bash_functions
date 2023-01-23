@@ -111,7 +111,7 @@ function _setbackgroundcolor () {
     fi
 }
 
-function _chkitty () {
+function _tkitty () {
     if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
         [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
         if [[ "$BACKGROUNDCOLOR" == "'light'" ]]; then
