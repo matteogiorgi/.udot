@@ -39,12 +39,12 @@ nodejs ufw vsftpd bat gtk3-classic
 ## Main packages
 
 ```
-i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nano tig kupfer
-zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv sxiv blueman network-manager
+i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano tig sxiv 
+zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 papirus-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt arc-theme
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted
-vlc simplescreenrecorder libreoffice mypaint transmission-gtk gpick nvim cups
-system-config-printer dconf-editor gnome-shell-extension-prefs telegram-desktop
+vlc simplescreenrecorder libreoffice mypaint transmission-gtk dconf-editor cups
+system-config-printer gnome-shell-extension-prefs telegram-desktop
 ```
 
 

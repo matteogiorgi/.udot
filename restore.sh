@@ -281,6 +281,7 @@ sudo apt purge -qq -y \
     tmux \
     kakoune \
     vim-gtk3 \
+    neovim \
     nano \
     tig \
     zathura \
@@ -306,9 +307,6 @@ sudo apt purge -qq -y \
     simplescreenrecorder \
     libreoffice \
     mypaint \
-    gpick \
-    kupfer \
-    neovim \
     telegram-desktop
 
 

@@ -278,6 +278,7 @@ sudo apt install -qq -y \
     tmux \
     kakoune \
     vim-gtk3 \
+    neovim \
     nano \
     tig \
     zathura \
@@ -306,11 +307,8 @@ sudo apt install -qq -y \
     simplescreenrecorder \
     libreoffice \
     mypaint \
-    gpick \
     transmission-gtk \
     system-config-printer \
-    kupfer \
-    neovim \
     telegram-desktop
 
 
