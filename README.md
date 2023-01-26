@@ -26,11 +26,11 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 ## Essential utilities
 
 ```
-wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop ncal
+wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop
 tree make gcc pkg-config lxpolkit xclip fzf ripgrep wamerican witalian
 mesa-utils xdo feh ffmpeg poppler-utils mediainfo texlive-full pandoc
 fonts-ubuntu fonts-jetbrains-mono xdotool poppler-utils exuberant-ctags
-nodejs ufw vsftpd bat gtk3-classic
+nodejs ufw vsftpd bat gtk3-classic ncal
 ```
 
 
@@ -39,12 +39,13 @@ nodejs ufw vsftpd bat gtk3-classic
 ## Main packages
 
 ```
-i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano tig sxiv 
-zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
-papirus-icon-theme adwaita-icon-theme-full gnome-themes-extra adwaita-qt arc-theme
-lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic gparted
-vlc simplescreenrecorder libreoffice mypaint transmission-gtk dconf-editor cups
-system-config-printer gnome-shell-extension-prefs telegram-desktop
+i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano tig
+sxiv zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman
+network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
+lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
+gparted vlc libreoffice simplescreenrecorder mypaint transmission-gtk
+dconf-editor cups system-config-printer gnome-shell-extension-prefs
+telegram-desktop
 ```
 
 

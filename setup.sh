@@ -289,11 +289,9 @@ sudo apt install -qq -y \
     sxiv \
     blueman \
     network-manager \
-    papirus-icon-theme \
     adwaita-icon-theme-full \
     gnome-themes-extra \
     adwaita-qt \
-    arc-theme \
     lxappearance \
     qt5ct \
     xournalpp \

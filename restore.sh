@@ -291,9 +291,7 @@ sudo apt purge -qq -y \
     mpv \
     sxiv \
     blueman \
-    papirus-icon-theme \
     adwaita-qt \
-    arc-theme \
     lxappearance \
     qt5ct \
     xournalpp \

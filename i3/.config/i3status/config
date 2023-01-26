@@ -21,28 +21,28 @@ order += "tztime local"
 
 
 cpu_usage {
-    format        = "<span background='#fec7cd'> CPU %usage </span>"
+    format        = "<span background='#c4d1d4'> CPU %usage </span>"
     max_threshold = 75
 }
 
 memory {
-    format             = "<span background='#f59335'> MEM %percentage_used </span>"
-    format_degraded    = "<span background='#f59335'> MEM: %free </span>"
+    format             = "<span background='#fda49a'> MEM %percentage_used </span>"
+    format_degraded    = "<span background='#fda49a'> MEM: %free </span>"
     threshold_degraded = "10%"
 }
 
 disk "/" {
-    format = "<span background='#a1d569'> HDD %percentage_used </span>"
+    format = "<span background='#bdae93'> HDD %percentage_used </span>"
 }
 
 wireless _first_ {
-    format_up   = "<span background='#88c0d0'> WAN %quality %essid, %bitrate -> IP %ip </span>"
-    format_down = "<span background='#88c0d0'> WAN disconnected </span>"
+    format_up   = "<span background='#81a1c1'> WAN%quality %essid, %bitrate -> IP %ip </span>"
+    format_down = ""
 }
 
 ethernet _first_ {
-    format_up   = "<span background='#b48ead'> ETH %speed -> IP %ip </span>"
-    format_down = "<span background='#b48ead'> ETH disconnected </span>"
+    format_up   = "<span background='#81a1c1'> ETH %speed -> IP %ip </span>"
+    format_down = ""
 }
 
 volume master {
@@ -65,6 +65,6 @@ battery all {
 }
 
 tztime local {
-    format = "<span background='#81a1c1'> %time </span>"
+    format = "<span background='#c3a5bd'> %time </span>"
     format_time = "%a %d %b, %H:%M"
 }
