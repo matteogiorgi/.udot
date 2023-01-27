@@ -329,8 +329,8 @@ bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+space exec "xterm -T FMENU -e fmenu"
 
 # focus
-bindsym $mod+u focus parent
-bindsym $mod+Shift+u focus child
+bindsym $mod+w focus parent
+bindsym $mod+Shift+w focus child
 
 # scratchpad
 bindsym $mod+i scratchpad show
