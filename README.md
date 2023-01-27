@@ -59,7 +59,7 @@ code codium google-chrome chromium brave
 
 
 
-### Chrome extensions and bookmarks
+### Chrome [extensions](https://chrome.google.com/webstore/category/extensions) and [bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
@@ -67,10 +67,6 @@ code codium google-chrome chromium brave
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
 - [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US): TOR proxy
 - [Grammarly](https://chrome.google.com/webstore/detail/grammarly-grammar-checker/kbfnbcaeplbcioakkpcpgfkobkghlhen): grammar checker
-
-<!-- -->
-
-##### [Bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 
 
 
