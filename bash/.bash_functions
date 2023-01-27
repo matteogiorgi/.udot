@@ -308,57 +308,56 @@ function _xwacom () {
         return
     fi
 
-    if _ask "ROTATION=$WACOMRO MONITOR=$WACOMMO, wanna change specs?" Y; then
-        XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    printf "${RED}%s\n%s${NC}\n" "ROTATION == $WACOMRO" "MONITOR  == $WACOMMO"
+
+    if _ask "Do you wanna change specs?" Y; then
         printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
-        while read response; do
-            case $response in
-                0)
-                    xsetwacom --set $XWACOMID Rotate "none"
-                    sed -i 's/WACOMRO=.*/WACOMRO='\''0'\''/g' $HOME/.xinput.bash
-                    break
-                    ;;
-                90)
-                    xsetwacom --set $XWACOMID Rotate "ccw"
-                    sed -i 's/WACOMRO=.*/WACOMRO='\''90'\''/g' $HOME/.xinput.bash
-                    break
-                    ;;
-                180)
-                    xsetwacom --set $XWACOMID Rotate "half"
-                    sed -i 's/WACOMRO=.*/WACOMRO='\''180'\''/g' $HOME/.xinput.bash
-                    break
-                    ;;
-                270)
-                    xsetwacom --set $XWACOMID Rotate "cw"
-                    sed -i 's/WACOMRO=.*/WACOMRO='\''270'\''/g' $HOME/.xinput.bash
-                    break
-                    ;;
-                *)
-                    printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
-                    ;;
-            esac
+        while read ROTATION; do
+            [[ "$ROTATION" == "0" || "$ROTATION" == "90" || "$ROTATION" == "180" || "$ROTATION" == "270" ]] && break
+            printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
         done
         printf "${RED}%s${NC} " "Wacom MONITOR (master/slave):"
-        while read response; do
-            case $response in
-                master)
-                    xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
-                    sed -i 's/WACOMMO=.*/WACOMMO='\''master'\''/g' $HOME/.xinput.bash
-                    break
-                    ;;
-                slave)
-                    if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
-                        xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
-                        sed -i 's/WACOMMO=.*/WACOMMO='\''slave'\''/g' $HOME/.xinput.bash
-                    fi
-                    break
-                    ;;
-                *)
-                    printf "${RED}%s${NC} " "Wacom MONITOR (master/slave):"
-                    ;;
-            esac
+        while read MONITOR; do
+            [[ "$MONITOR" == "master" || "$MONITOR" == "slave" ]] && break
+            printf "${RED}%s${NC} " "Wacom MONITOR (master/slave):"
         done
+    else
+        ROTATION=$WACOMRO
+        MONITOR=$WACOMMO
     fi
+
+    case $ROTATION in
+        0)
+            xsetwacom --set $XWACOMID Rotate "none"
+            sed -i 's/WACOMRO=.*/WACOMRO='\''0'\''/g' $HOME/.xinput.bash
+            ;;
+        90)
+            xsetwacom --set $XWACOMID Rotate "ccw"
+            sed -i 's/WACOMRO=.*/WACOMRO='\''90'\''/g' $HOME/.xinput.bash
+            ;;
+        180)
+            xsetwacom --set $XWACOMID Rotate "half"
+            sed -i 's/WACOMRO=.*/WACOMRO='\''180'\''/g' $HOME/.xinput.bash
+            ;;
+        270)
+            xsetwacom --set $XWACOMID Rotate "cw"
+            sed -i 's/WACOMRO=.*/WACOMRO='\''270'\''/g' $HOME/.xinput.bash
+            ;;
+    esac
+
+    case $MONITOR in
+        master)
+            xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+            sed -i 's/WACOMMO=.*/WACOMMO='\''master'\''/g' $HOME/.xinput.bash
+            ;;
+        slave)
+            if [[ $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]]; then
+                xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+                sed -i 's/WACOMMO=.*/WACOMMO='\''slave'\''/g' $HOME/.xinput.bash
+            fi
+            ;;
+    esac
 
     source $HOME/.xinput.bash
     printf "${YLW}%s\n%s${NC}\n" "ROTATION -> $WACOMRO" "MONITOR  -> $WACOMMO"
