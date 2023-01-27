@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# This script spawns a scratchpad as long as i3 is running using xterm,
+# it is very usefull if you want a terminal scratchpad always available.
+
+
+while pgrep -x "i3"; do
+    xterm -T I3SCRATCHPAD &
+    wait $!
+done

@@ -298,13 +298,25 @@ for_window [title="SCRATCHPAD"] border pixel 2
 
 # FMENU instance and title
 for_window [instance="FMENU"] floating enable
-for_window [instance="FMENU"] resize set 300 600
+for_window [instance="FMENU"] resize set 300 400
 for_window [instance="FMENU"] move position center
 for_window [instance="FMENU"] border pixel 2
 for_window [title="FMENU"] floating enable
-for_window [title="FMENU"] resize set 300 600
+for_window [title="FMENU"] resize set 300 400
 for_window [title="FMENU"] move position center
 for_window [title="FMENU"] border pixel 2
+
+# I3SCRATCHPAD istance and title
+for_window [instance="I3SCRATCHPAD"] floating enable
+for_window [instance="I3SCRATCHPAD"] resize set 800 600
+for_window [instance="I3SCRATCHPAD"] move position center
+for_window [instance="I3SCRATCHPAD"] move scratchpad
+for_window [instance="I3SCRATCHPAD"] border pixel 2
+for_window [title="I3SCRATCHPAD"] floating enable
+for_window [title="I3SCRATCHPAD"] resize set 800 600
+for_window [title="I3SCRATCHPAD"] move position center
+for_window [title="I3SCRATCHPAD"] move scratchpad
+for_window [title="I3SCRATCHPAD"] border pixel 2
 
 
 
@@ -343,3 +355,4 @@ bindsym $mod+y exec "diodon"
 ##################
 
 exec --no-startup-id "~/.config/i3/i3autoload"
+exec --no-startup-id "~/.config/i3/i3scratchpad"

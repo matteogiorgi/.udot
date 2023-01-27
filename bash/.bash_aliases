@@ -33,7 +33,7 @@ alias nvim-noplugin="_nvim_noplugin"
 alias nvim-last="_nvim_last"
 
 
-alias kth="_kth"
+alias kitty-theme="_kitty_theme"
 alias tmux="_tmux"
 alias xhide="_xhide"
 alias xshow="_xshow"
