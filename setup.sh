@@ -307,7 +307,8 @@ sudo apt install -qq -y \
     mypaint \
     transmission-gtk \
     system-config-printer \
-    telegram-desktop
+    telegram-desktop \
+    nnn
 
 
 

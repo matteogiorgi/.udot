@@ -45,7 +45,7 @@ network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
 gparted vlc libreoffice simplescreenrecorder mypaint transmission-gtk
 dconf-editor cups system-config-printer gnome-shell-extension-prefs
-telegram-desktop
+telegram-desktop nnn
 ```
 
 

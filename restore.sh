@@ -305,7 +305,8 @@ sudo apt purge -qq -y \
     simplescreenrecorder \
     libreoffice \
     mypaint \
-    telegram-desktop
+    telegram-desktop \
+    nnn
 
 
 
