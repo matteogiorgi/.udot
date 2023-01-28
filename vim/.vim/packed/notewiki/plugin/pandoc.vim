@@ -1,6 +1,6 @@
 " notewiki-plugin location
 if !exists('$plugged')
-    let $plugged = 'pack/plugins/start'
+    let $plugged = 'packed'
 endif
 "}}}
 
@@ -29,5 +29,5 @@ endfunction
 
 
 " Commands{{{
-nnoremap <silent> <Plug>(NotePandoc) :call <SID>NotePandoc()
+nnoremap <silent> <Plug>(NotePandoc) :call <SID>NotePandoc()<cr>
 "}}}
