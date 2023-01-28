@@ -191,7 +191,7 @@ bar {
 ### Floating windows
 ####################
 
-# swallow
+# swallow apps
 for_window [class="mpv"] floating enable
 for_window [class="Zathura"] floating enable
 for_window [class="Sxiv"] floating enable
@@ -199,7 +199,7 @@ for_window [class="Xournalpp"] floating enable
 for_window [class="MyPaint"] floating enable
 for_window [class="libreoffice"] floating enable
 
-# more floats
+# more apps
 for_window [class="Synaptic"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Pavucontrol"] floating enable
@@ -230,7 +230,13 @@ for_window [class="Dconf-editor"] floating enable
 for_window [class="Gnome-system-monitor"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 
-# floating options
+
+
+
+### Floating options
+####################
+
+# floating apps
 for_window [class="Synaptic"] resize set 800 600
 for_window [class="Synaptic"] move position center
 for_window [class="Pavucontrol"] resize set 800 600
@@ -254,7 +260,7 @@ for_window [class="Transmission-gtk"] move position center
 for_window [class="TelegramDesktop"] resize set 800 600
 for_window [class="TelegramDesktop"] move position center
 
-# floating options for some gnome apps
+# gnome apps
 for_window [class="Org.gnome.Software"] resize set 800 600
 for_window [class="Org.gnome.Software"] move position center
 for_window [class="Org.gnome.Nautilus"] resize set 800 600
@@ -286,37 +292,35 @@ assign [class="SimpleScreenRecorder"] $ws10
 ### Scratchpads
 ###############
 
-# SCRATCHPAD instance and title
-for_window [instance="SCRATCHPAD"] floating enable
-for_window [instance="SCRATCHPAD"] resize set 600 600
-for_window [instance="SCRATCHPAD"] move position center
-for_window [instance="SCRATCHPAD"] border pixel 2
-for_window [title="SCRATCHPAD"] floating enable
-for_window [title="SCRATCHPAD"] resize set 600 600
-for_window [title="SCRATCHPAD"] move position center
-for_window [title="SCRATCHPAD"] border pixel 2
+# i3scratchpad-window istance and title
+for_window [instance="i3scratchpad"] floating enable
+for_window [instance="i3scratchpad"] resize set 800 600
+for_window [instance="i3scratchpad"] move position center
+for_window [instance="i3scratchpad"] move scratchpad
+for_window [title="i3scratchpad"] floating enable
+for_window [title="i3scratchpad"] resize set 800 600
+for_window [title="i3scratchpad"] move position center
+for_window [title="i3scratchpad"] move scratchpad
 
-# FMENU instance and title
-for_window [instance="FMENU"] floating enable
-for_window [instance="FMENU"] resize set 300 400
-for_window [instance="FMENU"] move position center
-for_window [instance="FMENU"] border pixel 2
-for_window [title="FMENU"] floating enable
-for_window [title="FMENU"] resize set 300 400
-for_window [title="FMENU"] move position center
-for_window [title="FMENU"] border pixel 2
+# fuzzy-window instance and title
+for_window [instance="fuzzy"] floating enable
+for_window [instance="fuzzy"] resize set 600 400
+for_window [instance="fuzzy"] move position center
+for_window [instance="fuzzy"] border pixel 2
+for_window [title="fuzzy"] floating enable
+for_window [title="fuzzy"] resize set 600 400
+for_window [title="fuzzy"] move position center
+for_window [title="fuzzy"] border pixel 2
 
-# I3SCRATCHPAD istance and title
-for_window [instance="I3SCRATCHPAD"] floating enable
-for_window [instance="I3SCRATCHPAD"] resize set 800 600
-for_window [instance="I3SCRATCHPAD"] move position center
-for_window [instance="I3SCRATCHPAD"] move scratchpad
-for_window [instance="I3SCRATCHPAD"] border pixel 2
-for_window [title="I3SCRATCHPAD"] floating enable
-for_window [title="I3SCRATCHPAD"] resize set 800 600
-for_window [title="I3SCRATCHPAD"] move position center
-for_window [title="I3SCRATCHPAD"] move scratchpad
-for_window [title="I3SCRATCHPAD"] border pixel 2
+# fmenu-window instance and title
+for_window [instance="fmenu"] floating enable
+for_window [instance="fmenu"] resize set 300 500
+for_window [instance="fmenu"] move position center
+for_window [instance="fmenu"] border pixel 2
+for_window [title="fmenu"] floating enable
+for_window [title="fmenu"] resize set 300 500
+for_window [title="fmenu"] move position center
+for_window [title="fmenu"] border pixel 2
 
 
 
@@ -326,7 +330,7 @@ for_window [title="I3SCRATCHPAD"] border pixel 2
 
 # terminal and menu
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+space exec "xterm -T FMENU -e fmenu"
+bindsym $mod+space exec "xterm -T fmenu -e fmenu"
 
 # focus
 bindsym $mod+w focus parent
