@@ -306,6 +306,7 @@ sudo apt purge -qq -y \
     libreoffice \
     mypaint \
     telegram-desktop \
+    ghostwriter \
     nnn
 
 

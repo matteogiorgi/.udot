@@ -45,7 +45,7 @@ network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
 gparted vlc libreoffice simplescreenrecorder mypaint transmission-gtk
 dconf-editor cups system-config-printer gnome-shell-extension-prefs
-telegram-desktop nnn
+telegram-desktop ghostwriter nnn
 ```
 
 
@@ -65,7 +65,7 @@ code codium google-chrome chromium brave
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
-- [Grammarly](https://chrome.google.com/webstore/detail/grammarly-grammar-checker/kbfnbcaeplbcioakkpcpgfkobkghlhen): grammar checker
+- [Keepa](https://chrome.google.com/webstore/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo?hl=en-US): Amazon price tracker
 - [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US): TOR proxy
 
 

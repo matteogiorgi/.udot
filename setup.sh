@@ -308,6 +308,7 @@ sudo apt install -qq -y \
     transmission-gtk \
     system-config-printer \
     telegram-desktop \
+    ghostwriter \
     nnn
 
 
