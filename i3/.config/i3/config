@@ -293,34 +293,34 @@ assign [class="SimpleScreenRecorder"] $ws10
 ###############
 
 # i3scratchpad-window istance and title
-for_window [instance="i3scratchpad"] floating enable
-for_window [instance="i3scratchpad"] resize set 800 600
-for_window [instance="i3scratchpad"] move position center
-for_window [instance="i3scratchpad"] move scratchpad
-for_window [title="i3scratchpad"] floating enable
-for_window [title="i3scratchpad"] resize set 800 600
-for_window [title="i3scratchpad"] move position center
-for_window [title="i3scratchpad"] move scratchpad
+for_window [instance="__i3scratchpad__"] floating enable
+for_window [instance="__i3scratchpad__"] resize set 800 600
+for_window [instance="__i3scratchpad__"] move position center
+for_window [instance="__i3scratchpad__"] move scratchpad
+for_window [title="__i3scratchpad__"] floating enable
+for_window [title="__i3scratchpad__"] resize set 800 600
+for_window [title="__i3scratchpad__"] move position center
+for_window [title="__i3scratchpad__"] move scratchpad
 
 # fuzzy-window instance and title
-for_window [instance="fuzzy"] floating enable
-for_window [instance="fuzzy"] resize set 600 400
-for_window [instance="fuzzy"] move position center
-for_window [instance="fuzzy"] border pixel 2
-for_window [title="fuzzy"] floating enable
-for_window [title="fuzzy"] resize set 600 400
-for_window [title="fuzzy"] move position center
-for_window [title="fuzzy"] border pixel 2
+for_window [instance="__fuzzy__"] floating enable
+for_window [instance="__fuzzy__"] resize set 600 400
+for_window [instance="__fuzzy__"] move position center
+for_window [instance="__fuzzy__"] border pixel 2
+for_window [title="__fuzzy__"] floating enable
+for_window [title="__fuzzy__"] resize set 600 400
+for_window [title="__fuzzy__"] move position center
+for_window [title="__fuzzy__"] border pixel 2
 
 # fmenu-window instance and title
-for_window [instance="fmenu"] floating enable
-for_window [instance="fmenu"] resize set 300 500
-for_window [instance="fmenu"] move position center
-for_window [instance="fmenu"] border pixel 2
-for_window [title="fmenu"] floating enable
-for_window [title="fmenu"] resize set 300 500
-for_window [title="fmenu"] move position center
-for_window [title="fmenu"] border pixel 2
+for_window [instance="__fmenu__"] floating enable
+for_window [instance="__fmenu__"] resize set 300 500
+for_window [instance="__fmenu__"] move position center
+for_window [instance="__fmenu__"] border pixel 2
+for_window [title="__fmenu__"] floating enable
+for_window [title="__fmenu__"] resize set 300 500
+for_window [title="__fmenu__"] move position center
+for_window [title="__fmenu__"] border pixel 2
 
 
 
@@ -330,7 +330,7 @@ for_window [title="fmenu"] border pixel 2
 
 # terminal and menu
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+space exec "xterm -T fmenu -e fmenu"
+bindsym $mod+space exec "xterm -T __fmenu__ -e fmenu"
 
 # focus
 bindsym $mod+w focus parent
