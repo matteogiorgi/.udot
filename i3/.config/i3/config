@@ -217,6 +217,7 @@ for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
 for_window [class="Gvim"] floating enable
 for_window [class="Transmission-gtk"] floating enable
+for_window [class="ghostwriter"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 
 # gnome apps
@@ -257,6 +258,8 @@ for_window [class="Gvim"] resize set 800 900
 for_window [class="Gvim"] move position center
 for_window [class="Transmission-gtk"] resize set 800 600
 for_window [class="Transmission-gtk"] move position center
+for_window [class="ghostwriter"] resize set 800 600
+for_window [class="ghostwriter"] move position center
 for_window [class="TelegramDesktop"] resize set 800 600
 for_window [class="TelegramDesktop"] move position center
 
