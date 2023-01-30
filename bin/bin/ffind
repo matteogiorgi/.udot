@@ -5,8 +5,9 @@
 
 
 OPENER="swallow"
-FZF_DEFAULT_COMMAND='rg --sort-files --files --hidden -g "!.git"'
-
+SEARCH1='rg --sort-files --files --hidden --glob "!.git/**"'
+SEARCH2='find . -type f \( ! -regex '.*/\.git/.*' \) -print'
+[[ -x "$(command -v rg)" ]] && FZF_DEFAULT_COMMAND="$SEARCH1" || FZF_DEFAULT_COMMAND="$SEARCH2"
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 function main () {
