@@ -5,9 +5,9 @@
 ########################
 
 FILE="$*"
-[[ -x "$(command -v nano)" ]] && NAMES="η-Nano\n"$NAMES
-[[ -x "$(command -v kak)" ]] && NAMES="Kakoune\n"$NAMES
-[[ -x "$(command -v vim)" ]] && NAMES="Vim-COC\nVim-FZF\n"$NAMES
+[[ -x "$(command -v nano)" ]] && TED="η-Nano\n"$TED
+[[ -x "$(command -v kak)" ]] && TED="Kakoune\n"$TED
+[[ -x "$(command -v vim)" ]] && TED="Vim-COC\nVim-FZF\n"$TED
 
 
 
@@ -24,9 +24,33 @@ function _run () {
     FILE="$2"
     if [[ -x "$(command -v $CMD)" ]]; then
         _xshow "$CMD '${FILE}'"
+    elif [[ "$(type -t $CMD)" == function ]]; then
+        $CMD "${FILE}"
     else
         _xshow "xdg-open '${FILE}'"
     fi
+}
+
+function _edit () {
+    TED="$1"
+    FILE="$2"
+    [[ ! -f "/bin/fzf" || ! -n $TED ]] && "${EDITOR:=vi}" "${FILE}" && return
+    case $(printf "$TED" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
+        Vim-COC)
+            _run "_nvim_cocmode" "${FILE}"
+            ;;
+        Vim-FZF)
+            _run "_nvim" "${FILE}"
+            ;;
+        Kakoune)
+            kak "${FILE}"
+            ;;
+        η-Nano)
+            nano "${FILE}"
+            ;;
+        *)
+            return
+    esac
 }
 
 
@@ -55,12 +79,8 @@ echo "$1" | grep "\.sent$" && {
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
-        if [[ -x "$(command -v mpv)" && "$(type -t _mpv)" == function ]]; then
-            clear &&
-            _mpv "${FILE}"
-        else
-            _run "(ツ)" "${FILE}"
-        fi
+        clear &&
+        _run "_mpv" "${FILE}"
         ;;
     video/*)
         _run "mpv --force-window --no-terminal --msg-level=all=no" "${FILE}"
@@ -68,52 +88,17 @@ case $(file --mime-type "${FILE}" -bL) in
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         _run "zathura" "${FILE}"
         ;;
-     application/vnd.openxmlformats-officedocument.* | application/vnd.oasis.opendocument.* | application/vnd.ms-* | application/msword)
-        _run "libreoffice" "${FILE}"
-        ;;
-     application/x-tar | application/zip | application/gzip)
-        if [[ "${FILE##*.}" == "xopp" ]]; then
-            _run "xournalpp" "${FILE}"
-        elif [[ "${FILE##*.}" == "ora" ]]; then
-            _run "mypaint" "${FILE}"
-        else
-            _run "(ツ)" "${FILE}"
-        fi
+     application/gzip | application/zip)
+        [[ "${FILE##*.}" == "xopp" ]] && _run "xournalpp" "${FILE}" && exit
+        [[ "${FILE##*.}" == "ora" ]] && _run "mypaint" "${FILE}" && exit
+        _run "(ツ)" "${FILE}"
         ;;
     image/*)
         _run "esxiv" "${FILE}"
         ;;
+    text/* | application/json)
+        _edit "$TED" "${FILE}"
+        ;;
     *)
-        if [[ ! -n $NAMES  || ! -f "/bin/fzf" ]]; then
-            "${EDITOR:=vi}" "${FILE}"
-            exit 0
-        fi
-        case $(printf "$NAMES" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-            Vim-COC)
-                if [[ -x "$(command -v nvim)" && "$(type -t _nvim_cocmode)" == function ]]; then
-                    _nvim_cocmode "${FILE}"
-                elif [[ -x "$(command -v vim)" && "$(type -t _vim_cocmode)" == function ]]; then
-                    _vim_cocmode "${FILE}"
-                else
-                    _run "(ツ)" "${FILE}"
-                fi
-                ;;
-            Vim-FZF)
-                if [[ -x "$(command -v nvim)" && "$(type -t _nvim)" == function ]]; then
-                    _nvim "${FILE}"
-                elif [[ -x "$(command -v vim)" && "$(type -t _vim)" == function ]]; then
-                    _vim "${FILE}"
-                else
-                    _run "(ツ)" "${FILE}"
-                fi
-                ;;
-            Kakoune)
-                [[ -x "$(command -v kak)" ]] && kak "${FILE}" || _run "(ツ)" "${FILE}"
-                ;;
-            η-Nano)
-                [[ -x "$(command -v nano)" ]] && nano "${FILE}" || _run "(ツ)" "${FILE}"
-                ;;
-            *)
-                exit 1
-        esac
+        _run "(ツ)" "${FILE}"
 esac

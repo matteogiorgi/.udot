@@ -38,9 +38,9 @@ shopt -s globstar
 ### Friendly less and working chroot
 ####################################
 
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[[ -x /usr/bin/lesspipe ]] && eval "$(SHELL=/bin/sh lesspipe)"
 
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [[ -z "${debian_chroot:-}" ]] && [[ -r /etc/debian_chroot ]]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -60,28 +60,13 @@ esac
 ### Colored prompt
 ##################
 
-force_color_prompt=yes
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        color_prompt=yes
-    else
-        color_prompt=
-    fi
-fi
-
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
-
-if [ "$color_prompt" = yes ]; then
-    [[ $(type -t __git_ps1) == function ]] \
-        && PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)")\n\$ ' \
-        || PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
+if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
 else
-    [[ $(type -t __git_ps1) == function ]] \
-        && PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(__git_ps1 " (%s)")\n\$ ' \
-        || PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
 fi
-
-unset color_prompt force_color_prompt
+[[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n\$ ' || PS1=$PS1'\n\$ '
 
 
 
@@ -103,7 +88,7 @@ esac
 ### Color support
 #################
 
-if [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/bin/dircolors ]]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
@@ -127,7 +112,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ### Functions definition
 ########################
 
-if [ -f ~/.bash_functions ]; then
+if [[ -f ~/.bash_functions ]]; then
     . ~/.bash_functions
 fi
 
@@ -145,7 +130,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 ### Aliases definition
 ######################
 
-if [ -f ~/.bash_aliases ]; then
+if [[ -f ~/.bash_aliases ]]; then
     . ~/.bash_aliases
 fi
 
@@ -156,9 +141,9 @@ fi
 ####################################
 
 if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
         . /usr/share/bash-completion/bash_completion
-    elif [ -f /etc/bash_completion ]; then
+    elif [[ -f /etc/bash_completion ]]; then
         . /etc/bash_completion
     fi
 fi

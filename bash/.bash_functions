@@ -64,6 +64,7 @@ function _xshow () {
 
 
 function _mpv () {
+    [[ -f "/bin/mpv" ]] || return 1
     FILE="$*"
     echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
     mpv "$FILE"
@@ -102,12 +103,11 @@ function _poweroffi3 () {
 
 
 function _setbackgroundcolor () {
-    if [[ -f "/bin/xtermcontrol" ]]; then
-        if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
-            export BACKGROUNDCOLOR="'light'"
-        else
-            export BACKGROUNDCOLOR="'dark'"
-        fi
+    [[ -f "/bin/xtermcontrol" ]] || return 1
+    if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
+        export BACKGROUNDCOLOR="'light'"
+    else
+        export BACKGROUNDCOLOR="'dark'"
     fi
 }
 
@@ -130,24 +130,28 @@ function _kitty_theme () {
 
 
 function _vim () {
+    [[ -f "/bin/vim" ]] || return 1
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+    env \vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
 function _vim_cocmode () {
+    [[ -f "/bin/vim" ]] || return 1
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    env \vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
 function _vim_noplugin () {
+    [[ -f "/bin/vim" ]] || return 1
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env vim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    env \vim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
 }
 
 
 function _vim_last () {
+    [[ -f "/bin/vim" ]] || return 1
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
         _vim -S $HOME/.vim/sessions/last.vim
     else
@@ -157,33 +161,46 @@ function _vim_last () {
 
 
 function _nvim () {
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env nvim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+    if [[ -f "/bin/nvim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        env \nvim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+    else
+        _vim "$@"
+    fi
 }
 
 
 function _nvim_cocmode () {
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env nvim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    if [[ -f "/bin/nvim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        env \nvim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    else
+        _vim_cocmode "$@"
+    fi
 }
 
 
 function _nvim_noplugin () {
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env nvim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    if [[ -f "/bin/nvim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        env \nvim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    else
+        _vim_noplugin "$@"
+    fi
 }
 
 
 function _nvim_last () {
-    if [[ -f "$HOME/.vim/sessions/last.nvim" ]]; then
-        _nvim -S $HOME/.vim/sessions/last.nvim
+    if [[ -f "/bin/nvim" ]]; then
+        [[ -f "$HOME/.vim/sessions/last.nvim" ]] && _nvim -S $HOME/.vim/sessions/last.nvim || _nvim
     else
-        _nvim
+        _vim_last
     fi
 }
 
 
 function _tmux () {
+    [[ -f "/bin/tmux" ]] || return 1
     if [[ -n "$TMUX" ]]; then
         printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"
         return
@@ -198,8 +215,9 @@ function _tmux () {
 
 
 function _shfm () {
+    [[ -f "$HOME/bin/shfm/shfm" ]] || return 1
     PROMPT=${PS1@P}
-    ~/bin/shfm/shfm "$@"
+    $HOME/bin/shfm/shfm "$@"
     cd "$(cat /tmp/shfm)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
@@ -208,6 +226,7 @@ function _shfm () {
 
 
 function _nnn () {
+    [[ -f "/bin/nnn" ]] || return 1
     if [[ "${NNNLVL:-0}" -ge 1 ]]; then
         echo "nnn is already running"
         return
@@ -225,8 +244,9 @@ function _nnn () {
 
 
 function _fjump () {
+    [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}
-    ~/bin/fjump $$
+    $HOME/bin/fjump $$
     cd "$(cat /tmp/fjump$$)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
@@ -237,6 +257,7 @@ function _fjump () {
 function _fgit () {
     # FZF git commit browser:
     # [enter=show] [ctrl-d=diff] [`=sort]
+    [[ -x "$(command -v fzf)" && -x "$(command -v git)" ]] || return 1
     if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
         local out shas sha q k
         while out=$(
@@ -263,8 +284,9 @@ function _fgit () {
 
 
 function _tig () {
+    [[ -f "/bin/tig" ]] || return 1
     if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
-        tig
+        \tig
     else
         printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
     fi
@@ -272,12 +294,9 @@ function _tig () {
 
 
 function _sxiv () {
-    if command -v sxiv >/dev/null 2>&1; then
-        if [ -d "${@: -1}" ] || [ -h "${@: -1}" ]; then
-            sxiv -t "$@"
-        else
-            sxiv "$@"
-        fi
+    [[ -f "/bin/sxiv" ]] || return 1
+    if command -v \sxiv >/dev/null 2>&1; then
+        [[ -d "${@: -1}" || -h "${@: -1}" ]] && \sxiv -t "$@" || \sxiv "$@"
     elif command -v feh >/dev/null 2>&1; then
         feh "$@"
     else
@@ -315,6 +334,7 @@ function _chbg () {
 
 
 function _xwacom () {
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'" > ~/.xinput.bash
     source $HOME/.xinput.bash
     if [[ "$WACOMID" == "" ]]; then
         printf "${YLW}%s${NC}\n" "Wacom not specified (check ~/.xinput.bash)"
@@ -382,6 +402,7 @@ function _xwacom () {
 
 
 function _xtouch () {
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'" > ~/.xinput.bash
     source $HOME/.xinput.bash
     if [[ "$TOUCHPADID" == "" ]]; then
         printf "${YLW}%s${NC}\n" "Touchpad not specified (check ~/.xinput.bash)"
@@ -435,12 +456,13 @@ function _ipreview () {
     elif [[ -x "$(command -v tcv)" ]]; then
         tcv "$FILE" 2>/dev/null
     else
-        printf "${RED}%s${NC}\n" "Can't preview shit, do something!"
+        printf "${RED}%s${NC}\n" "Can't preview shit, sorry mate!"
     fi
 }
 
 
 function _xopp2pdf () {
+    [[ -x "$(command -v xournalpp)" ]] || return 1
     ARGS="$*"
     if [[ "$ARGS" == "" ]]; then
         [[ ! -d ./pdf ]] && mkdir ./pdf
@@ -457,6 +479,7 @@ function _xopp2pdf () {
 
 
 function _mergepdf () {
+    [[ -x "$(command -v pdfunite)" ]] || return 1
     ARGS="$*"
     [[ -f "merge.pdf" ]] && rm -f merge.pdf
     if [[ "$ARGS" == "" ]]; then
@@ -468,6 +491,7 @@ function _mergepdf () {
 
 
 function _gitinit () {
+    [[ -x "$(command -v git)" ]] || return 1
     if [[ ! -d "./.git" ]]; then
         git init
 cat 2>/dev/null > ./.gitignore <<-EOF

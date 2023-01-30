@@ -12,23 +12,8 @@
 ### Check ~/.tmp
 ################
 
-if [[ ! -d $HOME/.tmp ]]; then
-    mkdir $HOME/.tmp
-elif [[ $(du $HOME/.tmp | awk '{print $1}') -gt 1048576 ]]; then
-    rm $HOME/.tmp/*
-fi
-
-
-
-
-### Functions definition
-########################
-
-# check a function with something like this:
-# [[ "$(type -t _vim)" == function ]] && _vim $FILE
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
+[[ -d $HOME/.tmp ]] || mkdir $HOME/.tmp
+[[ $(du $HOME/.tmp | awk '{print $1}') -gt 1048576 ]] && rm $HOME/.tmp/*
 
 
 
@@ -41,6 +26,8 @@ NAME=${FILE%.*}
 NAME=${NAME##*/}
 MESS="/bin/less -R -~"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
+
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions
 
 _no_preview () {
     echo "                               "
@@ -60,66 +47,45 @@ _no_preview () {
 ### Main body
 #############
 
-if [[ -L "$FILE" && -d "$FILE" ]]; then
-    ${LIST} "$(readlink $FILE)" | ${MESS}
-elif [[ -d "$FILE" ]]; then
-    ${LIST} "$FILE" | ${MESS}
-else
-    # check the relative mime-type here:
-    # https://www.iana.org/assignments/media-types/media-types.xhtml
-    case $(file --mime-type "$FILE" -bL) in
-        text/* | application/json)
-            [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --color=always "$FILE" || ${MESS} "$FILE"
-            ;;
-        application/pdf | application/postscript | application/djvu)
-            if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
-                if [[ -x "$(command -v pdftoppm)" ]]; then
-                    pdftoppm "$FILE" "$HOME/.tmp/$NAME" -singlefile -png 2>/dev/null
-                    mess "$HOME/.tmp/$NAME.png"
-                else
-                    ${MESS} "$FILE"
-                fi
-            else
-                mess "$HOME/.tmp/$NAME.png"
-            fi
-            ;;
-        application/zip | application/gzip)
-            if [[ "${FILE##*.}" == "xopp" ]]; then
-                if [[ ! -f "$HOME/.tmp/$NAME.png" && -x "$(command -v xournalpp)" ]]; then
-                    xournalpp "$FILE" -p "$HOME/.tmp/$NAME.pdf" 2>/dev/null
-                    mess "$HOME/.tmp/$NAME.pdf"
-                    rm "$HOME/.tmp/$NAME.pdf"
-                else
-                    mess "$HOME/.tmp/$NAME.png"
-                fi
-            else
-                ${MESS} "$FILE"
-            fi
-            ;;
-        video/*)
-            if [[ ! -f "$HOME/.tmp/$NAME.png" ]]; then
-                if [[ -x "$(command -v ffmpeg)" ]]; then
-                    ffmpeg -i "$FILE" -vframes 1 -f image2 "$HOME/.tmp/$NAME.png" 2>/dev/null
-                    mess "$HOME/.tmp/$NAME.png"
-                elif [[ -x "$(command -v mediainfo)" ]]; then
-                    mediainfo "$FILE" | ${MESS}
-                else
-                    _no_preview
-                fi
-            else
-                mess "$HOME/.tmp/$NAME.png"
-            fi
-            ;;
-        audio/*)
-            [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || _no_preview
-            ;;
-        image/*)
-            # remember to install PIL/Pillow: pip3 install PIL/Pillow
-            # there could be another way using kitty's image protocol
-            # kitty icat --place 200x40@0x20 --transfer-mode file "$FILE"
-            [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || _no_preview
-            ;;
-        *)
-            _no_preview
-    esac
-fi
+[[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${MESS} && exit
+[[ -d "$FILE" ]] && ${LIST} "$FILE" | ${MESS} && exit
+
+# check the relative mime-type here:
+# https://www.iana.org/assignments/media-types/media-types.xhtml
+case $(file --mime-type "$FILE" -bL) in
+    text/* | application/json)
+        [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --color=always "$FILE" || ${MESS} "$FILE"
+        ;;
+    application/pdf | application/postscript | application/djvu)
+        [[ -f "$HOME/.tmp/$NAME.png" ]] && mess "$HOME/.tmp/$NAME.png" && exit
+        [[ -x "$(command -v pdftoppm)" ]] || ${MESS} "$FILE" || exit
+        pdftoppm "$FILE" "$HOME/.tmp/$NAME" -singlefile -png 2>/dev/null
+        mess "$HOME/.tmp/$NAME.png"
+        ;;
+    application/gzip | application/zip)
+        [[ "${FILE##*.}" != "xopp" ]] && ${MESS} "$FILE" && exit
+        [[ -f "$HOME/.tmp/$NAME.png" ]] && mess "$HOME/.tmp/$NAME.png" && exit
+        [[ -x "$(command -v xournalpp)" ]] || _no_preview || exit
+        xournalpp "$FILE" -p "$HOME/.tmp/$NAME.pdf" 2>/dev/null
+        mess "$HOME/.tmp/$NAME.pdf"
+        rm "$HOME/.tmp/$NAME.pdf"
+        ;;
+    video/*)
+        [[ -f "$HOME/.tmp/$NAME.png" ]] && mess "$HOME/.tmp/$NAME.png" && exit
+        if [[ -x "$(command -v ffmpeg)" ]]; then
+            ffmpeg -i "$FILE" -vframes 1 -f image2 "$HOME/.tmp/$NAME.png" 2>/dev/null
+            mess "$HOME/.tmp/$NAME.png"
+            exit
+        fi
+        [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || _no_preview
+        ;;
+    audio/*)
+        [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || _no_preview
+        ;;
+    image/*)
+        # remember to install PIL/Pillow: pip3 install PIL/Pillow
+        [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || _no_preview
+        ;;
+    *)
+        _no_preview
+esac
