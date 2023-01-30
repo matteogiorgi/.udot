@@ -3,9 +3,9 @@ general {
     colors         = false
     markup         = pango
     interval       = 5
-    color_good     = '#2f343f'
-    color_degraded = '#ebcb8b'
-    color_bad      = '#ba5e57'
+    color_good     = '#076678'
+    color_degraded = '#af3a03'
+    color_bad      = '#9d0006'
 }
 
 order += "cpu_usage"
@@ -55,7 +55,7 @@ volume master {
 
 battery all {
     format        = "<span background='#a3be8c'> %status %percentage %remaining %emptytime </span>"
-    format_down   = "<span background='#a3be8c'> BAT null </span>"
+    format_down   = ""
     status_chr    = "CHR"
     status_bat    = "BAT"
     status_unk    = "UNK"

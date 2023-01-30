@@ -5,7 +5,6 @@ PARENTPID="$*"
 CLICOLOR_FORCE=1
 OPENER="swallow"
 LIST="/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=always"
-
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 function main () {

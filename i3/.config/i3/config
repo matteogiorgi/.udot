@@ -167,8 +167,8 @@ client.background       #e5e5e5
 
 bar {
     colors {
+        statusline #000000
         background #111111
-        statusline #222222
         separator  #333333
 
         # workspaces color (border, background, text)
