@@ -348,7 +348,7 @@ function _xwacom () {
     XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     printf "${RED}%s\n%s${NC}\n" "ROTATION == $WACOMRO" "MONITOR  == $WACOMMO"
 
-    if _ask "Do you wanna change specs?" Y; then
+    if _ask "Do you wanna change specs?" N; then
         printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
         while read ROTATION; do
             [[ "$ROTATION" == "0" || "$ROTATION" == "90" || "$ROTATION" == "180" || "$ROTATION" == "270" ]] && break

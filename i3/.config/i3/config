@@ -217,6 +217,7 @@ for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
 for_window [class="Transmission-gtk"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [class="ghostwriter"] floating enable
 
 # gnome apps
 for_window [class="Org.gnome.Software"] floating enable
@@ -247,6 +248,7 @@ for_window [class="Xournalpp"] resize set 800 600
 for_window [class="MyPaint"] resize set 800 600
 for_window [class="Transmission-gtk"] resize set 800 600
 for_window [class="TelegramDesktop"] resize set 800 600
+for_window [class="ghostwriter"] resize set 800 600
 
 # gnome floating apps
 for_window [class="Org.gnome.Software"] resize set 800 600
