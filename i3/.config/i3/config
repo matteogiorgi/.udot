@@ -215,7 +215,6 @@ for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
-for_window [class="Gvim"] floating enable
 for_window [class="Transmission-gtk"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 
@@ -238,45 +237,36 @@ for_window [class="Gnome-calculator"] floating enable
 
 # floating apps
 for_window [class="Synaptic"] resize set 800 600
-for_window [class="Synaptic"] move position center
 for_window [class="Pavucontrol"] resize set 800 600
-for_window [class="Pavucontrol"] move position center
+for_window [class="Lxappearance"] resize set 800 600
 for_window [class="qt5ct"] resize set 800 600
-for_window [class="qt5ct"] move position center
 for_window [class="libreoffice"] resize set 800 600
-for_window [class="libreoffice"] move position center
 for_window [class="vlc"] resize set 800 600
-for_window [class="vlc"] move position center
 for_window [class="mpv"] resize set 800 600
-for_window [class="mpv"] move position center
 for_window [class="Xournalpp"] resize set 800 600
-for_window [class="Xournalpp"] move position center
 for_window [class="MyPaint"] resize set 800 600
-for_window [class="MyPaint"] move position center
+for_window [class="Transmission-gtk"] resize set 800 600
+for_window [class="TelegramDesktop"] resize set 800 600
+
+# gnome floating apps
+for_window [class="Org.gnome.Software"] resize set 800 600
+for_window [class="Org.gnome.Nautilus"] resize set 800 600
+for_window [class="File-roller"] resize set 800 600
+for_window [class="Gedit"] resize set 800 600
+for_window [class="Evince"] resize set 800 600
+for_window [class="Eog"] resize set 800 600
+for_window [class="Dconf-editor"] resize set 800 600
+for_window [class="Gnome-system-monitor"] resize set 800 600
+
+
+
+
+### Gvim window
+###############
+
+for_window [class="Gvim"] floating enable
 for_window [class="Gvim"] resize set 800 900
 for_window [class="Gvim"] move position center
-for_window [class="Transmission-gtk"] resize set 800 600
-for_window [class="Transmission-gtk"] move position center
-for_window [class="TelegramDesktop"] resize set 800 600
-for_window [class="TelegramDesktop"] move position center
-
-# gnome apps
-for_window [class="Org.gnome.Software"] resize set 800 600
-for_window [class="Org.gnome.Software"] move position center
-for_window [class="Org.gnome.Nautilus"] resize set 800 600
-for_window [class="Org.gnome.Nautilus"] move position center
-for_window [class="File-roller"] resize set 800 600
-for_window [class="File-roller"] move position center
-for_window [class="Gedit"] resize set 800 600
-for_window [class="Gedit"] move position center
-for_window [class="Evince"] resize set 800 600
-for_window [class="Evince"] move position center
-for_window [class="Eog"] resize set 800 600
-for_window [class="Eog"] move position center
-for_window [class="Dconf-editor"] resize set 800 600
-for_window [class="Dconf-editor"] move position center
-for_window [class="Gnome-system-monitor"] resize set 800 600
-for_window [class="Gnome-system-monitor"] move position center
 
 
 
@@ -294,31 +284,33 @@ assign [class="SimpleScreenRecorder"] $ws10
 
 # i3scratchpad-window istance and title
 for_window [instance="__i3scratchpad__"] floating enable
-for_window [instance="__i3scratchpad__"] resize set 800 600
+for_window [instance="__i3scratchpad__"] resize set 600 600
 for_window [instance="__i3scratchpad__"] move position center
+for_window [instance="__i3scratchpad__"] border pixel 2
 for_window [instance="__i3scratchpad__"] move scratchpad
 for_window [title="__i3scratchpad__"] floating enable
-for_window [title="__i3scratchpad__"] resize set 800 600
+for_window [title="__i3scratchpad__"] resize set 600 600
 for_window [title="__i3scratchpad__"] move position center
+for_window [title="__i3scratchpad__"] border pixel 2
 for_window [title="__i3scratchpad__"] move scratchpad
 
 # fuzzy-window instance and title
 for_window [instance="__fuzzy__"] floating enable
-for_window [instance="__fuzzy__"] resize set 600 400
+for_window [instance="__fuzzy__"] resize set 600 300
 for_window [instance="__fuzzy__"] move position center
 for_window [instance="__fuzzy__"] border pixel 2
 for_window [title="__fuzzy__"] floating enable
-for_window [title="__fuzzy__"] resize set 600 400
+for_window [title="__fuzzy__"] resize set 600 300
 for_window [title="__fuzzy__"] move position center
 for_window [title="__fuzzy__"] border pixel 2
 
 # fmenu-window instance and title
 for_window [instance="__fmenu__"] floating enable
-for_window [instance="__fmenu__"] resize set 300 500
+for_window [instance="__fmenu__"] resize set 300 600
 for_window [instance="__fmenu__"] move position center
 for_window [instance="__fmenu__"] border pixel 2
 for_window [title="__fmenu__"] floating enable
-for_window [title="__fmenu__"] resize set 300 500
+for_window [title="__fmenu__"] resize set 300 600
 for_window [title="__fmenu__"] move position center
 for_window [title="__fmenu__"] border pixel 2
 
