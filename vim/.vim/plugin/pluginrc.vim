@@ -1,6 +1,29 @@
-" Vim-commentary {{{
+" Vim-hy {{{
 let g:hy_enable_conceal = 1
 let g:hy_conceal_fancy = 1
+" }}}
+
+
+
+
+" Vim-pandoc {{{
+let g:pandoc#syntax#conceal#urls = 1
+" }}}
+
+
+
+
+" Vim-surround {{{
+let g:surround_{char2nr('o')} = "/*\r*/"
+" }}}
+
+
+
+
+" Vim-repeat {{{
+nnoremap <silent> <Plug>TransposeCharacters xp
+\:call repeat#set("\<Plug>TransposeCharacters")<CR>
+nmap cp <Plug>TransposeCharacters
 " }}}
 
 
@@ -16,22 +39,6 @@ augroup personalcomments
     autocmd FileType toml setlocal commentstring=#\ %s
     autocmd FileType markdown,markdown.pandoc,pandoc setlocal commentstring=<!--\ %s\ -->
 augroup end
-" }}}
-
-
-
-
-" Vim-repeat {{{
-nnoremap <silent> <Plug>TransposeCharacters xp
-\:call repeat#set("\<Plug>TransposeCharacters")<CR>
-nmap cp <Plug>TransposeCharacters
-" }}}
-
-
-
-
-" Vim-surround {{{
-let g:surround_{char2nr('o')} = "/*\r*/"
 " }}}
 
 

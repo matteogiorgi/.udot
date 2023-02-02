@@ -3,7 +3,7 @@ setlocal conceallevel=2
 
 
 nmap <buffer> <leader>n <Plug>(NoteWiki)
-nmap <buffer> <leader>b <Plug>(NoteBrowse)
+nmap <buffer> <leader>N <Plug>(NoteBrowse)
 nmap <buffer> <leader>p <Plug>(NotePandoc)<cr>
 
 nmap <buffer> <tab> <Plug>(NextLink)

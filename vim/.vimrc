@@ -3,6 +3,8 @@
 ""                    [ https://github.com/junegunn/vim-plug ]
 ""
 ""    vim-hy ······················· https://github.com/hylang/vim-hy
+""    vim-pandoc ··················· https://github.com/vim-pandoc/vim-pandoc
+""    vim-pandoc-syntax ············ https://github.com/vim-pandoc/vim-pandoc-syntax
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
@@ -100,6 +102,8 @@ if !exists('noplugin')
         Plug '$HOME/.vim/packed/startscreen'
         Plug '$HOME/.vim/packed/utility'
         Plug 'hylang/vim-hy'
+        Plug 'vim-pandoc/vim-pandoc'
+        Plug 'vim-pandoc/vim-pandoc-syntax'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-commentary'
