@@ -2,6 +2,7 @@
 ""                                 E-VIM PLUGINS
 ""                    [ https://github.com/junegunn/vim-plug ]
 ""
+""    vim-hy ······················· https://github.com/hylang/vim-hy
 ""    vim-surround ················· https://github.com/tpope/vim-surround
 ""    vim-repeat ··················· https://github.com/tpope/vim-repeat
 ""    vim-commentary ··············· https://github.com/tpope/vim-commentary
@@ -98,6 +99,7 @@ if !exists('noplugin')
         Plug '$HOME/.vim/packed/qbuf'
         Plug '$HOME/.vim/packed/startscreen'
         Plug '$HOME/.vim/packed/utility'
+        Plug 'hylang/vim-hy'
         Plug 'tpope/vim-surround'
         Plug 'tpope/vim-repeat'
         Plug 'tpope/vim-commentary'

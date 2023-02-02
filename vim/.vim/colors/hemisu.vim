@@ -189,6 +189,7 @@ call s:h("Type",       { "fg": s:accent3 })
 call s:h("String",     { "fg": s:accent2 })
 call s:h("Keyword",    { "fg": s:accent2, "gui": "bold", "cterm": "bold" })
 call s:h("Todo",       { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
+call s:h("Conceal",    { "fg": s:normRed, "gui": "bold", "cterm": "bold" })
 call s:h("Function",   { "gui": "bold", "cterm": "bold" })
 
 hi! link Identifier  Function
