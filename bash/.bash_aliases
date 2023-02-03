@@ -62,6 +62,7 @@ alias xlayout="_xlayout"
 alias auto-dual="autorandr --load dual"
 alias auto-master="autorandr --load master"
 alias auto-slave="autorandr --load slave"
+alias auto-mirror="autorandr --load mirror"
 
 
 alias logout-i3="_logouti3"
