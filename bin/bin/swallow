@@ -15,9 +15,7 @@ FILE="$*"
 ### Functions definition
 ########################
 
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
-fi
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions || exit 1
 
 function _run () {
     CMD="$1"

@@ -62,11 +62,12 @@ esac
 
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]'
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
+    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
+    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n ' || PS1=$PS1'\n '
 fi
-[[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n\$ ' || PS1=$PS1'\n\$ '
 
 
 
@@ -220,26 +221,37 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 
 
 
-## Keybindings (vi mode)
-########################
+## Keybindings and set modes (vi mode)
+## I do not use ~/.inputrc in this config
+#########################################
 
 set -o vi
 PROMPT=${PS1@P}
 
-bind -m vi-command -x '"\C-f": nnn'
-bind -m vi-command -x '"\C-g": tig'
-bind -m vi-command -x '"\C-h": fgit'
+bind -m vi-command -x '"\C-f": ffind'
+bind -m vi-command -x '"\C-g": fgit'
+bind -m vi-command -x '"\C-h": tig'
 bind -m vi-command -x '"\C-j": fjump'
-bind -m vi-command -x '"\C-k": ffind'
+bind -m vi-command -x '"\C-k": nnn'
 bind -m vi-command -x '"\C-l": clear; echo ${PROMPT%????}'
 
-bind -m vi-insert -x '"\C-f": nnn'
-bind -m vi-insert -x '"\C-g": tig'
-bind -m vi-insert -x '"\C-h": fgit'
+bind -m vi-insert -x '"\C-f": ffind'
+bind -m vi-insert -x '"\C-g": fgit'
+bind -m vi-insert -x '"\C-h": tig'
 bind -m vi-insert -x '"\C-j": fjump'
-bind -m vi-insert -x '"\C-k": ffind'
+bind -m vi-insert -x '"\C-k": nnn'
 bind -m vi-insert -x '"\C-l": clear; echo ${PROMPT%????}'
 
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
-bind 'set show-all-if-ambiguous on'
+
+bind 'set show-all-if-ambiguous on'            # completions listed immediately
+bind 'set show-all-if-unmodified on'           # completions with no partial completion
+bind 'set completion-ignore-case on'           # auto completion to ignore cases
+bind 'set completion-prefix-display-length 3'  # 3 char as common prefix in completions
+bind 'set mark-symlinked-directories on'       # symlink dir completion to have a slash
+bind 'set visible-stats on'                    # completions appending characters indicating file type
+bind 'set colored-stats on'                    # completions using different colors
+bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
+bind 'set vi-ins-mode-string "λ"'              # vi-mode insert
+bind 'set vi-cmd-mode-string "ϟ"'              # vi-mode command

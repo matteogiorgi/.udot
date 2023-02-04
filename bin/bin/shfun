@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+
+[[ -f ~/.bash_functions || "$*" == "" ]] || exit 1
+. ~/.bash_functions; SHFUN="$*"
+
+[[ "$(type -t $SHFUN)" == function ]] || exit 1
+$SHFUN
