@@ -24,12 +24,14 @@ alias xcut="xclip-cutfile"
 alias vim="_vim"
 alias vim-cocmode="_vim_cocmode"
 alias vim-noplugin="_vim_noplugin"
+alias vim-vanilla="_vim_vanilla"
 alias vim-last="_vim_last"
 
 
 alias nvim="_nvim"
 alias nvim-cocmode="_nvim_cocmode"
 alias nvim-noplugin="_nvim_noplugin"
+alias nvim-vanilla="_nvim_vanilla"
 alias nvim-last="_nvim_last"
 
 

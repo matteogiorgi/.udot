@@ -150,6 +150,13 @@ function _vim_noplugin () {
 }
 
 
+function _vim_vanilla () {
+    [[ -f "/bin/vim" ]] || return 1
+    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+    \vim -u NONE "$@"
+}
+
+
 function _vim_last () {
     [[ -f "/bin/vim" ]] || return 1
     if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
@@ -186,6 +193,16 @@ function _nvim_noplugin () {
         env \nvim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
     else
         _vim_noplugin "$@"
+    fi
+}
+
+
+function _nvim_vanilla () {
+    if [[ -f "/bin/nvim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        \nvim -u NONE "$@"
+    else
+        _vim_vanilla "$@"
     fi
 }
 
