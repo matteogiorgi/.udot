@@ -320,11 +320,11 @@ read -p "    Removing snap/extra packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
-    [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
-    [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
+    [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
+    [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
+    [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
 fi
 
 

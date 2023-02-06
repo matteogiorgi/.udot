@@ -113,23 +113,23 @@ if !exists('noplugin')
         Plug 'ludovicchabant/vim-gutentags'
         if plugin_mode ==? 'coc'
             Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-            if has('nvim')
-                imap <silent><C-O> <Plug>(copilot-suggest)
-                imap <silent><C-H> <Plug>(copilot-dismiss)
-                imap <silent><C-J> <Plug>(copilot-next)
-                imap <silent><C-K> <Plug>(copilot-previous)
-                imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
-                let g:copilot_no_tab_map = v:true
-                let g:copilot_assume_mapped = v:true
-                let g:copilot_enabled = v:false
-                Plug 'github/copilot.vim'
-            endif
         else
             Plug '$HOME/.vim/packed/simple-complete'
             Plug '$HOME/.vim/packed/notewiki'
             Plug 'jiangmiao/auto-pairs'
             Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
             Plug 'junegunn/fzf.vim'
+        endif
+        if has('nvim')
+            imap <silent><C-O> <Plug>(copilot-suggest)
+            imap <silent><C-H> <Plug>(copilot-dismiss)
+            imap <silent><C-J> <Plug>(copilot-next)
+            imap <silent><C-K> <Plug>(copilot-previous)
+            imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
+            let g:copilot_no_tab_map = v:true
+            let g:copilot_assume_mapped = v:true
+            let g:copilot_enabled = v:false
+            Plug 'github/copilot.vim'
         endif
     call plug#end()
 endif

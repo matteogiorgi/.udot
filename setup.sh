@@ -323,29 +323,24 @@ if _ask "    Add snap/extra packages?" Y; then
         sudo apt install -qq -y snapd
         printf "\n"
     fi
-
-    if _ask "    Install Code?" Y; then
-        sudo snap install --classic code
-        printf "\n"
-    fi
-
-    if _ask "    Install Codium?" N; then
-        sudo snap install --classic codium
-        printf "\n"
-    fi
-
     if _ask "    Install Brave?" Y; then
         sudo snap install brave
         printf "\n"
     fi
-
-    if _ask "    Install Chrome?" N; then
-        _install_chrome
-        printf "\n"
-    fi
-
     if _ask "    Install Chromium?" N; then
         sudo snap install chromium
+        printf "\n"
+    fi
+    if _ask "    Install Code?" Y; then
+        sudo snap install --classic code
+        printf "\n"
+    fi
+    if _ask "    Install Codium?" N; then
+        sudo snap install --classic codium
+        printf "\n"
+    fi
+    if _ask "    Install Slides?" N; then
+        sudo snap install slides
         printf "\n"
     fi
 fi

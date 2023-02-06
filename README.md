@@ -51,10 +51,10 @@ telegram-desktop ghostwriter nnn
 
 
 
-## Snap/Extra packages
+## Snap packages
 
 ```
-code codium google-chrome chromium brave
+brave chromium code codium slides
 ```
 
 

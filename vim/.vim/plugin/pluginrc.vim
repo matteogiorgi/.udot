@@ -70,3 +70,25 @@ endfunction
 command! ToggleUT call <SID>ToggleUT()
 nnoremap <leader>u :ToggleUT<CR>
 " }}}
+
+
+
+
+
+" Copilot {{{
+if has('nvim')
+    function! CocPilot()
+        let g:copilot = !exists('g:copilot') ? 'disabled' : g:copilot
+        if g:copilot ==? 'disabled'
+            let g:copilot = 'enabled'
+            exec 'Copilot enable'
+            exec 'echohl Function | echomsg "Copilot enabled" | echohl None'
+        else
+            let g:copilot = 'disabled'
+            exec 'Copilot disable'
+            exec 'echohl Function | echomsg "Copilot disabled" | echohl None'
+        endif
+    endfunction
+    nnoremap <leader>q :call CocPilot()<CR>
+endif
+" }}}
