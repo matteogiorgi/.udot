@@ -43,9 +43,9 @@ i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano tig
 sxiv zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman
 network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
-gparted vlc libreoffice simplescreenrecorder mypaint transmission-gtk
-dconf-editor cups system-config-printer gnome-shell-extension-prefs
-chrome-gnome-shell telegram-desktop ghostwriter nnn
+gparted vlc simplescreenrecorder mypaint transmission-gtk dconf-editor
+cups system-config-printer gnome-shell-extension-prefs ghostwriter
+chrome-gnome-shell telegram-desktop nnn
 ```
 
 

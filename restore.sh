@@ -304,7 +304,6 @@ sudo apt purge -qq -y \
     gparted \
     vlc \
     simplescreenrecorder \
-    libreoffice \
     mypaint \
     telegram-desktop \
     ghostwriter \

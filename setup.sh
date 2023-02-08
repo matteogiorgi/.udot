@@ -304,7 +304,6 @@ sudo apt install -qq -y \
     gparted \
     vlc \
     simplescreenrecorder \
-    libreoffice \
     mypaint \
     transmission-gtk \
     system-config-printer \
