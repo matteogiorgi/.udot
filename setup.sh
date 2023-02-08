@@ -254,6 +254,7 @@ sudo apt install -qq -y \
     exuberant-ctags \
     dconf-editor \
     gnome-shell-extension-prefs \
+    chrome-gnome-shell \
     ufw \
     vsftpd \
     cups \
@@ -318,9 +319,13 @@ sudo apt install -qq -y \
 ###########################
 
 printf "\n"
-if _ask "    Add snap/extra packages?" Y; then
+if _ask "    Add snap and extra packages?" Y; then
     if [[ ! -x "$(command -v snap)" ]]; then
         sudo apt install -qq -y snapd
+        printf "\n"
+    fi
+    if _ask "    Install Google-Chrome?" N; then
+        _install_chrome
         printf "\n"
     fi
     if _ask "    Install Brave?" Y; then

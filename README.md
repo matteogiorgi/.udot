@@ -45,7 +45,7 @@ network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
 gparted vlc libreoffice simplescreenrecorder mypaint transmission-gtk
 dconf-editor cups system-config-printer gnome-shell-extension-prefs
-telegram-desktop ghostwriter nnn
+chrome-gnome-shell telegram-desktop ghostwriter nnn
 ```
 
 
@@ -62,6 +62,7 @@ brave chromium code codium slides
 ### Chrome [extensions](https://chrome.google.com/webstore/category/extensions) and [bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
+- [Gnome integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related)
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation

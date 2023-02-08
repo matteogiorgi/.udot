@@ -49,17 +49,14 @@ function _ask () {
 
 
 function _xhide () {
-    id=$(xdo id)
-    xdo hide
+    id=$(xdo id); xdo hide
     sh -c "$*" >/dev/null 2>&1
     xdo show "$id"
 }
 
 
 function _xshow () {
-    nohup sh -c "$*" 2>/dev/null & disown
-    sleep 0.125s
-    [[ -f "nohup.out" ]] && rm -f nohup.out
+    nohup sh -c "$*" &>/tmp/xshow.out & disown
 }
 
 

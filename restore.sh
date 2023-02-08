@@ -181,7 +181,7 @@ fi
 #######################
 
 printf "\n"
-read -p "    Adding gtk3-classic (enter to continue)"
+read -p "    Removing gtk3-classic (enter to continue)"
 printf "\n"
 
 sudo apt-get install ppa-purge
@@ -271,6 +271,7 @@ sudo apt purge -qq -y \
     exuberant-ctags \
     dconf-editor \
     gnome-shell-extension-prefs \
+    chrome-gnome-shell \
     vsftpd \
     bat \
     i3-wm \
@@ -320,6 +321,7 @@ read -p "    Removing snap/extra packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
+    [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code

@@ -269,7 +269,6 @@ for i in $info; do
 		pkgs) print pkgs "$pkgs";;
 		term) print term "$term";;
 		user) printf '%7s@%s\n' "$USER" "$host";;
-        zig) printf '  ¯¯¯¯¯¯¯¯¯¯¯¯';;
 		col) col;;
 	esac
 done
