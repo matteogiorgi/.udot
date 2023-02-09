@@ -253,5 +253,5 @@ bind 'set mark-symlinked-directories on'       # symlink dir completion to have 
 bind 'set visible-stats on'                    # completions appending characters indicating file type
 bind 'set colored-stats on'                    # completions using different colors
 bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
-bind 'set vi-ins-mode-string "λ"'              # vi-mode insert
-bind 'set vi-cmd-mode-string "_"'              # vi-mode command
+bind 'set vi-ins-mode-string ">>"'             # vi-mode insert
+bind 'set vi-cmd-mode-string "<<"'             # vi-mode command

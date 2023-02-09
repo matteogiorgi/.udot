@@ -2,7 +2,6 @@
 ""                                 E-VIM PLUGINS
 ""                    [ https://github.com/junegunn/vim-plug ]
 ""
-""    vim-hy ······················· https://github.com/hylang/vim-hy
 ""    vim-pandoc ··················· https://github.com/vim-pandoc/vim-pandoc
 ""    vim-pandoc-syntax ············ https://github.com/vim-pandoc/vim-pandoc-syntax
 ""    vim-surround ················· https://github.com/tpope/vim-surround
@@ -101,7 +100,6 @@ if !exists('noplugin')
         Plug '$HOME/.vim/packed/qbuf'
         Plug '$HOME/.vim/packed/startscreen'
         Plug '$HOME/.vim/packed/utility'
-        Plug 'hylang/vim-hy'
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vim-pandoc/vim-pandoc-syntax'
         Plug 'tpope/vim-surround'

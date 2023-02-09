@@ -1,3 +1,4 @@
+setlocal spell
 setlocal wrap
 setlocal conceallevel=2
 
