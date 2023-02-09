@@ -51,10 +51,10 @@ chrome-gnome-shell telegram-desktop nnn
 
 
 
-## Snap packages
+## Extra & Snap packages
 
 ```
-brave chromium code codium slides
+google-chrome brave chromium code codium slides
 ```
 
 
