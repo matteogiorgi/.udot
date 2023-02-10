@@ -4,8 +4,8 @@ source $HOME/.xinput.bash
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 
-### XDG autostart, loginctl lock-session, applets
-#################################################
+### XDG autostart, various applets
+##################################
 
 [[ -x "$(command -v dex)" ]] && dex --autostart --environment i3 &
 [[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
@@ -21,15 +21,10 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 #####################################################
 
 NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
-[[ $NMON -eq 1 ]] && autorandr --load master
-[[ $NMON -eq 2 ]] && autorandr --load dual
+[[ $NMON -gt 1 ]] && autorandr --load $AUTORANDR
 
 [[ -f ~/.fehbg ]] && PIC=$(awk 'FNR==2 {print $4}' ~/.fehbg)
-if [[ -n $PIC && -f ${PIC:1:-1} ]]; then
-    ~/.fehbg
-else
-    feh --bg-fill "$SCRIPTPATH/wallpaper"
-fi
+[[ -n $PIC && -f ${PIC:1:-1} ]] && ~/.fehbg || feh --bg-fill "$SCRIPTPATH/wallpaper"
 
 
 

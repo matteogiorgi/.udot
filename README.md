@@ -39,13 +39,13 @@ nodejs ufw vsftpd bat gtk3-classic ncal
 ## Main packages
 
 ```
-i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano tig
+i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano
 sxiv zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman
 network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
-lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol synaptic
-gparted vlc simplescreenrecorder mypaint transmission-gtk dconf-editor
-cups system-config-printer gnome-shell-extension-prefs ghostwriter
-chrome-gnome-shell telegram-desktop nnn
+lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol gparted
+simplescreenrecorder mypaint dconf-editor gnome-shell-extension-prefs
+cups system-config-printer ghostwriter chrome-gnome-shell nnn tig
+telegram-desktop pcmanfm xarchiver variety redshift-gtk
 ```
 
 

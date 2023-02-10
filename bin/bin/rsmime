@@ -14,15 +14,15 @@ printf "${RED}%s ${YLW}%s ${RED}%s${NC}\n" "Resetting" "mimeapps.list" "to defau
 
 cat 2>/dev/null > $HOME/.config/mimeapps.list <<-EOF
 [Default Applications]
-audio/*=vlc.desktop
-video/*=vlc.desktop
-image/*=org.gnome.eog.desktop
-text/*=org.gnome.gedit.desktop
-inode/directory=org.gnome.Nautilus.desktop
-application/pdf=org.gnome.Evince.desktop
-application/postscript=org.gnome.Evince.desktop
-application/djvu=org.gnome.Evince.desktop
-application/x-tar=org.gnome.FileRoller.desktop
-application/zip=org.gnome.FileRoller.desktop
-application/gzip=org.gnome.FileRoller.desktop
+audio/*=mpv.desktop
+video/*=mpv.desktop
+image/*=sxiv.desktop
+text/*=gvim.desktop
+inode/directory=pcmanfm.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/postscript=org.pwmt.zathura.desktop
+application/djvu=org.pwmt.zathura.desktop
+application/x-tar=xachiver.desktop
+application/zip=xachiver.desktop
+application/gzip=xachiver.desktop
 EOF

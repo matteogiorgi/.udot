@@ -300,16 +300,17 @@ sudo apt install -qq -y \
     flameshot \
     diodon \
     pavucontrol \
-    synaptic \
     gparted \
-    vlc \
     simplescreenrecorder \
     mypaint \
-    transmission-gtk \
     system-config-printer \
     telegram-desktop \
     ghostwriter \
-    nnn
+    nnn \
+    pcmanfm \
+    xarchiver \
+    variety \
+    redshift-gtk
 
 
 

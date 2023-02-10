@@ -35,6 +35,7 @@ alias nvim-vanilla="_nvim_vanilla"
 alias nvim-last="_nvim_last"
 
 
+alias autorandr-mode="_autorandr_mode"
 alias kitty-theme="_kitty_theme"
 alias tmux="_tmux"
 alias xhide="_xhide"
@@ -59,12 +60,6 @@ alias atool-ext="atool --extract"
 alias xwacom="_xwacom"
 alias xtouch="_xtouch"
 alias xlayout="_xlayout"
-
-
-alias auto-dual="autorandr --load dual"
-alias auto-master="autorandr --load master"
-alias auto-slave="autorandr --load slave"
-alias auto-mirror="autorandr --load mirror"
 
 
 alias logout-i3="_logouti3"

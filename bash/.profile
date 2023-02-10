@@ -103,5 +103,5 @@ export VISUAL="/bin/vi"
 ### Create and/or source xinput variables
 #########################################
 
-[[ ! -f ~/.xinput.bash ]] && printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'" > ~/.xinput.bash
+[[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
 source $HOME/.xinput.bash

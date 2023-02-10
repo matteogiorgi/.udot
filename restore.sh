@@ -300,14 +300,16 @@ sudo apt purge -qq -y \
     flameshot \
     diodon \
     pavucontrol \
-    synaptic \
     gparted \
-    vlc \
     simplescreenrecorder \
     mypaint \
     telegram-desktop \
     ghostwriter \
-    nnn
+    nnn \
+    pcmanfm \
+    xarchiver \
+    variety \
+    redshift-gtk
 
 
 

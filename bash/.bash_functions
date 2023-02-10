@@ -5,6 +5,7 @@
 
 
 
+
 # COLORS
 ########
 
@@ -347,8 +348,24 @@ function _chbg () {
 }
 
 
+function _autorandr_mode () {
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
+    source $HOME/.xinput.bash
+    AUTORANDRMODE="$*"
+    [[ -x "$(command -v arandr)" ]] || return 1
+    if [[ "$AUTORANDRMODE" == "" ]]; then
+        printf "${YLW}%s${NC}\n" "You need to specify your monitor mode mate!"
+        return
+    fi
+    autorandr --load $AUTORANDRMODE 2>/dev/null
+    [[ -f ~/.fehbg ]] && PIC=$(awk 'FNR==2 {print $4}' ~/.fehbg)
+    [[ -n $PIC && -f ${PIC:1:-1} && -x "$(command -v feh)" ]] && ~/.fehbg
+    sed -i "s/AUTORANDR=.*/AUTORANDR='$AUTORANDRMODE'/g" $HOME/.xinput.bash
+}
+
+
 function _xwacom () {
-    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'" > ~/.xinput.bash
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
     source $HOME/.xinput.bash
     if [[ "$WACOMID" == "" ]]; then
         printf "${YLW}%s${NC}\n" "Wacom not specified (check ~/.xinput.bash)"
@@ -416,7 +433,7 @@ function _xwacom () {
 
 
 function _xtouch () {
-    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'" > ~/.xinput.bash
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
     source $HOME/.xinput.bash
     if [[ "$TOUCHPADID" == "" ]]; then
         printf "${YLW}%s${NC}\n" "Touchpad not specified (check ~/.xinput.bash)"
