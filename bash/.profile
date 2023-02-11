@@ -12,8 +12,8 @@
 ### If running bash
 ###################
 
-if [ -n "$BASH_VERSION" ]; then
-    if [ -f "$HOME/.bashrc" ]; then
+if [[ -n "$BASH_VERSION" ]]; then
+    if [[ -f "$HOME/.bashrc" ]]; then
 	. "$HOME/.bashrc"
     fi
 fi
@@ -24,7 +24,7 @@ fi
 ### Set PATH to includes just '~/.local/bin' if it exists
 #########################################################
 
-if [ -d "$HOME/.local/bin" ]; then
+if [[ -d "$HOME/.local/bin" ]]; then
     PATH="$PATH:$HOME/.local/bin"
 fi
 
@@ -34,7 +34,7 @@ fi
 ### Set PATH to includes just '~/bin' (if it exists) and its subdirs
 ####################################################################
 
-if [ -d "$HOME/bin" ]; then
+if [[ -d "$HOME/bin" ]]; then
     PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" )"
 fi
 
