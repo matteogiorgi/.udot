@@ -283,13 +283,13 @@ for_window [title="__fmenu__"] border pixel 2
 bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+space exec "i3-sensible-terminal -T __fmenu__ -e fmenu"
 
-# focus
-bindsym $mod+q focus parent
-bindsym $mod+w focus child
+# focus parent/child
+bindsym $mod+w focus parent
+bindsym $mod+Shift+w focus child
 
-# scratchpad
-bindsym $mod+u move scratchpad
+# i3 scratchpad
 bindsym $mod+i scratchpad show
+bindsym $mod+Shift+i move scratchpad
 
 # floating, fullscreen
 bindsym $mod+d focus mode_toggle
