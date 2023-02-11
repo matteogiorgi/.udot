@@ -1,0 +1,116 @@
+#!/usr/bin/env bash
+
+source $HOME/.xinput.bash
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+
+### XDG autostart, loginctl lock-session, applets
+#################################################
+
+[[ -x "$(command -v dex)" ]] && dex --autostart --environment i3 &
+[[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
+[[ -x "$(command -v nm-applet)" ]] && nm-applet &
+[[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
+[[ -x "$(command -v flameshot)" ]] && flameshot &
+[[ -x "$(command -v diodon)" ]] && diodon &
+
+
+
+
+### Load monitor config as single/dual with autorandr
+#####################################################
+
+NMON=$(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l)
+MMON=$(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+[[ $NMON -eq 1 ]] && autorandr --load master
+[[ $NMON -eq 2 ]] && autorandr --load dual
+
+[[ -f ~/.fehbg ]] && PIC=$(awk 'FNR==2 {print $4}' ~/.fehbg)
+if [[ -n $PIC && -f ${PIC:1:-1} ]]; then
+    ~/.fehbg
+else
+    feh --bg-fill "$SCRIPTPATH/wallpaper"
+fi
+
+
+
+
+### Load polybar config
+#######################
+
+if [[ -x "$(command -v polybar)" ]]; then
+    killall -q polybar
+    while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+    SYS_POWER_SUPPLY_DIR="/sys/class/power_supply"
+    [[ -e $SYS_POWER_SUPPLY_DIR/BAT0 ]] && BATTERY="BAT0"
+    [[ -e $SYS_POWER_SUPPLY_DIR/BAT1 ]] && BATTERY="BAT1"
+    MONITOR="$MMON" BATTERY="$BATTERY" ADAPTER="ADP1" polybar -c $SCRIPTPATH/polybar.ini --reload master &
+fi
+
+
+
+
+### Touchpad properties (xinput list-props "$TOUCHPADID")
+#########################################################
+
+xinput set-prop "$TOUCHPADID" "libinput Tapping Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Tapping Drag Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Natural Scrolling Enabled" 0
+xinput set-prop "$TOUCHPADID" "libinput Disable While Typing Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Scroll Method Enabled" 1, 0, 0
+xinput set-prop "$TOUCHPADID" "libinput Click Method Enabled" 1, 0
+xinput set-prop "$TOUCHPADID" "libinput Middle Emulation Enabled" 1
+xinput set-prop "$TOUCHPADID" "libinput Accel Speed" 0.000000
+xinput set-prop "$TOUCHPADID" "libinput Accel Profile Enabled" 1, 0
+xinput set-prop "$TOUCHPADID" "libinput Horizontal Scroll Enabled" 1
+
+
+
+
+### Load touchpad and wacom config
+##################################
+
+if [[ -f ~/.xinput.bash ]]; then
+    source ~/.xinput.bash
+    if [[ "$TOUCHPADID" != "" && $(xinput | grep "$TOUCHPADID" | wc -l) -gt 0 ]]; then
+        TOUCHID=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+        [[ $TOUCHPADST == "on" ]] && xinput set-prop $TOUCHID "Device Enabled" 1
+        [[ $TOUCHPADST == "off" ]] && xinput set-prop $TOUCHID "Device Enabled" 0
+    fi
+    if [[ "$WACOMID" != "" && $(xinput | grep "$WACOMID" | wc -l) -gt 0 ]]; then
+        XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+        [[ $WACOMRO == "0" ]] && xsetwacom --set $XWACOMID Rotate "none"
+        [[ $WACOMRO == "90" ]] && xsetwacom --set $XWACOMID Rotate "ccw"
+        [[ $WACOMRO == "180" ]] && xsetwacom --set $XWACOMID Rotate "half"
+        [[ $WACOMRO == "270" ]] && xsetwacom --set $XWACOMID Rotate "cw"
+        [[ $WACOMMO == "master" ]] && xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
+        [[ $WACOMMO == "slave" && $(xrandr --query | grep " connected" | cut -d" " -f1 | wc -l) -gt 1 ]] && xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==2 {print $1}')
+    fi
+fi
+
+
+
+
+### Load keyboard layout and special keys
+#########################################
+
+if [[ -x "$(command -v setxkbmap)" ]]; then
+    if [[ ! -f ~/.xlayout ]]; then
+        printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.xlayout
+        chmod 755 ~/.xlayout
+    fi
+    ~/.xlayout
+fi
+
+if [[ -f ~/bin/xmap ]]; then
+    ~/bin/xmap
+fi
+
+
+
+
+### Load mouse pointer
+######################
+
+xsetroot -cursor_name arrow

@@ -128,9 +128,9 @@ bindsym $mod+Shift+p move workspace to output left
 ###############################
 
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+w reload
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Poweroff' 'i3-msg exec poweroff' -B 'Reboot' 'i3-msg exec reboot' -B 'Logout' 'i3-msg exit' "
 bindsym $mod+Shift+r restart
+bindsym $mod+Shift+c reload
 
 
 
