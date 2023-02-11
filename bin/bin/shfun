@@ -1,8 +1,10 @@
 #! /usr/bin/env bash
 
 
-[[ -f ~/.bash_functions || "$*" == "" ]] || exit 1
-. ~/.bash_functions; SHFUN="$*"
+[[ -f ~/.bash_functions ]] || exit 1
+. ~/.bash_functions
 
-[[ "$(type -t $SHFUN)" == function ]] || exit 1
-$SHFUN
+SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | fzf --prompt='shfun > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+[[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || exit 1
+
+"$SHFUN"

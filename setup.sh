@@ -308,9 +308,7 @@ sudo apt install -qq -y \
     ghostwriter \
     nnn \
     pcmanfm \
-    xarchiver \
-    variety \
-    redshift-gtk
+    xarchiver
 
 
 
