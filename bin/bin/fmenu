@@ -1,12 +1,13 @@
 #! /usr/bin/env bash
 
-# This script search all executables inside PATH and uses fzf to select one to run.
-# It is intended to be used as such: xterm -T __fmenu__ -e fmenu
+# This script search all executables inside PATH and uses fzf
+# to select one to run as a command.
+# It is intended to be used as such: $TERMINAL -T __fmenu__ -e fmenu
 
 
 [[ -x "$(command -v xdo)" ]] || exit 1
 
-CMD=$(ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf --prompt='fmenu > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf --prompt='fmenu > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
 [[ -n "$CMD" ]] || exit 1
 
 id=$(xdo id); xdo hide

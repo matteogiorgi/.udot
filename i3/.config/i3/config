@@ -284,8 +284,8 @@ bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+space exec "i3-sensible-terminal -T __fmenu__ -e fmenu"
 
 # focus parent/child
-bindsym $mod+w focus parent
-bindsym $mod+Shift+w focus child
+bindsym $mod+BackSpace focus parent
+bindsym $mod+Shift+BackSpace focus child
 
 # i3 scratchpad
 bindsym $mod+i scratchpad show
@@ -300,6 +300,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
+bindsym $mod+w exec "i3-sensible-terminal -T __fuzzy__ -e fwall"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 
