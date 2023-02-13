@@ -10,4 +10,4 @@ case $- in *i*) . ~/.bashrc;; esac
 ### Autostart
 #############
 
-# exec startx
+exec startx
