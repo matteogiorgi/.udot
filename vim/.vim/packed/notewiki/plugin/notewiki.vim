@@ -5,13 +5,7 @@ let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
 if !exists('g:notebrowser')
     let g:notebrowser = 'nohup xdg-open'
-    if executable("brave")
-        let g:notebrowser = 'nohup brave --new-window'
-    elseif executable("google-chrome")
-        let g:notebrowser = 'nohup google-chrome --new-window'
-    elseif executable("chromium")
-        let g:notebrowser = 'nohup chromium --new-window'
-    endif
+    " executable("google-chome/chomium/brave") -> nohup google-chome/chomium/brave --new-window
 endif
 
 

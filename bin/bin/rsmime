@@ -25,4 +25,6 @@ application/djvu=org.pwmt.zathura.desktop
 application/x-tar=xachiver.desktop
 application/zip=xachiver.desktop
 application/gzip=xachiver.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
 EOF

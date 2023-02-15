@@ -19,6 +19,14 @@ NC='\033[0m'
 # FUNCTIONS
 ###########
 
+function _bashfun () {
+    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | grep -v _bashfun | fzf --prompt='shfun > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+    [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
+    read -p "$SHFUN " ARGS
+    [[ -n "$ARGS" ]] && "$SHFUN" "$ARGS" 2>/dev/null || $SHFUN 2>/dev/null
+}
+
+
 function _ask () {
     while true; do
         if [ "${2:-}" = "Y" ]; then
@@ -58,6 +66,11 @@ function _xhide () {
 
 function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown
+}
+
+
+function _xopen () {
+    _xshow "xdg-open ."
 }
 
 
