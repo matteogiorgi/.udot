@@ -190,7 +190,7 @@ else
     exit 1
 fi
 
-if ! ask "    Confirm to start the '.udot' install script" Y; then
+if ! _ask "    Confirm to start the '.udot' install script" Y; then
     printf "\n"
     exit 0
 fi
@@ -389,7 +389,7 @@ curl -sL install-node.vercel.app/lts | sudo bash
 ########################
 
 printf "\n"
-if ask "    Add full language support?" Y; then
+if _ask "    Add full language support?" Y; then
     printf "\n"
     sudo apt install -qq -y \
         build-essential \
