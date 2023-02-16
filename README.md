@@ -57,12 +57,14 @@ pcmanfm xarchiver
 google-chrome brave chromium code codium slides
 ```
 
+Remember also to install PIL/Pillow from pip: `pip3 install Pillow`; it is necessary for `tcv` to work correctly.
+
 
 
 ### Chrome [extensions](https://chrome.google.com/webstore/category/extensions) and [bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
-- [Gnome integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related)
+- [Gnome integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related): Gnome shell integration for Chrome
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation
@@ -81,8 +83,8 @@ google-chrome brave chromium code codium slides
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
-- Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- Haskell: run `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh` inside a shell
+- Rust: run `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` inside a shell
 
 
 

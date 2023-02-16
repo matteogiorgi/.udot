@@ -83,7 +83,7 @@ case $(file --mime-type "$FILE" -bL) in
         [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" | ${MESS} || _no_preview
         ;;
     image/*)
-        # remember to install PIL/Pillow: pip3 install PIL/Pillow
+        # remember to install PIL/Pillow: pip3 install Pillow
         [[ -x "$(command -v tcv)" ]] && tcv "$FILE" 2>/dev/null | ${MESS} || _no_preview
         ;;
     *)
