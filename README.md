@@ -82,15 +82,15 @@ google-chrome brave chromium code codium slides
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
-- Haskell: run `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Rust: run `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 
 
 
 
 ## More
 
-Remember to install PIL/Pillow for the `tcv` script: `pip3 install Pillow`.
+- Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+- Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+- `tcv` image preview script: `pip3 install Pillow`
 
 
 
