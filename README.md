@@ -57,7 +57,6 @@ pcmanfm xarchiver
 google-chrome brave chromium code codium slides
 ```
 
-Remember also to install PIL/Pillow from pip: `pip3 install Pillow`; it is necessary for `tcv` to work correctly.
 
 
 
@@ -83,8 +82,15 @@ Remember also to install PIL/Pillow from pip: `pip3 install Pillow`; it is neces
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
-- Haskell: run `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh` inside a shell
-- Rust: run `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` inside a shell
+- Haskell: run `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+- Rust: run `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+
+
+
+## More
+
+Remember to install PIL/Pillow for the `tcv` script: `pip3 install Pillow`.
 
 
 
