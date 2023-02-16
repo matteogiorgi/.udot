@@ -45,7 +45,7 @@ network-manager adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol gparted
 simplescreenrecorder mypaint dconf-editor gnome-shell-extension-prefs
 cups system-config-printer ghostwriter chrome-gnome-shell nnn tig
-telegram-desktop pcmanfm xarchiver variety redshift-gtk
+pcmanfm xarchiver
 ```
 
 

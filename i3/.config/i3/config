@@ -210,12 +210,9 @@ for_window [class="Blueman-services"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
-for_window [class="GParted"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
-for_window [class="TelegramDesktop"] floating enable
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Xarchiver"] floating enable
-for_window [class="Variety"] floating enable
 
 
 

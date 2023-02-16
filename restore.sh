@@ -303,13 +303,10 @@ sudo apt purge -qq -y \
     gparted \
     simplescreenrecorder \
     mypaint \
-    telegram-desktop \
     ghostwriter \
     nnn \
     pcmanfm \
-    xarchiver \
-    variety \
-    redshift-gtk
+    xarchiver
 
 
 

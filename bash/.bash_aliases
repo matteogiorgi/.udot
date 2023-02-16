@@ -35,6 +35,7 @@ alias nvim-vanilla="_nvim_vanilla"
 alias nvim-last="_nvim_last"
 
 
+alias xopen="_xopen"
 alias bashfun="_bashfun"
 alias autorandr-mode="_autorandr_mode"
 alias kitty-theme="_kitty_theme"

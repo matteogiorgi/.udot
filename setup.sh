@@ -304,13 +304,10 @@ sudo apt install -qq -y \
     simplescreenrecorder \
     mypaint \
     system-config-printer \
-    telegram-desktop \
     ghostwriter \
     nnn \
     pcmanfm \
-    xarchiver \
-    variety \
-    redshift-gtk
+    xarchiver
 
 
 
