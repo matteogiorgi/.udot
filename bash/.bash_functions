@@ -121,6 +121,7 @@ function _setbackgroundcolor () {
     fi
 }
 
+
 function _kitty_theme () {
     if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
         [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor

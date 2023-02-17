@@ -278,7 +278,7 @@ for_window [title="__fmenu__"] border pixel 2
 
 # terminal and menu
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+space exec "i3-sensible-terminal -T __fmenu__ -e fmenu"
+bindsym $mod+space exec "i3-sensible-terminal --title __fmenu__ -e fmenu"
 
 # focus parent/child
 bindsym $mod+BackSpace focus parent
@@ -297,7 +297,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+w exec "i3-sensible-terminal -T __fuzzy__ -e fwall"
+bindsym $mod+w exec "i3-sensible-terminal --title __fuzzy__ -e fwall"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 

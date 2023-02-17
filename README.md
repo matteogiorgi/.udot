@@ -54,7 +54,7 @@ pcmanfm xarchiver
 ## Extra & Snap packages
 
 ```
-google-chrome brave chromium code codium slides
+google-chrome brave chromium code codium alacritty slides
 ```
 
 
@@ -90,7 +90,7 @@ google-chrome brave chromium code codium slides
 
 - Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
 - Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- Image preview support: `pip3 install Pillow`
+- Image preview support (`~/bin/tvc`): `pip3 install Pillow`
 
 
 

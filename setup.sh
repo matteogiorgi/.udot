@@ -99,6 +99,9 @@ _clean () {
 }
 
 _backup () {
+    # alacritty
+    [[ -d $HOME/.config/alacritty ]] && _clean $HOME/.config/alacritty
+
     # bash
     [[ -f $HOME/.bash_aliases ]] && _clean $HOME/.bash_aliases
     [[ -f $HOME/.bash_functions ]] && _clean $HOME/.bash_functions
@@ -321,12 +324,12 @@ if _ask "    Add snap and extra packages?" Y; then
         sudo apt install -qq -y snapd
         printf "\n"
     fi
-    if _ask "    Install Google-Chrome?" N; then
-        _install_chrome
-        printf "\n"
-    fi
     if _ask "    Install Brave?" Y; then
         sudo snap install brave
+        printf "\n"
+    fi
+    if _ask "    Install Google-Chrome?" N; then
+        _install_chrome
         printf "\n"
     fi
     if _ask "    Install Chromium?" N; then
@@ -339,6 +342,10 @@ if _ask "    Add snap and extra packages?" Y; then
     fi
     if _ask "    Install Codium?" N; then
         sudo snap install --classic codium
+        printf "\n"
+    fi
+    if _ask "    Install Alacritty?" Y; then
+        sudo snap install --classic alacritty
         printf "\n"
     fi
     if _ask "    Install Slides?" N; then
@@ -355,6 +362,7 @@ fi
 
 _backup
 
+stow alacritty
 stow bash
 stow bin
 stow ctags

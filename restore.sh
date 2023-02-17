@@ -88,6 +88,9 @@ _ask () {
 }
 
 _restore () {
+    # alacritty
+    [[ -d $RESTORE/alacritty ]] && mv $RESTORE/alacritty $HOME/.config
+
     # bash
     [[ -f $RESTORE/.bash_aliases ]] && mv $RESTORE/.bash_aliases $HOME
     [[ -f $RESTORE/.bash_functions ]] && mv $RESTORE/.bash_functions $HOME
@@ -208,6 +211,7 @@ sudo ufw deny 21/tcp
 ### Remove symlinks
 ###################
 
+stow -D alacritty
 stow -D bash
 stow -D bin
 stow -D ctags
@@ -319,11 +323,12 @@ read -p "    Removing snap/extra packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
+    [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
+    [[ -x "$(command -v alacritty)" ]] && sudo snap remove --purge alacritty
     [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
 fi
 

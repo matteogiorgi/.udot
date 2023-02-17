@@ -87,12 +87,14 @@ fi
 ### i3-sensible-variables and others
 ####################################
 
-# terminal: kitty > xterm
-GLX=$(glxinfo | awk '/OpenGL version/ {print $4}')
-[[ -x "$(command -v xterm)" ]] && export TERMINAL="/bin/xterm"
-[[ -x "$(command -v kitty)" && (( $(echo "$GLX > 3.3" | bc -l) )) ]] && export TERMINAL="/bin/kitty"
+# terminal: kitty > alacritty > xterm
+export TERMINAL="/bin/xterm"
+if [[ (( $(echo "$(glxinfo | awk '/OpenGL version/ {print $4}') > 3.3" | bc -l) )) ]]; then
+    [[ -x "$(command -v alacritty)" ]] && export TERMINAL="alacritty"
+    [[ -x "$(command -v kitty)" ]] && export TERMINAL="/bin/kitty"
+fi
 
-# editor: nvim > vim
+# editor: nvim > vim > vi
 export VISUAL="/bin/vi"
 [[ -x "$(command -v vim)" ]] && export VISUAL="/bin/vim"
 [[ -x "$(command -v nvim)" ]] && export VISUAL="/bin/nvim"
