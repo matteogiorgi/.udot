@@ -19,10 +19,20 @@ NC='\033[0m'
 # FUNCTIONS
 ###########
 
-function _bashfun () {
-    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | grep -v _bashfun | fzf --prompt='shfun > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+function _ff () {
+    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
+            sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
+            grep -v _ff | grep -v _ask | grep -v _setbackgroundcolor | \
+            fzf --prompt='run you fucking function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
-    "$SHFUN"
+    read -p "$SHFUN: " ARGS
+    "$SHFUN" "$ARGS"
+}
+
+
+function _xopen () {
+    [[ $# -eq 0 ]] && return 1 || ARGS="$*"
+    _xshow "xdg-open $ARGS"
 }
 
 
@@ -65,11 +75,6 @@ function _xhide () {
 
 function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown
-}
-
-
-function _xopen () {
-    _xshow "xdg-open ."
 }
 
 
