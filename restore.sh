@@ -310,7 +310,9 @@ sudo apt purge -qq -y \
     ghostwriter \
     nnn \
     pcmanfm \
-    xarchiver
+    xarchiver \
+    input-remapper \
+    variety
 
 
 

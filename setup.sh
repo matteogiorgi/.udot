@@ -310,7 +310,9 @@ sudo apt install -qq -y \
     ghostwriter \
     nnn \
     pcmanfm \
-    xarchiver
+    xarchiver \
+    input-remapper \
+    variety
 
 
 
