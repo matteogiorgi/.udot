@@ -180,19 +180,6 @@ fi
 
 
 
-### Remove gtk3-classic
-#######################
-
-printf "\n"
-read -p "    Removing gtk3-classic (enter to continue)"
-printf "\n"
-
-sudo apt-get install ppa-purge
-sudo ppa-purge ppa:lah7/gtk3-classic
-
-
-
-
 ### Disable FTP
 ###############
 
@@ -329,6 +316,10 @@ if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
     [[ -x "$(command -v alacritty)" ]] && sudo snap remove --purge alacritty
     [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
+    if [[ $(apt policy | grep lah7/gtk3-classic | wc -l) -ne 0 ]]; then
+        sudo apt-get install ppa-purge
+        sudo ppa-purge ppa:lah7/gtk3-classic
+    fi
 fi
 
 

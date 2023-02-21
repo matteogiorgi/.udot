@@ -351,6 +351,11 @@ if _ask "    Add snap and extra packages?" Y; then
         sudo snap install slides
         printf "\n"
     fi
+    if _ask "    Install Gtk3-Classic?" N; then
+        sudo add-apt-repository ppa:lah7/gtk3-classic
+        sudo apt dist-upgrade
+        printf "\n"
+    fi
 fi
 
 
@@ -418,19 +423,6 @@ if _ask "    Add full language support?" Y; then
     printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
     printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
 fi
-
-
-
-
-### Add gtk3-classic
-####################
-
-printf "\n"
-read -p "    Adding gtk3-classic (enter to continue)"
-printf "\n"
-
-sudo add-apt-repository ppa:lah7/gtk3-classic
-sudo apt dist-upgrade
 
 
 

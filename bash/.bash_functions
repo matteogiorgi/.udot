@@ -23,7 +23,7 @@ function _ff () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
             grep -v _ff | grep -v _ask | grep -v _setbackgroundcolor | \
-            fzf --prompt='run you fucking function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+            fzf --prompt='wtf mate, choose you fucking function! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
     read -p "$SHFUN: " ARGS
     "$SHFUN" "$ARGS"

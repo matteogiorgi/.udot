@@ -29,7 +29,7 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc
 pkg-config lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg
 poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-poppler-utils exuberant-ctags nodejs ufw vsftpd bat gtk3-classic ncal
+exuberant-ctags nodejs ufw vsftpd bat ncal
 ```
 
 
@@ -48,10 +48,10 @@ gnome-shell-extension-prefs cups system-config-printer ghostwriter input-remappe
 
 
 
-## Extra & Snap packages
+## Snap & Extra packages
 
 ```
-google-chrome brave chromium code codium alacritty slides
+google-chrome brave chromium code codium alacritty slides gtk3-classic
 ```
 
 

@@ -36,6 +36,7 @@ alias nvim-last="_nvim_last"
 
 
 alias ff="_ff"
+alias xopen="_xopen"
 alias autorandr-mode="_autorandr_mode"
 alias kitty-theme="_kitty_theme"
 alias tmux="_tmux"
