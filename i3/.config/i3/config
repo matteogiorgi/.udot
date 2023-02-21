@@ -297,6 +297,7 @@ bindsym $mod+r mode "Resize"
 
 # extra
 bindsym $mod+w exec "i3-sensible-terminal --title __fuzzy__ -e fwall"
+bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 

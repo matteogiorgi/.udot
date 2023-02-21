@@ -88,7 +88,7 @@ google-chrome brave chromium code codium alacritty slides
 
 - Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
 - Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-- Image preview support (`~/bin/tvc`): `pip3 install Pillow`
+- Image preview support (required for `~/bin/tvc`): `pip3 install Pillow`
 
 
 
