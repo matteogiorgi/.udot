@@ -308,11 +308,8 @@ sudo apt purge -qq -y \
     simplescreenrecorder \
     mypaint \
     ghostwriter \
-    nnn \
-    pcmanfm \
-    xarchiver \
     input-remapper \
-    variety
+    nnn
 
 
 

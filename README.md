@@ -26,10 +26,10 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 ## Essential utilities
 
 ```
-wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc pkg-config
-lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool poppler-utils exuberant-ctags
-nodejs ufw vsftpd bat gtk3-classic ncal
+wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc
+pkg-config lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg
+poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
+poppler-utils exuberant-ctags nodejs ufw vsftpd bat gtk3-classic ncal
 ```
 
 
@@ -38,11 +38,11 @@ nodejs ufw vsftpd bat gtk3-classic ncal
 ## Main packages
 
 ```
-i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano sxiv nnn tig zathura zathura-djvu
-zathura-pdf-poppler zathura-ps mpv blueman network-manager adwaita-icon-theme-full gnome-themes-extra
-adwaita-qt lxappearance qt5ct xournalpp sct flameshot diodon pavucontrol gparted simplescreenrecorder
-mypaint dconf-editor gnome-shell-extension-prefs cups system-config-printer ghostwriter
-chrome-gnome-shell pcmanfm xarchiver input-remapper variety
+i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano sxiv nnn tig zathura
+zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager dconf-editor
+adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp sct
+flameshot diodon pavucontrol gparted simplescreenrecorder mypaint chrome-gnome-shell
+gnome-shell-extension-prefs cups system-config-printer ghostwriter input-remapper
 ```
 
 

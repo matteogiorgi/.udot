@@ -308,11 +308,8 @@ sudo apt install -qq -y \
     mypaint \
     system-config-printer \
     ghostwriter \
-    nnn \
-    pcmanfm \
-    xarchiver \
     input-remapper \
-    variety
+    nnn
 
 
 

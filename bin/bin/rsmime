@@ -1,30 +1,5 @@
 #!/usr/bin/env bash
 
-# check the relative mime-type here:
-# https://www.iana.org/assignments/media-types/media-types.xhtml
 
-
-RED='\033[1;36m'
-YLW='\033[1;35m'
-NC='\033[0m'
-
-
-read -p "WARNING: mimeapps.list will be overridden (enter to continue)"
-printf "${RED}%s ${YLW}%s ${RED}%s${NC}\n" "Resetting" "mimeapps.list" "to defaults"
-
-cat 2>/dev/null > $HOME/.config/mimeapps.list <<-EOF
-[Default Applications]
-audio/*=mpv.desktop
-video/*=mpv.desktop
-image/*=sxiv.desktop
-text/*=gvim.desktop
-inode/directory=pcmanfm.desktop
-application/pdf=org.pwmt.zathura.desktop
-application/postscript=org.pwmt.zathura.desktop
-application/djvu=org.pwmt.zathura.desktop
-application/x-tar=xachiver.desktop
-application/zip=xachiver.desktop
-application/gzip=xachiver.desktop
-x-scheme-handler/http=google-chrome.desktop
-x-scheme-handler/https=google-chrome.desktop
-EOF
+read -p "Check the relative mime-type at: https://www.iana.org/assignments/media-types/media-types.xhtml (enter to continue)"
+"${EDITOR:=vi}" $HOME/.local/share/applications/mimeapps.list

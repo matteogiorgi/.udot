@@ -383,12 +383,12 @@ printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
 while read response; do
     case $response in
         "code")
-            [[ -x "$(command -v code)" ]] || (printf "${YLW}%s${NC}" "code is not installed mate!"; exit 1)
+            [[ -x "$(command -v code)" ]] || printf "${YLW}%s${NC}\n" "code is not installed mate!"; exit 1
             _addconf "code"
             break
             ;;
         "codium")
-            [[ -x "$(command -v codium)" ]] || (printf "${YLW}%s${NC}" "codium is not installed mate!"; exit 1)
+            [[ -x "$(command -v codium)" ]] || printf "${YLW}%s${NC}\n" "codium is not installed mate!"; exit 1
             _addmarketplace
             _addconf "codium"
             break
