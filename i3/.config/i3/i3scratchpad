@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script spawns a scratchpad as long as i3 is running using kitty;
+# This script spawns a scratchpad as long as i3 is running using $TERMINAL;
 # it is very usefull if you want a terminal scratchpad always available.
 
 
