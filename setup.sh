@@ -320,34 +320,42 @@ sudo apt install -qq -y \
 printf "\n"
 if _ask "    Add snap and extra packages?" Y; then
     if [[ ! -x "$(command -v snap)" ]]; then
+        printf "\n"
         sudo apt install -qq -y snapd
         printf "\n"
     fi
     if _ask "    Install Brave?" Y; then
+        printf "\n"
         sudo snap install brave
         printf "\n"
     fi
     if _ask "    Install Google-Chrome?" N; then
+        printf "\n"
         _install_chrome
         printf "\n"
     fi
     if _ask "    Install Chromium?" N; then
+        printf "\n"
         sudo snap install chromium
         printf "\n"
     fi
     if _ask "    Install Code?" Y; then
+        printf "\n"
         sudo snap install --classic code
         printf "\n"
     fi
     if _ask "    Install Codium?" N; then
+        printf "\n"
         sudo snap install --classic codium
         printf "\n"
     fi
     if _ask "    Install Alacritty?" Y; then
+        printf "\n"
         sudo snap install --classic alacritty
         printf "\n"
     fi
     if _ask "    Install Slides?" N; then
+        printf "\n"
         sudo snap install slides
         printf "\n"
     fi
