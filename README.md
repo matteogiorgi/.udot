@@ -51,7 +51,7 @@ gnome-shell-extension-prefs cups system-config-printer ghostwriter input-remappe
 ## Snap & Extra packages
 
 ```
-google-chrome brave chromium code codium alacritty slides gtk3-classic
+google-chrome brave chromium code codium alacritty slides
 ```
 
 

@@ -351,11 +351,6 @@ if _ask "    Add snap and extra packages?" Y; then
         sudo snap install slides
         printf "\n"
     fi
-    if _ask "    Install Gtk3-Classic?" N; then
-        sudo add-apt-repository ppa:lah7/gtk3-classic
-        sudo apt dist-upgrade
-        printf "\n"
-    fi
 fi
 
 
