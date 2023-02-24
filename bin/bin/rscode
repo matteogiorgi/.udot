@@ -388,6 +388,7 @@ while read response; do
                 exit 1
             fi
             _addconf "code"
+            break
             ;;
         "codium")
             if [[ ! -x "$(command -v codium)" ]]; then
@@ -396,8 +397,10 @@ while read response; do
             fi
             _addmarketplace
             _addconf "codium"
+            break
             ;;
         *)
             printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
+            ;;
     esac
 done
