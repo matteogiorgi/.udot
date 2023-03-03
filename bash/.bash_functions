@@ -488,7 +488,7 @@ function _xlayout () {
         esac
     done
 
-    printf "#!/bin/sh\nsetxkbmap -layout $response\nsetxkbmap -option caps:super\n" > ~/.xlayout
+    printf "#!/bin/sh\nsetxkbmap -layout $response\n" > ~/.xlayout
     chmod 755 ~/.xlayout
     ~/.xlayout
     [[ -f ~/bin/xmap ]] && ~/bin/xmap

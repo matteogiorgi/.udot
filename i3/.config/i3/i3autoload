@@ -74,7 +74,7 @@ fi
 #########################################
 
 if [[ ! -f ~/.xlayout ]]; then
-    printf "#!/bin/sh\nsetxkbmap -layout us\nsetxkbmap -option caps:super\n" > ~/.xlayout
+    printf "#!/bin/sh\nsetxkbmap -layout us\n" > ~/.xlayout
     chmod 755 ~/.xlayout
 fi
 

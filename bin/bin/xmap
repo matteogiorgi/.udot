@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-# This script remaps Super key to Escape in addittion to its original function.
-# It is useful when CapsLock is already mapped to Super key: see _xlayout function.
+# This script remaps CapsLock to Super key,
+# plus it adds the escape function on top.
 
 
-if [[ -x "$(command -v xmodmap)" ]]; then
+setxkbmap -option caps:super
+if [[ -x "$(command -v xcape)" ]]; then
+    xcape -e 'Super_L=Escape' -t 100
+elif [[ -x "$(command -v xmodmap)" ]]; then
     KEYCODE_SUPERL=$(xmodmap -pke | grep Super_L | awk '{print $2}')  # 133
     echo $KEYCODE_SUPERL | xargs -I{} xmodmap -e 'keycode {} = Escape NoSymbol Escape'
 fi
