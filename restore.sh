@@ -265,7 +265,6 @@ sudo apt purge -qq -y \
     chrome-gnome-shell \
     vsftpd \
     bat \
-    xcape \
     i3-wm \
     xautolock \
     arandr \

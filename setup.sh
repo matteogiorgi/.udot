@@ -261,8 +261,7 @@ sudo apt install -qq -y \
     ufw \
     vsftpd \
     cups \
-    bat \
-    xcape
+    bat
 
 
 
