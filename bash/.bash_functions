@@ -93,26 +93,26 @@ function _killapps () {
 }
 
 
-function _logouti3 () {
+function _logouti3 () {  # killall i3
     if _ask "Do you really wanna exit i3?" N; then
         _killapps
-        killall i3
+        i3-msg exit
     fi
 }
 
 
-function _rebooti3 () {
+function _rebooti3 () {  # systemctl reboot
     if _ask "Do you really wanna reboot your system?" N; then
         _killapps
-        systemctl reboot
+        i3-msg exec reboot
     fi
 }
 
 
-function _poweroffi3 () {
+function _poweroffi3 () {  # systemctl -i poweroff
     if _ask "Do you really wanna poweroff your system?" N; then
         _killapps
-        systemctl -i poweroff
+        i3-msg exec poweroff
     fi
 }
 
