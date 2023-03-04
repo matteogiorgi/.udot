@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 # This script search all executables inside PATH and uses fzf
 # to select one to run as a command.
