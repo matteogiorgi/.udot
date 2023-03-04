@@ -269,6 +269,26 @@ for_window [title="__fmenu__"] resize set 300 600
 for_window [title="__fmenu__"] move position center
 for_window [title="__fmenu__"] border pixel 2
 
+# flight-window instance and title
+for_window [instance="__fsmall__"] floating enable
+for_window [instance="__fsmall__"] resize set 200 160
+for_window [instance="__fsmall__"] move position center
+for_window [instance="__fsmall__"] border pixel 2
+for_window [title="__fsmall__"] floating enable
+for_window [title="__fsmall__"] resize set 200 160
+for_window [title="__fsmall__"] move position center
+for_window [title="__fsmall__"] border pixel 2
+
+# flight-window instance and title
+for_window [instance="__ftiny__"] floating enable
+for_window [instance="__ftiny__"] resize set 120 100
+for_window [instance="__ftiny__"] move position center
+for_window [instance="__ftiny__"] border pixel 2
+for_window [title="__ftiny__"] floating enable
+for_window [title="__ftiny__"] resize set 120 100
+for_window [title="__ftiny__"] move position center
+for_window [title="__ftiny__"] border pixel 2
+
 
 
 
@@ -296,10 +316,12 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
+bindsym $mod+q exec "i3-sensible-terminal --title __ftiny__ -e fquit"
 bindsym $mod+w exec "i3-sensible-terminal --title __fuzzy__ -e fwall"
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
+bindsym $mod+u exec "i3-sensible-terminal --title __fsmall__ -e flight"
 
 
 

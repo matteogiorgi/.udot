@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# This script lists possible color temperatures and uses fzf
+# to select one to be used as screen temperature.
+# It is intended to be used as such: $TERMINAL -T __ftiny__ -e flight
+
+
+[[ -x "$(command -v sct)" ]] || exit 1
+
+RANGE="3500  ## Dust storm\n4500  ## Campfire\n5500  ## Scirocco\n6500  ## Midday\n7500  ## Windy day\n8500  ## Coffee on ice\n9500  ## Ice dust\n"
+TEMPE=$(printf "$RANGE" | fzf --prompt='flight > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+[[ -n "$TEMPE" ]] && sct "$TEMPE" || exit 1
