@@ -239,12 +239,12 @@ assign [class="SimpleScreenRecorder"] $ws10
 
 # i3scratchpad-window istance and title
 for_window [instance="__i3scratchpad__"] floating enable
-for_window [instance="__i3scratchpad__"] resize set 600 600
+for_window [instance="__i3scratchpad__"] resize set 600 300
 for_window [instance="__i3scratchpad__"] move position center
 for_window [instance="__i3scratchpad__"] border pixel 2
 for_window [instance="__i3scratchpad__"] move scratchpad
 for_window [title="__i3scratchpad__"] floating enable
-for_window [title="__i3scratchpad__"] resize set 600 600
+for_window [title="__i3scratchpad__"] resize set 600 300
 for_window [title="__i3scratchpad__"] move position center
 for_window [title="__i3scratchpad__"] border pixel 2
 for_window [title="__i3scratchpad__"] move scratchpad
@@ -268,26 +268,6 @@ for_window [title="__fmenu__"] floating enable
 for_window [title="__fmenu__"] resize set 300 600
 for_window [title="__fmenu__"] move position center
 for_window [title="__fmenu__"] border pixel 2
-
-# fsmall-window instance and title
-for_window [instance="__fsmall__"] floating enable
-for_window [instance="__fsmall__"] resize set 200 155
-for_window [instance="__fsmall__"] move position center
-for_window [instance="__fsmall__"] border pixel 2
-for_window [title="__fsmall__"] floating enable
-for_window [title="__fsmall__"] resize set 200 155
-for_window [title="__fsmall__"] move position center
-for_window [title="__fsmall__"] border pixel 2
-
-# ftiny-window instance and title
-for_window [instance="__ftiny__"] floating enable
-for_window [instance="__ftiny__"] resize set 150 100
-for_window [instance="__ftiny__"] move position center
-for_window [instance="__ftiny__"] border pixel 2
-for_window [title="__ftiny__"] floating enable
-for_window [title="__ftiny__"] resize set 150 100
-for_window [title="__ftiny__"] move position center
-for_window [title="__ftiny__"] border pixel 2
 
 
 
@@ -316,12 +296,9 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+w exec "i3-sensible-terminal --title __fuzzy__ -e fwall"
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
-bindsym $mod+x exec "i3-sensible-terminal --title __ftiny__ -e fquit"
-bindsym $mod+c exec "i3-sensible-terminal --title __fsmall__ -e fcolor"
 
 
 

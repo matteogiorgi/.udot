@@ -67,6 +67,11 @@ alias xlayout="_xlayout"
 alias logout-i3="_logouti3"
 alias reboot-i3="_rebooti3"
 alias poweroff-i3="_poweroffi3"
+alias quit-i3="_quiti3"
+
+
+alias temperature="_temperature"
+alias wallpaper="_wallpaper"
 
 
 alias stow="stow -S"

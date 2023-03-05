@@ -117,6 +117,41 @@ function _poweroffi3 () {  # systemctl -i poweroff
 }
 
 
+function _quiti3 () {
+    [[ -x "$(command -v fzf)" ]] || return 1
+    OPT="I3-Logout\nI3-Reboot\nI3-Poweroff\n"
+    CMD=$(printf "$OPT" | fzf --prompt='I3-Quit > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+    [[ -n "$CMD" ]] || return 1
+
+    &>/dev/null
+    case "$CMD" in
+        I3-Logout) _logouti3 ;;
+        I3-Reboot) _rebooti3 ;;
+        I3-Poweroff) _poweroffi3 ;;
+        *) return 1 ;;
+    esac
+}
+
+
+function _temperature () {
+    [[ -x "$(command -v fzf)" && -x "$(command -v sct)" ]] || return 1
+    RANGE="3500      ## Ghibli\n4500      ## Campfire\n5500      ## Scirocco\n6500      ## Midday\n7500      ## Mistral\n8500      ## Chilly\n9500      ## Icy\n"
+    TEMPE=$(printf "$RANGE" | fzf --prompt='fcolor > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+    [[ -n "$TEMPE" ]] && sct "$TEMPE" || return 1
+}
+
+
+function _wallpaper () {
+    BACKGROUNDS="$HOME/Pictures/backgrounds"
+    [[ -z "$(\ls -A $BACKGROUNDS 2>/dev/null)" || ! -x "$(command -v feh)" ]] && return 1
+    \cd "$BACKGROUNDS"
+    FILE="$(\ls | fzf --ansi --preview 'mess {}' --preview-window 'right,70%,border-sharp' --prompt="fwall > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
+    \cd - &>/dev/null
+    [[ -z "$FILE" ]] && return 1
+    feh --bg-fill $BACKGROUNDS/$FILE 2>/dev/null
+}
+
+
 function _setbackgroundcolor () {
     [[ -f "/bin/xtermcontrol" ]] || return 1
     if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
