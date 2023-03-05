@@ -12,8 +12,10 @@ OPT="I3-Logout\nI3-Reboot\nI3-Poweroff\n"
 CMD=$(printf "$OPT" | fzf --prompt='fquit > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
 [[ -n "$CMD" ]] || exit 1
 
+&>/dev/null
 case "$CMD" in
     I3-Logout) _logouti3 ;;
     I3-Reboot) _rebooti3 ;;
     I3-Poweroff) _poweroffi3 ;;
+    *) exit 1 ;;
 esac
