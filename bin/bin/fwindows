@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# This script search all opened windows and uses fzf to select one of them.
+# It is intended to be used as such: $TERMINAL -T __fmenu__ -e fwindow
+
+
+[[ -x "$(command -v wmctrl)" && -x "$(command -v fzf)" ]] || exit 1
+
+WINTOGO=$(wmctrl -l | grep -v __i3scratchpad__ | grep -v __fuzzy__ | grep -v __fmenu__ | fzf --prompt='fwindows > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+[[ -n "$WINTOGO" ]] || exit 1
+
+echo "$WINTOGO" | awk '{print $1}' | xargs -I{} wmctrl -i -a {}
+echo "$WINTOGO" | awk '{print $1}' | xargs -I{} wmctrl -i -R {}

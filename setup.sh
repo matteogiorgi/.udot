@@ -261,7 +261,8 @@ sudo apt install -qq -y \
     ufw \
     vsftpd \
     cups \
-    bat
+    bat \
+    wmctrl
 
 
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 
+[[ -x "$(command -v fzf)" ]] || exit 1
+
 OPENER="swallow"
 SEARCH1='rg --sort-files --files --hidden --glob "!.git/**"'
 SEARCH2='find . -type f \( ! -regex '.*/\.git/.*' \) -print'

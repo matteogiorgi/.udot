@@ -296,7 +296,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+w exec "i3-sensible-terminal -e i3-sensible-editor"
+bindsym $mod+w exec "i3-sensible-terminal --title __fuzzy__ -e fwindows"
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"

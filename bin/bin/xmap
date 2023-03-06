@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-# This script remaps CapsLock to Super key,
-# plus it adds the escape function on top.
-# As an alternative use the xcape package.
+# This script remaps CapsLock to Super key, plus it adds the escape function on top.
+# As an alternative you use the xcape package and delay the keystroke.
 
 
 setxkbmap -option "caps:super"
