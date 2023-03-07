@@ -109,6 +109,9 @@ _restore () {
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
+    # helix
+    [[ -d $RESTORE/helix ]] && mv $RESTORE/helix $HOME/.config
+
     # i3
     [[ -d $RESTORE/i3 ]] && mv $RESTORE/i3 $HOME/.config
     [[ -d $RESTORE/i3status ]] && mv $RESTORE/i3status $HOME/.config
@@ -203,6 +206,7 @@ stow -D bash
 stow -D bin
 stow -D ctags
 stow -D fzf
+stow -D helix
 stow -D i3
 stow -D kakoune
 stow -D kitty
@@ -232,7 +236,6 @@ read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 # wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev make
 # gcc wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
@@ -315,7 +318,6 @@ if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
-    [[ -x "$(command -v alacritty)" ]] && sudo snap remove --purge alacritty
     [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
 fi
 
@@ -342,8 +344,10 @@ read -p "    Removing language support (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-# build-essential python3 ...
+# rustup, build-essential, python3
+
+pip3 uninstall Pillow
+cargo uninstall alacritty
 
 sudo apt purge -qq -y \
     valgrind \

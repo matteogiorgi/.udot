@@ -1,4 +1,14 @@
-# blackbox theme
+#   ____                  _                 ____  _            _    
+#  / ___|_ __ _   ___   _| |__   _____  __ | __ )| | __ _  ___| | __
+# | |  _| '__| | | \ \ / / '_ \ / _ \ \/ / |  _ \| |/ _` |/ __| |/ /
+# | |_| | |  | |_| |\ V /| |_) | (_) >  <  | |_) | | (_| | (__|   < 
+#  \____|_|   \__,_| \_/ |_.__/ \___/_/\_\ |____/|_|\__,_|\___|_|\_\
+#
+# A gruvbox_dark theme with black background
+# Matteo Giorgi (https://www.geoteo.net/)
+
+
+
 
 evaluate-commands %sh{
     gray="rgb:928374"
@@ -12,6 +22,7 @@ evaluate-commands %sh{
 
     bg="rgb:000000"
     bg_alpha="rgba:000000a0"
+    bg0="rgb:111111"
     bg1="rgb:3c3836"
     bg2="rgb:504945"
     bg3="rgb:665c54"
@@ -19,7 +30,7 @@ evaluate-commands %sh{
 
     fg="rgb:ebdbb2"
     fg_alpha="rgba:ebdbb2a0"
-    fg0="rgb:fbf1c7"
+    fg1="rgb:fbf1c7"
     fg2="rgb:d5c4a1"
     fg3="rgb:bdae93"
     fg4="rgb:a89984"
@@ -41,14 +52,15 @@ evaluate-commands %sh{
         face global builtin       ${fg}+b
 
         # Markdown highlighting
-        face global title     ${green}+b
-        face global header    ${orange}
-        face global mono      ${fg4}
-        face global block     ${aqua}
-        face global link      ${blue}+u
-        face global bullet    ${yellow}
-        face global list      ${fg}
+        face global title  ${green}+b
+        face global header ${orange}
+        face global mono   ${fg4}
+        face global block  ${aqua}
+        face global link   ${blue}+u
+        face global bullet ${yellow}
+        face global list   ${fg}
 
+        # Editor highlighting
         face global Default            ${fg},${bg}
         face global PrimarySelection   ${fg_alpha},${blue}+g
         face global SecondarySelection ${bg_alpha},${blue}+g
@@ -56,19 +68,19 @@ evaluate-commands %sh{
         face global SecondaryCursor    ${bg},${bg4}+fg
         face global PrimaryCursorEol   ${bg},${fg4}+fg
         face global SecondaryCursorEol ${bg},${bg2}+fg
-        face global LineNumbers        ${bg4}
-        face global LineNumberCursor   ${yellow},${bg1}
+        face global LineNumbers        ${bg1}
+        face global LineNumberCursor   ${fg}+b
         face global LineNumbersWrapped ${bg1}
-        face global MenuForeground     ${bg2},${blue}
-        face global MenuBackground     ${fg},${bg2}
+        face global MenuForeground     ${bg},${blue}
+        face global MenuBackground     ${fg},${bg0}
         face global MenuInfo           ${bg}
         face global Information        ${bg},${fg}
         face global Error              ${bg},${red}
-        face global StatusLine         ${fg},${bg2}
+        face global StatusLine         ${fg},${bg0}+b
         face global StatusLineMode     ${yellow}+b
         face global StatusLineInfo     ${purple}
         face global StatusLineValue    ${red}
-        face global StatusCursor       ${bg2},${fg}
+        face global StatusCursor       ${bg0},${fg}
         face global Prompt             ${yellow}
         face global MatchingChar       ${fg},${bg3}+b
         face global BufferPadding      ${bg2},${bg}

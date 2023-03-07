@@ -1,0 +1,16 @@
+# For a full documentation on the install look at:
+# https://docs.helix-editor.com/install.html
+
+
+theme = "autumn_black"
+
+[editor]
+line-number = "relative"
+mouse = false
+bufferline = "multiple"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[editor.cursor-shape]
+insert = "bar"

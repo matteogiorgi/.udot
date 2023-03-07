@@ -5,8 +5,9 @@
 ########################
 
 FILE="$*"
-[[ -x "$(command -v nano)" ]] && TED="η-Nano\n"$TED
+[[ -x "$(command -v nano)" ]] && TED="Nano\n"$TED
 [[ -x "$(command -v kak)" ]] && TED="Kakoune\n"$TED
+[[ -x "$(command -v hx)" ]] && TED="Helix\n"$TED
 [[ -x "$(command -v vim)" ]] && TED="Vim-COC\nVim-FZF\n"$TED
 
 
@@ -40,10 +41,13 @@ function _edit () {
         Vim-FZF)
             _run "_nvim" "${FILE}"
             ;;
+        Helix)
+            hx "${FILE}"
+            ;;
         Kakoune)
             kak "${FILE}"
             ;;
-        η-Nano)
+        Nano)
             nano "${FILE}"
             ;;
         *)

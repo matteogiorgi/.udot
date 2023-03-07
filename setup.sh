@@ -120,6 +120,9 @@ _backup () {
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
 
+    # helix
+    [[ -d $HOME/.config/helix ]] && _clean $HOME/.config/helix
+
     # i3
     [[ -d $HOME/.config/i3 ]] && _clean $HOME/.config/i3
     [[ -d $HOME/.config/i3status ]] && _clean $HOME/.config/i3status
@@ -350,11 +353,6 @@ if _ask "    Add snap and extra packages?" Y; then
         sudo snap install --classic codium
         printf "\n"
     fi
-    if _ask "    Install Alacritty?" Y; then
-        printf "\n"
-        sudo snap install --classic alacritty
-        printf "\n"
-    fi
     if _ask "    Install Slides?" N; then
         printf "\n"
         sudo snap install slides
@@ -375,6 +373,7 @@ stow bash
 stow bin
 stow ctags
 stow fzf
+stow helix
 stow i3
 stow kakoune
 stow kitty
@@ -424,8 +423,22 @@ if _ask "    Add full language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
-    printf "\n    Need Haskell? -> curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-    printf "\n    Need Rust?    -> curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh\n\n"
+
+    printf "\n"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+    printf "\n"
+    pip3 install Pillow
+
+    printf "\n"
+    cargo install alacritty
+
+    printf "\n"
+    git clone https://github.com/helix-editor/helix $HOME/.udot/HELIX
+    cd $HOME/.udot/HELIX
+        cargo install --locked --path helix-term
+        ln -s $PWD/runtime $HOME/udot/helix/.config/helix/runtime
+    cd -
 fi
 
 
