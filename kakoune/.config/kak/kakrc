@@ -10,7 +10,7 @@
 # User preference
 # ───────────────
 
-colorscheme gruvbox_black
+colorscheme hembox
 
 set global indentwidth 4
 set global tabstop 4

@@ -2,7 +2,7 @@
 # https://docs.helix-editor.com/install.html
 
 
-theme = "autumn_black"
+theme = "hembox"
 
 [editor]
 line-number = "relative"

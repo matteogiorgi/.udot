@@ -29,7 +29,7 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc
 pkg-config lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg
 poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl (Pillow)
+exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl Pillow
 ```
 
 
@@ -38,12 +38,11 @@ exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl (Pillow)
 ## Main packages
 
 ```
-i3-wm xautolock arandr kitty xterm tmux kakoune vim-gtk3 nvim nano sxiv nnn tig zathura
-zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager dconf-editor
-adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
-flameshot diodon pavucontrol gparted simplescreenrecorder mypaint chrome-gnome-shell
-gnome-shell-extension-prefs cups system-config-printer ghostwriter input-remapper
-alacritty helix
+i3-wm xautolock arandr kitty alacritty xterm tmux nvim vim-gtk3 helix kakoune nano sxiv
+nnn tig zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
+dconf-editor adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct
+xournalpp flameshot diodon pavucontrol gparted simplescreenrecorder mypaint ghostwriter
+chrome-gnome-shell gnome-shell-extension-prefs cups system-config-printer input-remapper
 ```
 
 
@@ -75,7 +74,7 @@ google-chrome brave chromium code codium slides
 ## Language support
 
 - Javascript (required for `coc.nvim`): `nodejs`
-- Rust (required for `helix`, `alacritty`): `rustup`
+- Rust (required for `helix` and `alacritty`): `rustup`
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
