@@ -70,8 +70,8 @@ alias poweroff-i3="_poweroffi3"
 alias quit-i3="_quiti3"
 
 
-alias temperature="_temperature"
-alias wallpaper="_wallpaper"
+alias xtemperature="_xtemperature"
+alias xwallpaper="_xwallpaper"
 
 
 alias stow="stow -S"
