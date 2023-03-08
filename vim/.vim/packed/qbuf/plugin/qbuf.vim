@@ -47,7 +47,7 @@ if v:version < 700 | finish | endif
 " (the original conflicts with PlugUpdate, don't know why)
 " nnoremap <unique> ...
 " cnoremap <unique> ...
-if !exists("g:qb_hotkey") || g:qb_hotkey == "" | let g:qb_hotkey = "<localleader>" | endif
+if !exists("g:qb_hotkey") || g:qb_hotkey == "" | let g:qb_hotkey = "<C-space>" | endif
 exe "nnoremap" g:qb_hotkey " :cal <SID>init(1)<cr>:cal SBRun()<cr>"
 exe "cnoremap" g:qb_hotkey "<Esc>"
 

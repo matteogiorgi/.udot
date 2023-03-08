@@ -150,6 +150,5 @@ nnoremap <silent> <Plug>(EndPar)     :call <SID>EndPar()<cr>
 "}}}
 
 " maps{{{
-nnoremap <leader>n :NoteWikiIndex<cr>
-nnoremap <leader>N :NoteBrowseIndex<cr>
+nnoremap <localleader>\ :NoteWikiIndex<cr>
 "}}}

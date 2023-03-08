@@ -243,7 +243,7 @@ set belloff+=ctrlg
 
 " Variables to load early {{{
 let g:mapleader = "\<space>"
-let g:maplocalleader = "\<C-space>"
+let g:maplocalleader = "\\"
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
 endif
