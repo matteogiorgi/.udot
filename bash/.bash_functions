@@ -23,16 +23,10 @@ function _ff () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
             grep -v _ff | grep -v _ask | grep -v _setbackgroundcolor | \
-            fzf --prompt='wtf mate, choose you fucking function! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+            fzf --prompt='Choose you FUCKING FUNCTION mate > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
     read -p "$SHFUN: " ARGS
     "$SHFUN" "$ARGS"
-}
-
-
-function _xopen () {
-    [[ $# -eq 0 ]] && return 1 || ARGS="$*"
-    _xshow "xdg-open $ARGS"
 }
 
 
@@ -48,16 +42,8 @@ function _ask () {
             prompt="y/n"
             default=
         fi
-
-        # Ask the question
         read -p "$1 [$prompt] " REPLY
-
-        # Default?
-        if [ -z "$REPLY" ]; then
-            REPLY=$default
-        fi
-
-        # Check if the reply is valid
+        [[ -z "$REPLY" ]] && REPLY=$default
         case "$REPLY" in
             Y*|y*) return 0 ;;
             N*|n*) return 1 ;;
@@ -66,7 +52,17 @@ function _ask () {
 }
 
 
+function _xopen () {
+    if [[ $# -eq 0 ]]; then
+        printf "${YLW}%s${NC}\n" "Open what!?"
+        return 1
+    fi
+    _xshow "xdg-open $*"
+}
+
+
 function _xhide () {
+    [[ -f "/bin/xdo" ]] || return 1
     id=$(xdo id); xdo hide
     sh -c "$*" >/dev/null 2>&1
     xdo show "$id"
@@ -96,7 +92,7 @@ function _killapps () {
 function _logouti3 () {
     if _ask "Exit I3?" N; then
         _killapps
-        i3-msg exit  # killall i3
+        i3-msg exit
     fi
 }
 
@@ -104,7 +100,7 @@ function _logouti3 () {
 function _rebooti3 () {
     if _ask "Reboot I3?" N; then
         _killapps
-        i3-msg exec reboot  # systemctl reboot
+        i3-msg exec reboot
     fi
 }
 
@@ -112,17 +108,19 @@ function _rebooti3 () {
 function _poweroffi3 () {
     if _ask "Poweroff I3?" N; then
         _killapps
-        i3-msg exec poweroff  # systemctl -i poweroff
+        i3-msg exec poweroff
     fi
 }
 
 
 function _quiti3 () {
+    # LOGOUT   -> killall i3
+    # REBOOT   -> systemctl reboot
+    # POWEROFF -> systemctl -i poweroff
     [[ -x "$(command -v fzf)" ]] || return 1
     OPT="I3-Logout\nI3-Reboot\nI3-Poweroff\n"
     CMD=$(printf "$OPT" | fzf --prompt='I3-Quit > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$CMD" ]] || return 1
-
     &>/dev/null
     case "$CMD" in
         I3-Logout) _logouti3 ;;
@@ -130,25 +128,6 @@ function _quiti3 () {
         I3-Poweroff) _poweroffi3 ;;
         *) return 1 ;;
     esac
-}
-
-
-function _xtemperature () {
-    [[ -x "$(command -v fzf)" && -x "$(command -v sct)" ]] || return 1
-    RANGE="3500      ## Ghibli\n4500      ## Campfire\n5500      ## Scirocco\n6500      ## Midday\n7500      ## Mistral\n8500      ## Chilly\n9500      ## Icy\n"
-    TEMPE=$(printf "$RANGE" | fzf --prompt='fcolor > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
-    [[ -n "$TEMPE" ]] && sct "$TEMPE" || return 1
-}
-
-
-function _xwallpaper () {
-    BACKGROUNDS="$HOME/Pictures/backgrounds"
-    [[ -z "$(\ls -A $BACKGROUNDS 2>/dev/null)" || ! -x "$(command -v feh)" ]] && return 1
-    \cd "$BACKGROUNDS"
-    FILE="$(\ls | fzf --ansi --preview 'mess {}' --preview-window 'right,70%,border-sharp' --prompt="fwall > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
-    \cd - &>/dev/null
-    [[ -z "$FILE" ]] && return 1
-    feh --bg-fill $BACKGROUNDS/$FILE 2>/dev/null
 }
 
 
@@ -331,7 +310,7 @@ function _fgit () {
         while out=$(
                 git log --graph --color=always \
                     --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-                fzf --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
+                fzf --prompt='fgit > ' --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
                     --print-query --expect=ctrl-d --toggle-sort=\`); do
             q=$(head -1 <<< "$out")
             k=$(head -2 <<< "$out" | tail -1)
@@ -375,29 +354,39 @@ function _sxiv () {
 
 function _chbg () {
     BACKGROUNDS="$HOME/Pictures/backgrounds"
-    if [[ ! -z "$(ls -A $BACKGROUNDS 2>/dev/null)" ]]; then
+    [[ -z "$(\ls -A $BACKGROUNDS 2>/dev/null)" || ! -x "$(command -v feh)" ]] && return 1
+    if [[ -x "$(command -v fzf)" ]]; then
+        \cd "$BACKGROUNDS"
+        FILE="$(\ls | fzf --ansi --preview 'mess {}' --preview-window 'right,70%,border-sharp' --prompt="fwall > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
+        \cd - &>/dev/null
+        [[ -z "$FILE" ]] && return 1
+    else
         count=1
-        list=$(/usr/bin/ls $BACKGROUNDS)
-        max=$(($(/usr/bin/ls $BACKGROUNDS | wc -w)+1))
-
-        printf "${RED}%s${NC}\n" "Choose a background:"
-        for file in $list
+        LIST=$(\ls $BACKGROUNDS)
+        MAX=$(($(\ls $BACKGROUNDS | wc -w)+1))
+        printf "${RED}%s${NC}\n" "Choose your background mate:"
+        for file in $LIST
         do
             echo "$count $file"
             ((count++))
         done
-        printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
-
+        printf "${RED}%s${NC} " "Enter a number from 1 to $(($MAX-1)):"
         while read response; do
             re='^[0-9]+$'
-            [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$max" ]] && break
-            printf "${RED}%s${NC} " "Enter a number from 1 to $(($max-1)):"
+            [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$MAX" ]] && break
+            printf "${RED}%s${NC} " "Enter a number from 1 to $(($MAX-1)):"
         done
-
-        bgrnd=$(/usr/bin/ls $BACKGROUNDS | head -n $response | tail -n 1)
-        feh --bg-fill "$BACKGROUNDS/$bgrnd"
-        printf "${YLW}%s\n${NC}" "Done."
+        FILE=$(\ls $BACKGROUNDS | head -n $response | tail -n 1)
     fi
+    feh --bg-fill $BACKGROUNDS/$FILE 2>/dev/null
+}
+
+
+function _chtp () {
+    [[ -x "$(command -v fzf)" && -x "$(command -v sct)" ]] || return 1
+    RANGE="3500      ## Ghibli\n4500      ## Campfire\n5500      ## Scirocco\n6500      ## Midday\n7500      ## Mistral\n8500      ## Chilly\n9500      ## Icy\n"
+    TEMPE=$(printf "$RANGE" | fzf --prompt='fcolor > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+    [[ -n "$TEMPE" ]] && sct "$TEMPE" || return 1
 }
 
 
@@ -428,10 +417,8 @@ function _xwacom () {
         printf "${YLW}%s${NC}\n" "Wacom not conected"
         return
     fi
-
     XWACOMID=$(xinput | grep "$WACOMID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     printf "${RED}%s\n%s${NC}\n" "ROTATION == $WACOMRO" "MONITOR  == $WACOMMO"
-
     if _ask "Do you wanna change specs?" N; then
         printf "${RED}%s${NC} " "Wacom ROTATION (0/90/180/270):"
         while read ROTATION; do
@@ -447,7 +434,6 @@ function _xwacom () {
         ROTATION=$WACOMRO
         MONITOR=$WACOMMO
     fi
-
     case $ROTATION in
         0)
             xsetwacom --set $XWACOMID Rotate "none"
@@ -466,7 +452,6 @@ function _xwacom () {
             sed -i 's/WACOMRO=.*/WACOMRO='\''270'\''/g' $HOME/.xinput.bash
             ;;
     esac
-
     case $MONITOR in
         master)
             xinput map-to-output $XWACOMID $(xrandr --query | grep " connected" | awk 'NR==1 {print $1}')
@@ -479,7 +464,6 @@ function _xwacom () {
             fi
             ;;
     esac
-
     source $HOME/.xinput.bash
     printf "${YLW}%s\n%s${NC}\n" "ROTATION -> $WACOMRO" "MONITOR  -> $WACOMMO"
 }
@@ -496,7 +480,6 @@ function _xtouch () {
         printf "${YLW}%s${NC}\n" "Touchpad not connected"
         return
     fi
-
     TOUCHID=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
     if [[ $TOUCHPADST == "on" ]]; then
         sed -i 's/TOUCHPADST='\''on'\''/TOUCHPADST='\''off'\''/g' $HOME/.xinput.bash
@@ -522,7 +505,6 @@ function _xlayout () {
                 ;;
         esac
     done
-
     printf "#!/bin/sh\nsetxkbmap -layout $response\n" > ~/.xlayout
     chmod 755 ~/.xlayout
     ~/.xlayout

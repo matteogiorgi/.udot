@@ -49,6 +49,7 @@ alias fgit="_fgit"
 alias tig="_tig"
 alias sxiv="_sxiv"
 alias chbg="_chbg"
+alias chtp="_chtp"
 alias ipreview="_ipreview"
 alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
@@ -68,10 +69,6 @@ alias logout-i3="_logouti3"
 alias reboot-i3="_rebooti3"
 alias poweroff-i3="_poweroffi3"
 alias quit-i3="_quiti3"
-
-
-alias xtemperature="_xtemperature"
-alias xwallpaper="_xwallpaper"
 
 
 alias stow="stow -S"
