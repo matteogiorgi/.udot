@@ -14,15 +14,25 @@
 
 if [[ -n "$BASH_VERSION" ]]; then
     if [[ -f "$HOME/.bashrc" ]]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
 
 
 
-### Set PATH to includes just '~/.local/bin' if it exists
-#########################################################
+### Set PATH to include /var/lib/flatpak/exports/bin (if it exists)
+###################################################################
+
+if [[ -d "/var/lib/flatpak/exports/bin" ]]; then
+    PATH="$PATH:/var/lib/flatpak/exports/bin"
+fi
+
+
+
+
+### Set PATH to include ~/.local/bin (if it exists)
+###################################################
 
 if [[ -d "$HOME/.local/bin" ]]; then
     PATH="$PATH:$HOME/.local/bin"
@@ -31,8 +41,8 @@ fi
 
 
 
-### Set PATH to includes just '~/bin' (if it exists) and its subdirs
-####################################################################
+### Set PATH to include ~/bin (if it exists) and its subdirs
+############################################################
 
 if [[ -d "$HOME/bin" ]]; then
     PATH="$PATH:$( find $HOME/bin/ -maxdepth 2 -type d -not -path "/.git/*" -printf ":%p" )"

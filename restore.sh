@@ -70,16 +70,8 @@ _ask () {
             prompt="y/n"
             default=
         fi
-
-        # Ask the question
         read -p "$1 [$prompt] " REPLY
-
-        # Default?
-        if [ -z "$REPLY" ]; then
-            REPLY=$default
-        fi
-
-        # Check if the reply is valid
+        [[ -z "$REPLY" ]] && REPLY=$default
         case "$REPLY" in
             Y*|y*) return 0 ;;
             N*|n*) return 1 ;;
@@ -236,8 +228,8 @@ read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# wmctrl git curl wget libx11-dev libxinerama-dev libxft-dev libncurses-dev libxrandr-dev make
-# gcc wamerican witalian fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
+# wmctrl git curl wget make gcc wamerican witalian
+# fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
 
 sudo apt purge -qq -y \
     wmctrl \
@@ -309,16 +301,19 @@ sudo apt purge -qq -y \
 ##############################
 
 printf "\n"
-read -p "    Removing snap/extra packages (enter to continue)"
+read -p "    Removing snap/flatpak packages (enter to continue)"
 printf "\n"
 
+[[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
 if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
-    [[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
     [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
+fi
+if [[ -x "$(command -v flatpak)" ]]; then
+    [[ -x "$(command -v net.sapples.LiveCaptions)" ]] && flatpak uninstall net.sapples.LiveCaptions
 fi
 
 
@@ -344,7 +339,7 @@ read -p "    Removing language support (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# rustup, build-essential, python3
+# rustup (helix), build-essential, python3
 
 pip3 uninstall Pillow
 cargo uninstall alacritty

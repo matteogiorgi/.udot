@@ -73,16 +73,8 @@ _ask () {
             prompt="y/n"
             default=
         fi
-
-        # Ask the question
         read -p "$1 [$prompt] " REPLY
-
-        # Default?
-        if [ -z "$REPLY" ]; then
-            REPLY=$default
-        fi
-
-        # Check if the reply is valid
+        [[ -z "$REPLY" ]] && REPLY=$default
         case "$REPLY" in
             Y*|y*) return 0 ;;
             N*|n*) return 1 ;;
@@ -322,20 +314,26 @@ sudo apt install -qq -y \
 ###########################
 
 printf "\n"
-if _ask "    Add snap and extra packages?" Y; then
+if _ask "    Add snap/flatpak packages?" Y; then
     if [[ ! -x "$(command -v snap)" ]]; then
         printf "\n"
         sudo apt install -qq -y snapd
         printf "\n"
     fi
+    if [[ ! -x "$(command -v flatpak)" ]]; then
+        printf "\n"
+        sudo apt install -qq -y flatpak gnome-software-plugin-flatpak
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        printf "\n"
+    fi
+    if _ask "    Install Google-Chrome?" Y; then
+        printf "\n"
+        _install_chrome
+        printf "\n"
+    fi
     if _ask "    Install Brave?" Y; then
         printf "\n"
         sudo snap install brave
-        printf "\n"
-    fi
-    if _ask "    Install Google-Chrome?" N; then
-        printf "\n"
-        _install_chrome
         printf "\n"
     fi
     if _ask "    Install Chromium?" N; then
@@ -400,6 +398,23 @@ curl -sL install-node.vercel.app/lts | sudo bash
 
 
 
+### Add Rustup for Helix and Alacritty
+######################################
+
+printf "\n"
+read -p "    Installing Rustup for Helix (enter to continue)"
+printf "\n"
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+git clone https://github.com/helix-editor/helix $HOME/.udot/HELIX
+cd $HOME/.udot/HELIX; cargo install --locked --path helix-term
+ln -s $PWD/runtime $HOME/.config/helix/runtime; cd -
+cargo install alacritty
+
+
+
+
 ### Add language support
 ########################
 
@@ -425,20 +440,7 @@ if _ask "    Add full language support?" Y; then
         opam-doc
 
     printf "\n"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-    printf "\n"
     pip3 install Pillow
-
-    printf "\n"
-    cargo install alacritty
-
-    printf "\n"
-    git clone https://github.com/helix-editor/helix $HOME/.udot/HELIX
-    cd $HOME/.udot/HELIX
-        cargo install --locked --path helix-term
-        ln -s $PWD/runtime $HOME/udot/helix/.config/helix/runtime
-    cd -
 fi
 
 
