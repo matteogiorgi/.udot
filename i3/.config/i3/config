@@ -210,7 +210,6 @@ for_window [class="Blueman-services"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
-for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="Input-remapper-gtk"] floating enable
 
 
@@ -226,10 +225,13 @@ for_window [class="Gvim"] move position center
 
 
 
-### Bind programs to workspaces (use xprop)
-###########################################
+### Bind programs to workspaces (use xprop to get class name)
+#############################################################
 
-assign [class="SimpleScreenRecorder"] $ws10
+# assign [class="..."] $ws1
+# assign [class="..."] $ws2
+# ...
+# assign [class="..."] $ws10
 
 
 

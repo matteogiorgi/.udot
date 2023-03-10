@@ -288,7 +288,6 @@ sudo apt purge -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    simplescreenrecorder \
     mypaint \
     ghostwriter \
     input-remapper \

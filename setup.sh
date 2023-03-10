@@ -300,7 +300,6 @@ sudo apt install -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    simplescreenrecorder \
     mypaint \
     system-config-printer \
     ghostwriter \

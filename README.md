@@ -41,8 +41,8 @@ exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl snap flatpak
 i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv nnn tig
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 dconf-editor adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct
-xournalpp flameshot diodon pavucontrol gparted simplescreenrecorder mypaint ghostwriter
-chrome-gnome-shell gnome-shell-extension-prefs cups system-config-printer input-remapper
+xournalpp flameshot diodon pavucontrol gparted mypaint ghostwriter chrome-gnome-shell
+gnome-shell-extension-prefs cups system-config-printer input-remapper
 ```
 
 
@@ -59,17 +59,21 @@ chrome-gnome-shell gnome-shell-extension-prefs cups system-config-printer input-
 
 
 
-### Chrome [extensions](https://chrome.google.com/webstore/category/extensions) and [bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
+## Chrome [extensions](https://chrome.google.com/webstore/category/extensions) and [bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
 - [Gnome Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related): Gnome extensions installer
+    - [Unite](https://extensions.gnome.org/extension/1287/unite/): layout tweaks
+    - [User themes](https://extensions.gnome.org/extension/19/user-themes/): theme support
+    - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/): disable auto-lock
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
+- [Compose AI](https://chrome.google.com/webstore/detail/compose-ai-ai-powered-wri/ddlbpiadoechcolndfeaonajmngmhblj/related): AI-powered writing tool
+- [ChatGPT for Google](https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf/related): AI assistant for Google researches
 - [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation
 - [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
 - [Keepa](https://chrome.google.com/webstore/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo?hl=en-US): Amazon price tracker
 - [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US): TOR proxy
-- [Compose AI](https://chrome.google.com/webstore/detail/compose-ai-ai-powered-wri/ddlbpiadoechcolndfeaonajmngmhblj/related): AI-powered writing tool
 
 
 
@@ -87,9 +91,13 @@ chrome-gnome-shell gnome-shell-extension-prefs cups system-config-printer input-
 
 
 
-## More
+### More (may) useful gear
 
-- Haskell: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+- Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+- Calendar + Mail-client: `sudo apt install gnome-calendar geary`
+- Screen recorder: `sudo apt install simplescreenrecorder`
+- Live Captioning: `flatpak install flathub net.sapples.LiveCaptions`
+- Wallpaper-manager: `sudo apt install variety`
 
 
 
