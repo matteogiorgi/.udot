@@ -255,7 +255,6 @@ sudo apt purge -qq -y \
     fonts-jetbrains-mono \
     xdotool \
     exuberant-ctags \
-    dconf-editor \
     gnome-shell-extension-prefs \
     chrome-gnome-shell \
     vsftpd \

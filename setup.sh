@@ -250,7 +250,6 @@ sudo apt install -qq -y \
     poppler-utils \
     xdotool \
     exuberant-ctags \
-    dconf-editor \
     gnome-shell-extension-prefs \
     chrome-gnome-shell \
     ufw \
