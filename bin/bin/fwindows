@@ -5,9 +5,7 @@
 
 
 [[ -x "$(command -v wmctrl)" && -x "$(command -v fzf)" ]] || exit 1
-
-WINTOGO=$(wmctrl -l | grep -v __i3scratchpad__ | grep -v __fuzzy__ | grep -v __fmenu__ | fzf --prompt='fwindows > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+WINTOGO=$(wmctrl -d | awk '{print $1, $NF}' | while read -r WSNUM WSNAME; do wmctrl -l | grep -v __i3scratchpad__ | grep -v __fuzzy__ | grep -v __fmenu__ | grep -w "$WSNUM" | awk -v WSNAME="$WSNAME" '{print WSNAME, $0}'; done | sort -k1n | fzf --prompt='fwindows > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
 [[ -n "$WINTOGO" ]] || exit 1
 
-echo "$WINTOGO" | awk '{print $1}' | xargs -I{} wmctrl -i -a {}
-echo "$WINTOGO" | awk '{print $1}' | xargs -I{} wmctrl -i -R {}
+echo "$WINTOGO" | awk '{print $2}' | xargs -I{} wmctrl -i -a {}
