@@ -103,9 +103,9 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
 - Calendar + Mail + Contacts: `sudo apt install gnome-calendar geary gnome-contacts`
 - Terminal + Text editor + File manager: `sudo apt install gnome-terminal gedit nautilus`
-- Document reader + Archive manager + Calculator: `sudo apt install evince file-roller gnome-calculator`
+- Document reader + Archive manager: `sudo apt install evince file-roller`
 - BitTorrent + Media player: `sudo apt install transmission-gtk vlc`
-- Office suite: `sudo apt install libreoffice`
+- Office suite + Calculator: `sudo apt install libreoffice gnome-calculator`
 - Screen recorder: `sudo apt install simplescreenrecorder`
 - Live captioning: `flatpak install flathub net.sapples.LiveCaptions`
 - Wallpaper manager: `sudo apt install variety`
