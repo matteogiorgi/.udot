@@ -75,7 +75,7 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 
 
 
-## Gnome extensions - [Webstore](https://chrome.google.com/webstore/category/extensions)
+## Gnome extensions - [Webstore](https://extensions.gnome.org/)
 
 - [Unite](https://extensions.gnome.org/extension/1287/unite/): layout tweaks
 - [User themes](https://extensions.gnome.org/extension/19/user-themes/): theme support
