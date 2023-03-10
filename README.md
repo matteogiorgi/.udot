@@ -9,16 +9,16 @@ This repo contains a minimal configuration of my dotfiles, I keep them organized
 
 <img align="right" width="350" src="media/glenda.png">
 
-| Color   | Normal                                                                 | Bright                                                                 |
-| ------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Black   | <span style="background-color:#171421; color:#FFFFFF">`#171421`</span> | <span style="background-color:#5E5C64; color:#FFFFFF">`#5E5C64`</span> |
-| Red     | <span style="background-color:#C01C28; color:#FFFFFF">`#C01C28`</span> | <span style="background-color:#F66151; color:#000000">`#F66151`</span> |
-| Green   | <span style="background-color:#26A269; color:#FFFFFF">`#26A269`</span> | <span style="background-color:#33D17A; color:#000000">`#33D17A`</span> |
-| Yellow  | <span style="background-color:#A2734C; color:#FFFFFF">`#A2734C`</span> | <span style="background-color:#E9AD0C; color:#000000">`#E9AD0C`</span> |
-| Blue    | <span style="background-color:#12488B; color:#FFFFFF">`#12488B`</span> | <span style="background-color:#2A7BDE; color:#000000">`#2A7BDE`</span> |
-| Magenta | <span style="background-color:#A347BA; color:#FFFFFF">`#A347BA`</span> | <span style="background-color:#C061CB; color:#000000">`#C061CB`</span> |
-| Cyan    | <span style="background-color:#2AA1B3; color:#FFFFFF">`#2AA1B3`</span> | <span style="background-color:#33C7DE; color:#000000">`#33C7DE`</span> |
-| White   | <span style="background-color:#D0CFCC; color:#000000">`#D0CFCC`</span> | <span style="background-color:#FFFFFF; color:#000000">`#FFFFFF`</span> |
+| Color   | Normal    | Bright    |
+| ------- | --------- | --------- |
+| Black   | `#171421` | `#5E5C64` |
+| Red     | `#C01C28` | `#F66151` |
+| Green   | `#26A269` | `#33D17A` |
+| Yellow  | `#A2734C` | `#E9AD0C` |
+| Blue    | `#12488B` | `#2A7BDE` |
+| Magenta | `#A347BA` | `#C061CB` |
+| Cyan    | `#2AA1B3` | `#33C7DE` |
+| White   | `#D0CFCC` | `#FFFFFF` |
 
 
 
@@ -40,8 +40,8 @@ exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl snap flatpak
 ```
 i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv nnn tig
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
-dconf-editor adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct
-xournalpp flameshot diodon pavucontrol gparted mypaint ghostwriter chrome-gnome-shell
+adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
+flameshot diodon pavucontrol gparted mypaint ghostwriter chrome-gnome-shell
 gnome-shell-extension-prefs cups system-config-printer input-remapper
 ```
 
@@ -52,28 +52,34 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 
 - Snap: `brave chromium code codium slides`
 - Cargo: `alacritty`
-- Pip3: `Pillow`
+- Pip: `Pillow`
 - Deb: `google-chrome`
 - Source: `helix` 
 
 
 
 
-## Chrome [extensions](https://chrome.google.com/webstore/category/extensions) and [bookmarks](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
+## Chrome extensions - [Webstore](https://chrome.google.com/webstore/category/extensions)
 
 - [uBlock Origins](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en-US): ad blocker
-- [Gnome Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related): Gnome extensions installer
-    - [Unite](https://extensions.gnome.org/extension/1287/unite/): layout tweaks
-    - [User themes](https://extensions.gnome.org/extension/19/user-themes/): theme support
-    - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/): disable auto-lock
 - [Vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en-US): Vim emulation
+- [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
+- [Gnome Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related): Gnome extensions installer
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
+- [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation
 - [Compose AI](https://chrome.google.com/webstore/detail/compose-ai-ai-powered-wri/ddlbpiadoechcolndfeaonajmngmhblj/related): AI-powered writing tool
 - [ChatGPT for Google](https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf/related): AI assistant for Google researches
-- [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation
-- [MediaPlayer](https://chrome.google.com/webstore/detail/mediaplayer-video-and-aud/mgmhnaapafpejpkhdhijgkljhpcpecpj?hl=en-US): video and audio player
 - [Keepa](https://chrome.google.com/webstore/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo?hl=en-US): Amazon price tracker
 - [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US): TOR proxy
+
+
+
+
+## Gnome extensions - [Webstore](https://chrome.google.com/webstore/category/extensions)
+
+- [Unite](https://extensions.gnome.org/extension/1287/unite/): layout tweaks
+- [User themes](https://extensions.gnome.org/extension/19/user-themes/): theme support
+- [Caffeine](https://extensions.gnome.org/extension/517/caffeine/): disable auto-lock
 
 
 
@@ -91,17 +97,23 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 
 
 
-## More useful gear (DIY)
+## Need more? (mostly Gnome gear)
 
+- Base bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Calendar + Mail-client: `sudo apt install gnome-calendar geary`
+- Calendar + Mail + Contacts: `sudo apt install gnome-calendar geary gnome-contacts`
+- Terminal + Text editor + File manager: `sudo apt install gnome-terminal gedit nautilus`
+- Document reader + Archive manager + Calculator: `sudo apt install evince file-roller gnome-calculator`
+- BitTorrent + Media player: `sudo apt install transmission-gtk vlc`
+- Office suite: `sudo apt install libreoffice`
 - Screen recorder: `sudo apt install simplescreenrecorder`
-- Live Captioning: `flatpak install flathub net.sapples.LiveCaptions`
-- Wallpaper-manager: `sudo apt install variety`
+- Live captioning: `flatpak install flathub net.sapples.LiveCaptions`
+- Wallpaper manager: `sudo apt install variety`
+- Dconf: `sudo apt install dconf-editor `
 
 
 
 
 <img align="right" width="50" src="media/ubuntu.png">
 
-#### For any other package check [packages.ubuntu.com](https://packages.ubuntu.com/)
+#### For any other package, check [packages.ubuntu.com](https://packages.ubuntu.com/)
