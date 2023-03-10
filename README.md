@@ -91,7 +91,7 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 
 
 
-### More (may) useful gear
+## More useful gear (DIY)
 
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
 - Calendar + Mail-client: `sudo apt install gnome-calendar geary`
