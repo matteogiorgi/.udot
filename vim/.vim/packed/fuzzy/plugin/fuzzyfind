@@ -7,6 +7,8 @@ SEARCH2='find . -type f \( ! -regex '.*/\.git/.*' \) -print'
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
-FILE="$(fzf --ansi --prompt="$PWD$GIT_BRANCH > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
+FILE="$(fzf --ansi --preview 'mess {}' --preview-window 'down,80%,border-sharp' \
+        --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH > " \
+        --height 100% --margin 0% --reverse --info=hidden --header-first)"
 [[ -z "$FILE" ]] && exit 1
 echo "${PWD}/${FILE}" > /tmp/vim_fuzzy_current_file

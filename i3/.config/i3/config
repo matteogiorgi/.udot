@@ -262,14 +262,14 @@ for_window [title="__800x600__"] move position center
 for_window [title="__800x600__"] border pixel 2
 
 # 600x300 window instance and title
-for_window [instance="__600x300__"] floating enable
-for_window [instance="__600x300__"] resize set 600 300
-for_window [instance="__600x300__"] move position center
-for_window [instance="__600x300__"] border pixel 2
-for_window [title="__600x300__"] floating enable
-for_window [title="__600x300__"] resize set 600 300
-for_window [title="__600x300__"] move position center
-for_window [title="__600x300__"] border pixel 2
+for_window [instance="__600x200__"] floating enable
+for_window [instance="__600x200__"] resize set 600 200
+for_window [instance="__600x200__"] move position center
+for_window [instance="__600x200__"] border pixel 2
+for_window [title="__600x200__"] floating enable
+for_window [title="__600x200__"] resize set 600 200
+for_window [title="__600x200__"] move position center
+for_window [title="__600x200__"] border pixel 2
 
 
 
@@ -298,7 +298,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+w exec "i3-sensible-terminal --title __600x300__ -e ~/.config/i3/i3windows"
+bindsym $mod+w exec "i3-sensible-terminal --title __600x200__ -e ~/.config/i3/i3windows"
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
