@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# This script search all executables inside PATH and uses fzf to select one to run as a command.
+# It is intended to be used as such: i3-sensible-terminal -T __i3pathmenu__ -e i3pathmenu
+
+
+[[ -x "$(command -v xdo)" && -x "$(command -v fzf)" ]] || exit 1
+
+CLICOLOR_FORCE=1
+CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | \
+        fzf --ansi --preview '~/.config/i3/i3manual {}' --preview-window 'right,70%,border-sharp' \
+        --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt='i3menu > ' \
+        --height 100% --margin 0% --reverse --info=hidden --header-first)
+[[ -n "$CMD" ]] || exit 1
+
+id=$(xdo id); xdo hide
+nohup sh -c "$CMD" &>/tmp/fmenu.out & disown
+xdo close "$id"

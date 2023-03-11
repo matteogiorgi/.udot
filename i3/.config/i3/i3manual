@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+
+[[ "$*" == "" ]] && exit 1
+
+_no_preview () {
+    echo "                                "
+    echo "  ┌──────────────────────────┐  "
+    echo "  │  No man page available.  │  "
+    echo "  └───┬──────────────────────┘  "
+    echo "      │                         "
+    echo "      │      (\_/)              "
+    echo "      └───── (O.o)              "
+    echo "             (> <)              "
+    echo "                                "
+}
+
+man "$*" 2>/dev/null || _no_preview

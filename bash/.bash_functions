@@ -310,7 +310,7 @@ function _fgit () {
         while out=$(
                 git log --graph --color=always \
                     --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-                fzf --prompt='fgit > ' --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
+                fzf --prompt="$PWD > " --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
                     --print-query --expect=ctrl-d --toggle-sort=\`); do
             q=$(head -1 <<< "$out")
             k=$(head -2 <<< "$out" | tail -1)
@@ -352,12 +352,12 @@ function _sxiv () {
 }
 
 
-function _chbg () {
+function _chwall () {
     BACKGROUNDS="$HOME/Pictures/backgrounds"
     [[ -z "$(\ls -A $BACKGROUNDS 2>/dev/null)" || ! -x "$(command -v feh)" ]] && return 1
     if [[ -x "$(command -v fzf)" ]]; then
         \cd "$BACKGROUNDS"
-        FILE="$(\ls | fzf --ansi --preview 'mess {}' --preview-window 'right,70%,border-sharp' --prompt="fwall > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
+        FILE="$(\ls | fzf --ansi --preview 'mess {}' --preview-window 'down,80%,border-sharp' --prompt="fwall > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
         \cd - &>/dev/null
         [[ -z "$FILE" ]] && return 1
     else
@@ -382,7 +382,7 @@ function _chbg () {
 }
 
 
-function _chtp () {
+function _chtemp () {
     [[ -x "$(command -v fzf)" && -x "$(command -v sct)" ]] || return 1
     RANGE="3500      ## Ghibli\n4500      ## Campfire\n5500      ## Scirocco\n6500      ## Midday\n7500      ## Mistral\n8500      ## Chilly\n9500      ## Icy\n"
     TEMPE=$(printf "$RANGE" | fzf --prompt='fcolor > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
