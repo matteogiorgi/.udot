@@ -7,7 +7,7 @@
 [[ -x "$(command -v wmctrl)" && -x "$(command -v fzf)" ]] || exit 1
 WINTOGO=$(wmctrl -d | awk '{print $1, $NF}' | while read -r WSNUM WSNAME; do wmctrl -l | \
         grep -v __i3scratchpad__ | grep -v __800x600__ | grep -v __600x200__ | grep -w "$WSNUM" | \
-        awk -v WSNAME="$WSNAME" '{ $2=$3=""; $1="  "$1; print WSNAME, $0 }'; done | sort -k1n | \
+        awk -v WSNAME="$WSNAME" '{ $2=$3=""; $1=" "$1; sub(/  /," "); print WSNAME, $0 }'; done | sort -k1n | \
         fzf --prompt='i3windows > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
 [[ -n "$WINTOGO" ]] || exit 1
 
