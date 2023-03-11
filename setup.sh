@@ -320,7 +320,7 @@ if _ask "    Add snap/flatpak packages?" Y; then
     fi
     if [[ ! -x "$(command -v flatpak)" ]]; then
         printf "\n"
-        sudo apt install -qq -y flatpak gnome-software-plugin-flatpak
+        sudo apt install -qq -y flatpak
         flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         printf "\n"
     fi

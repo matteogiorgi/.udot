@@ -1,6 +1,6 @@
 # A very effective GNU/Linux config
 
-This repo contains a minimal configuration of my dotfiles, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are ment to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
+This repo contains a minimal configuration of my *dotfiles*, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are meant to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
 
 
 
@@ -67,8 +67,7 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 - [Gnome Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related): Gnome extensions installer
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation
-- [Compose AI](https://chrome.google.com/webstore/detail/compose-ai-ai-powered-wri/ddlbpiadoechcolndfeaonajmngmhblj/related): AI-powered writing tool
-- [ChatGPT for Google](https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf/related): AI assistant for Google researches
+- [ChatGPT for Google](https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf/related): AI assistant for Google searches
 - [Keepa](https://chrome.google.com/webstore/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo?hl=en-US): Amazon price tracker
 - [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US): TOR proxy
 
@@ -101,6 +100,7 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper
 
 - Base bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+- Software manager: `sudo apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap`
 - Calendar + Mail + Contacts: `sudo apt install gnome-calendar geary gnome-contacts`
 - Terminal + Text editor + File manager: `sudo apt install gnome-terminal gedit nautilus`
 - Document reader + Archive manager: `sudo apt install evince file-roller`
