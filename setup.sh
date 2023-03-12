@@ -280,6 +280,7 @@ sudo apt install -qq -y \
     neovim \
     nano \
     tig \
+    nnn \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -303,7 +304,7 @@ sudo apt install -qq -y \
     system-config-printer \
     ghostwriter \
     input-remapper \
-    nnn
+    gromit-mpx
 
 
 

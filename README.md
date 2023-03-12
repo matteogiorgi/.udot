@@ -42,7 +42,7 @@ i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv nnn tig
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 flameshot diodon pavucontrol gparted mypaint ghostwriter chrome-gnome-shell
-gnome-shell-extension-prefs cups system-config-printer input-remapper
+gnome-shell-extension-prefs cups system-config-printer input-remapper gromit-mpx
 ```
 
 

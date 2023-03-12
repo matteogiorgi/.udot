@@ -271,6 +271,7 @@ sudo apt purge -qq -y \
     neovim \
     nano \
     tig \
+    nnn \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -290,7 +291,7 @@ sudo apt purge -qq -y \
     mypaint \
     ghostwriter \
     input-remapper \
-    nnn
+    gromit-mpx
 
 
 
