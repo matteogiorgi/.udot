@@ -302,9 +302,10 @@ sudo apt install -qq -y \
     gparted \
     mypaint \
     system-config-printer \
-    ghostwriter \
     input-remapper \
-    gromit-mpx
+    gromit-mpx \
+    gnome-calendar \
+    zim
 
 
 

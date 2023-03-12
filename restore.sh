@@ -289,9 +289,10 @@ sudo apt purge -qq -y \
     pavucontrol \
     gparted \
     mypaint \
-    ghostwriter \
     input-remapper \
-    gromit-mpx
+    gromit-mpx \
+    gnome-calendar \
+    zim
 
 
 
