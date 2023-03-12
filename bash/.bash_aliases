@@ -48,12 +48,14 @@ alias fjump="_fjump"
 alias fgit="_fgit"
 alias tig="_tig"
 alias sxiv="_sxiv"
-alias chwall="_chwall"
-alias chtemp="_chtemp"
 alias ipreview="_ipreview"
 alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
 alias gitinit="_gitinit"
+
+
+alias background-picker="_background_picker"
+alias screen-temperature="_screen_temperature"
 
 
 alias atool-add="atool --add"
