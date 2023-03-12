@@ -45,12 +45,20 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 set $winmove 30px
 bindsym $mod+Shift+h move left $winmove
 bindsym $mod+Shift+j move down $winmove
 bindsym $mod+Shift+k move up $winmove
 bindsym $mod+Shift+l move right $winmove
+bindsym $mod+Shift+Left move left $winmove
+bindsym $mod+Shift+Down move down $winmove
+bindsym $mod+Shift+Up move up $winmove
+bindsym $mod+Shift+Right move right $winmove
 
 
 
@@ -63,8 +71,13 @@ mode "Resize" {
     bindsym j resize grow height 30 px or 10 ppt
     bindsym k resize shrink height 30 px or 10 ppt
     bindsym l resize grow width 30 px or 10 ppt
+    bindsym Left resize shrink width 30 px or 10 ppt
+    bindsym Down resize grow height 30 px or 10 ppt
+    bindsym Up resize shrink height 30 px or 10 ppt
+    bindsym Right resize grow width 30 px or 10 ppt
     bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 
@@ -118,8 +131,12 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
+bindsym $mod+Next workspace next
+bindsym $mod+Prior workspace prev
 bindsym $mod+Shift+n move workspace to output right
 bindsym $mod+Shift+p move workspace to output left
+bindsym $mod+Shift+Next move workspace to output right
+bindsym $mod+Shift+Prior move workspace to output left
 
 
 
