@@ -41,8 +41,8 @@ exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl snap flatpak
 i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv nnn tig
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
-flameshot diodon pavucontrol gparted mypaint chrome-gnome-shell gnome-calendar zim
-gnome-shell-extension-prefs cups system-config-printer input-remapper gromit-mpx
+flameshot diodon pavucontrol gparted chrome-gnome-shell zim input-remapper cups
+system-config-printer gnome-shell-extension-prefs
 ```
 
 
@@ -101,7 +101,7 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper gromit-mpx
 - Base bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
 - Software manager: `sudo apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap`
-- Mail + Contacts + Notes: `sudo apt install geary gnome-contacts ghostwriter`
+- Calendar + Mail + Contacts + Notes: `sudo apt install gnome-calendar geary gnome-contacts ghostwriter`
 - Terminal + Text editor + File manager: `sudo apt install gnome-terminal gedit nautilus`
 - Document reader + Archive manager: `sudo apt install evince file-roller`
 - BitTorrent + Media player: `sudo apt install transmission-gtk vlc`
@@ -110,6 +110,7 @@ gnome-shell-extension-prefs cups system-config-printer input-remapper gromit-mpx
 - Live captioning: `flatpak install flathub net.sapples.LiveCaptions`
 - Wallpaper manager: `sudo apt install variety`
 - Dconf: `sudo apt install dconf-editor`
+- Paint + Scatch: `sudo apt install mypaint gromit-mpx`
 - Git client: `sudo apt install gitg`
 
 

@@ -288,10 +288,7 @@ sudo apt purge -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    mypaint \
     input-remapper \
-    gromit-mpx \
-    gnome-calendar \
     zim
 
 

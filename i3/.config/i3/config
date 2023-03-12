@@ -317,11 +317,6 @@ bindsym $mod+w exec "i3-sensible-terminal --title __600x200__ -e ~/.config/i3/i3
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
-bindsym $mod+z exec "zim"
-bindsym $mod+x exec "xournalpp"
-bindsym $mod+c exec "gnome-calendar"
-bindsym $mod+v exec "i3-sensible-terminal -e i3-sensible-editor"
-bindsym Mod1+F9 exec "gromit-mpx"
 
 
 

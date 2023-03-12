@@ -300,11 +300,8 @@ sudo apt install -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    mypaint \
     system-config-printer \
     input-remapper \
-    gromit-mpx \
-    gnome-calendar \
     zim
 
 
