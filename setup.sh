@@ -112,6 +112,9 @@ _backup () {
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
 
+    # gitui
+    [[ -d $HOME/.config/gitui ]] && _clean $HOME/.config/gitui
+
     # helix
     [[ -d $HOME/.config/helix ]] && _clean $HOME/.config/helix
 
@@ -407,7 +410,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone https://github.com/helix-editor/helix $HOME/.udot/HELIX
 cd $HOME/.udot/HELIX; cargo install --locked --path helix-term
 ln -s $PWD/runtime $HOME/.config/helix/runtime; cd -
-cargo install alacritty
+cargo install alacritty gitui
 
 
 

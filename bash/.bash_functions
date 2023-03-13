@@ -330,6 +330,16 @@ function _fgit () {
 }
 
 
+function _gitui () {
+    [[ -f "$HOME/.cargo/bin/gitui" ]] || return 1
+    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
+        gitui
+    else
+        printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
+    fi
+}
+
+
 function _tig () {
     [[ -f "/bin/tig" ]] || return 1
     if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then

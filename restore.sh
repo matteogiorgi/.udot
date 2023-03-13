@@ -98,6 +98,9 @@ _restore () {
     # ctags
     [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
 
+    # gitui
+    [[ -d $RESTORE/gitui ]] && mv $RESTORE/gitui $HOME/.config
+
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
@@ -339,7 +342,7 @@ printf "\n"
 # rustup (helix), build-essential, python3
 
 pip3 uninstall Pillow
-cargo uninstall alacritty
+cargo uninstall alacritty gitui
 
 sudo apt purge -qq -y \
     valgrind \

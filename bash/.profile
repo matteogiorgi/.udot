@@ -97,8 +97,8 @@ fi
 ### i3-sensible-variables and others
 ####################################
 
-# terminal: kitty > alacritty > xterm
-export TERMINAL="/bin/xterm"
+# terminal: kitty > alacritty > lxterm
+export TERMINAL="/bin/lxterm"
 if [[ (( $(echo "$(glxinfo | awk '/OpenGL version/ {print $4}') > 3.3" | bc -l) )) ]]; then
     [[ -x "$(command -v alacritty)" ]] && export TERMINAL="alacritty"
     [[ -x "$(command -v kitty)" ]] && export TERMINAL="/bin/kitty"
