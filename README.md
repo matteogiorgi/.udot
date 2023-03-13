@@ -100,10 +100,10 @@ system-config-printer gnome-shell-extension-prefs
 
 - Base bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Software: `apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap`
+- Software center: `apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap`
 - Calendar + Mail + Contacts: `apt install gnome-calendar geary gnome-contacts`
 - Terminal + Text editor + File manager: `apt install gnome-terminal gedit nautilus`
-- Notes + Paint + Scatch: `apt install ghostwriter mypaint gromit-mpx`
+- Notes + Paint + Scratchpad: `apt install ghostwriter mypaint gromit-mpx`
 - Document reader + Archive manager: `apt install evince file-roller`
 - BitTorrent + Media player: `apt install transmission-gtk vlc`
 - Office suite + Calculator: `apt install libreoffice gnome-calculator`
