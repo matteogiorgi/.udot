@@ -51,10 +51,10 @@ system-config-printer gnome-shell-extension-prefs
 ## Extra packages
 
 - Snap: `brave chromium code codium slides`
-- Cargo: `alacritty gitui`
-- Pip: `Pillow`
 - Deb: `google-chrome`
 - Source: `helix` 
+- Cargo: `alacritty gitui`
+- Pip: `Pillow`
 
 
 
@@ -86,7 +86,7 @@ system-config-printer gnome-shell-extension-prefs
 ## Language support
 
 - Javascript (required for `coc.nvim`): `nodejs`
-- Rust (required for `helix alacritty`): `rustup`
+- Rust (required for `helix alacritty gitui`): `rustup`
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
