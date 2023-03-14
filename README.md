@@ -100,7 +100,7 @@ system-config-printer gnome-shell-extension-prefs
 
 - Base bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Apt packages: `sudo apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap gnome-calendar geary gnome-contacts gnome-terminal gedit nautilus ghostwriter mypaint gromit-mpx evince file-roller transmission-gtk vlc libreoffice gnome-calculator simplescreenrecorder variety dconf-editor gitg`
+- Apt packages: `sudo apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap gnome-calendar geary gnome-contacts gnome-terminal gedit nautilus ghostwriter mypaint gromit-mpx evince file-roller transmission-gtk vlc libreoffice gnome-calculator simplescreenrecorder variety dconf-editor gitg filezilla`
 - Flatpak packages: `flatpak install flathub net.sapples.LiveCaptions`
 
 
