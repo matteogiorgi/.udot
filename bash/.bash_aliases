@@ -55,8 +55,8 @@ alias mergepdf="_mergepdf"
 alias gitinit="_gitinit"
 
 
-alias background-picker="_background_picker"
-alias screen-temperature="_screen_temperature"
+alias wallpaper-picker="_wallpaper_picker"
+alias temperature-picker="_temperature_picker"
 
 
 alias atool-add="atool --add"

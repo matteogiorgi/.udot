@@ -362,7 +362,7 @@ function _sxiv () {
 }
 
 
-function _background_picker () {
+function _wallpaper_picker () {
     BACKGROUNDS="$HOME/Pictures/backgrounds"
     [[ -z "$(\ls -A $BACKGROUNDS 2>/dev/null)" || ! -x "$(command -v feh)" ]] && return 1
     if [[ -x "$(command -v fzf)" ]]; then
@@ -392,7 +392,7 @@ function _background_picker () {
 }
 
 
-function _screen_temperature () {
+function _temperature_picker () {
     [[ -x "$(command -v fzf)" && -x "$(command -v sct)" ]] || return 1
     RANGE="3500      ## Ghibli\n4500      ## Campfire\n5500      ## Scirocco\n6500      ## Midday\n7500      ## Mistral\n8500      ## Chilly\n9500      ## Icy\n"
     TEMPE=$(printf "$RANGE" | fzf --prompt='fcolor > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
