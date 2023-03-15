@@ -96,4 +96,4 @@ xsetroot -cursor_name arrow
 ### Greetings
 #############
 
-notify-send "Greetings $USER                    (ツ)"
+notify-send Greetings "Welcome back $USER."
