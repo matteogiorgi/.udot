@@ -259,7 +259,7 @@ sudo apt install -qq -y \
     vsftpd \
     cups \
     bat \
-    wmctrl
+    dunst
 
 
 

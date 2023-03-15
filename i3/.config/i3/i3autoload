@@ -7,6 +7,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 ### XDG autostart, various applets
 ##################################
 
+[[ -x "$(command -v dunst)" ]] && dunst &
 [[ -x "$(command -v dex)" ]] && dex --autostart --environment i3 &
 [[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
 [[ -x "$(command -v nm-applet)" ]] && nm-applet &

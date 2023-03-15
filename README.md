@@ -29,7 +29,7 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc
 pkg-config lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg
 poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-exuberant-ctags nodejs ufw vsftpd bat ncal sct wmctrl snap flatpak
+exuberant-ctags nodejs ufw vsftpd bat dunst ncal sct snap flatpak
 ```
 
 
