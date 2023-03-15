@@ -109,6 +109,9 @@ _backup () {
     # ctags
     [[ -d $HOME/ctags ]] && _clean $HOME/ctags
 
+    # dunst
+    [[ -d $HOME/.config/dunst ]] && _clean $HOME/.config/dunst
+
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
 
@@ -259,6 +262,7 @@ sudo apt install -qq -y \
     vsftpd \
     cups \
     bat \
+    libnotify-bin \
     dunst
 
 

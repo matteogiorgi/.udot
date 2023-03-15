@@ -98,11 +98,14 @@ _restore () {
     # ctags
     [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
 
-    # gitui
-    [[ -d $RESTORE/gitui ]] && mv $RESTORE/gitui $HOME/.config
+    # dunst
+    [[ -d $RESTORE/dunst ]] && mv $RESTORE/dunst $HOME/.config
 
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
+
+    # gitui
+    [[ -d $RESTORE/gitui ]] && mv $RESTORE/gitui $HOME/.config
 
     # helix
     [[ -d $RESTORE/helix ]] && mv $RESTORE/helix $HOME/.config
