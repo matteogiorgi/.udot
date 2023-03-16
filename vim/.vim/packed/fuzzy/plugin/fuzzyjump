@@ -9,7 +9,7 @@ while true; do
     printf '%s\n' "$PWD" >~/.fjump.tmp
     [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
     FILE="$(${LIST} | fzf --ansi --preview 'mess {}' --preview-window 'down,80%,border-sharp' \
-            --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt="$PWD$GIT_BRANCH > " \
+            --bind 'change:first,ctrl-h:cancel,ctrl-l:toggle-preview,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up' --prompt="$PWD$GIT_BRANCH > " \
             --height 100% --margin 0% --reverse --info=hidden --header-first)"
     [[ -z "$FILE" ]] && exit 1
     if [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]]; then

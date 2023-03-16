@@ -29,7 +29,7 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc
 pkg-config lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg
 poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-exuberant-ctags nodejs ufw vsftpd bat dunst ncal sct snap flatpak libnotify-bin
+exuberant-ctags nodejs ufw vsftpd bat dunst sct snap flatpak libnotify-bin chafa
 ```
 
 
@@ -42,7 +42,7 @@ i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv nnn tig
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 flameshot diodon pavucontrol gparted chrome-gnome-shell zim input-remapper cups
-system-config-printer gnome-shell-extension-prefs
+system-config-printer gnome-shell-extension-prefs ncal
 ```
 
 
@@ -54,7 +54,6 @@ system-config-printer gnome-shell-extension-prefs
 - Deb: `google-chrome`
 - Source: `helix` 
 - Cargo: `alacritty gitui`
-- Pip: `Pillow`
 
 
 
@@ -67,7 +66,6 @@ system-config-printer gnome-shell-extension-prefs
 - [Gnome Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep/related): Gnome extensions installer
 - [123Apps](https://chrome.google.com/webstore/detail/web-apps-by-123apps/dpplndkoilcedkdjicmbeoahnckdcnle?hl=en-US): productivity apps
 - [DeepL](https://chrome.google.com/webstore/detail/deepl-translate-reading-w/cofdbpoegempjloogbagkncekinflcnj): natural machine translation
-- [ChatGPT for Google](https://chrome.google.com/webstore/detail/chatgpt-for-google/jgjaeacdkonaoafenlfkkkmbaopkbilf/related): AI assistant for Google searches
 - [Keepa](https://chrome.google.com/webstore/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo?hl=en-US): Amazon price tracker
 - [Onion](https://chrome.google.com/webstore/detail/onion-browser-button/fockhhgebmfjljjmjhbdgibcmofjbpca?hl=en-US): TOR proxy
 

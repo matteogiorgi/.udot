@@ -245,7 +245,6 @@ sudo apt purge -qq -y \
     atool \
     trash-cli \
     htop \
-    ncal \
     tree \
     lxpolkit \
     xclip \
@@ -266,6 +265,7 @@ sudo apt purge -qq -y \
     vsftpd \
     bat \
     dunst \
+    chafa \
     i3-wm \
     xautolock \
     arandr \
@@ -295,7 +295,8 @@ sudo apt purge -qq -y \
     pavucontrol \
     gparted \
     input-remapper \
-    zim
+    zim \
+    ncal
 
 
 
@@ -344,9 +345,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # rustup (helix), build-essential, python3
 
-pip3 uninstall Pillow
 cargo uninstall alacritty gitui
-
 sudo apt purge -qq -y \
     valgrind \
     gdb \

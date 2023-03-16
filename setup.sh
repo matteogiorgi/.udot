@@ -231,7 +231,6 @@ sudo apt install -qq -y \
     atool \
     trash-cli \
     htop \
-    ncal \
     tree \
     make \
     gcc \
@@ -263,7 +262,8 @@ sudo apt install -qq -y \
     cups \
     bat \
     libnotify-bin \
-    dunst
+    dunst \
+    chafa
 
 
 
@@ -309,7 +309,8 @@ sudo apt install -qq -y \
     gparted \
     system-config-printer \
     input-remapper \
-    zim
+    zim \
+    ncal
 
 
 
@@ -444,7 +445,6 @@ if _ask "    Add full language support?" Y; then
         opam-doc
 
     printf "\n"
-    pip3 install Pillow
 fi
 
 

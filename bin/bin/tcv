@@ -4,7 +4,7 @@
 ## REQUIREMENTS
 ###############
 
-# + Python3 with PIL
+# + Python3 with PIL: pip3 install Pillow
 # + A terminal with:
 #   - 24-bit color support (aka true color).
 #   - At least partial UTF-8 support ('▀' characters).

@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
 # FZF git commit browser:
-# [enter=show] [ctrl-d=diff] [`=sort]
+# [enter=show] [ctrl-d=diff] [ctrl-l=sort]
 while out=$(
         git log --graph --color=always \
             --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
         fzf --prompt="$PWD > " --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
-            --print-query --expect=ctrl-d --toggle-sort=\`); do
+            --bind 'change:first,ctrl-h:cancel' \
+            --print-query --expect=ctrl-d --toggle-sort=ctrl-l); do
     q=$(head -1 <<< "$out")
     k=$(head -2 <<< "$out" | tail -1)
     shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
