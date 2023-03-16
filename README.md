@@ -77,7 +77,6 @@ system-config-printer gnome-shell-extension-prefs
 ## Gnome extensions - [Webstore](https://extensions.gnome.org/)
 
 - [Unite](https://extensions.gnome.org/extension/1287/unite/): layout tweaks
-- [User themes](https://extensions.gnome.org/extension/19/user-themes/): theme support
 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/): disable auto-lock
 
 
