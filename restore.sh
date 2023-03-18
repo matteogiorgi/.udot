@@ -104,9 +104,6 @@ _restore () {
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
-    # gitui
-    [[ -d $RESTORE/gitui ]] && mv $RESTORE/gitui $HOME/.config
-
     # helix
     [[ -d $RESTORE/helix ]] && mv $RESTORE/helix $HOME/.config
 
@@ -277,7 +274,6 @@ sudo apt purge -qq -y \
     neovim \
     nano \
     tig \
-    nnn \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -345,7 +341,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # rustup (helix), build-essential, python3
 
-cargo uninstall alacritty gitui
+cargo uninstall alacritty
 sudo apt purge -qq -y \
     valgrind \
     gdb \

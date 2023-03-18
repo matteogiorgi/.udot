@@ -38,11 +38,11 @@ exuberant-ctags nodejs ufw vsftpd bat dunst sct snap flatpak libnotify-bin chafa
 ## Main packages
 
 ```
-i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv nnn tig
+i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv tig ncal
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 flameshot diodon pavucontrol gparted chrome-gnome-shell zim input-remapper cups
-system-config-printer gnome-shell-extension-prefs ncal
+system-config-printer gnome-shell-extension-prefs
 ```
 
 
@@ -53,7 +53,7 @@ system-config-printer gnome-shell-extension-prefs ncal
 - Snap: `brave chromium code codium slides`
 - Deb: `google-chrome`
 - Source: `helix` 
-- Cargo: `alacritty gitui`
+- Cargo: `alacritty`
 
 
 
@@ -83,7 +83,7 @@ system-config-printer gnome-shell-extension-prefs ncal
 ## Language support
 
 - Javascript (required for `coc.nvim`): `nodejs`
-- Rust (required for `helix alacritty gitui`): `rustup`
+- Rust (required for `helix alacritty`): `rustup`
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`

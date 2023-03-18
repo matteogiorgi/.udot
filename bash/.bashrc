@@ -158,7 +158,6 @@ fi
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
 export PAGER="/bin/less -~"
-export VISUAL="${EDITOR=/bin/vi}"
 
 
 
@@ -172,8 +171,8 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
-## Nnn vars
-###########
+## Nnn vars (if installed)
+##########################
 
 export NNN_OPENER='swallow'
 
@@ -228,18 +227,14 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 set -o vi
 PROMPT=${PS1@P}
 
-bind -m vi-command -x '"\C-f": ffind'
-bind -m vi-command -x '"\C-g": fgit'
-bind -m vi-command -x '"\C-h": gitui'
+bind -m vi-command -x '"\C-h": fgit'
 bind -m vi-command -x '"\C-j": fjump'
-bind -m vi-command -x '"\C-k": nnn'
+bind -m vi-command -x '"\C-k": ffind'
 bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
 
-bind -m vi-insert -x '"\C-f": ffind'
-bind -m vi-insert -x '"\C-g": fgit'
-bind -m vi-insert -x '"\C-h": gitui'
+bind -m vi-insert -x '"\C-h": fgit'
 bind -m vi-insert -x '"\C-j": fjump'
-bind -m vi-insert -x '"\C-k": nnn'
+bind -m vi-insert -x '"\C-k": ffind'
 bind -m vi-insert -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
 
 bind 'TAB:menu-complete'

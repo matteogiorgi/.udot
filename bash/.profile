@@ -106,8 +106,15 @@ fi
 
 # editor: nvim > vim > vi
 export VISUAL="/bin/vi"
-[[ -x "$(command -v vim)" ]] && export VISUAL="/bin/vim"
-[[ -x "$(command -v nvim)" ]] && export VISUAL="/bin/nvim"
+export EDITOR="/bin/vi"
+if [[ -x "$(command -v vim)" ]]; then
+    export VISUAL="/bin/vim"
+    export EDITOR="/bin/vim"
+fi
+if [[ -x "$(command -v nvim)" ]]; then
+    export VISUAL="/bin/nvim"
+    export EDITOR="/bin/nvim"
+fi
 
 
 
