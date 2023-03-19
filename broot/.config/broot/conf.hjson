@@ -23,7 +23,7 @@
 # if you don't want the hidden files you can launch `br -H`)
 # A popular flag is the `g` one which displays git related info.
 #
-# default_flags:
+default_flags:"gist"
 
 ###############################################################
 # Date/Time format
@@ -178,12 +178,12 @@ imports: [
             dark
             unknown
         ]
-        file: broot_skin_dark.hjson
+        file: skin_dark.hjson
     }
 
     # This skin is imported when your terminal is light
     {
         luma: light
-        file: broot_skin_light.hjson
+        file: skin_light.hjson
     }
 ]
