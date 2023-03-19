@@ -28,8 +28,9 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 ```
 wmctrl xtermcontrol curl wget stow autorandr git atool trash-cli htop tree make gcc
 pkg-config lxpolkit xclip fzf ripgrep wamerican witalian mesa-utils xdo feh ffmpeg
-poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono xdotool
-exuberant-ctags nodejs ufw vsftpd bat dunst sct snap flatpak libnotify-bin chafa
+poppler-utils mediainfo texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono sct
+exuberant-ctags nodejs ufw vsftpd bat dunst snap flatpak libnotify-bin chafa coreutils
+xdg-utils w3m-img xdotool fbset
 ```
 
 
@@ -42,7 +43,7 @@ i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv tig ncal
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 flameshot diodon pavucontrol gparted chrome-gnome-shell zim input-remapper cups
-system-config-printer gnome-shell-extension-prefs
+system-config-printer gnome-shell-extension-prefs nnn
 ```
 
 
@@ -53,7 +54,7 @@ system-config-printer gnome-shell-extension-prefs
 - Snap: `brave chromium code codium slides`
 - Deb: `google-chrome`
 - Source: `helix` 
-- Cargo: `alacritty`
+- Cargo: `alacritty broot`
 
 
 
@@ -83,7 +84,7 @@ system-config-printer gnome-shell-extension-prefs
 ## Language support
 
 - Javascript (required for `coc.nvim`): `nodejs`
-- Rust (required for `helix alacritty`): `rustup`
+- Rust (required for `helix alacritty broot`): `rustup`
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`

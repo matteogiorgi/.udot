@@ -171,10 +171,10 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
-## Nnn vars (if installed)
-##########################
+## NNN vars
+###########
 
-export NNN_OPENER='swallow'
+export NNN_OPENER="swallow"
 
 
 
@@ -231,11 +231,15 @@ bind -m vi-command -x '"\C-h": fgit'
 bind -m vi-command -x '"\C-j": fjump'
 bind -m vi-command -x '"\C-k": ffind'
 bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
+bind -m vi-command -x '"\C-n": nnn'
+bind -m vi-command -x '"\C- ": broot'
 
 bind -m vi-insert -x '"\C-h": fgit'
 bind -m vi-insert -x '"\C-j": fjump'
 bind -m vi-insert -x '"\C-k": ffind'
 bind -m vi-insert -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
+bind -m vi-insert -x '"\C-n": nnn'
+bind -m vi-insert -x '"\C- ": broot'
 
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'

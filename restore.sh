@@ -95,6 +95,9 @@ _restore () {
     # bin
     [[ -d $RESTORE/bin ]] && mv $RESTORE/bin $HOME
 
+    # broot
+    [[ -d $RESTORE/broot ]] && mv $RESTORE/broot $HOME/.config
+
     # ctags
     [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
 
@@ -233,6 +236,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # wmctrl git curl wget make gcc wamerican witalian
 # fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
+# coreutils xdg-utils w3m-img xdotool fbset
 
 sudo apt purge -qq -y \
     wmctrl \
@@ -292,7 +296,8 @@ sudo apt purge -qq -y \
     gparted \
     input-remapper \
     zim \
-    ncal
+    ncal \
+    nnn
 
 
 
@@ -341,7 +346,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # rustup (helix), build-essential, python3
 
-cargo uninstall alacritty
+cargo uninstall alacritty broot
 sudo apt purge -qq -y \
     valgrind \
     gdb \

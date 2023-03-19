@@ -290,6 +290,24 @@ function _nnn () {
 }
 
 
+function _broot () {
+    PROMPT=${PS1@P}
+    local cmd cmd_file code
+    cmd_file=$(mktemp)
+    if broot --outcmd "$cmd_file" "$@"; then
+        cmd=$(<"$cmd_file")
+        command rm -f "$cmd_file"
+        eval "$cmd"
+    else
+        code=$?
+        command rm -f "$cmd_file"
+        return "$code"
+    fi
+    NEWPROMPT=${PS1@P}
+    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
+}
+
+
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}

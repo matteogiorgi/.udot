@@ -82,8 +82,10 @@ endif
 " Mode-selector {{{
 if exists('coc_mode')
     let plugin_mode = 'coc'
+    colorscheme hembox
 else
     let plugin_mode = 'fzf'
+    colorscheme hemisu
 endif
 " }}}
 
@@ -165,7 +167,6 @@ endif
 " Syntax {{{
 syntax on
 filetype plugin indent on
-colorscheme hembox
 " }}}
 
 

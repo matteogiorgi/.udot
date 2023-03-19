@@ -80,8 +80,11 @@ echo "$1" | grep "\.sent$" && {
 # check the relative mime-type here:
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "${FILE}" -bL) in
-    audio/* | video/*)
+    audio/*)
         _run "_mpv" "${FILE}"
+        ;;
+    video/*)
+        _run "mpv --force-window --no-terminal --msg-level=all=no" "${FILE}"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
         _run "zathura" "${FILE}"
