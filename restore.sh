@@ -95,9 +95,6 @@ _restore () {
     # bin
     [[ -d $RESTORE/bin ]] && mv $RESTORE/bin $HOME
 
-    # broot
-    [[ -d $RESTORE/broot ]] && mv $RESTORE/broot $HOME/.config
-
     # ctags
     [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
 
@@ -296,8 +293,7 @@ sudo apt purge -qq -y \
     gparted \
     input-remapper \
     zim \
-    ncal \
-    nnn
+    ncal
 
 
 
@@ -346,7 +342,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # rustup (helix), build-essential, python3
 
-cargo uninstall alacritty broot
+cargo uninstall alacritty
 sudo apt purge -qq -y \
     valgrind \
     gdb \

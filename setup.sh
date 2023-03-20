@@ -106,9 +106,6 @@ _backup () {
     # bin
     [[ -d $HOME/bin ]] && _clean $HOME/bin
 
-    # broot
-    [[ -d $HOME/.config/broot ]] && _clean $HOME/.config/broot
-
     # ctags
     [[ -d $HOME/ctags ]] && _clean $HOME/ctags
 
@@ -314,8 +311,7 @@ sudo apt install -qq -y \
     system-config-printer \
     input-remapper \
     zim \
-    ncal \
-    nnn
+    ncal
 
 
 
@@ -420,7 +416,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone https://github.com/helix-editor/helix $HOME/.udot/HELIX
 cd $HOME/.udot/HELIX; cargo install --locked --path helix-term
 ln -s $PWD/runtime $HOME/.config/helix/runtime; cd -
-cargo install alacritty broot
+cargo install alacritty
 
 
 

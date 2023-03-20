@@ -19,11 +19,11 @@ NC='\033[0m'
 # FUNCTIONS
 ###########
 
-function _ff () {
+function _f () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
-            grep -v _ff | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
-            fzf --prompt='Choose you FUCKING FUNCTION mate > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+            grep -v _f | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
+            fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
     read -p "$SHFUN: " ARGS
     "$SHFUN" "$ARGS"
@@ -272,42 +272,6 @@ function _shfm () {
 }
 
 
-function _nnn () {
-    [[ -f "/bin/nnn" ]] || return 1
-    if [[ "${NNNLVL:-0}" -ge 1 ]]; then
-        echo "nnn is already running"
-        return
-    fi
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    PROMPT=${PS1@P}
-    \nnn -c "$@"
-    if [ -f "$NNN_TMPFILE" ]; then
-        . "$NNN_TMPFILE"
-        NEWPROMPT=${PS1@P}
-        [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-        rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
-
-
-function _broot () {
-    PROMPT=${PS1@P}
-    local cmd cmd_file code
-    cmd_file=$(mktemp)
-    if broot --outcmd "$cmd_file" "$@"; then
-        cmd=$(<"$cmd_file")
-        command rm -f "$cmd_file"
-        eval "$cmd"
-    else
-        code=$?
-        command rm -f "$cmd_file"
-        return "$code"
-    fi
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-}
-
-
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}
@@ -343,16 +307,6 @@ function _fgit () {
                 done
             fi
         done
-    else
-        printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
-    fi
-}
-
-
-function _gitui () {
-    [[ -f "$HOME/.cargo/bin/gitui" ]] || return 1
-    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
-        gitui
     else
         printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
     fi
