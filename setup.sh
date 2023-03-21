@@ -128,9 +128,6 @@ _backup () {
     # kitty
     [[ -d $HOME/.config/kitty ]] && _clean $HOME/.config/kitty
 
-    # lf
-    [[ -d $HOME/.config/lf ]] && _clean $HOME/.config/lf
-
     # nano
     [[ -f $HOME/.nanorc ]] && _clean $HOME/.nanorc
 
@@ -445,11 +442,6 @@ if _ask "    Add full language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
-
-    printf "\n"
-    read -p "    Installing Lf (enter to continue)"
-    printf "\n"
-    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 fi
 
 

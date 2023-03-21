@@ -117,9 +117,6 @@ _restore () {
     # kitty
     [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
 
-    # lf
-    [[ -d $RESTORE/lf ]] && mv $RESTORE/lf $HOME/.config
-
     # nano
     [[ -f $RESTORE/.nanorc ]] && mv $RESTORE/.nanorc $HOME
 

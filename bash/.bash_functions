@@ -272,24 +272,6 @@ function _shfm () {
 }
 
 
-function _lf () {
-    PROMPT=${PS1@P}
-    tmp="$(mktemp)"
-    lf -last-dir-path="$tmp" "$@"
-    if [[ -f "$tmp" ]]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [[ -d "$dir" ]]; then
-            if [[ "$dir" != "$(pwd)" ]]; then
-                cd "$dir"
-            fi
-        fi
-    fi
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-}
-
-
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}

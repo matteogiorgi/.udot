@@ -53,7 +53,7 @@ system-config-printer gnome-shell-extension-prefs
 
 - Snap: `brave chromium code codium slides`
 - Deb: `google-chrome`
-- Source: `helix, lf` 
+- Source: `helix`
 - Cargo: `alacritty`
 
 
