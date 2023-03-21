@@ -128,6 +128,9 @@ _backup () {
     # kitty
     [[ -d $HOME/.config/kitty ]] && _clean $HOME/.config/kitty
 
+    # lf
+    [[ -d $HOME/.config/lf ]] && _clean $HOME/.config/lf
+
     # nano
     [[ -f $HOME/.nanorc ]] && _clean $HOME/.nanorc
 
@@ -265,7 +268,8 @@ sudo apt install -qq -y \
     xdg-utils \
     w3m-img \
     xdotool \
-    fbset
+    fbset \
+    ffmpegthumbnailer
 
 
 
@@ -316,52 +320,49 @@ sudo apt install -qq -y \
 
 
 
-### Add snap/extra packages
-###########################
+### Add snap/flatpak/extra packages
+###################################
 
 printf "\n"
-if _ask "    Add snap/flatpak packages?" Y; then
-    if [[ ! -x "$(command -v snap)" ]]; then
-        printf "\n"
-        sudo apt install -qq -y snapd
-        printf "\n"
-    fi
-    if [[ ! -x "$(command -v flatpak)" ]]; then
-        printf "\n"
-        sudo apt install -qq -y flatpak
-        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        printf "\n"
-    fi
-    if _ask "    Install Google-Chrome?" Y; then
-        printf "\n"
-        _install_chrome
-        printf "\n"
-    fi
-    if _ask "    Install Brave?" Y; then
-        printf "\n"
-        sudo snap install brave
-        printf "\n"
-    fi
-    if _ask "    Install Chromium?" N; then
-        printf "\n"
-        sudo snap install chromium
-        printf "\n"
-    fi
-    if _ask "    Install Code?" Y; then
-        printf "\n"
-        sudo snap install --classic code
-        printf "\n"
-    fi
-    if _ask "    Install Codium?" N; then
-        printf "\n"
-        sudo snap install --classic codium
-        printf "\n"
-    fi
-    if _ask "    Install Slides?" N; then
-        printf "\n"
-        sudo snap install slides
-        printf "\n"
-    fi
+read -p "    Installing snap/flatpak (enter to continue)"
+printf "\n"
+
+# snap/flatpak
+if [[ ! -x "$(command -v snap)" ]]; then
+    sudo apt install -qq -y snapd
+    printf "\n"
+fi
+if [[ ! -x "$(command -v flatpak)" ]]; then
+    sudo apt install -qq -y flatpak
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    printf "\n"
+fi
+
+# google-chrome, code
+_install_chrome
+sudo snap install --classic code
+
+# brave, chromium, codium, slides
+printf "\n"
+if _ask "    Install Brave?" Y; then
+    printf "\n"
+    sudo snap install brave
+    printf "\n"
+fi
+if _ask "    Install Chromium?" N; then
+    printf "\n"
+    sudo snap install chromium
+    printf "\n"
+fi
+if _ask "    Install Codium?" N; then
+    printf "\n"
+    sudo snap install --classic codium
+    printf "\n"
+fi
+if _ask "    Install Slides?" N; then
+    printf "\n"
+    sudo snap install slides
+    printf "\n"
 fi
 
 
@@ -446,6 +447,9 @@ if _ask "    Add full language support?" Y; then
         opam-doc
 
     printf "\n"
+    read -p "    Installing Lf (enter to continue)"
+    printf "\n"
+    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 fi
 
 

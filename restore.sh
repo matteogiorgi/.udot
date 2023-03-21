@@ -117,6 +117,9 @@ _restore () {
     # kitty
     [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
 
+    # lf
+    [[ -d $RESTORE/lf ]] && mv $RESTORE/lf $HOME/.config
+
     # nano
     [[ -f $RESTORE/.nanorc ]] && mv $RESTORE/.nanorc $HOME
 
@@ -233,7 +236,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # wmctrl git curl wget make gcc wamerican witalian
 # fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
-# coreutils xdg-utils w3m-img xdotool fbset
+# coreutils xdg-utils w3m-img xdotool fbset ffmpegthumbnailer
 
 sudo apt purge -qq -y \
     wmctrl \

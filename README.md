@@ -30,7 +30,7 @@ coreutils xdg-utils xdotool w3m-img fbset wmctrl xtermcontrol curl wget stow
 autorandr git atool trash-cli htop tree make gcc pkg-config lxpolkit xclip fzf
 ripgrep wamerican witalian mesa-utils xdo feh ffmpeg poppler-utils mediainfo
 texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono sct exuberant-ctags nodejs
-ufw vsftpd bat dunst snap flatpak libnotify-bin chafa
+ufw vsftpd bat dunst snap flatpak libnotify-bin chafa ffmpegthumbnailer
 ```
 
 
@@ -53,7 +53,7 @@ system-config-printer gnome-shell-extension-prefs
 
 - Snap: `brave chromium code codium slides`
 - Deb: `google-chrome`
-- Source: `helix` 
+- Source: `helix, lf` 
 - Cargo: `alacritty`
 
 
