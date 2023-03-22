@@ -343,6 +343,7 @@ printf "\n"
 # rustup (helix), build-essential, python3
 
 cargo uninstall alacritty
+pip uninstall Pillow
 sudo apt purge -qq -y \
     valgrind \
     gdb \

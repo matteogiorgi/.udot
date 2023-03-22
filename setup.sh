@@ -442,6 +442,7 @@ if _ask "    Add full language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
+    pip install Pillow
 fi
 
 
