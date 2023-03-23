@@ -103,14 +103,16 @@ endfunction
 let g:lightline = {
             \ 'colorscheme': 'powerlineish',
             \ 'active': {
-            \     'left': [ [ 'mode', 'paste' ],
-            \               [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+            \     'left': [
+            \         [ 'mode', 'paste' ],
+            \         [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ]
+            \     ]
             \ },
             \ 'component_function': {
             \     'cocstatus': 'coc#status',
             \     'currentfunction': 'CocCurrentFunction'
-            \ },
             \ }
+      \ }
 
 
 
