@@ -90,6 +90,28 @@ function! ShowDocumentation()
     endif
 endfunction
 
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
+
+
+
+"" Lightline
+""""""""""""
+
+let g:lightline = {
+            \ 'colorscheme': 'powerlineish',
+            \ 'active': {
+            \     'left': [ [ 'mode', 'paste' ],
+            \               [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \     'cocstatus': 'coc#status',
+            \     'currentfunction': 'CocCurrentFunction'
+            \ },
+            \ }
+
 
 
 
