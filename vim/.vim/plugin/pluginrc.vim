@@ -34,9 +34,9 @@ let g:lightline = {
             \         [ 'readonly', 'filename', 'modified' ]
             \     ],
             \     'right': [
-            \         ['filetype'],
-            \         ['lineinfo'],
-            \         ['percent']
+            \         [ 'filetype' ],
+            \         [ 'lineinfo' ],
+            \         [ 'percent' ]
             \     ],
             \ },
             \ 'component_function': {
