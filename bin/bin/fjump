@@ -14,7 +14,7 @@ function main () {
         printf '%s\n' "$PWD" > /tmp/fjump${PARENTPID}
         [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
         FILE="$(${LIST} | fzf --ansi --preview 'mess {}' --preview-window 'down,80%,border-sharp' `
-                `--bind 'esc:,change:first,ctrl-h:cancel,ctrl-l:toggle-preview,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up,ctrl-f:execute(feh --bg-fill {})' --prompt="$PWD$GIT_BRANCH > " `
+                `--bind 'esc:,change:first,ctrl-h:cancel,ctrl-l:toggle-preview,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up,ctrl-o:execute(nohup xdg-open {} &>/tmp/fjump.out & disown),ctrl-c:execute(code {}),ctrl-f:execute(feh --bg-fill {})' --prompt="$PWD$GIT_BRANCH > " `
                 `--height 100% --margin 0% --reverse --info=hidden --header-first)"
         [[ -z "$FILE" ]] && exit 1
         [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
