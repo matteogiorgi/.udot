@@ -2,6 +2,7 @@
 ""                                 E-VIM PLUGINS
 ""                    [ https://github.com/junegunn/vim-plug ]
 ""
+""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""    vim-pandoc ··················· https://github.com/vim-pandoc/vim-pandoc
 ""    vim-pandoc-syntax ············ https://github.com/vim-pandoc/vim-pandoc-syntax
 ""    vim-surround ················· https://github.com/tpope/vim-surround
@@ -13,7 +14,6 @@
 ""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
 ""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 ""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
-""    lightline.vim ················ https://github.com/itchyny/lightline.vim
 ""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 ""    copilot.vim ·················· https://github.com/github/copilot.vim
 ""
@@ -102,6 +102,8 @@ if !exists('noplugin')
         Plug '$HOME/.vim/packed/qbuf'
         Plug '$HOME/.vim/packed/startscreen'
         Plug '$HOME/.vim/packed/utility'
+        Plug '$HOME/.vim/packed/lines'
+        Plug 'itchyny/lightline.vim'
         Plug 'vim-pandoc/vim-pandoc'
         Plug 'vim-pandoc/vim-pandoc-syntax'
         Plug 'tpope/vim-surround'
@@ -112,10 +114,8 @@ if !exists('noplugin')
         Plug 'wellle/context.vim'
         Plug 'ludovicchabant/vim-gutentags'
         if plugin_mode ==? 'coc'
-            Plug 'itchyny/lightline.vim'
             Plug 'neoclide/coc.nvim', {'branch' : 'release'}
         else
-            Plug '$HOME/.vim/packed/lines'
             Plug '$HOME/.vim/packed/simple-complete'
             Plug '$HOME/.vim/packed/notewiki'
             Plug 'jiangmiao/auto-pairs'
@@ -189,7 +189,7 @@ set hlsearch incsearch
 set nowrap nospell  " set spell complete+=kspell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
-set showcmd  " (no)showmode
+set noshowmode showcmd
 set cursorline noerrorbells novisualbell
 set splitbelow splitright
 set equalalways
@@ -205,9 +205,6 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
-if plugin_mode ==? 'coc'
-    set noshowmode
-endif
 if !has('nvim')
     set nocompatible
     set esckeys

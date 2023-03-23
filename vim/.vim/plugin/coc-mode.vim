@@ -65,12 +65,6 @@ augroup hlcursor
     autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup end
 
-augroup formatgroup
-    autocmd!
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
 
 
 
@@ -89,30 +83,6 @@ function! ShowDocumentation()
         call feedkeys('K', 'in')
     endif
 endfunction
-
-function! CocCurrentFunction()
-    return get(b:, 'coc_current_function', '')
-endfunction
-
-
-
-
-"" Lightline
-""""""""""""
-
-let g:lightline = {
-            \ 'colorscheme': 'powerlineish',
-            \ 'active': {
-            \     'left': [
-            \         [ 'mode', 'paste' ],
-            \         [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ]
-            \     ]
-            \ },
-            \ 'component_function': {
-            \     'cocstatus': 'coc#status',
-            \     'currentfunction': 'CocCurrentFunction'
-            \ }
-      \ }
 
 
 
