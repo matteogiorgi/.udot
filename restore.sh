@@ -293,6 +293,7 @@ sudo apt purge -qq -y \
     gparted \
     input-remapper \
     zim \
+    nnn \
     ncal
 
 

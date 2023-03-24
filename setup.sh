@@ -312,6 +312,7 @@ sudo apt install -qq -y \
     system-config-printer \
     input-remapper \
     zim \
+    nnn \
     ncal
 
 

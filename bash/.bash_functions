@@ -141,24 +141,6 @@ function _setbackgroundcolor () {
 }
 
 
-function _kitty_theme () {
-    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        if [[ "$BACKGROUNDCOLOR" == "'light'" ]]; then
-            kitty @ set-colors --all --configured $HOME/.config/kitty/colors/gnome-dark.conf
-            export BAT_THEME="gruvbox-dark"
-            export BACKGROUNDCOLOR="'dark'"
-        else
-            kitty @ set-colors --all --configured $HOME/.config/kitty/colors/gnome-light.conf
-            export BAT_THEME="gruvbox-light"
-            export BACKGROUNDCOLOR="'light'"
-        fi
-    else
-        printf "${YLW}%s${NC}\n" "You're not inside Kitty mate!"
-    fi
-}
-
-
 function _vim () {
     [[ -f "/bin/vim" ]] || return 1
     [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
@@ -269,6 +251,24 @@ function _shfm () {
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
     rm -f /tmp/shfm
+}
+
+
+function _nnn () {
+    [[ -f "/bin/nnn" ]] || return 1
+    if [[ "${NNNLVL:-0}" -ge 1 ]]; then
+        echo "nnn is already running"
+        return
+    fi
+    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+    PROMPT=${PS1@P}
+    \nnn -c "$@"
+    if [ -f "$NNN_TMPFILE" ]; then
+        . "$NNN_TMPFILE"
+        NEWPROMPT=${PS1@P}
+        [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
+        rm -f "$NNN_TMPFILE" > /dev/null
+    fi
 }
 
 
@@ -496,13 +496,15 @@ function _xlayout () {
 }
 
 
-function _ipreview () {
-    # remember to install PIL/Pillow:
-    # pip3 install PIL/Pillow
+function _piclick () {
     FILE=$*
     if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
         kitty +kitten icat "$FILE"
-    elif [[ -x "$(command -v tcv)" ]]; then
+    elif [[ -x "$(command -v w3m)" && -f "$HOME/bin/drawimg" ]]; then
+        drawimg "$FILE" 2>/dev/null
+    elif [[ -x "$(command -v chafa)" ]]; then
+        chafa --dither diffusion --dither-grain 1 --dither-intensity 10 "$FILE"
+    elif [[ -x "$(command -v tcv)" && -x "$(command -v pip)" && $(pip list | grep Pillow) ]]; then
         tcv "$FILE" 2>/dev/null
     else
         printf "${RED}%s${NC}\n" "Can't preview shit, sorry mate!"

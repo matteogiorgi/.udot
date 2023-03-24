@@ -174,8 +174,15 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 ## Bat vars
 ###########
 
-[[ -z "$BACKGROUNDCOLOR" && "$(type -t _setbackgroundcolor)" == function ]] && _setbackgroundcolor
-[[ "$BACKGROUNDCOLOR" == "'light'" ]] && export BAT_THEME="gruvbox-light" || export BAT_THEME="gruvbox-dark"
+export BAT_THEME="ansi"
+
+
+
+
+## Nnn vars
+###########
+
+export NNN_OPENER="swallow"
 
 
 
@@ -223,11 +230,13 @@ bind -m vi-command -x '"\C-h": fgit'
 bind -m vi-command -x '"\C-j": fjump'
 bind -m vi-command -x '"\C-k": ffind'
 bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
+bind -m vi-command -x '"\C-n": nnn'
 
 bind -m vi-insert -x '"\C-h": fgit'
 bind -m vi-insert -x '"\C-j": fjump'
 bind -m vi-insert -x '"\C-k": ffind'
 bind -m vi-insert -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
+bind -m vi-insert -x '"\C-n": nnn'
 
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
