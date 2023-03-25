@@ -377,7 +377,7 @@ function _autorandr_mode () {
     [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
     source $HOME/.xinput.bash
     AUTORANDRMODE="$*"
-    [[ -x "$(command -v arandr)" ]] || return 1
+    [[ -x "$(command -v autorandr)" ]] || return 1
     if [[ "$AUTORANDRMODE" == "" ]]; then
         printf "${YLW}%s${NC}\n" "You need to specify your monitor mode mate!"
         return
