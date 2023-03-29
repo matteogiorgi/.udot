@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# An example of a list dialogue using zenity.
+# Other types of zenity dialogues are:
+#   --calendar
+#   --color-selection
+#   --file-selection
+#   --forms
+#   --notification
+#   --password
+#   --progress
+#   --scale
+#   --entry
+#   --text-info
+
+
+EXITI3=$(zenity --list \
+            --title='Exit I3' \
+            --column='Mode' --column='Command' \
+                Logout 'i3-msg exit' \
+                Reboot 'i3-msg exec reboot' \
+                Poweroff 'i3-msg exec powersoff')
+
+case "$EXITI3" in
+    "Logout")
+        i3-msg exit
+        ;;
+    "Reboot")
+        i3-msg exec reboot
+        ;;
+    "Poweroff")
+        i3-msg exec poweroff
+        ;;
+esac

@@ -98,9 +98,6 @@ _restore () {
     # ctags
     [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
 
-    # dunst
-    [[ -d $RESTORE/dunst ]] && mv $RESTORE/dunst $HOME/.config
-
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
@@ -233,7 +230,7 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # wmctrl git curl wget make gcc wamerican witalian
 # fonts-ubuntu network-manager adwaita-icon-theme gnome-themes-extra
-# coreutils xdg-utils w3m-img xdotool fbset ffmpegthumbnailer
+# coreutils xdg-utils w3m-img xdotool fbset ffmpegthumbnailer zenity
 
 sudo apt purge -qq -y \
     wmctrl \
@@ -262,7 +259,6 @@ sudo apt purge -qq -y \
     chrome-gnome-shell \
     vsftpd \
     bat \
-    dunst \
     chafa \
     i3-wm \
     xautolock \
