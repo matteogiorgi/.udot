@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# An example of a list dialogue using zenity.
-# Other types of zenity dialogues are:
+# An example of a list dialogue using Zenity.
+# Other types of Zenity dialogues are:
 #   --calendar
 #   --color-selection
 #   --file-selection
@@ -12,6 +12,9 @@
 #   --scale
 #   --entry
 #   --text-info
+#
+# For more info, visit the Zenity manual:
+# https://help.gnome.org/users/zenity/stable/
 
 
 EXITI3=$(zenity --list \
