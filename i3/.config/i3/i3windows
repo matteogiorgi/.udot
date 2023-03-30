@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # This script search all opened windows and uses fzf to select one of them.
-# It is intended to be used as such: i3-sensible-terminal -T __fuzzy__ -e i3windows
+# It is intended to be used as such: i3-sensible-terminal -T __600x200__ -e i3windows.
+# Here there's few sorting alternatives to the ones used below: sort -k1n; sort -n -k1.1; sort -V.
 
 
 [[ -x "$(command -v wmctrl)" && -x "$(command -v fzf)" ]] || exit 1
@@ -12,9 +13,3 @@ WINTOGO=$(wmctrl -d | awk '{print $1, $NF}' | while read -r WSNUM WSNAME; do wmc
 [[ -n "$WINTOGO" ]] || exit 1
 
 echo "$WINTOGO" | awk '{print $2}' | xargs -I{} wmctrl -i -a {}
-
-
-# few sorting alternatives:
-# ... | sort -k1n | ...
-# ... | sort -n -k1.1 | ...
-# ... | sort -V | ...

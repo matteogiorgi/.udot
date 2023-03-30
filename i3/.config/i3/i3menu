@@ -8,7 +8,7 @@
 
 CLICOLOR_FORCE=1
 CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | \
-        fzf --ansi --preview '~/.config/i3/i3manual {}' --preview-window 'right,70%,border-sharp' \
+        fzf --ansi --preview '~/.config/i3/i3man {}' --preview-window 'right,70%,border-sharp' \
         --bind ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up --prompt='i3menu > ' \
         --height 100% --margin 0% --reverse --info=hidden --header-first)
 [[ -n "$CMD" ]] || exit 1

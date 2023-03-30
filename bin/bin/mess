@@ -29,16 +29,18 @@ LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
 
+
 _no_preview () {
-    echo "                               "
-    echo "  ┌─────────────────────────┐  "
-    echo "  │  Sry mate, no preview.  │  "
-    echo "  └───┬─────────────────────┘  "
-    echo "      │                        "
-    echo "      │      (\_/)             "
-    echo "      └───── (O.o)             "
-    echo "             (> <)             "
-    echo "                               "
+    echo "                                "
+    echo "  ┌──────────────────────────┐  "
+    echo "  │  Sorry mate, can't show  │  "
+    echo "  │  any boody preview.      │  "
+    echo "  └───┬──────────────────────┘  "
+    echo "      │                         "
+    echo "      │      (\_/)              "
+    echo "      └───── (O.o)              "
+    echo "             (> <)              "
+    echo "                                "
 }
 
 

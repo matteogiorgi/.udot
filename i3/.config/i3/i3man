@@ -6,7 +6,8 @@
 _no_preview () {
     echo "                                "
     echo "  ┌──────────────────────────┐  "
-    echo "  │  No man page available.  │  "
+    echo "  │  Sorry mate, can't find  │  "
+    echo "  │  any boody man page.     │  "
     echo "  └───┬──────────────────────┘  "
     echo "      │                         "
     echo "      │      (\_/)              "
