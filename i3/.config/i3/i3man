@@ -7,7 +7,7 @@ _no_preview () {
     echo "                                "
     echo "  ┌──────────────────────────┐  "
     echo "  │  Sorry mate, can't find  │  "
-    echo "  │  any boody man page.     │  "
+    echo "  │  any bloody man page.    │  "
     echo "  └───┬──────────────────────┘  "
     echo "      │                         "
     echo "      │      (\_/)              "
