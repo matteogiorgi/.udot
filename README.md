@@ -83,7 +83,7 @@ brave chromium code codium slides
 ## Language support
 
 - Javascript (required for `coc.nvim`): `nodejs`
-- Rust ('cose it's bloody Rust!): `rustup`
+- Rust (required for `cargo`): `rustup`
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
