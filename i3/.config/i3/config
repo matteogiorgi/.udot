@@ -17,7 +17,7 @@
 
 set $mod Mod4
 floating_modifier $mod
-font pango:JetBrains Mono Bold 8
+font pango:Fira Code Bold 8
 
 
 
@@ -195,7 +195,7 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    font pango:JetBrains Mono Bold 8
+    font pango:Fira Code Bold 8
     position bottom
     separator_symbol "​"
     tray_output primary
@@ -239,37 +239,47 @@ for_window [class="Input-remapper-gtk"] floating enable
 ### Scratchpads
 ###############
 
-# i3scratchpad window istance and title -> big windows (only for scratchpad)
-for_window [instance="__i3scratchpad__"] floating enable
-for_window [instance="__i3scratchpad__"] resize set 1200 800
-for_window [instance="__i3scratchpad__"] move position center
-for_window [instance="__i3scratchpad__"] border pixel 4
-for_window [instance="__i3scratchpad__"] move scratchpad
-for_window [title="__i3scratchpad__"] floating enable
-for_window [title="__i3scratchpad__"] resize set 1200 800
-for_window [title="__i3scratchpad__"] move position center
-for_window [title="__i3scratchpad__"] border pixel 4
-for_window [title="__i3scratchpad__"] move scratchpad
+# scratch_0 window istance and title (only for scratchpad)
+for_window [instance="__scratch_0__"] floating enable
+for_window [instance="__scratch_0__"] resize set 800 600
+for_window [instance="__scratch_0__"] move position center
+for_window [instance="__scratch_0__"] border pixel 4
+for_window [instance="__scratch_0__"] move scratchpad
+for_window [title="__scratch_0__"] floating enable
+for_window [title="__scratch_0__"] resize set 800 600
+for_window [title="__scratch_0__"] move position center
+for_window [title="__scratch_0__"] border pixel 4
+for_window [title="__scratch_0__"] move scratchpad
 
-# 800x600 window instance and title -> medium windows
-for_window [instance="__800x600__"] floating enable
-for_window [instance="__800x600__"] resize set 800 600
-for_window [instance="__800x600__"] move position center
-for_window [instance="__800x600__"] border pixel 4
-for_window [title="__800x600__"] floating enable
-for_window [title="__800x600__"] resize set 800 600
-for_window [title="__800x600__"] move position center
-for_window [title="__800x600__"] border pixel 4
+# scratch_1 window instance and title
+for_window [instance="__scratch_1__"] floating enable
+for_window [instance="__scratch_1__"] resize set 800 600
+for_window [instance="__scratch_1__"] move position center
+for_window [instance="__scratch_1__"] border pixel 4
+for_window [title="__scratch_1__"] floating enable
+for_window [title="__scratch_1__"] resize set 800 600
+for_window [title="__scratch_1__"] move position center
+for_window [title="__scratch_1__"] border pixel 4
 
-# 600x200 window instance and title -> small windows
-for_window [instance="__600x200__"] floating enable
-for_window [instance="__600x200__"] resize set 600 200
-for_window [instance="__600x200__"] move position center
-for_window [instance="__600x200__"] border pixel 4
-for_window [title="__600x200__"] floating enable
-for_window [title="__600x200__"] resize set 600 200
-for_window [title="__600x200__"] move position center
-for_window [title="__600x200__"] border pixel 4
+# scratch_2 window instance and title
+for_window [instance="__scratch_2__"] floating enable
+for_window [instance="__scratch_2__"] resize set 600 200
+for_window [instance="__scratch_2__"] move position center
+for_window [instance="__scratch_2__"] border pixel 4
+for_window [title="__scratch_2__"] floating enable
+for_window [title="__scratch_2__"] resize set 600 200
+for_window [title="__scratch_2__"] move position center
+for_window [title="__scratch_2__"] border pixel 4
+
+# scratch_3 window instance and title
+for_window [instance="__scratch_3__"] floating enable
+for_window [instance="__scratch_3__"] resize set 250 400
+for_window [instance="__scratch_3__"] move position center
+for_window [instance="__scratch_3__"] border pixel 4
+for_window [title="__scratch_3__"] floating enable
+for_window [title="__scratch_3__"] resize set 250 400
+for_window [title="__scratch_3__"] move position center
+for_window [title="__scratch_3__"] border pixel 4
 
 
 
@@ -279,7 +289,7 @@ for_window [title="__600x200__"] border pixel 4
 
 # terminal and menu
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+space exec "i3-sensible-terminal --title __800x600__ -e ~/.config/i3/i3menu"
+bindsym $mod+space exec "i3-sensible-terminal --title __scratch_3__ -e ~/.config/i3/i3menu"
 
 # focus parent/child
 bindsym $mod+BackSpace focus parent
@@ -298,7 +308,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+w exec "i3-sensible-terminal --title __600x200__ -e ~/.config/i3/i3windows"
+bindsym $mod+w exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/i3windows"
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"

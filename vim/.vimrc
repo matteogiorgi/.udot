@@ -24,21 +24,19 @@
 
 
 " Plug check (it only works on GNU/Linux) {{{
-if !exists('noplugin')
-    augroup vimenter
-        autocmd VimEnter *
-                    \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
-                    \     PlugInstall --sync | q |
-                    \ endif
-        if !filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim"'))
-            echo 'Downloading junegunn/vim-plug to manage plugins...'
-            silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/
-            silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-                        \ > ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim
-            autocmd VimEnter * PlugInstall
-        endif
-    augroup end
-endif
+augroup vimenter
+    autocmd VimEnter *
+                \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
+                \     PlugInstall --sync | q |
+                \ endif
+    if !filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim"'))
+        echo 'Downloading junegunn/vim-plug to manage plugins...'
+        silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/
+        silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+                    \ > ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim
+        autocmd VimEnter * PlugInstall
+    endif
+augroup end
 " }}}
 
 
@@ -47,22 +45,20 @@ endif
 " Save last session {{{
 " a better way would be to check
 " buffers on all opened windows
-if !exists('noplugin')
-    augroup vimleave
-        autocmd VimLeave *
-                    \ if &filetype == 'startscreen' |
-                    \     execute 'bdelete' |
-                    \ endif |
-                    \ if !isdirectory('$HOME/.vim/sessions') |
-                    \     execute "!mkdir -p $HOME/.vim/sessions" |
-                    \ endif |
-                    \ if has('nvim') |
-                    \     mksession! $HOME/.vim/sessions/last.nvim |
-                    \ else |
-                    \     mksession! $HOME/.vim/sessions/last.vim |
-                    \ endif
-    augroup end
-endif
+augroup vimleave
+    autocmd VimLeave *
+                \ if &filetype == 'startscreen' |
+                \     execute 'bdelete' |
+                \ endif |
+                \ if !isdirectory('$HOME/.vim/sessions') |
+                \     execute "!mkdir -p $HOME/.vim/sessions" |
+                \ endif |
+                \ if has('nvim') |
+                \     mksession! $HOME/.vim/sessions/last.nvim |
+                \ else |
+                \     mksession! $HOME/.vim/sessions/last.vim |
+                \ endif
+augroup end
 " }}}
 
 
@@ -94,47 +90,45 @@ endif
 
 
 " Plugin list {{{
-if !exists('noplugin')
-    call plug#begin('~/.vim/plugged')
-        Plug '$HOME/.vim/packed/bclose'
-        Plug '$HOME/.vim/packed/ezwindow'
-        Plug '$HOME/.vim/packed/fuzzy'
-        Plug '$HOME/.vim/packed/qbuf'
-        Plug '$HOME/.vim/packed/startscreen'
-        Plug '$HOME/.vim/packed/utility'
-        Plug '$HOME/.vim/packed/lines'
-        Plug 'itchyny/lightline.vim'
-        Plug 'vim-pandoc/vim-pandoc'
-        Plug 'vim-pandoc/vim-pandoc-syntax'
-        Plug 'tpope/vim-surround'
-        Plug 'tpope/vim-repeat'
-        Plug 'tpope/vim-commentary'
-        Plug 'tpope/vim-fugitive'
-        Plug 'mbbill/undotree'
-        Plug 'wellle/context.vim'
-        Plug 'ludovicchabant/vim-gutentags'
-        if plugin_mode ==? 'coc'
-            Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-        else
-            Plug '$HOME/.vim/packed/simple-complete'
-            Plug '$HOME/.vim/packed/notewiki'
-            Plug 'jiangmiao/auto-pairs'
-            Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-            Plug 'junegunn/fzf.vim'
-        endif
-        if has('nvim')
-            imap <silent><C-O> <Plug>(copilot-suggest)
-            imap <silent><C-H> <Plug>(copilot-dismiss)
-            imap <silent><C-J> <Plug>(copilot-next)
-            imap <silent><C-K> <Plug>(copilot-previous)
-            imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
-            let g:copilot_no_tab_map = v:true
-            let g:copilot_assume_mapped = v:true
-            let g:copilot_enabled = v:false
-            Plug 'github/copilot.vim'
-        endif
-    call plug#end()
-endif
+call plug#begin('~/.vim/plugged')
+    Plug '$HOME/.vim/packed/bclose'
+    Plug '$HOME/.vim/packed/ezwindow'
+    Plug '$HOME/.vim/packed/fuzzy'
+    Plug '$HOME/.vim/packed/qbuf'
+    Plug '$HOME/.vim/packed/startscreen'
+    Plug '$HOME/.vim/packed/utility'
+    Plug '$HOME/.vim/packed/lines'
+    Plug 'itchyny/lightline.vim'
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
+    Plug 'mbbill/undotree'
+    Plug 'wellle/context.vim'
+    Plug 'ludovicchabant/vim-gutentags'
+    if plugin_mode ==? 'coc'
+        Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+    else
+        Plug '$HOME/.vim/packed/simple-complete'
+        Plug '$HOME/.vim/packed/notewiki'
+        Plug 'jiangmiao/auto-pairs'
+        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+        Plug 'junegunn/fzf.vim'
+    endif
+    if has('nvim')
+        imap <silent><C-O> <Plug>(copilot-suggest)
+        imap <silent><C-H> <Plug>(copilot-dismiss)
+        imap <silent><C-J> <Plug>(copilot-next)
+        imap <silent><C-K> <Plug>(copilot-previous)
+        imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
+        let g:copilot_no_tab_map = v:true
+        let g:copilot_assume_mapped = v:true
+        let g:copilot_enabled = v:false
+        Plug 'github/copilot.vim'
+    endif
+call plug#end()
 " }}}
 
 
@@ -205,20 +199,13 @@ set sessionoptions=blank,buffers,curdir,folds,tabpages,help,options,winsize
 set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
+set cursorlineopt=number,line
+set fillchars+=vert:\│,eob:\ ,fold:-
+set laststatus=2
+set showtabline=1
 if !has('nvim')
     set nocompatible
     set esckeys
-endif
-if !exists('noplugin')
-    set cursorlineopt=number,line
-    set fillchars+=vert:\│,eob:\ ,fold:-
-    set laststatus=2
-    set showtabline=1
-else
-    set cursorlineopt=number
-    set fillchars+=vert:\│,eob:~,fold:-
-    set laststatus=0
-    set showtabline=0
 endif
 " }}}
 

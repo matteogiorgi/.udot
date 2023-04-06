@@ -80,9 +80,6 @@ _ask () {
 }
 
 _restore () {
-    # alacritty
-    [[ -d $RESTORE/alacritty ]] && mv $RESTORE/alacritty $HOME/.config
-
     # bash
     [[ -f $RESTORE/.bash_aliases ]] && mv $RESTORE/.bash_aliases $HOME
     [[ -f $RESTORE/.bash_functions ]] && mv $RESTORE/.bash_functions $HOME
@@ -101,27 +98,15 @@ _restore () {
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
-    # helix
-    [[ -d $RESTORE/helix ]] && mv $RESTORE/helix $HOME/.config
-
     # i3
     [[ -d $RESTORE/i3 ]] && mv $RESTORE/i3 $HOME/.config
     [[ -d $RESTORE/i3status ]] && mv $RESTORE/i3status $HOME/.config
 
-    # kakoune
-    [[ -d $RESTORE/kak ]] && mv $RESTORE/kak $HOME/.config
-
     # kitty
     [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
 
-    # nano
-    [[ -f $RESTORE/.nanorc ]] && mv $RESTORE/.nanorc $HOME
-
     # sxiv
     [[ -d $RESTORE/sxiv ]] && mv $RESTORE/sxiv $HOME/.config
-
-    # tig
-    [[ -f $RESTORE/.tigrc ]] && mv $RESTORE/.tigrc $HOME
 
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
@@ -193,18 +178,13 @@ sudo ufw deny 21/tcp
 ### Remove symlinks
 ###################
 
-stow -D alacritty
 stow -D bash
 stow -D bin
 stow -D ctags
 stow -D fzf
-stow -D helix
 stow -D i3
-stow -D kakoune
 stow -D kitty
-stow -D nano
 stow -D sxiv
-stow -D tig
 stow -D tmux
 stow -D vim
 stow -D x11
@@ -215,7 +195,6 @@ _restore
 [[ -d $RESTORE ]] && rm -rf $RESTORE
 [[ -d $HOME/.tmp ]] && rm -rf $HOME/.tmp
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
-[[ -f $HOME/.xtemp ]] && rm $HOME/.xtemp
 
 
 
@@ -252,7 +231,7 @@ sudo apt purge -qq -y \
     brightnessctl \
     texlive-full \
     pandoc \
-    fonts-jetbrains-mono \
+    fonts-firacode \
     xdotool \
     exuberant-ctags \
     gnome-shell-extension-prefs \
@@ -269,8 +248,6 @@ sudo apt purge -qq -y \
     kakoune \
     vim-gtk3 \
     neovim \
-    nano \
-    tig \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -287,38 +264,31 @@ sudo apt purge -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    input-remapper \
-    zim \
-    nnn \
-    ncal
+    input-remapper
 
 
 
 
-### Remove snap/extra packages
-##############################
+### Remove snap packages
+########################
 
 printf "\n"
-read -p "    Removing snap/flatpak packages (enter to continue)"
+read -p "    Removing snap packages (enter to continue)"
 printf "\n"
 
-[[ -x "$(command -v google-chrome)" ]] && sudo apt purge google-chrome-stable
 if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
+    [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
-    [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
-fi
-if [[ -x "$(command -v flatpak)" ]]; then
-    [[ -x "$(command -v net.sapples.LiveCaptions)" ]] && flatpak uninstall net.sapples.LiveCaptions
 fi
 
 
 
 
-### Remove NodeJS for Coc.nvim
-##############################
+### Remove NodeJS
+#################
 
 printf "\n"
 read -p "    Removing NodeJS (enter to continue)"
@@ -337,7 +307,7 @@ read -p "    Removing language support (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# rustup (helix), build-essential, python3
+# rustup, build-essential, python3
 
 cargo uninstall alacritty
 pip uninstall Pillow

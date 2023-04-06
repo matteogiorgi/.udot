@@ -24,34 +24,6 @@ function _run () {
     fi
 }
 
-function _edit () {
-    [[ -x "$(command -v nano)" ]] && TED="Nano\n"$TED
-    [[ -x "$(command -v kak)" ]] && TED="Kakoune\n"$TED
-    [[ -x "$(command -v hx)" ]] && TED="Helix\n"$TED
-    [[ -x "$(command -v vim)" ]] && TED="Vim-COC\nVim-FZF\n"$TED
-
-    [[ ! -f "/bin/fzf" || ! -n $TED ]] && "${EDITOR:=vi}" "${FILE}" && return
-    case $(printf "$TED" | fzf --prompt="Edit ${FILE##*/} with: " --height 100% --reverse --info=hidden --header-first) in
-        Vim-COC)
-            _run "_nvim_cocmode" "${FILE}"
-            ;;
-        Vim-FZF)
-            _run "_nvim" "${FILE}"
-            ;;
-        Helix)
-            hx "${FILE}"
-            ;;
-        Kakoune)
-            kak "${FILE}"
-            ;;
-        Nano)
-            nano "${FILE}"
-            ;;
-        *)
-            return
-    esac
-}
-
 
 
 
@@ -90,7 +62,7 @@ case $(file --mime-type "${FILE}" -bL) in
         _run "esxiv"
         ;;
     text/* | application/json)
-        _edit
+        _run "_nvim_cocmode"
         ;;
     *)
         _run "(ツ)"

@@ -29,8 +29,8 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 coreutils xdg-utils xdotool w3m-img fbset wmctrl xtermcontrol curl wget stow
 autorandr git atool trash-cli htop tree make gcc pkg-config lxpolkit xclip fzf
 ripgrep wamerican witalian mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-texlive-full pandoc fonts-ubuntu fonts-jetbrains-mono sct exuberant-ctags nodejs
-ufw vsftpd bat zenity snap flatpak libnotify-bin chafa ffmpegthumbnailer
+texlive-full pandoc fonts-firacode sct exuberant-ctags ufw vsftpd bat zenity
+snap flatpak libnotify-bin chafa ffmpegthumbnailer nodejs
 ```
 
 
@@ -42,19 +42,18 @@ ufw vsftpd bat zenity snap flatpak libnotify-bin chafa ffmpegthumbnailer
 i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv tig ncal
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
-flameshot diodon pavucontrol gparted chrome-gnome-shell zim input-remapper cups
-system-config-printer gnome-shell-extension-prefs nnn
+flameshot diodon pavucontrol gparted chrome-gnome-shell input-remapper cups
+system-config-printer gnome-shell-extension-prefs
 ```
 
 
 
 
-## Extra packages
+## Snap packages
 
-- Snap: `brave chromium code codium slides`
-- Deb: `google-chrome`
-- Source: `helix`
-- Cargo: `alacritty`
+```
+brave chromium code codium slides
+```
 
 
 
@@ -84,7 +83,7 @@ system-config-printer gnome-shell-extension-prefs nnn
 ## Language support
 
 - Javascript (required for `coc.nvim`): `nodejs`
-- Rust (required for `helix alacritty`): `rustup`
+- Rust ('cose it's bloody Rust!): `rustup`
 - C/C++: `build-essential valgrind gdb`
 - Java: `default-jdk default-jdk-doc ant maven gradle`
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
@@ -94,12 +93,10 @@ system-config-printer gnome-shell-extension-prefs nnn
 
 
 
-## Need more? (mostly Gnome gear)
+## Need more?
 
-- Base bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
+- Some bookmarks: [`Startpage Notewiki Drive Mega Gmail Proton Outlook Discord Telegram`](https://raw.githubusercontent.com/matteogiorgi/.udot/master/bookmarks.html)
 - Haskell support: `curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
-- Apt packages: `sudo apt install gnome-software gnome-software-plugin-flatpak gnome-software-plugin-snap gnome-calendar geary gnome-contacts gnome-terminal gedit nautilus ghostwriter mypaint gromit-mpx evince file-roller transmission-gtk vlc libreoffice gnome-calculator simplescreenrecorder variety dconf-editor gitg filezilla`
-- Flatpak packages: `flatpak install flathub net.sapples.LiveCaptions`
 
 
 

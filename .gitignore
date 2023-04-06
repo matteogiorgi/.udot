@@ -20,14 +20,3 @@ tags*
 
 /vim/.config/*
 !/vim/.config/nvim/init.vim*
-
-
-
-
-### HELIX
-#########
-
-/HELIX/*
-/helix/.config/helix/*
-!/helix/.config/helix/themes
-!/helix/.config/helix/config.toml

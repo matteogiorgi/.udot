@@ -19,19 +19,16 @@
 
 
 
-"" COC-MODE
-"""""""""""
-
+"" Coc-mode {{{
 if plugin_mode !=? 'coc'
     finish
 endif
+" }}}
 
 
 
 
-"" Coc configuration file path and main extensions list
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"" File-Path and Extensions-List {{{
 let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
             \ 'coc-marketplace',
@@ -43,13 +40,12 @@ let g:coc_global_extensions = [
             \ 'coc-git',
             \ 'coc-yank',
             \ ]
+" }}}
 
 
 
 
-"" Autogroups
-"""""""""""""
-
+"" Autogroups {{{
 if empty(glob("$HOME/.vim/coc-settings.json"))
     augroup cocsettings
         autocmd!
@@ -64,13 +60,12 @@ augroup hlcursor
     autocmd!
     autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup end
+" }}}
 
 
 
 
-"" Funcions
-"""""""""""
-
+"" Funcions {{{
 function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
@@ -83,22 +78,21 @@ function! ShowDocumentation()
         call feedkeys('K', 'in')
     endif
 endfunction
+" }}}
 
 
 
 
-"" Commands
-"""""""""""
-
+"" Commands {{{
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+" }}}
 
 
 
 
-"" Keymaps
-""""""""""
+"" Keymaps {{{
 inoremap <silent><expr> <TAB>
             \ coc#pum#visible() ? coc#pum#next(1) :
             \ CheckBackspace() ? "\<Tab>" :
@@ -133,3 +127,4 @@ nmap <leader>r <Plug>(coc-references)
 nmap <leader>i <Plug>(coc-implementation)
 nmap <leader>n <Plug>(coc-diagnostic-next)
 nmap <leader>p <Plug>(coc-diagnostic-prev)
+" }}}

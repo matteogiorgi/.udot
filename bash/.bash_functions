@@ -113,24 +113,6 @@ function _poweroffi3 () {
 }
 
 
-function _quiti3 () {
-    # LOGOUT   -> killall i3
-    # REBOOT   -> systemctl reboot
-    # POWEROFF -> systemctl -i poweroff
-    [[ -x "$(command -v fzf)" ]] || return 1
-    OPT="I3-Logout\nI3-Reboot\nI3-Poweroff\n"
-    CMD=$(printf "$OPT" | fzf --prompt='I3-Quit > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
-    [[ -n "$CMD" ]] || return 1
-    &>/dev/null
-    case "$CMD" in
-        I3-Logout) _logouti3 ;;
-        I3-Reboot) _rebooti3 ;;
-        I3-Poweroff) _poweroffi3 ;;
-        *) return 1 ;;
-    esac
-}
-
-
 function _setbackgroundcolor () {
     [[ -f "/bin/xtermcontrol" ]] || return 1
     if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
@@ -142,30 +124,32 @@ function _setbackgroundcolor () {
 
 
 function _vim () {
-    [[ -f "/bin/vim" ]] || return 1
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env \vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+    if [[ -f "/bin/vim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        env \vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+    else
+        "${EDITOR:=vi}" "$@"
+    fi
 }
 
 
 function _vim_cocmode () {
-    [[ -f "/bin/vim" ]] || return 1
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env \vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
-}
-
-
-function _vim_noplugin () {
-    [[ -f "/bin/vim" ]] || return 1
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    env \vim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    if [[ -f "/bin/vim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        env \vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
+    else
+        "${EDITOR:=vi}" "$@"
+    fi
 }
 
 
 function _vim_vanilla () {
-    [[ -f "/bin/vim" ]] || return 1
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    \vim -u NONE "$@"
+    if [[ -f "/bin/vim" ]]; then
+        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
+        \vim -u NONE "$@"
+    else
+        "${EDITOR:=vi}" "$@"
+    fi
 }
 
 
@@ -195,16 +179,6 @@ function _nvim_cocmode () {
         env \nvim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
     else
         _vim_cocmode "$@"
-    fi
-}
-
-
-function _nvim_noplugin () {
-    if [[ -f "/bin/nvim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        env \nvim --noplugin -n -i NONE --cmd "let noplugin=1 | let theme=$BACKGROUNDCOLOR" "$@"
-    else
-        _vim_noplugin "$@"
     fi
 }
 
@@ -243,35 +217,6 @@ function _tmux () {
 }
 
 
-function _shfm () {
-    [[ -f "$HOME/bin/shfm/shfm" ]] || return 1
-    PROMPT=${PS1@P}
-    $HOME/bin/shfm/shfm "$@"
-    cd "$(cat /tmp/shfm)"
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-    rm -f /tmp/shfm
-}
-
-
-function _nnn () {
-    [[ -f "/bin/nnn" ]] || return 1
-    if [[ "${NNNLVL:-0}" -ge 1 ]]; then
-        echo "nnn is already running"
-        return
-    fi
-    export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-    PROMPT=${PS1@P}
-    \nnn -c "$@"
-    if [ -f "$NNN_TMPFILE" ]; then
-        . "$NNN_TMPFILE"
-        NEWPROMPT=${PS1@P}
-        [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-        rm -f "$NNN_TMPFILE" > /dev/null
-    fi
-}
-
-
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}
@@ -307,16 +252,6 @@ function _fgit () {
                 done
             fi
         done
-    else
-        printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
-    fi
-}
-
-
-function _tig () {
-    [[ -f "/bin/tig" ]] || return 1
-    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
-        \tig
     else
         printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
     fi
@@ -493,22 +428,6 @@ function _xlayout () {
     ~/.xlayout
     [[ -f ~/bin/xmap ]] && ~/bin/xmap
     printf "${YLW}%s${NC}\n" "LAYOUT -> $response"
-}
-
-
-function _piclick () {
-    FILE=$*
-    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
-        kitty +kitten icat "$FILE"
-    elif [[ -x "$(command -v w3m)" && -f "$HOME/bin/drawimg" ]]; then
-        drawimg "$FILE" 2>/dev/null
-    elif [[ -x "$(command -v chafa)" ]]; then
-        chafa --dither diffusion --dither-grain 1 --dither-intensity 10 "$FILE"
-    elif [[ -x "$(command -v tcv)" && -x "$(command -v pip)" && $(pip list | grep Pillow) ]]; then
-        tcv "$FILE" 2>/dev/null
-    else
-        printf "${RED}%s${NC}\n" "Can't preview shit, sorry mate!"
-    fi
 }
 
 

@@ -1,7 +1,8 @@
-"" FZF-MODE
+"" Fzf-mode {{{
 if plugin_mode !=? 'fzf'
     finish
 endif
+" }}}
 
 
 

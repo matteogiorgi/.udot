@@ -21,18 +21,10 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
-alias vim="_vim"
-alias vim-cocmode="_vim_cocmode"
-alias vim-noplugin="_vim_noplugin"
-alias vim-vanilla="_vim_vanilla"
-alias vim-last="_vim_last"
-
-
-alias nvim="_nvim"
-alias nvim-cocmode="_nvim_cocmode"
-alias nvim-noplugin="_nvim_noplugin"
-alias nvim-vanilla="_nvim_vanilla"
-alias nvim-last="_nvim_last"
+alias vim="_nvim"
+alias vim-cocmode="_nvim_cocmode"
+alias vim-vanilla="_nvim_vanilla"
+alias vim-last="_nvim_last"
 
 
 alias f="_f"
@@ -41,14 +33,9 @@ alias autorandr-mode="_autorandr_mode"
 alias tmux="_tmux"
 alias xhide="_xhide"
 alias xshow="_xshow"
-alias shfm="_shfm"
-alias nnn="_nnn"
 alias fjump="_fjump"
 alias fgit="_fgit"
-alias gitui="_gitui"
-alias tig="_tig"
 alias sxiv="_sxiv"
-alias piclick="_piclick"
 alias xopp2pdf="_xopp2pdf"
 alias mergepdf="_mergepdf"
 alias gitinit="_gitinit"
@@ -70,16 +57,8 @@ alias xlayout="_xlayout"
 alias logout-i3="_logouti3"
 alias reboot-i3="_rebooti3"
 alias poweroff-i3="_poweroffi3"
-alias quit-i3="_quiti3"
 
 
 alias stow="stow -S"
 alias restow="stow -R"
 alias unstow="stow -D"
-
-
-alias ltree='tree -aC -I ".git" --dirsfirst | less -R -~'
-alias xload="xrdb ~/.Xresources"
-alias xbgrnd="$HOME/.fehbg"
-alias xpipes="pipes -n 5 -i 0.025"
-alias xcal="ncal -y"

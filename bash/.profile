@@ -94,23 +94,18 @@ fi
 
 
 
-### i3-sensible-variables and others
-####################################
+### i3-sensible-variables
+#########################
 
-# terminal: kitty > alacritty > lxterm
+# terminal: kitty > lxterm
 export TERMINAL="/bin/lxterm"
 if [[ (( $(echo "$(glxinfo | awk '/OpenGL version/ {print $4}') > 3.3" | bc -l) )) ]]; then
-    [[ -x "$(command -v alacritty)" ]] && export TERMINAL="alacritty"
     [[ -x "$(command -v kitty)" ]] && export TERMINAL="/bin/kitty"
 fi
 
-# editor: nvim > vim > vi
-export VISUAL="/bin/vi"
-export EDITOR="/bin/vi"
-if [[ -x "$(command -v vim)" ]]; then
-    export VISUAL="/bin/vim"
-    export EDITOR="/bin/vim"
-fi
+# editor: nvim > vim
+export VISUAL="/bin/vim"
+export EDITOR="/bin/vim"
 if [[ -x "$(command -v nvim)" ]]; then
     export VISUAL="/bin/nvim"
     export EDITOR="/bin/nvim"

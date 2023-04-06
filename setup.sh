@@ -91,9 +91,6 @@ _clean () {
 }
 
 _backup () {
-    # alacritty
-    [[ -d $HOME/.config/alacritty ]] && _clean $HOME/.config/alacritty
-
     # bash
     [[ -f $HOME/.bash_aliases ]] && _clean $HOME/.bash_aliases
     [[ -f $HOME/.bash_functions ]] && _clean $HOME/.bash_functions
@@ -112,27 +109,15 @@ _backup () {
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
 
-    # helix
-    [[ -d $HOME/.config/helix ]] && _clean $HOME/.config/helix
-
     # i3
     [[ -d $HOME/.config/i3 ]] && _clean $HOME/.config/i3
     [[ -d $HOME/.config/i3status ]] && _clean $HOME/.config/i3status
 
-    # kakoune
-    [[ -d $HOME/.config/kak ]] && _clean $HOME/.config/kak
-
     # kitty
     [[ -d $HOME/.config/kitty ]] && _clean $HOME/.config/kitty
 
-    # nano
-    [[ -f $HOME/.nanorc ]] && _clean $HOME/.nanorc
-
     # sxiv
     [[ -d $HOME/.config/sxiv ]] && _clean $HOME/.config/sxiv
-
-    # tig
-    [[ -f $HOME/.tigrc ]] && _clean $HOME/.tigrc
 
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
@@ -244,8 +229,7 @@ sudo apt install -qq -y \
     brightnessctl \
     texlive-full \
     pandoc \
-    fonts-ubuntu \
-    fonts-jetbrains-mono \
+    fonts-firacode \
     poppler-utils \
     xdotool \
     exuberant-ctags \
@@ -285,8 +269,6 @@ sudo apt install -qq -y \
     kakoune \
     vim-gtk3 \
     neovim \
-    nano \
-    tig \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -307,58 +289,27 @@ sudo apt install -qq -y \
     pavucontrol \
     gparted \
     system-config-printer \
-    input-remapper \
-    zim \
-    nnn \
-    ncal
+    input-remapper
 
 
 
 
-### Add snap/flatpak/extra packages
-###################################
+### Add snap packages
+#####################
 
 printf "\n"
-read -p "    Installing snap/flatpak (enter to continue)"
+read -p "    Installing snap (enter to continue)"
 printf "\n"
 
-# snap/flatpak
+# snap
 if [[ ! -x "$(command -v snap)" ]]; then
     sudo apt install -qq -y snapd
     printf "\n"
 fi
-if [[ ! -x "$(command -v flatpak)" ]]; then
-    sudo apt install -qq -y flatpak
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    printf "\n"
-fi
 
-# google-chrome, code
-_install_chrome
-sudo snap install --classic code
-
-# brave, chromium, codium, slides
-printf "\n"
-if _ask "    Install Brave?" Y; then
-    printf "\n"
-    sudo snap install brave
-    printf "\n"
-fi
-if _ask "    Install Chromium?" N; then
-    printf "\n"
-    sudo snap install chromium
-    printf "\n"
-fi
-if _ask "    Install Codium?" N; then
-    printf "\n"
-    sudo snap install --classic codium
-    printf "\n"
-fi
-if _ask "    Install Slides?" N; then
-    printf "\n"
-    sudo snap install slides
-    printf "\n"
-fi
+# brave, chromum, slides, code, codium
+sudo snap install brave chromium slides
+sudo snap install --classic code codium
 
 
 
@@ -368,18 +319,13 @@ fi
 
 _backup
 
-stow alacritty
 stow bash
 stow bin
 stow ctags
 stow fzf
-stow helix
 stow i3
-stow kakoune
 stow kitty
-stow nano
 stow sxiv
-stow tig
 stow tmux
 stow vim
 stow x11
@@ -400,25 +346,20 @@ curl -sL install-node.vercel.app/lts | sudo bash
 
 
 
-### Add Rustup for Helix and Alacritty
-######################################
+### Add Rustup
+##############
 
 printf "\n"
-read -p "    Installing Rustup for Helix (enter to continue)"
+read -p "    Installing Rustup (enter to continue)"
 printf "\n"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-git clone https://github.com/helix-editor/helix $HOME/.udot/HELIX
-cd $HOME/.udot/HELIX; cargo install --locked --path helix-term
-ln -s $PWD/runtime $HOME/.config/helix/runtime; cd -
-cargo install alacritty
 
 
 
-
-### Add language support
-########################
+### Add more language support
+#############################
 
 printf "\n"
 if _ask "    Add full language support?" Y; then
@@ -440,7 +381,6 @@ if _ask "    Add full language support?" Y; then
         ocaml-man \
         opam \
         opam-doc
-    pip install Pillow
 fi
 
 

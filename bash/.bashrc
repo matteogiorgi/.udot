@@ -230,13 +230,11 @@ bind -m vi-command -x '"\C-h": fgit'
 bind -m vi-command -x '"\C-j": fjump'
 bind -m vi-command -x '"\C-k": ffind'
 bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
-bind -m vi-command -x '"\C-n": nnn'
 
 bind -m vi-insert -x '"\C-h": fgit'
 bind -m vi-insert -x '"\C-j": fjump'
 bind -m vi-insert -x '"\C-k": ffind'
 bind -m vi-insert -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
-bind -m vi-insert -x '"\C-n": nnn'
 
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
