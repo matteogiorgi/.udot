@@ -27,10 +27,10 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 
 ```
 coreutils xdg-utils xdotool w3m-img fbset wmctrl xtermcontrol curl wget stow
-autorandr git atool trash-cli htop tree make gcc pkg-config lxpolkit xclip fzf
+autorandr git atool trash-cli htop tree make gcc pkg-config lxpolkit xclip
 ripgrep wamerican witalian mesa-utils xdo feh ffmpeg poppler-utils mediainfo
 texlive-full pandoc fonts-firacode sct exuberant-ctags ufw vsftpd bat zenity
-snap flatpak libnotify-bin chafa ffmpegthumbnailer nodejs
+snap flatpak libnotify-bin chafa fzf ffmpegthumbnailer nodejs 
 ```
 
 
@@ -43,7 +43,7 @@ i3-wm xautolock arandr kitty xterm tmux nvim vim-gtk3 kakoune nano sxiv tig ncal
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 flameshot diodon pavucontrol gparted chrome-gnome-shell input-remapper cups
-system-config-printer gnome-shell-extension-prefs
+system-config-printer gnome-shell-extension-prefs bash bash-completion
 ```
 
 
@@ -52,7 +52,7 @@ system-config-printer gnome-shell-extension-prefs
 ## Snap packages
 
 ```
-brave chromium code codium slides
+brave chromium code codium
 ```
 
 

@@ -103,9 +103,6 @@ _backup () {
     # bin
     [[ -d $HOME/bin ]] && _clean $HOME/bin
 
-    # ctags
-    [[ -d $HOME/ctags ]] && _clean $HOME/ctags
-
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
 
@@ -136,15 +133,6 @@ _backup () {
 
     # zathura
     [[ -d $HOME/.config/zathura ]] && _clean $HOME/.config/zathura
-}
-
-_install_chrome () {
-    [[ ! -d ~/Downloads ]] && mkdir -p ~/Downloads
-    cd ~/Downloads
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install -qq -y ./google-chrome-stable_current_amd64.deb
-    rm ./google-chrome-stable_current_amd64.deb
-    cd -
 }
 
 
@@ -289,7 +277,9 @@ sudo apt install -qq -y \
     pavucontrol \
     gparted \
     system-config-printer \
-    input-remapper
+    input-remapper \
+    bash \
+    bash-completion
 
 
 
@@ -307,8 +297,8 @@ if [[ ! -x "$(command -v snap)" ]]; then
     printf "\n"
 fi
 
-# brave, chromum, slides, code, codium
-sudo snap install brave chromium slides
+# brave, chromum, code, codium
+sudo snap install brave chromium
 sudo snap install --classic code codium
 
 
@@ -321,7 +311,6 @@ _backup
 
 stow bash
 stow bin
-stow ctags
 stow fzf
 stow i3
 stow kitty

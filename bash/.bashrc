@@ -179,15 +179,6 @@ export BAT_THEME="ansi"
 
 
 
-## Nnn vars
-###########
-
-export NNN_OPENER="swallow"
-
-
-
-
-
 ## Less colors
 ##############
 
@@ -210,7 +201,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ### Source stuff
 ################
 
-[[ -f $HOME/bin/fet ]] && $HOME/bin/fet
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 [[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash

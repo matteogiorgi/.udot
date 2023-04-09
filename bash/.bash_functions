@@ -217,6 +217,17 @@ function _tmux () {
 }
 
 
+function _shfm () {
+    [[ -f "$HOME/bin/shfm" ]] || return 1
+    PROMPT=${PS1@P}
+    $HOME/bin/shfm "$@"
+    cd "$(cat /tmp/shfm)"
+    NEWPROMPT=${PS1@P}
+    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
+    rm -f /tmp/shfm
+}
+
+
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}

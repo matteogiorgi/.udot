@@ -36,12 +36,12 @@ disk "/" {
 }
 
 wireless _first_ {
-    format_up   = "<span background='#81a1c1'> WAN%quality %essid, %bitrate -> IP %ip </span>"
-    format_down = ""
+    format_up   = "<span background='#81a1c1'> WAN%quality, %bitrate </span>"
+    format_down = "<span background='#81a1c1'> WAN ---------- </span>"
 }
 
 ethernet _first_ {
-    format_up   = "<span background='#81a1c1'> ETH %speed -> IP %ip </span>"
+    format_up   = "<span background='#81a1c1'> ETH %speed </span>"
     format_down = ""
 }
 

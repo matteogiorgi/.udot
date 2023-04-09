@@ -92,9 +92,6 @@ _restore () {
     # bin
     [[ -d $RESTORE/bin ]] && mv $RESTORE/bin $HOME
 
-    # ctags
-    [[ -d $RESTORE/ctags ]] && mv $RESTORE/ctags $HOME
-
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
@@ -180,7 +177,6 @@ sudo ufw deny 21/tcp
 
 stow -D bash
 stow -D bin
-stow -D ctags
 stow -D fzf
 stow -D i3
 stow -D kitty
@@ -279,7 +275,6 @@ printf "\n"
 if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
-    [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
 fi

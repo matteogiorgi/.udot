@@ -21,10 +21,16 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
-alias vim="_nvim"
-alias vim-cocmode="_nvim_cocmode"
-alias vim-vanilla="_nvim_vanilla"
-alias vim-last="_nvim_last"
+alias vim="_vim"
+alias vim-cocmode="_vim_cocmode"
+alias vim-vanilla="_vim_vanilla"
+alias vim-last="_vim_last"
+
+
+alias nvim="_nvim"
+alias nvim-cocmode="_nvim_cocmode"
+alias nvim-vanilla="_nvim_vanilla"
+alias nvim-last="_nvim_last"
 
 
 alias f="_f"
@@ -33,6 +39,7 @@ alias autorandr-mode="_autorandr_mode"
 alias tmux="_tmux"
 alias xhide="_xhide"
 alias xshow="_xshow"
+alias shfm="_shfm"
 alias fjump="_fjump"
 alias fgit="_fgit"
 alias sxiv="_sxiv"
