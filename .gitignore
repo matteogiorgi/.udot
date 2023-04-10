@@ -1,3 +1,28 @@
+### UDOT
+########
+
+/*
+!/bash
+!/bin
+!/fzf
+!/i3
+!/kitty
+!/media
+!/sxiv
+!/tmux
+!/vim
+!/x11
+!/zathura
+!/bookmarks.html
+!/.gitignore
+!/LICENSE
+!/README.md
+!/restore.sh
+!/setup.sh
+
+
+
+
 ### BASH
 ########
 
@@ -232,11 +257,3 @@
 
 /zathura/.config/zathura/*
 !/zathura/.config/zathura/zathurarc
-
-
-
-
-### TAGS
-########
-
-tags*
