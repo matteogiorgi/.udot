@@ -339,7 +339,7 @@ curl -sL install-node.vercel.app/lts | sudo bash
 ##############
 
 printf "\n"
-read -p "    Installing Rustup (enter to continue)"
+read -p "    Installing Rustup for Cargo (enter to continue)"
 printf "\n"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

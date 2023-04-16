@@ -184,7 +184,7 @@ client.background       #e5e5e5
 
 bar {
     colors {
-        statusline #000000
+        statusline #111111
         background #111111
         separator  #333333
 
