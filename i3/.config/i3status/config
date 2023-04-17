@@ -28,7 +28,7 @@ cpu_usage {
 memory {
     format             = "<span background='#fda49a'> MEM %percentage_used </span>"
     format_degraded    = "<span background='#fda49a' foreground='#9d0006'> MEM: %free </span>"
-    threshold_degraded = "10%"
+    threshold_degraded = "20%"
 }
 
 disk "/" {
@@ -36,8 +36,8 @@ disk "/" {
 }
 
 wireless _first_ {
-    format_up   = "<span background='#81a1c1'> WAN%quality ┃ %bitrate </span>"
-    format_down = "<span background='#81a1c1' foreground='#9d0006'> WAN ---------- </span>"
+    format_up   = "<span background='#81a1c1'> WAN%quality - %bitrate </span>"
+    format_down = "<span background='#81a1c1' foreground='#5e5c64'> WAN ---------- </span>"
 }
 
 ethernet _first_ {
@@ -47,24 +47,24 @@ ethernet _first_ {
 
 volume master {
     format       = "<span background='#ebcb8b'> VOL %volume </span>"
-    format_muted = "<span background='#ebcb8b' foreground='#9d0006'> VOL muted </span>"
+    format_muted = "<span background='#ebcb8b' foreground='#9d0006'> VOL mute </span>"
     device       = "default"
     mixer        = "Master"
     mixer_idx    = 0
 }
 
 battery all {
-    format        = "<span background='#a3be8c'> %status %percentage ┃ %remaining auto </span>"
-    format_down   = "<span background='#a3be8c' foreground='#9d0006'> ---------- </span>"
+    format        = "<span background='#a3be8c'> %status %percentage </span>"
+    format_down   = "<span background='#a3be8c' foreground='#5e5c64'> ---------- </span>"
     status_chr    = "CHR"
     status_bat    = "BAT"
     status_unk    = "UNK"
     status_full   = "FULL"
     path          = "/sys/class/power_supply/BAT%d/uevent"
-    low_threshold = 10
+    low_threshold = 20
 }
 
 tztime local {
     format = "<span background='#c3a5bd'> %time </span>"
-    format_time = "%a %d %b ┃ %H:%M utc"
+    format_time = "%a %d %b - %H:%M"
 }
