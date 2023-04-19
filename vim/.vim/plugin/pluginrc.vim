@@ -133,7 +133,6 @@ nnoremap <leader>u :ToggleUT<CR>
 
 
 
-
 " Copilot {{{
 if has('nvim')
     function! CocPilot()
@@ -148,6 +147,12 @@ if has('nvim')
             exec 'echohl Function | echomsg "Copilot disabled" | echohl None'
         endif
     endfunction
+
+    imap <silent><C-O> <Plug>(copilot-suggest)
+    imap <silent><C-H> <Plug>(copilot-dismiss)
+    imap <silent><C-J> <Plug>(copilot-next)
+    imap <silent><C-K> <Plug>(copilot-previous)
+    imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
     nnoremap <leader>q :call CocPilot()<CR>
 endif
 " }}}

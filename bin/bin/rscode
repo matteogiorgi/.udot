@@ -101,14 +101,21 @@ EOF
 
 
 _vimlike () {
-[[ "$*" == "code" ]] && FOLDER="Code"
-[[ "$*" == "codium" ]] && FOLDER="VSCodium"
-[[ -z $FOLDER ]] && exit 1 || CODE="$*"
-
-_rmextensions "$CODE"
-$CODE --install-extension vscodevim.vim &>/dev/null
-$CODE --install-extension github.copilot &>/dev/null
-$CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+if [[ "$*" == "code" ]]; then
+    _rmextensions "code"
+    code --install-extension vscodevim.vim &>/dev/null
+    code --install-extension github.copilot &>/dev/null
+    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    FOLDER="Code"
+elif [[ "$*" == "codium" ]]; then
+    _rmextensions "codium"
+    codium --install-extension vscodevim.vim &>/dev/null
+    codium --install-extension Codeium.codeium &>/dev/null
+    codium --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    FOLDER="VSCodium"
+else
+    exit 1
+fi
 
 cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 {
