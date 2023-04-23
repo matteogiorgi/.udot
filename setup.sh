@@ -275,7 +275,6 @@ sudo apt install -qq -y \
     flameshot \
     diodon \
     pavucontrol \
-    volumeicon-alsa \
     gparted \
     system-config-printer \
     input-remapper \

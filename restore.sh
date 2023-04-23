@@ -259,7 +259,6 @@ sudo apt purge -qq -y \
     flameshot \
     diodon \
     pavucontrol \
-    volumeicon-alsa \
     gparted \
     input-remapper
 

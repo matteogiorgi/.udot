@@ -308,7 +308,7 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+d focus mode_toggle
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
-bindsym $mod+v bar mode toggle
+bindsym $mod+c bar mode toggle
 
 # modes
 bindsym $mod+r mode "Resize"
@@ -318,6 +318,7 @@ bindsym $mod+w exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
+bindsym $mod+v exec "pavucontrol"
 
 
 

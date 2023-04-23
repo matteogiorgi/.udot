@@ -12,7 +12,6 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 [[ -x "$(command -v lxpolkit)" ]] && lxpolkit &
 [[ -x "$(command -v nm-applet)" ]] && nm-applet &
 [[ -x "$(command -v blueman-applet)" ]] && blueman-applet &
-[[ -x "$(command -v volumeicon)" ]] && volumeicon &
 [[ -x "$(command -v flameshot)" ]] && flameshot &
 [[ -x "$(command -v diodon)" ]] && diodon &
 
