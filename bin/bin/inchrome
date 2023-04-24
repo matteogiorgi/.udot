@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+
+YLW='\033[1;35m'
+NC='\033[0m'
+
+_install_chrome () {
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo apt install -qq -y ./google-chrome-stable_current_amd64.deb
+    rm ./google-chrome-stable_current_amd64.deb
+}
+
+
+if [[ -x "$(command -v google-chrome)" ]]; then
+    printf "${YLW}%s${NC}\n" "google-chrome is already installed mate!"
+    exit 1
+fi
+
+if [[ ! -d ~/Downloads ]]; then
+    mkdir -p ~/Downloads
+fi
+
+cd ~/Downloads
+_install_chrome
+cd -
