@@ -21,16 +21,10 @@ alias xpasta="xclip-pastefile"
 alias xcut="xclip-cutfile"
 
 
-alias vim="_vim"
-alias vim-cocmode="_vim_cocmode"
-alias vim-vanilla="_vim_vanilla"
-alias vim-last="_vim_last"
-
-
-alias nvim="_nvim"
-alias nvim-cocmode="_nvim_cocmode"
-alias nvim-vanilla="_nvim_vanilla"
-alias nvim-last="_nvim_last"
+alias vi="_nvim"
+alias vi-cocmode="_nvim_cocmode"
+alias vi-vanilla="_nvim_vanilla"
+alias vi-last="_nvim_last"
 
 
 alias f="_f"
