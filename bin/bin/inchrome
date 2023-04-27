@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
 
-YLW='\033[1;35m'
-NC='\033[0m'
+### Functions
+#############
+
+if [[ -f ~/.bash_functions ]]; then
+    . ~/.bash_functions || exit 1
+fi
+
 
 _install_chrome () {
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -11,8 +16,17 @@ _install_chrome () {
 }
 
 
+
+
+### Main
+########
+
+if ! _ask "I am installing google-chrome, do you wanna continue?" Y; then
+    exit 0
+fi
+
 if [[ -x "$(command -v google-chrome)" ]]; then
-    printf "${YLW}%s${NC}\n" "google-chrome is already installed mate!"
+    echo "google-chrome is already installed mate!"
     exit 1
 fi
 

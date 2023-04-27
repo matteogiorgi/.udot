@@ -1,59 +1,30 @@
 #!/usr/bin/env bash
 
 
-RED='\033[1;36m'
-YLW='\033[1;35m'
-NC='\033[0m'
+### Functions
+#############
+
+if [[ -f ~/.bash_functions ]]; then
+    . ~/.bash_functions || exit 1
+fi
+
 
 _install_helix () {
-    if [[ -x "$(command -v hx)" ]]; then
-        printf "${YLW}%s${NC}\n" "helix is already installed mate!"
-        return 1
-    fi
+    [[ ! -d ~/Downloads ]] && mkdir -p ~/Downloads
+    [[ ! -d ~/.config/helix ]] && mkdir -p ~/.config/helix
+
     git clone https://github.com/helix-editor/helix
     cargo install --locked --path helix-term
     ln -s $PWD/runtime $HOME/.config/helix/runtime
 }
 
-_install_helix_conf () {
-if [[ -f "$HOME/.config/helix/config.toml" ]]; then
-    printf "${RED}%s${NC}\n" "resetting config.toml"
-fi
-cat 2>/dev/null > $HOME/.config/helix/config.toml <<-EOF
-# For a full documentation on the install look at:
-# https://docs.helix-editor.com/install.html
 
+_write_config () {
+[[ ! -d ~/.config/helix/themes ]] && mkdir -p ~/.config/helix/themes
 
-theme = "hembox"
-
-[editor]
-line-number = "relative"
-mouse = false
-bufferline = "multiple"
-
-[keys.normal]
-esc = ["collapse_selection", "keep_primary_selection"]
-
-[editor.cursor-shape]
-insert = "bar"
-EOF
-
-if [[ -f "$HOME/.config/helix/themes/hembox.toml" ]]; then
-    printf "${RED}%s${NC}\n" "resetting hembox.toml"
-fi
+HXTHEME="$HOME/.config/helix/themes/hembox.toml"
+[[ -f "$HXTHEME" ]] && echo "resetting $HXTHEME"
 cat 2>/dev/null > $HOME/.config/helix/themes/hembox.toml <<-EOF
-#  _   _                _
-# | | | | ___ _ __ ___ | |__   _____  __
-# | |_| |/ _ \ ·_ · _ \| ·_ \ / _ \ \/ /
-# |  _  |  __/ | | | | | |_) | (_) >  <
-# |_| |_|\___|_| |_| |_|_.__/ \___/_/\_\
-#
-# An Autumn variant with black background.
-# Matteo Giorgi (https://www.geoteo.net/)
-
-
-
-
 "ui.background"             = { bg = "my_gray0" }
 "ui.menu"                   = { fg = "my_white", bg = "my_gray2" }
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
@@ -95,7 +66,6 @@ cat 2>/dev/null > $HOME/.config/helix/themes/hembox.toml <<-EOF
 "ui.virtual.whitespace"     = { fg = "my_gray5" }
 "ui.virtual.ruler"          = { bg = "my_gray1" }
 
-
 "markup.heading"   = "my_yellow1"
 "markup.list"      = "my_white2"
 "markup.bold"      = { modifiers = ["bold"] }
@@ -105,11 +75,9 @@ cat 2>/dev/null > $HOME/.config/helix/themes/hembox.toml <<-EOF
 "markup.quote"     = "my_brown"
 "markup.raw"       = "my_green"
 
-
 "diff.plus"  = "my_green"
 "diff.delta" = "my_gray4"
 "diff.minus" = "my_red"
-
 
 "diagnostic"       = { modifiers = ["underlined"] }
 "diagnostic.error" = { underline = { style = "curl", color = "my_red" } }
@@ -119,9 +87,6 @@ cat 2>/dev/null > $HOME/.config/helix/themes/hembox.toml <<-EOF
 "info"             = "my_yellow2"
 "warning"          = "my_yellow2"
 "error"            = "my_red"
-
-
-
 
 [palette]
 my_black      = "#111111" # Cursorline
@@ -144,14 +109,45 @@ my_yellow1    = "#FAD566" # Functions, Methods, Attribute IDs, Headings
 my_yellow2    = "#ffff9f" # Debug, Info
 my_red        = "#F05E48" # Keywords, Storage, Selector, Diff Changed
 EOF
+
+HXCONFIG="$HOME/.config/helix/config.toml"
+[[ -f "$HXCONFIG" ]] && echo "resetting $HXCONFIG"
+cat 2>/dev/null > $HOME/.config/helix/config.toml <<-EOF
+theme = "hembox"
+
+[editor]
+line-number = "relative"
+mouse = false
+bufferline = "multiple"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[editor.cursor-shape]
+insert = "bar"
+EOF
 }
 
 
-[[ ! -d ~/Downloads ]] && mkdir -p ~/Downloads
-[[ ! -d ~/.config/helix ]] && mkdir -p ~/.config/helix
-[[ ! -d ~/.config/helix/themes ]] && mkdir -p ~/.config/helix/themes
+
+
+### Main
+########
+
+if ! _ask "I am installing helix, do you wanna continue?" Y; then
+    exit 0
+fi
+
+if [[ -x "$(command -v hx)" ]]; then
+    if _ask "helix is already installed, do you wanna reset conf?" Y; then
+        _write_config
+        echo "done."
+    fi
+    exit 0
+fi
 
 cd ~/Downloads
 _install_helix
-_install_helix_conf
+_write_config
+echo "done."
 cd -

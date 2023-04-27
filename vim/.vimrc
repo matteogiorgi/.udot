@@ -117,7 +117,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
         Plug 'junegunn/fzf.vim'
     endif
-    if has('nvim')
+    if v:version >= 900 || has('nvim')
         let g:copilot_no_tab_map = v:true
         let g:copilot_assume_mapped = v:true
         let g:copilot_enabled = v:false

@@ -134,7 +134,7 @@ nnoremap <leader>u :ToggleUT<CR>
 
 
 " Copilot {{{
-if has('nvim')
+if v:version >= 900 || has('nvim')
     function! CocPilot()
         let g:copilot = !exists('g:copilot') ? 'disabled' : g:copilot
         if g:copilot ==? 'disabled'
