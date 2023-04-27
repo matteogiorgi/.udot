@@ -14,6 +14,9 @@ FILE="$*"
 
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions || exit 1
 
+# Commands are supposed to launch (detached) gui programs,
+# functions are instead supposed to launch terminal programs.
+# To launch a terminal program, wrap it in a function.
 function _run () {
     if [[ -x "$(command -v $1)" ]]; then
         _xshow "$1 '${FILE}'"
@@ -46,7 +49,7 @@ echo "$1" | grep "\.sent$" && {
 ### MIME-type opener (inode/directory not necessary)
 ####################################################
 
-# check the relative mime-type here:
+# Check the relative mime-type here:
 # https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
