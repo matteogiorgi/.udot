@@ -25,6 +25,15 @@ _write_config () {
 HXTHEME="$HOME/.config/helix/themes/hembox.toml"
 [[ -f "$HXTHEME" ]] && echo "resetting $HXTHEME"
 cat 2>/dev/null > $HOME/.config/helix/themes/hembox.toml <<-EOF
+##  _   _                _
+## | | | | ___ _ __ ___ | |__   _____  __
+## | |_| |/ _ \ ·_ · _ \| ·_ \ / _ \ \/ /
+## |  _  |  __/ | | | | | |_) | (_) >  <
+## |_| |_|\___|_| |_| |_|_.__/ \___/_/\_\
+##
+## An Autumn variant with black background.
+## Matteo Giorgi (https://www.geoteo.net/)
+
 "ui.background"             = { bg = "my_gray0" }
 "ui.menu"                   = { fg = "my_white", bg = "my_gray2" }
 "ui.menu.selected"          = { fg = "my_gray2", bg = "my_gray5" }
@@ -113,6 +122,15 @@ EOF
 HXCONFIG="$HOME/.config/helix/config.toml"
 [[ -f "$HXCONFIG" ]] && echo "resetting $HXCONFIG"
 cat 2>/dev/null > $HOME/.config/helix/config.toml <<-EOF
+##  _   _      _ _
+## | | | | ___| (_)_  __
+## | |_| |/ _ \ | \ \/ /
+## |  _  |  __/ | |>  <
+## |_| |_|\___|_|_/_/\_\
+##
+## Check the full docs at docs.helix-editor.com.
+## Matteo Giorgi (https://www.geoteo.net/)
+
 theme = "hembox"
 
 [editor]
