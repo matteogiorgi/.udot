@@ -65,7 +65,7 @@ case $(file --mime-type "${FILE}" -bL) in
         _run "esxiv"
         ;;
     text/* | application/json)
-        _run "_nvim_cocmode"
+        _run "_vim_cocmode"
         ;;
     *)
         _run "(ツ)"

@@ -319,6 +319,7 @@ bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 bindsym $mod+x exec "pavucontrol"
+bindsym $mod+v exec "gvim"
 
 
 

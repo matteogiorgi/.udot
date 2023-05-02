@@ -163,45 +163,6 @@ function _vim_last () {
 }
 
 
-function _nvim () {
-    if [[ -f "/bin/nvim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        env \nvim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
-    else
-        _vim "$@"
-    fi
-}
-
-
-function _nvim_cocmode () {
-    if [[ -f "/bin/nvim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        env \nvim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
-    else
-        _vim_cocmode "$@"
-    fi
-}
-
-
-function _nvim_vanilla () {
-    if [[ -f "/bin/nvim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        \nvim -u NONE "$@"
-    else
-        _vim_vanilla "$@"
-    fi
-}
-
-
-function _nvim_last () {
-    if [[ -f "/bin/nvim" ]]; then
-        [[ -f "$HOME/.vim/sessions/last.nvim" ]] && _nvim -S $HOME/.vim/sessions/last.nvim || _nvim
-    else
-        _vim_last
-    fi
-}
-
-
 function _tmux () {
     [[ -f "/bin/tmux" ]] || return 1
     if [[ -n "$TMUX" ]]; then
