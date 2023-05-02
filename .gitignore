@@ -5,6 +5,7 @@
 !/bash
 !/bin
 !/fzf
+!/helix
 !/i3
 !/kitty
 !/media
@@ -50,8 +51,6 @@
 !/bin/bin/fet
 !/bin/bin/ffind
 !/bin/bin/fjump
-!/bin/bin/inchrome
-!/bin/bin/inhelix
 !/bin/bin/md2html
 !/bin/bin/mess
 !/bin/bin/pipes
@@ -81,6 +80,25 @@
 /fzf/.config/fzf/*
 !/fzf/.config/fzf/completion.bash
 !/fzf/.config/fzf/key-bindings.bash
+
+
+
+
+### HELIX
+#########
+
+/helix/*
+!/helix/.config
+
+/helix/.config/*
+!/helix/.config/helix
+
+/helix/.config/helix/*
+!/helix/.config/helix/themes
+!/helix/.config/helix/config.toml
+
+/helix/.config/helix/themes/*
+!/helix/.config/helix/themes/hembox.toml
 
 
 
@@ -172,16 +190,9 @@
 #######
 
 /vim/*
-!/vim/.config
 !/vim/.vim
 !/vim/.gvimrc
 !/vim/.vimrc
-
-/vim/.config/*
-!/vim/.config/nvim
-
-/vim/.config/nvim
-!/vim/.config/nvim/init.vim
 
 /vim/.vim/*
 !/vim/.vim/after

@@ -95,6 +95,9 @@ _restore () {
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
+    # helix
+    [[ -d $RESTORE/helix ]] && mv $RESTORE/helix $HOME/.config
+
     # i3
     [[ -d $RESTORE/i3 ]] && mv $RESTORE/i3 $HOME/.config
     [[ -d $RESTORE/i3status ]] && mv $RESTORE/i3status $HOME/.config
@@ -108,10 +111,10 @@ _restore () {
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
 
-    # vim/neovim
+    # vim
     [[ -d $RESTORE/.vim ]] && mv $RESTORE/.vim $HOME
     [[ -f $RESTORE/.vimrc ]] && mv $RESTORE/.vimrc $HOME
-    [[ -d $RESTORE/nvim ]] && mv $RESTORE/nvim $HOME/.config
+    [[ -f $RESTORE/.gvimrc ]] && mv $RESTORE/.gvimrc $HOME
 
     # x11
     [[ -f $RESTORE/.Xdefaults ]] && mv $RESTORE/.Xdefaults $HOME
@@ -178,6 +181,7 @@ sudo ufw deny 21/tcp
 stow -D bash
 stow -D bin
 stow -D fzf
+stow -D helix
 stow -D i3
 stow -D kitty
 stow -D sxiv
@@ -241,9 +245,8 @@ sudo apt purge -qq -y \
     kitty \
     xterm \
     tmux \
-    kakoune \
     vim-gtk3 \
-    neovim \
+    helix \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -260,7 +263,8 @@ sudo apt purge -qq -y \
     diodon \
     pavucontrol \
     gparted \
-    input-remapper
+    input-remapper \
+    google-chrome-stable
 
 
 

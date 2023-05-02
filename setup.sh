@@ -106,6 +106,9 @@ _backup () {
     # fzf
     [[ -d $HOME/.config/fzf ]] && _clean $HOME/.config/fzf
 
+    # helix
+    [[ -d $HOME/.config/helix ]] && _clean $HOME/.config/helix
+
     # i3
     [[ -d $HOME/.config/i3 ]] && _clean $HOME/.config/i3
     [[ -d $HOME/.config/i3status ]] && _clean $HOME/.config/i3status
@@ -119,10 +122,10 @@ _backup () {
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
 
-    # vim/neovim
+    # vim
     [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
-    [[ -d $HOME/.config/nvim ]] && _clean $HOME/.config/nvim
+    [[ -f $HOME/.gvimrc ]] && _clean $HOME/.gvimrc
 
     # x11
     [[ -f $HOME/.Xdefaults ]] && _clean $HOME/.Xdefaults
@@ -133,6 +136,27 @@ _backup () {
 
     # zathura
     [[ -d $HOME/.config/zathura ]] && _clean $HOME/.config/zathura
+}
+
+_install_chrome () {
+    [[ ! -d ~/Downloads ]] && mkdir -p ~/Downloads
+    cd ~/Downloads
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo apt install -qq -y ./google-chrome-stable_current_amd64.deb
+    rm ./google-chrome-stable_current_amd64.deb
+    cd -
+}
+
+_install_vim () {
+    sudo add-apt-repository ppa:jonathonf/vim
+    sudo apt update
+    sudo apt install -qq -y vim-gtk3
+}
+
+_install_helix () {
+    sudo add-apt-repository ppa:maveonair/helix-editor
+    sudo apt update
+    sudo apt install -qq -y helix
 }
 
 
@@ -254,9 +278,6 @@ sudo apt install -qq -y \
     kitty \
     xterm \
     tmux \
-    kakoune \
-    vim-gtk3 \
-    neovim \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -280,6 +301,10 @@ sudo apt install -qq -y \
     input-remapper \
     bash \
     bash-completion
+
+_install_chrome
+_install_vim
+_install_helix
 
 
 
@@ -312,6 +337,7 @@ _backup
 stow bash
 stow bin
 stow fzf
+stow helix
 stow i3
 stow kitty
 stow sxiv
