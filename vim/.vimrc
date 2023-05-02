@@ -1,24 +1,24 @@
-""
-""                                 E-VIM PLUGINS
-""                    [ https://github.com/junegunn/vim-plug ]
-""
-""    lightline.vim ················ https://github.com/itchyny/lightline.vim
-""    vim-pandoc ··················· https://github.com/vim-pandoc/vim-pandoc
-""    vim-pandoc-syntax ············ https://github.com/vim-pandoc/vim-pandoc-syntax
-""    vim-surround ················· https://github.com/tpope/vim-surround
-""    vim-repeat ··················· https://github.com/tpope/vim-repeat
-""    vim-commentary ··············· https://github.com/tpope/vim-commentary
-""    vim-fugitive ················· https://github.com/tpope/vim-fugitive
-""    undotree ····················· https://github.com/mbbill/undotree
-""    context.vim ·················· https://github.com/wellle/context.vim
-""    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-""    autopairs ···················· https://github.com/jiangmiao/auto-pairs
-""    fzf.vim ······················ https://github.com/junegunn/fzf.vim
-""    coc.nvim ····················· https://github.com/neoclide/coc.nvim
-""    copilot.vim ·················· https://github.com/github/copilot.vim
-""
-""    For full documentation and other stuff visit https://www.vim.org
-""
+"
+"                                 E-VIM PLUGINS
+"                    [ https://github.com/junegunn/vim-plug ]
+"
+"    lightline.vim ················ https://github.com/itchyny/lightline.vim
+"    vim-pandoc ··················· https://github.com/vim-pandoc/vim-pandoc
+"    vim-pandoc-syntax ············ https://github.com/vim-pandoc/vim-pandoc-syntax
+"    vim-surround ················· https://github.com/tpope/vim-surround
+"    vim-repeat ··················· https://github.com/tpope/vim-repeat
+"    vim-commentary ··············· https://github.com/tpope/vim-commentary
+"    vim-fugitive ················· https://github.com/tpope/vim-fugitive
+"    undotree ····················· https://github.com/mbbill/undotree
+"    context.vim ·················· https://github.com/wellle/context.vim
+"    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
+"    autopairs ···················· https://github.com/jiangmiao/auto-pairs
+"    fzf.vim ······················ https://github.com/junegunn/fzf.vim
+"    coc.nvim ····················· https://github.com/neoclide/coc.nvim
+"    copilot.vim ·················· https://github.com/github/copilot.vim
+"
+"    For full documentation and other stuff visit https://www.vim.org
+"
 
 
 

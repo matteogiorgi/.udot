@@ -1,4 +1,4 @@
-
+"
 "                              COC-EXTENSIONS
 "                  [ https://github.com/neoclide/coc.nvim ]
 "
@@ -15,6 +15,7 @@
 "     If you want an extension to work on top of the ones already
 "     configured in coc-settings.json, use the marketplace or add:
 "     let g:coc_global_extensions = add(g:coc_global_extensions, 'somesomething')
+"
 
 
 
