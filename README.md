@@ -85,4 +85,4 @@ brave chromium code codium
 <img align="right" width="50" src="media/ubuntu.png">
 
 - For any other package, check [packages.ubuntu.com](https://packages.ubuntu.com/)
-- To read Ubuntu manpages, check [manpages.ubuntu.com](https://manpages.ubuntu.com/)
+- To read *Ubuntu manpages*, check [manpages.ubuntu.com](https://manpages.ubuntu.com/)

@@ -1,5 +1,5 @@
-" you need to have st-terminal installed
-" in order to this plugin to execute correctly
+" You need to have TERMINAL variable set in
+" order for this plugin to be executed correctly
 
 
 function s:FuzzyFind()

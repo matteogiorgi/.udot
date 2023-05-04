@@ -20,8 +20,8 @@
 
 
 
-"" Coc-mode {{{
-if plugin_mode !=? 'coc'
+" Coc-mode {{{
+if ! exists('coc_mode')
     finish
 endif
 " }}}
@@ -29,7 +29,7 @@ endif
 
 
 
-"" File-Path and Extensions-List {{{
+" File-Path and Extensions-List {{{
 let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
             \ 'coc-marketplace',
@@ -46,7 +46,7 @@ let g:coc_global_extensions = [
 
 
 
-"" Autogroups {{{
+" Autogroups {{{
 if empty(glob("$HOME/.vim/coc-settings.json"))
     augroup cocsettings
         autocmd!
@@ -66,7 +66,7 @@ augroup end
 
 
 
-"" Funcions {{{
+" Funcions {{{
 function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
@@ -84,7 +84,7 @@ endfunction
 
 
 
-"" Commands {{{
+" Commands {{{
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -93,7 +93,7 @@ command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport
 
 
 
-"" Keymaps {{{
+" Keymaps {{{
 inoremap <silent><expr> <TAB>
             \ coc#pum#visible() ? coc#pum#next(1) :
             \ CheckBackspace() ? "\<Tab>" :

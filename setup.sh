@@ -258,9 +258,7 @@ sudo apt install -qq -y \
     xdg-utils \
     w3m-img \
     xdotool \
-    fbset \
-    ffmpegthumbnailer \
-    fonts-ubuntu
+    fbset
 
 
 

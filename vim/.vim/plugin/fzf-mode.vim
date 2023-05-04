@@ -1,5 +1,5 @@
-"" Fzf-mode {{{
-if plugin_mode !=? 'fzf'
+" Fzf-mode {{{
+if exists('coc_mode')
     finish
 endif
 " }}}

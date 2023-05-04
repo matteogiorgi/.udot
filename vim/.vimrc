@@ -76,19 +76,6 @@ endif
 
 
 
-" Mode-selector {{{
-if exists('coc_mode')
-    let plugin_mode = 'coc'
-    colorscheme hembox
-else
-    let plugin_mode = 'fzf'
-    colorscheme hemisu
-endif
-" }}}
-
-
-
-
 " Plugin list {{{
 call plug#begin('~/.vim/plugged')
     Plug '$HOME/.vim/packed/bclose'
@@ -108,7 +95,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
-    if plugin_mode ==? 'coc'
+    if exists('coc_mode')
         Plug 'neoclide/coc.nvim', {'branch' : 'release'}
     else
         Plug '$HOME/.vim/packed/simple-complete'
@@ -144,20 +131,11 @@ endif
 
 
 
-" Dynamic background {{{
-if exists('theme') && theme == 'light'
-    set background=light
-else
-    set background=dark
-endif
-" }}}
-
-
-
-
-" Syntax {{{
+" Syntax and colors {{{
 syntax on
 filetype plugin indent on
+if exists('theme') && theme == 'light' | set background=light | else | set background=dark | endif
+if exists('coc_mode') | colorscheme hembox | else | colorscheme hemisu | endif
 " }}}
 
 
@@ -231,6 +209,23 @@ let g:mapleader = "\<space>"
 let g:maplocalleader = "\\"
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
+endif
+" }}}
+
+
+
+
+" Cursor mode (line cursor in insert mode) {{{
+if ! (has("gui_running") && has('nvim'))
+    " Ps=0 -> blinking block.
+    " Ps=1 -> blinking block (default).
+    " Ps=2 -> steady block.
+    " Ps=3 -> blinking underline.
+    " Ps=4 -> steady underline.
+    " Ps=5 -> blinking bar (xterm).
+    " Ps=6 -> steady bar (xterm).
+    let &t_SI = "\e[6 q"
+    let &t_EI = "\e[2 q"
 endif
 " }}}
 
