@@ -78,16 +78,18 @@ endif
 
 " Plugin list {{{
 call plug#begin('~/.vim/plugged')
+    Plug '$HOME/.vim/packed/lines'
     Plug '$HOME/.vim/packed/bclose'
     Plug '$HOME/.vim/packed/ezwindow'
     Plug '$HOME/.vim/packed/fuzzy'
     Plug '$HOME/.vim/packed/qbuf'
     Plug '$HOME/.vim/packed/startscreen'
     Plug '$HOME/.vim/packed/utility'
-    Plug '$HOME/.vim/packed/lines'
-    Plug 'itchyny/lightline.vim'
+    Plug '$HOME/.vim/packed/notewiki'
     Plug 'vim-pandoc/vim-pandoc'
     Plug 'vim-pandoc/vim-pandoc-syntax'
+    Plug 'itchyny/lightline.vim'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'
@@ -95,15 +97,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'wellle/context.vim'
     Plug 'ludovicchabant/vim-gutentags'
-    if exists('coc_mode')
-        Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-    else
-        Plug '$HOME/.vim/packed/simple-complete'
-        Plug '$HOME/.vim/packed/notewiki'
-        Plug 'jiangmiao/auto-pairs'
-        Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-        Plug 'junegunn/fzf.vim'
-    endif
+    Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     if v:version >= 900 || has('nvim')
         let g:copilot_no_tab_map = v:true
         let g:copilot_assume_mapped = v:true
@@ -134,8 +130,11 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
-if exists('theme') && theme == 'light' | set background=light | else | set background=dark | endif
-if exists('coc_mode') | colorscheme hembox | else | colorscheme hemisu | endif
+colorscheme hemisu
+set background=dark
+if exists('theme') && theme == 'light'
+    set background=light
+endif
 " }}}
 
 

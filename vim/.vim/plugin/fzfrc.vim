@@ -1,30 +1,12 @@
-" Fzf-mode {{{
-if exists('coc_mode')
-    finish
-endif
-" }}}
+"
+"                                    FZF
+"                  [ https://github.com/junegunn/fzf.vim ]
+"
 
 
 
 
-" Auto-pairs {{{
-let g:AutoPairs = {
-            \ '(':')',
-            \ '[':']',
-            \ '{':'}',
-            \ "'":"'",
-            \ '"':'"',
-            \ "`":"`",
-            \ '```':'```',
-            \ '"""':'"""',
-            \ "'''":"'''",
-            \ }
-" }}}
-
-
-
-
-" Fzf.vim {{{
+" Functions {{{
 function! s:build_quickfix_list(lines)
     call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
     copen
@@ -35,13 +17,23 @@ function! s:FzfBufName()
     0f
     file [Fzf]
 endfunction
+" }}}
 
+
+
+
+" Autogroups {{{
 augroup fzflines
     autocmd!
     autocmd User FzfStatusLine setlocal statusline=>>FZF  " %#Fzf1#
     autocmd BufCreate,BufWinEnter,WinEnter term://*#FZF,term://*/run call s:FzfBufName()
 augroup END
+" }}}
 
+
+
+
+" Variables {{{
 let $FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 let $FZF_DEFAULT_OPTS='--bind "ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up" --height 100% --margin 0% --reverse --info=hidden --header-first'
 let g:fzf_colors = {
@@ -68,20 +60,24 @@ let g:fzf_action = {
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_preview_window = ['down:80%,border-sharp', 'ctrl-/']
 let g:fzf_layout = { 'window': 'enew' }
+" }}}
 
+
+
+
+" Keymaps {{{
 nnoremap <leader><Tab> :Buffers<CR>
 nnoremap <leader>w :Windows<CR>
-nnoremap <leader>r :Rg<CR>
 nnoremap <leader>s :GFiles?<CR>
+nnoremap <leader>g :Rg<CR>
 nnoremap <leader>t :BTags<CR>
 nnoremap <leader>T :Tags<CR>
-nnoremap <leader>g :BCommits<CR>
-nnoremap <leader>G :Commits<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>F :GFiles<CR>
 nnoremap <leader>h :History<CR>
 nnoremap <leader>l :BLines<CR>
 nnoremap <leader>L :Lines<CR>
-nnoremap <leader>c :Commands<CR>
+nnoremap <leader>c :BCommits<CR>
+nnoremap <leader>C :Commits<CR>
 nnoremap <leader>m :Marks<CR>
 " }}}

@@ -133,16 +133,6 @@ function _vim () {
 }
 
 
-function _vim_cocmode () {
-    if [[ -f "/bin/vim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        env \vim --cmd "let coc_mode=1 | let theme=$BACKGROUNDCOLOR" "$@"
-    else
-        "${EDITOR:=vi}" "$@"
-    fi
-}
-
-
 function _vim_vanilla () {
     if [[ -f "/bin/vim" ]]; then
         [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor

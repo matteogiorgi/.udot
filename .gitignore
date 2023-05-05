@@ -231,8 +231,9 @@
 !/vim/.vim/packed/utility
 
 /vim/.vim/plugin/*
-!/vim/.vim/plugin/coc-mode.vim
-!/vim/.vim/plugin/fzf-mode.vim
+!/vim/.vim/plugin/cocrc.vim
+!/vim/.vim/plugin/fzfrc.vim
+!/vim/.vim/plugin/lightlinerc.vim
 !/vim/.vim/plugin/pluginrc.vim
 
 /vim/.vim/after/ftplugin/*

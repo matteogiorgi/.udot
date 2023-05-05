@@ -5,11 +5,6 @@
 "     coc-marketplace ········· https://github.com/fannheyward/coc-marketplace
 "     coc-dictionary ·········· https://github.com/neoclide/coc-sources
 "     coc-snippets  ··········· https://github.com/neoclide/coc-snippets
-"     coc-highlight ··········· https://github.com/neoclide/coc-highlight
-"     coc-pairs ··············· https://github.com/neoclide/coc-pairs
-"     coc-lists ··············· https://github.com/neoclide/coc-lists
-"     coc-git ················· https://github.com/neoclide/coc-git
-"     coc-yank ················ https://github.com/neoclide/coc-yank
 "
 "
 "     If you want an extension to work on top of the ones already
@@ -20,27 +15,19 @@
 
 
 
-" Coc-mode {{{
-if ! exists('coc_mode')
-    finish
-endif
-" }}}
+" Funcions {{{
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-
-
-
-" File-Path and Extensions-List {{{
-let g:coc_config_home = '~/.vim'
-let g:coc_global_extensions = [
-            \ 'coc-marketplace',
-            \ 'coc-dictionary',
-            \ 'coc-snippets',
-            \ 'coc-highlight',
-            \ 'coc-pairs',
-            \ 'coc-lists',
-            \ 'coc-git',
-            \ 'coc-yank',
-            \ ]
+function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
+endfunction
 " }}}
 
 
@@ -66,19 +53,13 @@ augroup end
 
 
 
-" Funcions {{{
-function! CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! ShowDocumentation()
-    if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-    else
-        call feedkeys('K', 'in')
-    endif
-endfunction
+" File-Path and Extensions-List {{{
+let g:coc_config_home = '~/.vim'
+let g:coc_global_extensions = [
+            \ 'coc-marketplace',
+            \ 'coc-dictionary',
+            \ 'coc-snippets',
+            \ ]
 " }}}
 
 
@@ -105,23 +86,6 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
 nnoremap <leader><CR> :CocList<CR>
-nnoremap <leader><Tab> :CocList buffers<CR>
-
-nnoremap <leader>w :CocList windows<CR>
-nnoremap <leader>t :CocList tags<CR>
-nnoremap <leader>T :CocCommand tags.generate<CR>
-nnoremap <leader>y :CocList yank<CR>
-nnoremap <leader>o :CocList diagnostics<CR>
-nnoremap <leader>s :CocList gstatus<CR>
-nnoremap <leader>f :CocList files<CR>
-nnoremap <leader>F :CocList gfiles<CR>
-nnoremap <leader>g :CocList bcommits<CR>
-nnoremap <leader>G :CocList commits<CR>
-nnoremap <leader>h :CocList mru<CR>
-nnoremap <leader>l :CocList words<CR>
-nnoremap <leader>L :CocList grep<CR>
-nnoremap <leader>c :CocList changes<CR>
-nnoremap <leader>m :CocList marks<CR>
 
 nmap <leader>d <Plug>(coc-definition)
 nmap <leader>r <Plug>(coc-references)

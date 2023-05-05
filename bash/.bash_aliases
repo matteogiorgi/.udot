@@ -22,7 +22,6 @@ alias xcut="xclip-cutfile"
 
 
 alias vim="_vim"
-alias vim-cocmode="_vim_cocmode"
 alias vim-vanilla="_vim_vanilla"
 alias vim-last="_vim_last"
 
