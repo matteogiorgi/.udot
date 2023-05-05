@@ -63,6 +63,7 @@ let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
             \ 'coc-marketplace',
             \ 'coc-dictionary',
+            \ 'coc-yank',
             \ 'coc-snippets',
             \ 'coc-git',
             \ ]
