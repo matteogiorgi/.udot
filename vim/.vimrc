@@ -130,11 +130,8 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
-colorscheme hemisu
-set background=dark
-if exists('theme') && theme == 'light'
-    set background=light
-endif
+if has("gui_running") | colorscheme hemisu | else | colorscheme hembox | endif
+if exists('theme') && theme == 'light' | set background=light | else | set background=dark | endif
 " }}}
 
 
