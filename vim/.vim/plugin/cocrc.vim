@@ -48,6 +48,11 @@ augroup hlcursor
     autocmd!
     autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup end
+
+augroup redrawstatusline
+    autocmd!
+    autocmd User CocStatusChange redrawstatus
+augroup end
 " }}}
 
 
@@ -59,6 +64,7 @@ let g:coc_global_extensions = [
             \ 'coc-marketplace',
             \ 'coc-dictionary',
             \ 'coc-snippets',
+            \ 'coc-git',
             \ ]
 " }}}
 

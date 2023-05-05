@@ -7,9 +7,10 @@
 
 
 " Functions {{{
-function! LightlineGitbranch()
-    let l:branchname = gitbranch#name()
-    return toupper(l:branchname)
+function! CocGitStatus()
+    let l:gitbranch = get(g:, 'coc_git_status', '')
+    let l:gitlines = get(b:, 'coc_git_status', '')
+    return toupper(l:gitbranch) . toupper(l:gitlines)
 endfunction
 
 function! CocCurrentFunction()
@@ -48,7 +49,7 @@ let g:lightline = {
             \ 'active': {
             \     'left': [
             \         [ 'mode', 'paste' ],
-            \         [ 'gitbranch', 'cocstatus', 'currentfunction' ],
+            \         [ 'cocgitstatus', 'cocstatus', 'currentfunction' ],
             \         [ 'readonly', 'filename', 'modified' ]
             \     ],
             \     'right': [
@@ -58,7 +59,7 @@ let g:lightline = {
             \     ],
             \ },
             \ 'component_function': {
-            \     'gitbranch': 'LightlineGitbranch',
+            \     'cocgitstatus': 'CocGitStatus',
             \     'cocstatus': 'coc#status',
             \     'currentfunction': 'CocCurrentFunction',
             \     'filename': 'LightlineFilename',

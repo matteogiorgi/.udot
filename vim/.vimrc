@@ -78,7 +78,8 @@ endif
 
 " Plugin list {{{
 call plug#begin('~/.vim/plugged')
-    Plug '$HOME/.vim/packed/lines'
+    " use ../packed/simple-complete as alternative to neoclide/coc.nvim
+    " use ../packed/lines as alternative to itchyny/lightline.vim
     Plug '$HOME/.vim/packed/bclose'
     Plug '$HOME/.vim/packed/ezwindow'
     Plug '$HOME/.vim/packed/fuzzy'

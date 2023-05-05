@@ -13,6 +13,15 @@ cat 2>/dev/null > $HOME/.vim/coc-settings.json <<-EOF
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
 
+    // COC-GIT CONFIG
+    "git.enableGutters": true,
+    "git.showCommitInFloating": false,
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+
     // COC-JAVA CONFIG
     "java.project.referencedLibraries": ["~/.vim/gson-2.10.jar"]
 }
