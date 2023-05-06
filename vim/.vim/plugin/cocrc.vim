@@ -5,6 +5,8 @@
 "     coc-marketplace ········· https://github.com/fannheyward/coc-marketplace
 "     coc-dictionary ·········· https://github.com/neoclide/coc-sources
 "     coc-snippets  ··········· https://github.com/neoclide/coc-snippets
+"     coc-git ················· https://github.com/neoclide/coc-git
+"     coc-pairs ··············· https://github.com/neoclide/coc-pairs
 "
 "
 "     If you want an extension to work on top of the ones already
@@ -63,9 +65,9 @@ let g:coc_config_home = '~/.vim'
 let g:coc_global_extensions = [
             \ 'coc-marketplace',
             \ 'coc-dictionary',
-            \ 'coc-yank',
             \ 'coc-snippets',
             \ 'coc-git',
+            \ 'coc-pairs',
             \ ]
 " }}}
 

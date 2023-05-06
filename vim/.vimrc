@@ -12,7 +12,6 @@
 "    undotree ····················· https://github.com/mbbill/undotree
 "    context.vim ·················· https://github.com/wellle/context.vim
 "    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-"    autopairs ···················· https://github.com/jiangmiao/auto-pairs
 "    fzf.vim ······················ https://github.com/junegunn/fzf.vim
 "    coc.nvim ····················· https://github.com/neoclide/coc.nvim
 "    copilot.vim ·················· https://github.com/github/copilot.vim
@@ -90,7 +89,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-pandoc/vim-pandoc'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'itchyny/lightline.vim'
-    Plug 'jiangmiao/auto-pairs'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-commentary'

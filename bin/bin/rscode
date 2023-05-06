@@ -106,12 +106,14 @@ if [[ "$*" == "code" ]]; then
     code --install-extension vscodevim.vim &>/dev/null
     code --install-extension github.copilot &>/dev/null
     code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    code --install-extension mhutchie.git-graph &>/dev/null
     FOLDER="Code"
 elif [[ "$*" == "codium" ]]; then
     _rmextensions "codium"
     codium --install-extension vscodevim.vim &>/dev/null
     codium --install-extension Codeium.codeium &>/dev/null
     codium --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    codium --install-extension mhutchie.git-graph &>/dev/null
     FOLDER="VSCodium"
 else
     exit 1

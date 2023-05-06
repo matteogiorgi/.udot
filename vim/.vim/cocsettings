@@ -13,14 +13,6 @@ cat 2>/dev/null > $HOME/.vim/coc-settings.json <<-EOF
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextCurrentLineOnly": false,
 
-    // COC-YANK CONFIG
-    "yank.highlight.enable": false,
-    "yank.highlight.duration": 500,
-    "yank.list.maxsize": 200,
-    "yank.enableCompletion": true,
-    "yank.priority": 90,
-    "yank.limit": 10,
-
     // COC-GIT CONFIG
     "git.enableGutters": true,
     "git.showCommitInFloating": false,

@@ -1,6 +1,6 @@
 "
 "                              Simple plugin configuration
-"              [ Pandoc, Auto-Pairs, Surround, Repeat, Commentary, Copilot ]
+"                   [ Pandoc, Surround, Repeat, Commentary, Copilot ]
 "
 
 
@@ -8,23 +8,6 @@
 
 " Vim-pandoc {{{
 let g:pandoc#syntax#conceal#urls = 1
-" }}}
-
-
-
-
-" Auto-pairs {{{
-let g:AutoPairs = {
-            \ '(':')',
-            \ '[':']',
-            \ '{':'}',
-            \ "'":"'",
-            \ '"':'"',
-            \ "`":"`",
-            \ '```':'```',
-            \ '"""':'"""',
-            \ "'''":"'''",
-            \ }
 " }}}
 
 

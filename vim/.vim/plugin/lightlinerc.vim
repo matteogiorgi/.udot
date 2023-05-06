@@ -13,6 +13,12 @@ function! CocGitStatus()
     return toupper(l:gitbranch) . toupper(l:gitlines)
 endfunction
 
+function! CocStatus()
+    " as an alternative, use 'cocstatus': 'coc#status'
+    " inside the 'componet_function' element of g:lightline
+    return get(g:, 'coc_status', '')
+endfunction
+
 function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
 endfunction
@@ -60,7 +66,7 @@ let g:lightline = {
             \ },
             \ 'component_function': {
             \     'cocgitstatus': 'CocGitStatus',
-            \     'cocstatus': 'coc#status',
+            \     'cocstatus': 'CocStatus',
             \     'currentfunction': 'CocCurrentFunction',
             \     'filename': 'LightlineFilename',
             \     'filetype': 'LightlineFiletype'
