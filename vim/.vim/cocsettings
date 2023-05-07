@@ -9,8 +9,8 @@ cat 2>/dev/null > $HOME/.vim/coc-settings.json <<-EOF
     "inlayHint.enable": false,
 
     // COC-DIAGNOSTICS
-    "diagnostic.messageTarget":"echo",
-    "diagnostic.virtualText": true,
+    "diagnostic.messageTarget": "float",
+    "diagnostic.virtualText": false,
     "diagnostic.virtualTextCurrentLineOnly": false,
 
     // COC-GIT CONFIG
