@@ -153,6 +153,15 @@ function _vim_last () {
 }
 
 
+function _hx () {
+    if [[ -f "/bin/hx" ]]; then
+        \hx "$@"
+    else
+        "${EDITOR:=vi}" "$@"
+    fi
+}
+
+
 function _tmux () {
     [[ -f "/bin/tmux" ]] || return 1
     if [[ -n "$TMUX" ]]; then
