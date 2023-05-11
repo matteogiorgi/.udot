@@ -308,7 +308,7 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+d focus mode_toggle
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
-bindsym $mod+c bar mode toggle
+bindsym $mod+o bar mode toggle
 
 # modes
 bindsym $mod+r mode "Resize"
@@ -319,7 +319,9 @@ bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 bindsym $mod+x exec "pavucontrol"
+bindsym $mod+c exec "codium"
 bindsym $mod+v exec "gvim"
+bindsym $mod+b exec "brave"
 
 
 
