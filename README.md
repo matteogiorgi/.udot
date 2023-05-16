@@ -42,9 +42,9 @@ snap flatpak libnotify-bin chafa fzf ffmpegthumbnailer nodejs
 i3-wm xautolock arandr kitty xterm tmux vim-gtk3 helix sxiv bash bash-completion
 zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
-flameshot diodon pavucontrol gparted chrome-gnome-shell input-remapper cups
-system-config-printer gnome-shell-extension-prefs google-chrome brave chromium
-code codium
+flameshot diodon pavucontrol gparted filezilla chrome-gnome-shell input-remapper
+cups system-config-printer gnome-shell-extension-prefs code codium google-chrome
+brave chromium
 ```
 
 
