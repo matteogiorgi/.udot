@@ -296,6 +296,7 @@ sudo apt install -qq -y \
     diodon \
     pavucontrol \
     gparted \
+    filezilla \
     system-config-printer \
     input-remapper \
     bash \
@@ -323,7 +324,8 @@ fi
 
 # brave, chromum, code, codium
 sudo snap install brave chromium
-sudo snap install --classic code codium
+sudo snap install --classic code
+sudo snap install --classic codium
 
 
 

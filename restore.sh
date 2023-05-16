@@ -263,6 +263,7 @@ sudo apt purge -qq -y \
     diodon \
     pavucontrol \
     gparted \
+    filezilla \
     input-remapper \
     google-chrome-stable
 

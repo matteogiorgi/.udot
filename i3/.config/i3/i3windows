@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script search all opened windows and uses fzf to select one of them.
+# This script searches all opened windows and uses fzf to select one of them.
 # It is intended to be used as such: i3-sensible-terminal -T __600x200__ -e i3windows.
 # Here there's few sorting alternatives to the ones used below: sort -k1n; sort -n -k1.1; sort -V.
 

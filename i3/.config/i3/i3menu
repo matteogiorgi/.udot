@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This script search all executables inside PATH and uses fzf to select one to run as a command.
+# This script searches all executables inside PATH and uses fzf to select one to run as a command.
 # It is intended to be used as such: i3-sensible-terminal -T __i3menu__ -e i3menu
 
 
