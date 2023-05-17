@@ -44,7 +44,7 @@ zathura zathura-djvu zathura-pdf-poppler zathura-ps mpv blueman network-manager
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournalpp
 flameshot diodon pavucontrol gparted filezilla chrome-gnome-shell input-remapper
 cups system-config-printer gnome-shell-extension-prefs code codium google-chrome
-brave chromium simplescreenrecorder mypaint
+brave chromium simplescreenrecorder
 ```
 
 

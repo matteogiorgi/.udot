@@ -258,7 +258,6 @@ sudo apt purge -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
-    mypaint \
     sct \
     flameshot \
     diodon \

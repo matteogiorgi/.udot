@@ -291,7 +291,6 @@ sudo apt install -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
-    mypaint \
     sct \
     flameshot \
     diodon \
