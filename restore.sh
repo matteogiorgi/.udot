@@ -258,12 +258,14 @@ sudo apt purge -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
+    mypaint \
     sct \
     flameshot \
     diodon \
     pavucontrol \
     gparted \
     filezilla \
+    simplescreenrecorder \
     input-remapper \
     google-chrome-stable
 

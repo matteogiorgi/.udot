@@ -291,12 +291,14 @@ sudo apt install -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
+    mypaint \
     sct \
     flameshot \
     diodon \
     pavucontrol \
     gparted \
     filezilla \
+    simplescreenrecorder \
     system-config-printer \
     input-remapper \
     bash \
