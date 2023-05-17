@@ -47,7 +47,7 @@ ethernet _first_ {
 
 volume master {
     format       = "<span background='#ebcb8b'> VOL %volume </span>"
-    format_muted = "<span background='#ebcb8b' foreground='#9d0006'> VOL mute </span>"
+    format_muted = "<span background='#ebcb8b' foreground='#5e5c64'> VOL mute </span>"
     device       = "default"
     mixer        = "Master"
     mixer_idx    = 0

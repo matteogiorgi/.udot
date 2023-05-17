@@ -201,7 +201,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ### Source stuff
 ################
 
-[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
+[[ -f $HOME/bin/fet ]] && $HOME/bin/fet
 [[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
