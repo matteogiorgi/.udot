@@ -213,7 +213,6 @@ bar {
 ### Floating windows
 ####################
 
-# more apps
 for_window [class="Arandr"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
@@ -226,6 +225,7 @@ for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
 for_window [class="Input-remapper-gtk"] floating enable
+for_window [class="SimpleScreenRecorder"] floating enable
 
 
 
