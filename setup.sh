@@ -164,6 +164,11 @@ _install_nodejs () {
     sudo apt-get install -qq -y nodejs
 }
 
+_remove_xdg-desktop_portal_gnome () {
+    sudo apt remove -qq -y xdg-desktop-portal-gnome
+    systemctl --user restart xdg-desktop-portal
+}
+
 
 
 
@@ -312,9 +317,7 @@ _install_chrome
 _install_vim
 _install_helix
 _install_nodejs
-
-sudo apt remove -qq -y xdg-desktop-portal-gnome
-systemctl --user restart xdg-desktop-portal
+_remove_xdg-desktop_portal_gnome
 
 
 
