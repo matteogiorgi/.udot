@@ -266,7 +266,8 @@ sudo apt purge -qq -y \
     filezilla \
     simplescreenrecorder \
     input-remapper \
-    google-chrome-stable
+    google-chrome-stable \
+    nodejs
 
 
 
@@ -284,18 +285,6 @@ if [[ -x "$(command -v snap)" ]]; then
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
     [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
 fi
-
-
-
-
-### Remove NodeJS
-#################
-
-printf "\n"
-read -p "    Removing NodeJS (enter to continue)"
-printf "\n"
-
-sudo rm -rf $(find $(echo $PATH | sed 's/:/ /g') -name "node" 2>/dev/null)
 
 
 

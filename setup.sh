@@ -159,6 +159,11 @@ _install_helix () {
     sudo apt install -qq -y helix
 }
 
+_install_nodejs () {
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+    sudo apt-get install -qq -y nodejs
+}
+
 
 
 
@@ -306,6 +311,7 @@ sudo apt install -qq -y \
 _install_chrome
 _install_vim
 _install_helix
+_install_nodejs
 
 sudo apt remove -qq -y xdg-desktop-portal-gnome
 systemctl --user restart xdg-desktop-portal
@@ -350,18 +356,6 @@ stow tmux
 stow vim
 stow x11
 stow zathura
-
-
-
-
-### Add NodeJS for Coc.nvim
-###########################
-
-printf "\n"
-read -p "    Installing NodeJS for Coc.nvim (enter to continue)"
-printf "\n"
-
-curl -sL install-node.vercel.app/lts | sudo bash
 
 
 
