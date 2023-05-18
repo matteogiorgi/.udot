@@ -308,7 +308,7 @@ read -p "    Removing language support (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# rustup, build-essential, python3
+# build-essential, python3, ...
 
 cargo uninstall alacritty
 pip uninstall Pillow
