@@ -216,6 +216,8 @@
 
 /vim/.vim/ftplugin/*
 !/vim/.vim/ftplugin/markdown
+!/vim/.vim/ftplugin/markdown.pandoc
+!/vim/.vim/ftplugin/pandoc
 !/vim/.vim/ftplugin/tex
 !/vim/.vim/ftplugin/text
 
