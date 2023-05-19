@@ -8,6 +8,7 @@
 
 " Vim-pandoc {{{
 let g:pandoc#syntax#conceal#urls = 1
+let g:pandoc#spell#enabled = 0
 " }}}
 
 
