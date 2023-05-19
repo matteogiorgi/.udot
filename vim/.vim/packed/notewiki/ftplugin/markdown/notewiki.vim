@@ -1,4 +1,4 @@
-setlocal wrap
+setlocal wrap nospell
 setlocal conceallevel=2
 
 
