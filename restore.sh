@@ -265,6 +265,9 @@ sudo apt purge -qq -y \
     gparted \
     filezilla \
     simplescreenrecorder \
+    transmission \
+    vlc \
+    mypaint \
     input-remapper \
     google-chrome-stable \
     nodejs

@@ -308,6 +308,9 @@ sudo apt install -qq -y \
     gparted \
     filezilla \
     simplescreenrecorder \
+    transmission \
+    vlc \
+    mypaint \
     system-config-printer \
     input-remapper \
     bash \
