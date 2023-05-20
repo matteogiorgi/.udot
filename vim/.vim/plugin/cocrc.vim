@@ -94,7 +94,7 @@ inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>\<c-r>=coc#start()
 inoremap <silent><expr> <c-space> coc#refresh()
 
 nnoremap <silent>K :call ShowDocumentation()<CR>
-nnoremap <leader><CR> :CocList<CR>
+nnoremap <leader>a :CocList<CR>
 
 nmap <leader>d <Plug>(coc-definition)
 nmap <leader>r <Plug>(coc-references)

@@ -3,9 +3,10 @@ let $pdfpages = fnamemodify('~/notewiki/pdf', ':p')
 let $beamerpages = fnamemodify('~/notewiki/beamer', ':p')
 let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
-if !exists('g:notebrowser')
-    let g:notebrowser = 'nohup xdg-open'
-    " executable("google-chome/chomium/brave") -> nohup google-chome/chomium/brave --new-window
+if !exists('g:noteopen')
+    let g:noteopen = 'nohup xdg-open'
+    " executable("google-chome/chomium/brave") ???
+    " let g:notebrowse = 'nohup brave --new-window'
 endif
 
 
@@ -106,7 +107,6 @@ endfunction
 "}}}
 
 " Scratch buffer{{{
-" UNUSED
 function s:ScratchBuffer()
     execute 'tabnew '
     file! SCRATCH
@@ -118,37 +118,50 @@ function s:ScratchBuffer()
 endfunction
 "}}}
 
+" Edit main notes index{{{
+function s:NoteWikiIndex()
+    execute 'edit ' . $wikipages . '/index.md'
+endfunction
+"}}}
+
+" Edit current notes index{{{
+function s:NoteWiki()
+    execute 'edit ' . '%:p:h' . '/index.md'
+endfunction
+"}}}
+
 " Browse main notes directory{{{
-function s:NoteBrowseIndex()
-    execute '!' . g:notebrowser . ' ' . $wikipages . ' >/dev/null 2>&1 &'
+function s:NoteOpenIndex()
+    execute '!' . g:noteopen . ' ' . $wikipages . ' >/dev/null 2>&1 &'
     execute 'redraw!'
 endfunction
 "}}}
 
 " Browse current notes directory{{{
-function s:NoteBrowse()
-    execute '!' . g:notebrowser . ' ' . '%:p:h' . ' >/dev/null 2>&1 &'
+function s:NoteOpen()
+    execute '!' . g:noteopen . ' ' . '%:p:h' . ' >/dev/null 2>&1 &'
     execute 'redraw!'
 endfunction
 "}}}
 
 
 " Commands{{{
-command! NoteWikiIndex :execute 'edit ' . $wikipages . '/index.md'
-command! NoteBrowseIndex call <SID>NoteBrowseIndex()
 command! -nargs=0 ScratchBuffer call <SID>ScratchBuffer()
+command! NoteWikiIndex call <SID>NoteWikiIndex()
+command! NoteOpenIndex call <SID>NoteOpenIndex()
 "}}}
 
 " Plug{{{
-nnoremap <silent> <Plug>(NoteWiki)   :execute 'edit ' . '%:p:h' . '/index.md'<cr>
-nnoremap <silent> <Plug>(NoteBrowse) :call <SID>NoteBrowse()<cr>
-nnoremap <silent> <Plug>(NextLink)   :call <SID>NextLink()<cr>
-nnoremap <silent> <Plug>(PrevLink)   :call <SID>PrevLink()<cr>
-nnoremap <silent> <Plug>(OpenLink)   :call <SID>OpenLink()<cr>
-nnoremap <silent> <Plug>(Back)       :call <SID>Back()<cr>
-nnoremap <silent> <Plug>(EndPar)     :call <SID>EndPar()<cr>
+nnoremap <silent> <Plug>(NoteWiki) :call <SID>NoteWiki()<cr>
+nnoremap <silent> <Plug>(NoteOpen) :call <SID>NoteOpen()<cr>
+nnoremap <silent> <Plug>(NextLink) :call <SID>NextLink()<cr>
+nnoremap <silent> <Plug>(PrevLink) :call <SID>PrevLink()<cr>
+nnoremap <silent> <Plug>(OpenLink) :call <SID>OpenLink()<cr>
+nnoremap <silent> <Plug>(Back)     :call <SID>Back()<cr>
+nnoremap <silent> <Plug>(EndPar)   :call <SID>EndPar()<cr>
 "}}}
 
 " maps{{{
-nnoremap <localleader>\ :NoteWikiIndex<cr>
+nnoremap <leader>n :NoteWikiIndex<cr>
+nnoremap <leader>b :NoteOpenIndex<cr>
 "}}}
