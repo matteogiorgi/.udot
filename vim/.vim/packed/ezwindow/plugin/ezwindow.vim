@@ -113,7 +113,7 @@ endfun
 
 " Resize Splits
 function! s:ResizeMode(commands)
-    echo "Start Resizing. Press ESC to quit"
+    echo "Start Resizing, press ESC to quit."
     let l:commands = a:commands
     while 1
         let l:c = getchar()
@@ -127,7 +127,7 @@ function! s:ResizeMode(commands)
             exec l:commands['right']
         elseif c == s:code_list['finish'] "q
             redraw
-            echo "Finished!"
+            echo "Finished."
             break
         endif
         redraw
@@ -144,7 +144,7 @@ command! EzWindowStartResize call s:ResizeMode(s:ResizeCommands())
 
 
 " List of Mappings
-let s:default_start_key = 'm'
+let s:default_start_key = '<localleader>\'
 let s:default_ez_window_keys = {
             \ 'left'  : '<C-w>h',
             \ 'down'  : '<C-w>j',

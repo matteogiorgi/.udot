@@ -12,7 +12,7 @@
 
 " Keybindings and behavior
 " ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-" + Press the assigned hotkey to activate QuickBuf (default <localleader>).
+" + Press the assigned hotkey to activate QuickBuf (default <F12>).
 "   It brings out a list of buffers that you can browse and give commands on!
 "   Some indicators in the list:
 "     - * : the buffer being opened in the active window
@@ -47,7 +47,7 @@ if v:version < 700 | finish | endif
 " (the original conflicts with PlugUpdate, don't know why)
 " nnoremap <unique> ...
 " cnoremap <unique> ...
-if !exists("g:qb_hotkey") || g:qb_hotkey == "" | let g:qb_hotkey = "<C-space>" | endif
+if !exists("g:qb_hotkey") || g:qb_hotkey == "" | let g:qb_hotkey = "<F12>" | endif
 exe "nnoremap" g:qb_hotkey " :cal <SID>init(1)<cr>:cal SBRun()<cr>"
 exe "cnoremap" g:qb_hotkey "<Esc>"
 

@@ -160,8 +160,3 @@ nnoremap <silent> <Plug>(OpenLink) :call <SID>OpenLink()<cr>
 nnoremap <silent> <Plug>(Back)     :call <SID>Back()<cr>
 nnoremap <silent> <Plug>(EndPar)   :call <SID>EndPar()<cr>
 "}}}
-
-" maps{{{
-nnoremap <leader>n :NoteWikiIndex<cr>
-nnoremap <leader>b :NoteOpenIndex<cr>
-"}}}

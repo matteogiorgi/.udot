@@ -12,4 +12,3 @@ let g:netrw_altv = 0
 
 
 highlight! default link netrwMarkFile Search
-nnoremap <leader>e :Explore<CR>

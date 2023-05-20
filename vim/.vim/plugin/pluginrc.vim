@@ -77,7 +77,7 @@ nnoremap <leader>u :ToggleUT<CR>
 
 " Copilot {{{
 if v:version >= 900 || has('nvim')
-    function! CocPilot()
+    function! s:Pilot()
         let g:copilot = !exists('g:copilot') ? 'disabled' : g:copilot
         if g:copilot ==? 'disabled'
             let g:copilot = 'enabled'
@@ -90,11 +90,11 @@ if v:version >= 900 || has('nvim')
         endif
     endfunction
 
+    command! Pilot call <SID>Pilot()
     imap <silent><C-O> <Plug>(copilot-suggest)
     imap <silent><C-H> <Plug>(copilot-dismiss)
     imap <silent><C-J> <Plug>(copilot-next)
     imap <silent><C-K> <Plug>(copilot-previous)
     imap <silent><script><expr> <C-L> copilot#Accept("\<CR>")
-    nnoremap <leader>q :call CocPilot()<CR>
 endif
 " }}}

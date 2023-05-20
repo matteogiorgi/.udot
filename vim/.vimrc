@@ -79,10 +79,10 @@ endif
 call plug#begin('~/.vim/plugged')
     " use ../packed/simple-complete as alternative to neoclide/coc.nvim
     " use ../packed/lines as alternative to itchyny/lightline.vim
+    " use ../packed/qbuf as a buffer switcher alternative
     Plug '$HOME/.vim/packed/bclose'
     Plug '$HOME/.vim/packed/ezwindow'
     Plug '$HOME/.vim/packed/fuzzy'
-    Plug '$HOME/.vim/packed/qbuf'
     Plug '$HOME/.vim/packed/startscreen'
     Plug '$HOME/.vim/packed/utility'
     Plug '$HOME/.vim/packed/notewiki'
@@ -151,7 +151,7 @@ set hlsearch incsearch
 set nowrap nospell  " set spell complete+=kspell
 set ignorecase smartcase smartindent
 set noswapfile nobackup
-set noshowmode showcmd
+set showmode showcmd
 set cursorline noerrorbells novisualbell
 set splitbelow splitright
 set equalalways
