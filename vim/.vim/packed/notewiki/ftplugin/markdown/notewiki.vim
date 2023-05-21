@@ -5,7 +5,6 @@ setlocal conceallevel=2
 nmap <buffer> <leader>i <Plug>(NoteWiki)
 nmap <buffer> <leader>o <Plug>(NoteOpen)
 nmap <buffer> <leader>p <Plug>(NotePandoc)<cr>
-nmap <buffer> <leader>\ <Plug>(EndPar)
 
 nmap <buffer> <tab> <Plug>(NextLink)
 nmap <buffer> <S-tab> <Plug>(PrevLink)

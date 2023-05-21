@@ -15,14 +15,6 @@ if !isdirectory($wikipages)
 endif
 
 
-" EndPar{{{
-function s:EndPar() abort
-    execute 'normal o'
-    execute 'normal o<!-- -->'
-    execute 'normal o'
-endfunction
-"}}}
-
 " CreateLink{{{
 function s:CreateLink() abort
     let @z = ''
@@ -158,5 +150,4 @@ nnoremap <silent> <Plug>(NextLink) :call <SID>NextLink()<cr>
 nnoremap <silent> <Plug>(PrevLink) :call <SID>PrevLink()<cr>
 nnoremap <silent> <Plug>(OpenLink) :call <SID>OpenLink()<cr>
 nnoremap <silent> <Plug>(Back)     :call <SID>Back()<cr>
-nnoremap <silent> <Plug>(EndPar)   :call <SID>EndPar()<cr>
 "}}}
