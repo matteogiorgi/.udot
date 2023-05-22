@@ -338,8 +338,8 @@ if [[ ! -x "$(command -v snap)" ]]; then
     printf "\n"
 fi
 
-# brave, chromum, code, codium
-sudo snap install brave chromium
+# slides, brave, chromum, code, codium
+sudo snap install slides brave chromium
 sudo snap install --classic code
 sudo snap install --classic codium
 

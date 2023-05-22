@@ -283,6 +283,7 @@ read -p "    Removing snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
+    [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
     [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
     [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
     [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
