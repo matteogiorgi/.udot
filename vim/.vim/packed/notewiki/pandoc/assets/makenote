@@ -57,3 +57,11 @@ md2html $currfile > $pandoc/$1.html
 #     name="${note%.*}"
 #     pandoc $note --to=pdf -o $pandoc/$name.pdf
 # done
+
+
+
+
+### convert current note to slides presentation (pandoc + latex beamer)
+#######################################################################
+
+# pandoc $currfile --to=beamer -o $pandoc/$1.pdf
