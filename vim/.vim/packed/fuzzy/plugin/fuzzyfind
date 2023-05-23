@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
 
-SEARCH1='rg --sort-files --files --hidden --glob "!.git/**"'
-SEARCH2='find . -type f \( ! -regex '.*/\.git/.*' \) -print'
-[[ -x "$(command -v rg)" ]] && FZF_DEFAULT_COMMAND="$SEARCH1" || FZF_DEFAULT_COMMAND="$SEARCH2"
+CLICOLOR_FORCE=1
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 
 [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
-FILE="$(fzf --ansi --bind 'change:first,ctrl-h:cancel' --prompt="$PWD$GIT_BRANCH > " \
-        --height 100% --margin 0% --reverse --info=hidden --header-first)"
+FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
+        `--ansi `
+        `--prompt="$PWD$GIT_BRANCH > " `
+        `--height 100% `
+        `--margin 0% `
+        `--reverse `
+        `--info=hidden `
+        `--header-first `
+        `--bind 'change:first' `
+        `--bind 'ctrl-h:cancel' `
+        `--bind 'ctrl-n:preview-half-page-down' `
+        `--bind 'ctrl-p:preview-half-page-up')"
 [[ -z "$FILE" ]] && exit 1
 echo "${PWD}/${FILE}" > /tmp/vim_fuzzy_current_file

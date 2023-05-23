@@ -1,21 +1,38 @@
 #!/usr/bin/env bash
 
+# use `find . -type f \( ! -regex '.*/\.git/.*' \) -print`
+# as a ripgrep search alternative
+
 
 [[ -x "$(command -v fzf)" ]] || exit 1
-
-OPENER="swallow"
-SEARCH1='rg --sort-files --files --hidden --glob "!.git/**"'
-SEARCH2='find . -type f \( ! -regex '.*/\.git/.*' \) -print'
-[[ -x "$(command -v rg)" ]] && FZF_DEFAULT_COMMAND="$SEARCH1" || FZF_DEFAULT_COMMAND="$SEARCH2"
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
+
+CLICOLOR_FORCE=1
+OPENER="swallow"
 
 function main () {
     while true; do
         [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
-        FILE="$(fzf --preview 'mess {}' --preview-window 'down,80%,border-sharp' `
-                `--bind 'esc:,change:first,ctrl-h:cancel,ctrl-l:toggle-preview,ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up' `
-                `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/ffind.out & disown),ctrl-c:execute(code -n {}),ctrl-f:execute(feh --bg-fill {})' `
-                `--prompt="$PWD$GIT_BRANCH > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
+        FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
+                `--preview 'mess {}' `
+                `--preview-window 'down,80%,border-sharp' `
+                `--prompt="$PWD$GIT_BRANCH > " `
+                `--height 100% `
+                `--margin 0% `
+                `--reverse `
+                `--info=hidden `
+                `--header-first `
+                `--bind 'esc:' `
+                `--bind 'change:first' `
+                `--bind 'ctrl-h:cancel' `
+                `--bind 'ctrl-l:toggle-preview' `
+                `--bind 'ctrl-n:half-page-down' `
+                `--bind 'ctrl-p:half-page-up' `
+                `--bind 'ctrl-d:preview-half-page-down' `
+                `--bind 'ctrl-u:preview-half-page-up' `
+                `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/ffind.out & disown)' `
+                `--bind 'ctrl-c:execute(code -n {})' `
+                `--bind 'ctrl-f:execute(feh --bg-fill {})')"
         [[ -z "$FILE" ]] && exit 1
         "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
     done
