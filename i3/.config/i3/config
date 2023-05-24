@@ -247,43 +247,43 @@ for_window [class="Input-remapper-gtk"] floating enable
 for_window [instance="__scratch_0__"] floating enable
 for_window [instance="__scratch_0__"] resize set 800 600
 for_window [instance="__scratch_0__"] move position center
-for_window [instance="__scratch_0__"] border pixel 4
+for_window [instance="__scratch_0__"] border pixel 2
 for_window [instance="__scratch_0__"] move scratchpad
 for_window [title="__scratch_0__"] floating enable
 for_window [title="__scratch_0__"] resize set 800 600
 for_window [title="__scratch_0__"] move position center
-for_window [title="__scratch_0__"] border pixel 4
+for_window [title="__scratch_0__"] border pixel 2
 for_window [title="__scratch_0__"] move scratchpad
 
 # scratch_1 window instance and title
 for_window [instance="__scratch_1__"] floating enable
 for_window [instance="__scratch_1__"] resize set 800 600
 for_window [instance="__scratch_1__"] move position center
-for_window [instance="__scratch_1__"] border pixel 4
+for_window [instance="__scratch_1__"] border pixel 2
 for_window [title="__scratch_1__"] floating enable
 for_window [title="__scratch_1__"] resize set 800 600
 for_window [title="__scratch_1__"] move position center
-for_window [title="__scratch_1__"] border pixel 4
+for_window [title="__scratch_1__"] border pixel 2
 
 # scratch_2 window instance and title
 for_window [instance="__scratch_2__"] floating enable
 for_window [instance="__scratch_2__"] resize set 600 200
 for_window [instance="__scratch_2__"] move position center
-for_window [instance="__scratch_2__"] border pixel 4
+for_window [instance="__scratch_2__"] border pixel 2
 for_window [title="__scratch_2__"] floating enable
 for_window [title="__scratch_2__"] resize set 600 200
 for_window [title="__scratch_2__"] move position center
-for_window [title="__scratch_2__"] border pixel 4
+for_window [title="__scratch_2__"] border pixel 2
 
 # scratch_3 window instance and title
 for_window [instance="__scratch_3__"] floating enable
 for_window [instance="__scratch_3__"] resize set 250 400
 for_window [instance="__scratch_3__"] move position center
-for_window [instance="__scratch_3__"] border pixel 4
+for_window [instance="__scratch_3__"] border pixel 2
 for_window [title="__scratch_3__"] floating enable
 for_window [title="__scratch_3__"] resize set 250 400
 for_window [title="__scratch_3__"] move position center
-for_window [title="__scratch_3__"] border pixel 4
+for_window [title="__scratch_3__"] border pixel 2
 
 
 
