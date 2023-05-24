@@ -12,11 +12,11 @@ FILE="$*"
 ### Functions definition
 ########################
 
+# shell-commands are supposed to launch (detached) gui programs
+# shell-functions are instead supposed to launch terminal programs
+
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions || exit 1
 
-# Commands are supposed to launch (detached) gui programs,
-# functions are instead supposed to launch terminal programs.
-# To launch a terminal program, wrap it in a function.
 function _run () {
     if [[ -x "$(command -v $1)" ]]; then
         _xshow "$1 '${FILE}'"
@@ -65,8 +65,8 @@ case $(file --mime-type "${FILE}" -bL) in
         _run "esxiv"
         ;;
     text/* | application/json)
-        _run "_vim"
+        "${EDITOR:=vi}" "$@"
         ;;
     *)
-        _run "(ツ)"
+        _run ""
 esac

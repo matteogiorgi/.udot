@@ -113,6 +113,9 @@ _backup () {
     [[ -d $HOME/.config/i3 ]] && _clean $HOME/.config/i3
     [[ -d $HOME/.config/i3status ]] && _clean $HOME/.config/i3status
 
+    # kakoune
+    [[ -d $HOME/.config/kak ]] && _clean $HOME/.config/kak
+
     # kitty
     [[ -d $HOME/.config/kitty ]] && _clean $HOME/.config/kitty
 
@@ -287,6 +290,7 @@ sudo apt install -qq -y \
     kitty \
     xterm \
     tmux \
+    kak \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -356,6 +360,7 @@ stow bin
 stow fzf
 stow helix
 stow i3
+stow kakoune
 stow kitty
 stow sxiv
 stow tmux

@@ -127,6 +127,25 @@
 
 
 
+### KAKOUNE
+###########
+
+/kakoune/*
+!/kakoune/.config
+
+/kakoune/.config/*
+!/kakoune/.config/kak
+
+/kakoune/.config/kak/*
+!/kakoune/.config/kak/colors
+!/kakoune/.config/kak/kakrc
+
+/kakoune/.config/kak/colors/*
+!/kakoune/.config/kak/colors/hembox.kak
+
+
+
+
 ### KITTY
 #########
 

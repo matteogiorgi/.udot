@@ -102,6 +102,9 @@ _restore () {
     [[ -d $RESTORE/i3 ]] && mv $RESTORE/i3 $HOME/.config
     [[ -d $RESTORE/i3status ]] && mv $RESTORE/i3status $HOME/.config
 
+    # kakoune
+    [[ -d $RESTORE/kak ]] && mv $RESTORE/kak $HOME/.config
+
     # kitty
     [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
 
@@ -183,6 +186,7 @@ stow -D bin
 stow -D fzf
 stow -D helix
 stow -D i3
+stow -D kakoune
 stow -D kitty
 stow -D sxiv
 stow -D tmux
@@ -245,6 +249,7 @@ sudo apt purge -qq -y \
     kitty \
     xterm \
     tmux \
+    kak \
     vim-gtk3 \
     helix \
     zathura \

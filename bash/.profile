@@ -104,8 +104,8 @@ if [[ (( $(echo "$(glxinfo | awk '/OpenGL version/ {print $4}') > 3.3" | bc -l) 
 fi
 
 # editor: helix > vim
-export VISUAL="/bin/vim"
-export EDITOR="/bin/vim"
+export VISUAL="/bin/kak"
+export EDITOR="/bin/kak"
 if [[ -x "$(command -v hx)" ]]; then
     export VISUAL="/bin/hx"
     export EDITOR="/bin/hx"
