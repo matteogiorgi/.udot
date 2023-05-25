@@ -38,5 +38,5 @@ command! FuzzyGit call <SID>FuzzyGit()
 
 
 nnoremap <leader>jj :FuzzyJump<CR>
-nnoremap <leader>jk :FuzzyFind<CR>
-nnoremap <leader>jh :FuzzyGit<CR>
+nnoremap <leader>jf :FuzzyFind<CR>
+nnoremap <leader>jg :FuzzyGit<CR>

@@ -19,10 +19,10 @@ NC='\033[0m'
 # FUNCTIONS
 ###########
 
-function _f () {
+function _ff () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
-            grep -v _f | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
+            grep -v _ff | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
             fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
     read -p "$SHFUN: " ARGS
@@ -185,17 +185,6 @@ function _shfm () {
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
     rm -f /tmp/shfm
-}
-
-
-function _fkak () {
-    [[ -f "$HOME/bin/fkak" ]] || return 1
-    PROMPT=${PS1@P}
-    $HOME/bin/fkak $$
-    cd "$(cat /tmp/fkak$$)"
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-    rm -f /tmp/fkak$$
 }
 
 
