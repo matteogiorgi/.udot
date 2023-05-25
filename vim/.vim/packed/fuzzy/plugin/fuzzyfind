@@ -7,6 +7,8 @@ CLICOLOR_FORCE=1
 [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
 FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
         `--ansi `
+        `--preview 'batcat  --style numbers,changes --color=always {}' `
+        `--preview-window 'down,80%,border-sharp' `
         `--prompt="$PWD$GIT_BRANCH > " `
         `--height 100% `
         `--margin 0% `
@@ -15,7 +17,10 @@ FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
         `--header-first `
         `--bind 'change:first' `
         `--bind 'ctrl-h:cancel' `
-        `--bind 'ctrl-n:preview-half-page-down' `
-        `--bind 'ctrl-p:preview-half-page-up')"
+        `--bind 'ctrl-l:toggle-preview' `
+        `--bind 'ctrl-n:half-page-down' `
+        `--bind 'ctrl-p:half-page-up' `
+        `--bind 'ctrl-d:preview-half-page-down' `
+        `--bind 'ctrl-u:preview-half-page-up')"
 [[ -z "$FILE" ]] && exit 1
 echo "${PWD}/${FILE}" > /tmp/vim_fuzzy_current_file
