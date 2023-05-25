@@ -318,7 +318,7 @@ bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 bindsym $mod+x exec "xournalpp"
-bindsym $mod+c exec "codium"
+bindsym $mod+c exec "code"
 bindsym $mod+v exec "gvim"
 bindsym $mod+b exec "brave"
 

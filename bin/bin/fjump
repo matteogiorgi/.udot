@@ -32,6 +32,7 @@ function main () {
                 `--bind 'ctrl-u:preview-half-page-up' `
                 `--bind 'ctrl-o:execute(nohup xdg-open . &>/tmp/fjump.out & disown)' `
                 `--bind 'ctrl-c:execute(code -n .)' `
+                `--bind 'ctrl-v:execute(gvim .)' `
                 `--bind 'ctrl-f:execute(feh --bg-fill {})')"
         [[ -z "$FILE" ]] && exit 1
         [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
