@@ -188,6 +188,17 @@ function _shfm () {
 }
 
 
+function _fkak () {
+    [[ -f "$HOME/bin/fkak" ]] || return 1
+    PROMPT=${PS1@P}
+    $HOME/bin/fkak $$
+    cd "$(cat /tmp/fkak$$)"
+    NEWPROMPT=${PS1@P}
+    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
+    rm -f /tmp/fkak$$
+}
+
+
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
     PROMPT=${PS1@P}

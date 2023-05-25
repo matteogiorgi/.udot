@@ -307,7 +307,7 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+d focus mode_toggle
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
-bindsym $mod+o bar mode toggle
+bindsym $mod+q bar mode toggle
 
 # modes
 bindsym $mod+r mode "Resize"
@@ -317,6 +317,7 @@ bindsym $mod+w exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/
 bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
+bindsym $mod+o exec "xterm -e tmux"
 bindsym $mod+x exec "xournalpp"
 bindsym $mod+c exec "code"
 bindsym $mod+v exec "gvim"
