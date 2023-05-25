@@ -153,6 +153,15 @@ function _vim_last () {
 }
 
 
+function _kak () {
+    if [[ -f "/bin/kak" ]]; then
+        \kak "$@"
+    else
+        "${EDITOR:=vi}" "$@"
+    fi
+}
+
+
 function _hx () {
     if [[ -f "/bin/hx" ]]; then
         \hx "$@"
