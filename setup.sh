@@ -305,6 +305,7 @@ sudo apt install -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
+    cherrytree \
     sct \
     flameshot \
     diodon \

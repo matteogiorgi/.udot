@@ -314,12 +314,8 @@ bindsym $mod+r mode "Resize"
 
 # extra
 bindsym $mod+w exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/i3windows"
-bindsym $mod+e exec "input-remapper-gtk"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
-bindsym $mod+x exec "xournalpp"
-bindsym $mod+c exec "code"
-bindsym $mod+b exec "brave"
 
 
 
