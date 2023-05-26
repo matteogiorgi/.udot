@@ -304,7 +304,7 @@
 
 
 
-FFM_OPENER="kak"
+FFM_OPENER="swallow"
 
 esc() {
     case $1 in

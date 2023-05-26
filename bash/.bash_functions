@@ -22,7 +22,7 @@ NC='\033[0m'
 function _fun () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
-            grep -v _fun | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
+            grep -v _fun | grep -v _ask | sort -k1n | \
             fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
     read -p "$SHFUN: " ARGS
@@ -113,42 +113,11 @@ function _poweroffi3 () {
 }
 
 
-function _setbackgroundcolor () {
-    [[ -f "/bin/xtermcontrol" ]] || return 1
-    if [[ "$(xtermcontrol --get-bg 2>/dev/null)" == "rgb:ffff/ffff/ffff" ]]; then
-        export BACKGROUNDCOLOR="'light'"
-    else
-        export BACKGROUNDCOLOR="'dark'"
-    fi
-}
-
-
 function _vim () {
     if [[ -f "/bin/vim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        env \vim --cmd "let theme=$BACKGROUNDCOLOR" "$@"
+        \vim "$@"
     else
         "${EDITOR:=vi}" "$@"
-    fi
-}
-
-
-function _vim_vanilla () {
-    if [[ -f "/bin/vim" ]]; then
-        [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-        \vim -u NONE "$@"
-    else
-        "${EDITOR:=vi}" "$@"
-    fi
-}
-
-
-function _vim_last () {
-    [[ -f "/bin/vim" ]] || return 1
-    if [[ -f "$HOME/.vim/sessions/last.vim" ]]; then
-        _vim -S $HOME/.vim/sessions/last.vim
-    else
-        _vim
     fi
 }
 
@@ -181,8 +150,7 @@ function _tmux () {
         printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
         return
     fi
-    [[ -z "$BACKGROUNDCOLOR" ]] && _setbackgroundcolor
-    /bin/tmux -L $BACKGROUNDCOLOR 2>/dev/null
+    /bin/tmux 2>/dev/null
 }
 
 

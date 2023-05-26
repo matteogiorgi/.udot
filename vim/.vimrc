@@ -1,112 +1,13 @@
+" __     ___
+" \ \   / (_)_ __ ___
+"  \ \ / /| | '_ ` _ \
+"   \ V / | | | | | | |
+"    \_/  |_|_| |_| |_|
 "
-"                                 E-VIM PLUGINS
-"                    [ https://github.com/junegunn/vim-plug ]
 "
-"    lightline.vim ················ https://github.com/itchyny/lightline.vim
-"    vim-pandoc ··················· https://github.com/vim-pandoc/vim-pandoc
-"    vim-pandoc-syntax ············ https://github.com/vim-pandoc/vim-pandoc-syntax
-"    vim-surround ················· https://github.com/tpope/vim-surround
-"    vim-repeat ··················· https://github.com/tpope/vim-repeat
-"    vim-commentary ··············· https://github.com/tpope/vim-commentary
-"    vim-fugitive ················· https://github.com/tpope/vim-fugitive
-"    undotree ····················· https://github.com/mbbill/undotree
-"    context.vim ·················· https://github.com/wellle/context.vim
-"    vim-gutentags ················ https://github.com/ludovicchabant/vim-gutentags
-"    fzf.vim ······················ https://github.com/junegunn/fzf.vim
-"    coc.nvim ····················· https://github.com/neoclide/coc.nvim
-"    copilot.vim ·················· https://github.com/github/copilot.vim
-"
-"    For full documentation and other stuff visit https://www.vim.org
-"
-
-
-
-
-" Plug check (it only works on GNU/Linux) {{{
-augroup vimenter
-    autocmd VimEnter *
-                \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
-                \     PlugInstall --sync | q |
-                \ endif
-    if !filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim"'))
-        echo 'Downloading junegunn/vim-plug to manage plugins...'
-        silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/
-        silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-                    \ > ${XDG_CONFIG_HOME:-$HOME/.vim}/autoload/plug.vim
-        autocmd VimEnter * PlugInstall
-    endif
-augroup end
-" }}}
-
-
-
-
-" Save last session {{{
-" a better way would be to check
-" buffers on all opened windows
-augroup vimleave
-    autocmd VimLeave *
-                \ if &filetype == 'startscreen' |
-                \     execute 'bdelete' |
-                \ endif |
-                \ if !isdirectory('$HOME/.vim/sessions') |
-                \     execute "!mkdir -p $HOME/.vim/sessions" |
-                \ endif |
-                \ if has('nvim') |
-                \     mksession! $HOME/.vim/sessions/last.nvim |
-                \ else |
-                \     mksession! $HOME/.vim/sessions/last.vim |
-                \ endif
-augroup end
-" }}}
-
-
-
-
-" Terminal settings {{{
-if has('nvim')
-    augroup termsettings
-        autocmd!
-        autocmd TermOpen * setlocal nonumber norelativenumber
-    augroup end
-endif
-" }}}
-
-
-
-
-" Plugin list {{{
-call plug#begin('~/.vim/plugged')
-    " use ../packed/simple-complete as alternative to neoclide/coc.nvim
-    " use ../packed/lines as alternative to itchyny/lightline.vim
-    " use ../packed/qbuf as a buffer switcher alternative
-    Plug '$HOME/.vim/packed/bclose'
-    Plug '$HOME/.vim/packed/ezwindow'
-    Plug '$HOME/.vim/packed/fuzzy'
-    Plug '$HOME/.vim/packed/startscreen'
-    Plug '$HOME/.vim/packed/utility'
-    Plug '$HOME/.vim/packed/notewiki'
-    Plug 'vim-pandoc/vim-pandoc'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-    Plug 'itchyny/lightline.vim'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
-    Plug 'mbbill/undotree'
-    Plug 'wellle/context.vim'
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'neoclide/coc.nvim', {'branch' : 'release'}
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    if v:version >= 900 || has('nvim')
-        let g:copilot_no_tab_map = v:true
-        let g:copilot_assume_mapped = v:true
-        let g:copilot_enabled = v:false
-        Plug 'github/copilot.vim'
-    endif
-call plug#end()
-" }}}
+" Vim editor - no plugin configuration
+" For full documentation and other stuff
+" visit https://www.vim.org
 
 
 
@@ -129,8 +30,8 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
-if has("gui_running") | colorscheme hemisu | else | colorscheme hembox | endif
-if exists('theme') && theme == 'light' | set background=light | else | set background=dark | endif
+colorscheme hembox
+set background=dark
 " }}}
 
 
@@ -171,10 +72,8 @@ set cursorlineopt=number,line
 set fillchars+=vert:\│,eob:\ ,fold:-
 set laststatus=2
 set showtabline=1
-if !has('nvim')
-    set nocompatible
-    set esckeys
-endif
+set nocompatible
+set esckeys
 " }}}
 
 
@@ -258,13 +157,10 @@ augroup end
 
 
 " Simple commands {{{
-command! Date execute 'r !printf "\n\# " && date && printf "\n"'
 command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
-command! Squish execute "normal \ggVGgq"
 command! ClearLastSearch :let @/=""
-command! LastSession :source $HOME/.vim/sessions/last.vim
 " }}}
 
 
@@ -287,14 +183,20 @@ vnoremap <silent><S-Tab> <gv
 nnoremap <silent><Tab> :wincmd w<cr>
 nnoremap <silent><C-h> :tabprev<cr>
 nnoremap <silent><C-l> :tabnext<cr>
-nnoremap <silent><C-p> :tabmove -1<cr>
-nnoremap <silent><C-n> :tabmove +1<cr>
+nnoremap <silent><C-p> :bprev<cr>
+nnoremap <silent><C-n> :bnext<cr>
 nnoremap <silent>Y y$
-nnoremap <silent>QQ :qall<CR>
-nnoremap <silent>WW :wall<CR>
-tnoremap <silent><C-q> <C-\><C-n>
-nnoremap <silent><C-d> <C-d>zz
-nnoremap <silent><C-u> <C-u>zz
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
+nnoremap <leader>w <C-w>
+nnoremap <leader>0 0gt
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
 " }}}

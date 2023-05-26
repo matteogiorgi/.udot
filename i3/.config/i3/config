@@ -303,11 +303,11 @@ bindsym $mod+Shift+BackSpace focus child
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
-# floating, fullscreen, bar-mode
+# floating, fullscreen
+# add `bar mode toggle`
 bindsym $mod+d focus mode_toggle
 bindsym $mod+f floating toggle
 bindsym $mod+g fullscreen toggle
-bindsym $mod+o bar mode toggle
 
 # modes
 bindsym $mod+r mode "Resize"
@@ -319,7 +319,6 @@ bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 bindsym $mod+x exec "xournalpp"
 bindsym $mod+c exec "code"
-bindsym $mod+v exec "gvim"
 bindsym $mod+b exec "brave"
 
 

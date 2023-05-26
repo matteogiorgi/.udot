@@ -1,3 +1,12 @@
+" Notewiki
+" --------
+
+" Note plugin system useful to create
+" wiki-style notes.
+
+
+
+
 let $wikipages = fnamemodify('~/notewiki', ':p')
 let $pdfpages = fnamemodify('~/notewiki/pdf', ':p')
 let $beamerpages = fnamemodify('~/notewiki/beamer', ':p')
@@ -5,8 +14,6 @@ let $htmlpages = fnamemodify('~/notewiki/html', ':p')
 
 if !exists('g:noteopen')
     let g:noteopen = 'nohup xdg-open'
-    " executable("google-chome/chomium/brave") ???
-    " let g:notebrowse = 'nohup brave --new-window'
 endif
 
 
@@ -136,6 +143,28 @@ function s:NoteOpen()
 endfunction
 "}}}
 
+" NotePandoc{{{
+function! s:NotePandoc() abort
+    let l:prefix = expand('%:p:h')
+    let l:currfile = expand('%:p')
+
+    let $prefix = fnamemodify(l:prefix, ':p')
+    let $prefixtail = fnamemodify(l:prefix, ':t')
+    let $currfile = fnamemodify(l:currfile, ':p')
+
+	if &filetype ==? 'markdown' || &filetype ==? 'markdown.pandoc' || &filetype ==? 'pandoc'
+        let l:pandoc = l:prefix . '/pandoc'
+        let $pandoc = fnamemodify(l:pandoc, ':p')
+        if !isdirectory($pandoc)
+            !cp -R $HOME/.vim/utility/pandoc $prefix
+        endif
+        !$pandoc/assets/makenote %:t:r
+    else
+        echomsg 'I need an md file!'
+    endif
+endfunction
+"}}}
+
 
 " Commands{{{
 command! -nargs=0 ScratchBuffer call <SID>ScratchBuffer()
@@ -144,10 +173,11 @@ command! NoteOpenIndex call <SID>NoteOpenIndex()
 "}}}
 
 " Plug{{{
-nnoremap <silent> <Plug>(NoteWiki) :call <SID>NoteWiki()<cr>
-nnoremap <silent> <Plug>(NoteOpen) :call <SID>NoteOpen()<cr>
-nnoremap <silent> <Plug>(NextLink) :call <SID>NextLink()<cr>
-nnoremap <silent> <Plug>(PrevLink) :call <SID>PrevLink()<cr>
-nnoremap <silent> <Plug>(OpenLink) :call <SID>OpenLink()<cr>
-nnoremap <silent> <Plug>(Back)     :call <SID>Back()<cr>
+nnoremap <silent> <Plug>(NoteWiki)   :call <SID>NoteWiki()<cr>
+nnoremap <silent> <Plug>(NoteOpen)   :call <SID>NoteOpen()<cr>
+nnoremap <silent> <Plug>(NotePandoc) :call <SID>NotePandoc()<cr>
+nnoremap <silent> <Plug>(NextLink)   :call <SID>NextLink()<cr>
+nnoremap <silent> <Plug>(PrevLink)   :call <SID>PrevLink()<cr>
+nnoremap <silent> <Plug>(OpenLink)   :call <SID>OpenLink()<cr>
+nnoremap <silent> <Plug>(Back)       :call <SID>Back()<cr>
 "}}}

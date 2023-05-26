@@ -1,3 +1,15 @@
+" Simple-Complete
+" ---------------
+
+" Simple as-you-type keyword completion and tab complete
+" in less than 100 lines of code. Add the following lines
+" to your vimrc to include files and tag complete:
+" set complete-=t
+" set complete-=i
+
+
+
+
 if exists("g:loaded_vim_simple_complete")
     finish
 endif

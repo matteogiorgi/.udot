@@ -97,18 +97,12 @@ fi
 ### i3-sensible-variables
 #########################
 
-# terminal: kitty > lxterm
+export EDITOR="/bin/vim"
+export VISUAL="/bin/vim"
 export TERMINAL="/bin/lxterm"
+
 if [[ (( $(echo "$(glxinfo | awk '/OpenGL version/ {print $4}') > 3.3" | bc -l) )) ]]; then
     [[ -x "$(command -v kitty)" ]] && export TERMINAL="/bin/kitty"
-fi
-
-# editor: helix > vim
-export VISUAL="/bin/kak"
-export EDITOR="/bin/kak"
-if [[ -x "$(command -v hx)" ]]; then
-    export VISUAL="/bin/hx"
-    export EDITOR="/bin/hx"
 fi
 
 

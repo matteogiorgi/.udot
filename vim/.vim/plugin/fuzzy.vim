@@ -1,10 +1,15 @@
-" You need to have TERMINAL variable set in
-" order for this plugin to be executed correctly
+" Fuzzy finder
+" ------------
+
+" Finder plugin (with fzf) that lets you jump between
+" file and directories and screen git commits.
+
+
 
 
 function s:FuzzyJump()
     let s:folder = expand("%:p:h")
-    call system('$TERMINAL --title __scratch_1__ -e $HOME/.vim/packed/fuzzy/plugin/fuzzyjump s:folder')
+    exec "silent !$HOME/.vim/utility/fuzzyjump s:folder"
     if filereadable('/tmp/vim_fuzzy_current_dir')
         exec 'cd ' . system('cat /tmp/vim_fuzzy_current_dir')
         call system('rm /tmp/vim_fuzzy_current_dir')
@@ -18,7 +23,7 @@ endfun
 
 function s:FuzzyFind()
     let s:folder = expand("%:p:h")
-    call system('$TERMINAL --title __scratch_1__ -e $HOME/.vim/packed/fuzzy/plugin/fuzzyfind s:folder')
+    exec "silent !$HOME/.vim/utility/fuzzyfind s:folder"
     if filereadable('/tmp/vim_fuzzy_current_file')
         exec 'edit ' . system('cat /tmp/vim_fuzzy_current_file')
         call system('rm /tmp/vim_fuzzy_current_file')
@@ -27,7 +32,7 @@ function s:FuzzyFind()
 endfun
 
 function s:FuzzyGit()
-    call system('$TERMINAL --title __scratch_1__ -e $HOME/.vim/packed/fuzzy/plugin/fuzzygit')
+    exec "silent !$HOME/.vim/utility/fuzzygit"
     redraw!
 endfun
 
@@ -36,7 +41,6 @@ command! FuzzyJump call <SID>FuzzyJump()
 command! FuzzyFind call <SID>FuzzyFind()
 command! FuzzyGit call <SID>FuzzyGit()
 
-
-nnoremap <leader>jj :FuzzyJump<CR>
-nnoremap <leader>jf :FuzzyFind<CR>
-nnoremap <leader>jg :FuzzyGit<CR>
+nnoremap <leader>j :FuzzyJump<CR>
+nnoremap <leader>f :FuzzyFind<CR>
+nnoremap <leader>g :FuzzyGit<CR>
