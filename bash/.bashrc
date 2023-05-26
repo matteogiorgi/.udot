@@ -217,13 +217,11 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 set -o vi
 PROMPT=${PS1@P}
 
-bind -m vi-command -x '"\C-f": ffm'
 bind -m vi-command -x '"\C-h": fgit'
 bind -m vi-command -x '"\C-j": fjump'
 bind -m vi-command -x '"\C-k": ffind'
 bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT%????}'
 
-bind -m vi-insert -x '"\C-f": ffm'
 bind -m vi-insert -x '"\C-h": fgit'
 bind -m vi-insert -x '"\C-j": fjump'
 bind -m vi-insert -x '"\C-k": ffind'
