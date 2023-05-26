@@ -65,8 +65,7 @@ case $(file --mime-type "${FILE}" -bL) in
         _run "esxiv"
         ;;
     text/* | application/json)
-        # "${EDITOR:=vi}" "$@"
-        _run "_vim"
+        "${EDITOR:=vi}" "$@"
         ;;
     *)
         _run ""
