@@ -19,10 +19,10 @@ NC='\033[0m'
 # FUNCTIONS
 ###########
 
-function _ff () {
+function _fun () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
-            grep -v _ff | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
+            grep -v _fun | grep -v _ask | grep -v _setbackgroundcolor | sort -k1n | \
             fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
     [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
     read -p "$SHFUN: " ARGS
@@ -186,14 +186,14 @@ function _tmux () {
 }
 
 
-function _shfm () {
-    [[ -f "$HOME/bin/shfm" ]] || return 1
+function _ffm () {
+    [[ -f "$HOME/bin/ffm" ]] || return 1
     PROMPT=${PS1@P}
-    $HOME/bin/shfm "$@"
-    cd "$(cat /tmp/shfm)"
+    $HOME/bin/ffm "$@"
+    cd "$(cat /tmp/ffm)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
-    rm -f /tmp/shfm
+    rm -f /tmp/ffm
 }
 
 
