@@ -248,7 +248,7 @@
 !/vim/.vim/after/plugin/netrw.vim
 
 /vim/.vim/ftplugin/markdown/*
-!/vim/.vim/ftplugin/markdown/writing-mode.vim
+!/vim/.vim/ftplugin/markdown/notewiki.vim
 
 /vim/.vim/ftplugin/tex/*
 !/vim/.vim/ftplugin/tex/writing-mode.vim
