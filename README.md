@@ -29,8 +29,8 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 coreutils xdg-utils xdotool w3m-img fbset wmctrl xtermcontrol curl wget stow
 autorandr git atool trash-cli htop tree make gcc pkg-config lxpolkit xclip
 ripgrep wamerican witalian mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-texlive-full pandoc fonts-firacode sct exuberant-ctags ufw vsftpd bat zenity
-snap flatpak libnotify-bin chafa fzf ffmpegthumbnailer nodejs 
+texlive-full pandoc fonts-firacode exuberant-ctags ufw vsftpd bat zenity
+snap flatpak libnotify-bin chafa fzf ffmpegthumbnailer
 ```
 
 
@@ -45,7 +45,7 @@ adwaita-icon-theme-full gnome-themes-extra adwaita-qt lxappearance qt5ct xournal
 flameshot diodon pavucontrol gparted filezilla chrome-gnome-shell input-remapper
 cups system-config-printer gnome-shell-extension-prefs code codium google-chrome
 brave chromium simplescreenrecorder transmission vlc mypaint slides cherrytree
-vim-gtk3 
+vim-gtk3
 ```
 
 
@@ -58,6 +58,7 @@ vim-gtk3
 - Ocaml: `ocaml-batteries-included ocaml-man opam opam-doc`
 - Golang: `golang-go golang-golang-x-tools`
 - Python: `python3 python3-pip`
+- Javascript: `nodejs`
 
 
 

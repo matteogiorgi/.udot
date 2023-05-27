@@ -275,8 +275,7 @@ sudo apt purge -qq -y \
     vlc \
     mypaint \
     input-remapper \
-    google-chrome-stable \
-    nodejs
+    google-chrome-stable
 
 
 
@@ -325,7 +324,8 @@ sudo apt purge -qq -y \
     ocaml-batteries-included \
     ocaml-man \
     opam \
-    opam-doc
+    opam-doc \
+    nodejs
 
 
 

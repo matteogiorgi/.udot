@@ -150,21 +150,10 @@ _install_chrome () {
     cd -
 }
 
-_install_vim () {
-    sudo add-apt-repository ppa:jonathonf/vim
-    sudo apt update
-    sudo apt install -qq -y vim-gtk3
-}
-
 _install_helix () {
     sudo add-apt-repository ppa:maveonair/helix-editor
     sudo apt update
     sudo apt install -qq -y helix
-}
-
-_install_nodejs () {
-    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
-    sudo apt-get install -qq -y nodejs
 }
 
 _remove_xdg-desktop_portal_gnome () {
@@ -291,6 +280,7 @@ sudo apt install -qq -y \
     xterm \
     tmux \
     kak \
+    vim-gtk3 \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
@@ -306,7 +296,6 @@ sudo apt install -qq -y \
     qt5ct \
     xournalpp \
     cherrytree \
-    sct \
     flameshot \
     diodon \
     pavucontrol \
@@ -322,9 +311,7 @@ sudo apt install -qq -y \
     bash-completion
 
 _install_chrome
-_install_vim
 _install_helix
-_install_nodejs
 _remove_xdg-desktop_portal_gnome
 
 
@@ -394,7 +381,8 @@ if _ask "    Add full language support?" Y; then
         ocaml-batteries-included \
         ocaml-man \
         opam \
-        opam-doc
+        opam-doc \
+        nodejs
 fi
 
 
