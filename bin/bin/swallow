@@ -1,37 +1,13 @@
 #!/usr/bin/env bash
 
-
-### Variables definition
-########################
-
-FILE="$*"
-
-
+# Check the relative mime-type here (inode/directory not necessary):
+# https://www.iana.org/assignments/media-types/media-types.xhtml
 
 
 ### Functions definition
 ########################
 
-# shell-commands are supposed to launch (detached) gui programs
-# shell-functions are instead supposed to launch terminal programs
-
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions || exit 1
-
-function _run () {
-    if [[ -x "$(command -v $1)" ]]; then
-        _xshow "$1 '${FILE}'"
-    elif [[ "$(type -t $1)" == function ]]; then
-        $1 "${FILE}"
-    else
-        _xshow "xdg-open '${FILE}'"
-    fi
-}
-
-
-
-
-### Greppers
-############
 
 echo "$*" | grep "\.ar\." && {
     _xhide xterm -e "${EDITOR:=vi}" "$*" &
@@ -46,27 +22,26 @@ echo "$1" | grep "\.sent$" && {
 
 
 
-### MIME-type opener (inode/directory not necessary)
-####################################################
+### MIME-type opener
+####################
 
-# Check the relative mime-type here:
-# https://www.iana.org/assignments/media-types/media-types.xhtml
+FILE="$*"
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
-        _run "_mpv"
+        mpv "$@"
         ;;
     video/*)
-        _run "mpv --force-window --no-terminal --msg-level=all=no"
+        _xshow "mpv --force-window --no-terminal --msg-level=all=no '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _run "zathura"
+        _xshow "zathura '${FILE}'"
         ;;
     image/*)
-        _run "esxiv"
+        _xshow "esxiv '${FILE}'"
         ;;
     text/* | application/json)
         "${EDITOR:=vi}" "$@"
         ;;
     *)
-        _run ""
+        _xshow "xdg-open '${FILE}'"
 esac

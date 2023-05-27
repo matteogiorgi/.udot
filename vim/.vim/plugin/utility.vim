@@ -7,24 +7,6 @@
 
 
 
-" WinMove{{{
-" UNUSED FOR NOW
-function! s:WinMove(key)
-    let t:curwin = winnr()
-    exec 'wincmd '.a:key
-    if t:curwin ==? winnr()
-        if match(a:key,'[jk]')
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec 'wincmd '.a:key
-    endif
-    return bufname('%')
-endfunction
-"}}}
-
-
 " Jump current directory{{{
 function! s:JumpCurrentDir()
     echon 'CWD: '
@@ -112,6 +94,6 @@ command! ReplaceSearch call <SID>ReplaceSearch()
 command! ToggleAccent call <SID>ToggleAccent()
 
 nnoremap <silent>' :ToggleAccent<CR>
-nnoremap <silent><CR> :JumpCurrentDir<CR>
+nnoremap <silent>\ :JumpGitDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
-nnoremap <leader><Backspace> :JumpGitDir<CR>
+nnoremap <silent><CR> :JumpCurrentDir<CR>

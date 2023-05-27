@@ -19,17 +19,7 @@ NC='\033[0m'
 # FUNCTIONS
 ###########
 
-function _fun () {
-    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
-            sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
-            grep -v _fun | grep -v _ask | sort -k1n | \
-            fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
-    [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
-    read -p "$SHFUN: " ARGS
-    "$SHFUN" "$ARGS"
-}
-
-
+# without alias
 function _ask () {
     while true; do
         if [ "${2:-}" = "Y" ]; then
@@ -52,12 +42,14 @@ function _ask () {
 }
 
 
-function _xopen () {
-    if [[ $# -eq 0 ]]; then
-        printf "${YLW}%s${NC}\n" "Open what!?"
-        return 1
-    fi
-    _xshow "xdg-open $*"
+function _fun () {
+    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
+            sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
+            grep -v _fun | grep -v _ask | sort -k1n | \
+            fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+    [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
+    read -p "$SHFUN: " ARGS
+    "$SHFUN" "$ARGS"
 }
 
 
@@ -71,72 +63,6 @@ function _xhide () {
 
 function _xshow () {
     nohup sh -c "$*" &>/tmp/xshow.out & disown
-}
-
-
-function _mpv () {
-    [[ -f "/bin/mpv" ]] || return 1
-    FILE="$*"
-    echo -e "PLAY: ${FILE##*/}\n¯¯¯¯"
-    mpv "$FILE"
-}
-
-
-function _killapps () {
-    while read -r app; do
-        wmctrl -i -c "$app"
-    done < <(wmctrl -l | awk '{print $1}')
-}
-
-
-function _logouti3 () {
-    if _ask "Exit I3?" N; then
-        _killapps
-        i3-msg exit
-    fi
-}
-
-
-function _rebooti3 () {
-    if _ask "Reboot I3?" N; then
-        _killapps
-        i3-msg exec reboot
-    fi
-}
-
-
-function _poweroffi3 () {
-    if _ask "Poweroff I3?" N; then
-        _killapps
-        i3-msg exec poweroff
-    fi
-}
-
-
-function _vim () {
-    if [[ -f "/bin/vim" ]]; then
-        \vim "$@"
-    else
-        "${EDITOR:=vi}" "$@"
-    fi
-}
-
-
-function _kak () {
-    if [[ -f "/bin/kak" ]]; then
-        \kak "$@"
-    else
-        "${EDITOR:=vi}" "$@"
-    fi
-}
-
-
-function _hx () {
-    if [[ -f "/bin/hx" ]]; then
-        \hx "$@"
-    else
-        "${EDITOR:=vi}" "$@"
-    fi
 }
 
 
@@ -173,86 +99,6 @@ function _fjump () {
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
     rm -f /tmp/fjump$$
-}
-
-
-function _fgit () {
-    # FZF git commit browser:
-    # [enter=show] [ctrl-d=diff] [ctrl-l=sort]
-    [[ -x "$(command -v fzf)" && -x "$(command -v git)" ]] || return 1
-    if [[ $(git rev-parse --is-inside-work-tree 2>/dev/null) == "true" ]]; then
-        local out shas sha q k
-        while out=$(
-                git log --graph --color=always \
-                    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-                fzf --prompt="$PWD > " --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
-                    --bind 'esc:,change:first,ctrl-h:cancel' \
-                    --print-query --expect=ctrl-d --toggle-sort=ctrl-l); do
-            q=$(head -1 <<< "$out")
-            k=$(head -2 <<< "$out" | tail -1)
-            shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
-            [ -z "$shas" ] && continue
-            if [ "$k" = 'ctrl-d' ]; then
-                git diff --color=always $shas | less -R -~
-            else
-                for sha in $shas; do
-                    git show --color=always $sha | less -R -~
-                done
-            fi
-        done
-    else
-        printf "${YLW}%s${NC}\n" "WTF mate, you're not in a git repo!"
-    fi
-}
-
-
-function _sxiv () {
-    [[ -f "/bin/sxiv" ]] || return 1
-    if command -v \sxiv >/dev/null 2>&1; then
-        [[ -d "${@: -1}" || -h "${@: -1}" ]] && \sxiv -t "$@" || \sxiv "$@"
-    elif command -v feh >/dev/null 2>&1; then
-        feh "$@"
-    else
-        echo "Install SXIV or FEH!"
-    fi
-}
-
-
-function _wallpaper_picker () {
-    BACKGROUNDS="$HOME/Pictures/backgrounds"
-    [[ -z "$(\ls -A $BACKGROUNDS 2>/dev/null)" || ! -x "$(command -v feh)" ]] && return 1
-    if [[ -x "$(command -v fzf)" ]]; then
-        \cd "$BACKGROUNDS"
-        FILE="$(\ls | fzf --ansi --preview 'mess {}' --preview-window 'down,80%,border-sharp' --prompt="fwall > " --height 100% --margin 0% --reverse --info=hidden --header-first)"
-        \cd - &>/dev/null
-        [[ -z "$FILE" ]] && return 1
-    else
-        count=1
-        LIST=$(\ls $BACKGROUNDS)
-        MAX=$(($(\ls $BACKGROUNDS | wc -w)+1))
-        printf "${RED}%s${NC}\n" "Choose your background mate:"
-        for file in $LIST
-        do
-            echo "$count $file"
-            ((count++))
-        done
-        printf "${RED}%s${NC} " "Enter a number from 1 to $(($MAX-1)):"
-        while read response; do
-            re='^[0-9]+$'
-            [[ $response =~ $re && "$response" -gt 0 && "$response" -lt "$MAX" ]] && break
-            printf "${RED}%s${NC} " "Enter a number from 1 to $(($MAX-1)):"
-        done
-        FILE=$(\ls $BACKGROUNDS | head -n $response | tail -n 1)
-    fi
-    feh --bg-fill $BACKGROUNDS/$FILE 2>/dev/null
-}
-
-
-function _temperature_picker () {
-    [[ -x "$(command -v fzf)" && -x "$(command -v sct)" ]] || return 1
-    RANGE="3500      ## Ghibli\n4500      ## Campfire\n5500      ## Scirocco\n6500      ## Midday\n7500      ## Mistral\n8500      ## Chilly\n9500      ## Icy\n"
-    TEMPE=$(printf "$RANGE" | fzf --prompt='fcolor > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
-    [[ -n "$TEMPE" ]] && sct "$TEMPE" || return 1
 }
 
 
@@ -404,16 +250,5 @@ function _mergepdf () {
         pdfunite *.pdf merge.pdf
     else
         pdfunite "$ARGS" merge.pdf
-    fi
-}
-
-
-function _gitinit () {
-    [[ -x "$(command -v git)" ]] || return 1
-    if [[ ! -d "./.git" ]]; then
-        git init
-cat 2>/dev/null > ./.gitignore <<-EOF
-tags*
-EOF
     fi
 }

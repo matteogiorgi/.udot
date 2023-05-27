@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 
+# check the relative mime-type here:
+# https://www.iana.org/assignments/media-types/media-types.xhtml
 
-### Check arguments
-###################
+
+### Check arguments & ~/.tmp
+############################
 
 [[ "$*" == "" ]] && exit 1
-
-
-
-
-### Check ~/.tmp
-################
-
 [[ -d $HOME/.tmp ]] || mkdir $HOME/.tmp
 [[ $(du $HOME/.tmp | awk '{print $1}') -gt 1048576 ]] && rm $HOME/.tmp/*
 
@@ -52,8 +48,6 @@ _no_preview () {
 [[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${MESS} && exit
 [[ -d "$FILE" ]] && ${LIST} "$FILE" | ${MESS} && exit
 
-# check the relative mime-type here:
-# https://www.iana.org/assignments/media-types/media-types.xhtml
 case $(file --mime-type "$FILE" -bL) in
     text/* | application/json)
         [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --color=always "$FILE" || ${MESS} "$FILE"

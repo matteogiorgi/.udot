@@ -218,7 +218,7 @@
 !/vim/.vim/colors
 !/vim/.vim/ftplugin
 !/vim/.vim/plugin
-!/vim/.vim/utility
+!/vim/.vim/pandoc
 
 /vim/.vim/after/*
 !/vim/.vim/after/ftplugin
@@ -236,7 +236,6 @@
 !/vim/.vim/ftplugin/text
 
 /vim/.vim/plugin/*
-!/vim/.vim/plugin/fuzzy.vim
 !/vim/.vim/plugin/notewiki.vim
 !/vim/.vim/plugin/simple-complete.vim
 !/vim/.vim/plugin/utility.vim
@@ -253,22 +252,16 @@
 /vim/.vim/ftplugin/tex/*
 !/vim/.vim/ftplugin/tex/writing-mode.vim
 
-/vim/.vim/utility/*
-!/vim/.vim/utility/pandoc
-!/vim/.vim/utility/fuzzyfind
-!/vim/.vim/utility/fuzzygit
-!/vim/.vim/utility/fuzzyjump
+/vim/.vim/pandoc/*
+!/vim/.vim/pandoc/assets
 
-/vim/.vim/utility/pandoc/*
-!/vim/.vim/utility/pandoc/assets
-
-/vim/.vim/utility/pandoc/assets/*
-!/vim/.vim/utility/pandoc/assets/before.html
-!/vim/.vim/utility/pandoc/assets/footer.html
-!/vim/.vim/utility/pandoc/assets/header.html
-!/vim/.vim/utility/pandoc/assets/link2html.lua
-!/vim/.vim/utility/pandoc/assets/link2html.py
-!/vim/.vim/utility/pandoc/assets/makenote
+/vim/.vim/pandoc/assets/*
+!/vim/.vim/pandoc/assets/before.html
+!/vim/.vim/pandoc/assets/footer.html
+!/vim/.vim/pandoc/assets/header.html
+!/vim/.vim/pandoc/assets/link2html.lua
+!/vim/.vim/pandoc/assets/link2html.py
+!/vim/.vim/pandoc/assets/makenote
 
 
 

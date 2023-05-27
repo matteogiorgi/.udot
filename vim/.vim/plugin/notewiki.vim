@@ -156,7 +156,7 @@ function! s:NotePandoc() abort
         let l:pandoc = l:prefix . '/pandoc'
         let $pandoc = fnamemodify(l:pandoc, ':p')
         if !isdirectory($pandoc)
-            !cp -R $HOME/.vim/utility/pandoc $prefix
+            !cp -R $HOME/.vim/pandoc $prefix
         endif
         !$pandoc/assets/makenote %:t:r
     else
