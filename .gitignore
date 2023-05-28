@@ -210,7 +210,6 @@
 
 /vim/*
 !/vim/.vim
-!/vim/.gvimrc
 !/vim/.vimrc
 
 /vim/.vim/*

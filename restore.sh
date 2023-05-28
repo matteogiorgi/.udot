@@ -249,7 +249,7 @@ sudo apt purge -qq -y \
     xterm \
     tmux \
     kak \
-    vim-gtk3 \
+    vim \
     helix \
     zathura \
     zathura-djvu \

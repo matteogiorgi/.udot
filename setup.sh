@@ -279,7 +279,7 @@ sudo apt install -qq -y \
     xterm \
     tmux \
     kak \
-    vim-gtk3 \
+    vim \
     zathura \
     zathura-djvu \
     zathura-pdf-poppler \
