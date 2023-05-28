@@ -3,8 +3,8 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
-# SIMPLE ALIAS
-##############
+# SIMPLE ALIASES
+################
 
 alias l='ls -CF'
 alias la='ls -A'
@@ -27,8 +27,8 @@ alias unstow="stow -D"
 
 
 
-# FUNCTIONS ALIAS
-#################
+# FUNCTIONS ALIASES
+###################
 
 alias fun="_fun"
 alias xhide="_xhide"

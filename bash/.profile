@@ -13,9 +13,7 @@
 ###################
 
 if [[ -n "$BASH_VERSION" ]]; then
-    if [[ -f "$HOME/.bashrc" ]]; then
-        . "$HOME/.bashrc"
-    fi
+    [[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 fi
 
 
@@ -51,14 +49,6 @@ fi
 
 
 
-### Set PATH to include '~/.emacs.d/bin' (apt install emacs)
-############################################################
-
-[[ -d $HOME/.emacs.d/bin ]] && PATH="$PATH:$HOME/.emacs.d/bin"
-
-
-
-
 ### Add golang binary directory (apt install golang-go)
 #######################################################
 
@@ -83,8 +73,8 @@ fi
 
 
 
-### Add opam configuration (remember to run 'opam init')
-########################################################
+### Add opam configuration (remember to run 'opam init' first)
+##############################################################
 
 if [[ -d $HOME/.opam/opam-init ]]; then
     eval $(opam env)
