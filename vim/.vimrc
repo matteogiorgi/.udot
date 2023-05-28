@@ -180,16 +180,17 @@ xnoremap <silent>K :move '<-2<CR>gv=gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
 vnoremap <silent><S-Tab> <gv
-nnoremap <silent><Tab> :buffer#<cr>
-nnoremap <silent><C-h> :tabprev<cr>
-nnoremap <silent><C-l> :tabnext<cr>
-nnoremap <silent><C-p> :bprev<cr>
-nnoremap <silent><C-n> :bnext<cr>
+nnoremap <silent><Tab> :buffer#<CR>
+nnoremap <silent><C-h> :tabprev<CR>
+nnoremap <silent><C-l> :tabnext<CR>
+nnoremap <silent><C-p> :bprev<CR>
+nnoremap <silent><C-n> :bnext<CR>
 nnoremap <silent>Y y$
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 nnoremap <leader><space> :edit<space>
 nnoremap <leader><Tab> :buffer<space>
+vnoremap <leader>i :!<space>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt

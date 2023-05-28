@@ -237,7 +237,6 @@ sudo apt purge -qq -y \
     pandoc \
     fonts-firacode \
     xdotool \
-    exuberant-ctags \
     gnome-shell-extension-prefs \
     chrome-gnome-shell \
     vsftpd \

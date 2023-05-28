@@ -29,8 +29,8 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 coreutils xdg-utils xdotool w3m-img fbset wmctrl xtermcontrol curl wget stow
 autorandr git atool trash-cli htop tree make gcc pkg-config lxpolkit xclip
 ripgrep wamerican witalian mesa-utils xdo feh ffmpeg poppler-utils mediainfo
-texlive-full pandoc fonts-firacode exuberant-ctags ufw vsftpd bat zenity
-snap flatpak libnotify-bin chafa fzf ffmpegthumbnailer
+texlive-full pandoc fonts-firacode ufw vsftpd bat zenity snap flatpak
+libnotify-bin chafa fzf ffmpegthumbnailer
 ```
 
 

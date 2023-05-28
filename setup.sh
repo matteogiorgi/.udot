@@ -246,7 +246,6 @@ sudo apt install -qq -y \
     fonts-firacode \
     poppler-utils \
     xdotool \
-    exuberant-ctags \
     gnome-shell-extension-prefs \
     chrome-gnome-shell \
     ufw \
