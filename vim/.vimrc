@@ -159,6 +159,8 @@ command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
 command! ClearLastSearch :let @/=""
+command! ToggleBackground if &background ==# 'light' | set background=dark | else | set background=light | endif
+command! ToggleVirtualedit if &virtualedit ==# 'all' | setlocal virtualedit= | else | setlocal virtualedit=all | endif
 " }}}
 
 
