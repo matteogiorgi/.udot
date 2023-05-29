@@ -87,13 +87,26 @@ endfunction
 "}}}
 
 
+" Background{{{
+function! s:ChangeBackground()
+    if &background ==? 'dark'
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+"}}}
+
+
 command! JumpCurrentDir call <SID>JumpCurrentDir()
 command! JumpParentDir call <SID>JumpParentDir()
 command! JumpGitDir call <SID>JumpGitDir()
 command! ReplaceSearch call <SID>ReplaceSearch()
 command! ToggleAccent call <SID>ToggleAccent()
+command! ChangeBackground call <SID>ChangeBackground()
 
 nnoremap <silent>' :ToggleAccent<CR>
+nnoremap <silent>^ :ChangeBackground<CR>
 nnoremap <silent>\ :JumpGitDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <silent><CR> :JumpCurrentDir<CR>
