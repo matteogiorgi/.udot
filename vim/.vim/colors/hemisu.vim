@@ -204,16 +204,6 @@ hi! link Error       ErrorMsg
 
 
 
-" HIGHLIGHTS - GITGUTTER {{{
-call s:h("GitGutterAdd",          { "fg": s:darkGreen })
-call s:h("GitGutterDelete",       { "fg": s:darkPink })
-call s:h("GitGutterChange",       { "fg": s:darkBlue })
-call s:h("GitGutterChangeDelete", { "fg": s:darkBlue })
-" }}}
-
-
-
-
 " HIGHLIGHTS - HTML {{{
 hi! link htmlLink    Underlined
 hi! link htmlTag     Type

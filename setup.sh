@@ -128,12 +128,10 @@ _backup () {
     # vim
     [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
-    [[ -f $HOME/.gvimrc ]] && _clean $HOME/.gvimrc
 
     # x11
     [[ -f $HOME/.Xdefaults ]] && _clean $HOME/.Xdefaults
     [[ -f $HOME/.xinitrc ]] && _clean $HOME/.xinitrc
-    [[ -f $HOME/.Xmodmap ]] && _clean $HOME/.Xmodmap
     [[ -f $HOME/.Xresources ]] && _clean $HOME/.Xresources
     [[ -f $HOME/.xsettingsd ]] && _clean $HOME/.xsettingsd
 

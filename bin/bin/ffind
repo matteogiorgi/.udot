@@ -13,6 +13,7 @@ OPENER="swallow"
 while true; do
     [[ $(type -t __git_ps1) == function ]] && GIT_BRANCH=$(__git_ps1 " (%s)") || GIT_BRANCH=""
     FILE="$(rg --sort-files --files --hidden --glob "!.git/**" | fzf `
+            `--ansi `
             `--preview 'mess {}' `
             `--preview-window 'down,80%,border-sharp' `
             `--prompt="$PWD$GIT_BRANCH > " `

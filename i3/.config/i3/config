@@ -255,7 +255,7 @@ for_window [title="__scratch_0__"] move position center
 for_window [title="__scratch_0__"] border pixel 2
 for_window [title="__scratch_0__"] move scratchpad
 
-# scratch_1 window instance and title
+# scratch_1 window instance and title (800x600)
 for_window [instance="__scratch_1__"] floating enable
 for_window [instance="__scratch_1__"] resize set 800 600
 for_window [instance="__scratch_1__"] move position center
@@ -265,7 +265,7 @@ for_window [title="__scratch_1__"] resize set 800 600
 for_window [title="__scratch_1__"] move position center
 for_window [title="__scratch_1__"] border pixel 2
 
-# scratch_2 window instance and title
+# scratch_2 window instance and title (600x200)
 for_window [instance="__scratch_2__"] floating enable
 for_window [instance="__scratch_2__"] resize set 600 200
 for_window [instance="__scratch_2__"] move position center
@@ -275,7 +275,7 @@ for_window [title="__scratch_2__"] resize set 600 200
 for_window [title="__scratch_2__"] move position center
 for_window [title="__scratch_2__"] border pixel 2
 
-# scratch_3 window instance and title
+# scratch_3 window instance and title (250x400)
 for_window [instance="__scratch_3__"] floating enable
 for_window [instance="__scratch_3__"] resize set 250 400
 for_window [instance="__scratch_3__"] move position center
@@ -313,7 +313,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+w exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/i3windows"
+bindsym $mod+o exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/i3windows"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 

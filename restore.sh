@@ -117,12 +117,10 @@ _restore () {
     # vim
     [[ -d $RESTORE/.vim ]] && mv $RESTORE/.vim $HOME
     [[ -f $RESTORE/.vimrc ]] && mv $RESTORE/.vimrc $HOME
-    [[ -f $RESTORE/.gvimrc ]] && mv $RESTORE/.gvimrc $HOME
 
     # x11
     [[ -f $RESTORE/.Xdefaults ]] && mv $RESTORE/.Xdefaults $HOME
     [[ -f $RESTORE/.xinitrc ]] && mv $RESTORE/.xinitrc $HOME
-    [[ -f $RESTORE/.Xmodmap ]] && mv $RESTORE/.Xmodmap $HOME
     [[ -f $RESTORE/.Xresources ]] && mv $RESTORE/.Xresources $HOME
     [[ -f $RESTORE/.xsettingsd ]] && mv $RESTORE/.xsettingsd $HOME
 
