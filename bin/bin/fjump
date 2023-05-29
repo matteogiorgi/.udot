@@ -31,7 +31,7 @@ while true; do
             `--bind 'ctrl-u:preview-half-page-up' `
             `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-i:execute(nohup code {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-f:execute(feh --bg-fill {})')"
+            `--bind 'ctrl-b:execute(feh --bg-fill {})')"
     [[ -z "$FILE" ]] && exit 1
     [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
 done
