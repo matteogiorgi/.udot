@@ -14,15 +14,13 @@ while true; do
     FILE="$(/bin/ls -a --ignore="." --ignore=".git" --group-directories-first --color=always | fzf `
             `--ansi `
             `--preview 'mess {}' `
-            `--preview-window 'down,80%,border-sharp' `
+            `--preview-window 'down:80%' `
             `--prompt="$PWD$GIT_BRANCH > " `
             `--height 100% `
             `--margin 0% `
             `--reverse `
             `--info=hidden `
-            `--header-first `
             `--bind 'esc:' `
-            `--bind 'change:first' `
             `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-l:toggle-preview' `
             `--bind 'ctrl-n:half-page-down' `
