@@ -48,16 +48,16 @@ _no_preview () {
 
 case $(file --mime-type "$FILE" -bL) in
     audio/* | video/*)
-        [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" || _no_preview
+        [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" 2>/dev/null || _no_preview
         ;;
     image/*)
-        [[ -x "$(command -v chafa)" ]] && chafa --dither diffusion --dither-grain 1 --dither-intensity 10 "$FILE" || _no_preview
+        [[ -x "$(command -v chafa)" ]] && chafa --dither diffusion --dither-grain 1 --dither-intensity 10 "$FILE" 2>/dev/null || _no_preview
         ;;
     application/pdf | application/postscript | application/djvu)
-        ${MESS} "$FILE"
+        ${MESS} "$FILE" 2>/dev/null
         ;;
     text/* | application/json)
-        [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --theme ansi --color=always "$FILE" 2>/dev/null || ${MESS} "$FILE"
+        [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --theme ansi --color=always "$FILE" 2>/dev/null || ${MESS} "$FILE" 2>/dev/null
         ;;
     *)
         _no_preview
