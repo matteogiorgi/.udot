@@ -50,6 +50,8 @@
 !/bin/bin/esxiv
 !/bin/bin/fet
 !/bin/bin/ffind
+!/bin/bin/ffm
+!/bin/bin/fgit
 !/bin/bin/fjump
 !/bin/bin/md2html
 !/bin/bin/mess
@@ -57,7 +59,6 @@
 !/bin/bin/rmall
 !/bin/bin/rscode
 !/bin/bin/rsmime
-!/bin/bin/ffm
 !/bin/bin/swallow
 !/bin/bin/tcv
 !/bin/bin/tetris
