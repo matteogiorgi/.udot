@@ -28,16 +28,16 @@ echo "$1" | grep "\.sent$" && {
 FILE="$*"
 case $(file --mime-type "${FILE}" -bL) in
     audio/*)
-        mpv "$@"
+        [[ -x "$(command -v mpv)" ]] && mpv "$@" || _xshow "xdg-open '${FILE}'"
         ;;
     video/*)
-        _xshow "mpv --force-window --no-terminal --msg-level=all=no '${FILE}'"
+        [[ -x "$(command -v mpv)" ]] && _xshow "mpv --force-window --no-terminal --msg-level=all=no '${FILE}'" || _xshow "xdg-open '${FILE}'"
         ;;
     application/pdf | application/postscript | application/djvu | image/vnd.djvu | application/epub+zip)
-        _xshow "zathura '${FILE}'"
+        [[ -x "$(command -v zathura)" ]] && _xshow "zathura '${FILE}'" || _xshow "xdg-open '${FILE}'"
         ;;
     image/*)
-        _xshow "esxiv '${FILE}'"
+        [[ -x "$(command -v esxiv)" ]] && _xshow "esxiv '${FILE}'" || _xshow "xdg-open '${FILE}'"
         ;;
     text/* | application/json)
         "${EDITOR:=vi}" "$@"
