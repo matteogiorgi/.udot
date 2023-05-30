@@ -69,7 +69,7 @@ set colorcolumn=
 set cmdheight=1
 set nrformats-=alpha  " alpha,octal,hex,bin,unsigned
 set cursorlineopt=number,line
-set fillchars+=vert:\│,eob:\ ,fold:-
+set fillchars+=vert:\┃  " vert,eob,fold
 set laststatus=2
 set showtabline=1
 set nocompatible
