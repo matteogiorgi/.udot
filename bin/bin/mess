@@ -57,7 +57,7 @@ case $(file --mime-type "$FILE" -bL) in
         ${MESS} "$FILE"
         ;;
     text/* | application/json)
-        [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --theme ansi --color=always "$FILE" || ${MESS} "$FILE"
+        [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --theme ansi --color=always "$FILE" 2>/dev/null || ${MESS} "$FILE"
         ;;
     *)
         _no_preview
