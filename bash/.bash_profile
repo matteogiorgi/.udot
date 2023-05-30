@@ -1,6 +1,6 @@
 # This script defines the settings for a user when running a login shell.
-# In this case it just launch ~/.profile and ~/.bashrc.
-# In case you do not use a login-manager, add `exec startx`.
+# It just launches ~/.profile an eventually `case $- in *i*) . ~/.bashrc;; esac`??
+# To autostart X11 without login-manager, add `exec startx`.
 
 
 
@@ -9,4 +9,3 @@
 ###################
 
 . ~/.profile
-case $- in *i*) . ~/.bashrc;; esac

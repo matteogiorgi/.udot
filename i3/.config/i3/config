@@ -293,7 +293,7 @@ for_window [title="__scratch_3__"] border pixel 2
 
 # terminal and menu
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+space exec "i3-sensible-terminal --title __scratch_3__ -e ~/.config/i3/i3menu"
+bindsym $mod+space exec "i3-sensible-terminal -T __scratch_3__ -e ~/.config/i3/i3menu"
 
 # focus parent/child
 bindsym $mod+BackSpace focus parent
@@ -313,7 +313,7 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+o exec "i3-sensible-terminal --title __scratch_2__ -e ~/.config/i3/i3windows"
+bindsym $mod+o exec "i3-sensible-terminal -T __scratch_2__ -e ~/.config/i3/i3windows"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 

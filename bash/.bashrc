@@ -171,14 +171,6 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden -g "!.git" 2>/dev/null'
 
 
 
-## Bat vars
-###########
-
-export BAT_THEME="ansi"
-
-
-
-
 ## Less colors
 ##############
 

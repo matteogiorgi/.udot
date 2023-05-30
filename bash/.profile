@@ -91,7 +91,7 @@ export EDITOR="/bin/vim"
 export VISUAL="/bin/vim"
 export TERMINAL="/bin/lxterm"
 
-if [[ -x "$(command -v glxinfo)" && $(glxinfo | awk '/OpenGL version/ { exit !($4 > 3.3) }') ]]; then
+if command -v glxinfo >/dev/null 2>&1 && glxinfo | awk '/OpenGL version/ { exit !($4 > 3.3) }'; then
     [[ -x "$(command -v kitty)" ]] && export TERMINAL="/bin/kitty"
 fi
 
