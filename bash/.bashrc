@@ -63,7 +63,7 @@ esac
 [[ -f ~/.git-prompt.sh ]] && source ~/.git-prompt.sh
 if [[ -x /usr/bin/tput ]] && tput setaf 1 >&/dev/null; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;94m\]\w\[\033[00m\]'
-    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
+    [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'\[\033[01;33m\]$(__git_ps1 " (%s)")\[\033[00m\]\n ' || PS1=$PS1'\n '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w'
     [[ $(type -t __git_ps1) == function ]] && PS1=$PS1'$(__git_ps1 " (%s)")\n ' || PS1=$PS1'\n '
