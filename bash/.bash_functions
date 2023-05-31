@@ -86,7 +86,7 @@ function _ffm () {
     $HOME/bin/ffm "$@"
     cd "$(cat /tmp/ffm)"
     NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
+    [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
     rm -f /tmp/ffm
 }
 
@@ -97,7 +97,7 @@ function _fjump () {
     $HOME/bin/fjump $$
     cd "$(cat /tmp/fjump$$)"
     NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT != $PROMPT ]] && echo ${NEWPROMPT%????}
+    [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
     rm -f /tmp/fjump$$
 }
 
