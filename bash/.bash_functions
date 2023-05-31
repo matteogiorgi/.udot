@@ -82,10 +82,10 @@ function _tmux () {
 
 function _ffm () {
     [[ -f "$HOME/bin/ffm" ]] || return 1
-    PROMPT=${PS1@P}
+    PROMPT=${PS1}
     $HOME/bin/ffm "$@"
     cd "$(cat /tmp/ffm)"
-    NEWPROMPT=${PS1@P}
+    NEWPROMPT=${PS1}
     [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
     rm -f /tmp/ffm
 }
@@ -93,10 +93,10 @@ function _ffm () {
 
 function _fjump () {
     [[ -f "$HOME/bin/fjump" ]] || return 1
-    PROMPT=${PS1@P}
+    PROMPT=${PS1}
     $HOME/bin/fjump $$
     cd "$(cat /tmp/fjump$$)"
-    NEWPROMPT=${PS1@P}
+    NEWPROMPT=${PS1}
     [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
     rm -f /tmp/fjump$$
 }
