@@ -54,6 +54,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "security.workspace.trust.startupPrompt": "never",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
+    "window.customMenuBarAltFocus": false,
+    "window.titleBarStyle": "native",
     "editor.fontFamily": "'Fira Code', 'monospace'",
     "editor.fontSize": 11,
     "editor.lineHeight": 1.3,
@@ -127,6 +129,8 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
     "security.workspace.trust.startupPrompt": "never",
     "window.menuBarVisibility": "hidden",
     "window.restoreWindows": "none",
+    "window.customMenuBarAltFocus": false,
+    "window.titleBarStyle": "native",
     "editor.fontFamily": "'Fira Code', 'monospace'",
     "editor.fontSize": 11,
     "editor.lineHeight": 1.3,
@@ -251,22 +255,23 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+j",
-        "command": "actions.find"
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
     },
     {
-        "key": "alt+shift+j",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     },
     {
         "key": "alt+k",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
+        "when": "!activeEditorGroupEmpty"
     },
     {
-        "key": "alt+shift+k",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     },
     {
         "key": "alt+l",
@@ -288,32 +293,31 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
+        "key": "alt+i",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "alt+f",
+        "command": "actions.find"
+    },
+    {
+        "key": "alt+d",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+n",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+p",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
+    },
+    {
         "key": "alt+space",
         "command": "workbench.action.showCommands"
-    },
-    {
-        "key": "alt+tab",
-        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
-        "when": "!activeEditorGroupEmpty"
-    },
-    {
-        "key": "alt+tab",
-        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
-    },
-    {
-        "key": "alt+shift+tab",
-        "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
-        "when": "!activeEditorGroupEmpty"
-    },
-    {
-        "key": "alt+shift+tab",
-        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
-        "when": "inEditorsPicker && inQuickOpen"
-    },
-    {
-        "key": "alt+Enter",
-        "command": "workbench.action.togglePanel"
     },
     {
         "key": "ctrl+j",
