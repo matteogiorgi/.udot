@@ -87,6 +87,23 @@ endfunction
 "}}}
 
 
+" WinMove{{{
+function! s:WinMove(key)
+    let t:curwin = winnr()
+    exec 'wincmd '.a:key
+    if t:curwin ==? winnr()
+        if match(a:key,'[jk]')
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec 'wincmd '.a:key
+    endif
+    return bufname('%')
+endfunction
+"}}}
+
+
 command! JumpCurrentDir call <SID>JumpCurrentDir()
 command! JumpParentDir call <SID>JumpParentDir()
 command! JumpGitDir call <SID>JumpGitDir()
@@ -97,3 +114,8 @@ nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>\ :JumpGitDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <silent><CR> :JumpCurrentDir<CR>
+
+nnoremap <leader>wh :call <SID>WinMove('h')<CR>
+nnoremap <leader>wj :call <SID>WinMove('j')<CR>
+nnoremap <leader>wk :call <SID>WinMove('k')<CR>
+nnoremap <leader>wl :call <SID>WinMove('l')<CR>
