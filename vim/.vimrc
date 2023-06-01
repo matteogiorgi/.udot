@@ -154,13 +154,23 @@ augroup end
 
 
 
+" Netrw auto-start {{{
+augroup initnetrw
+    autocmd!
+    autocmd VimEnter * if expand("%") == "" | edit . | endif
+augroup END
+" }}}
+
+
+
+
 " Simple commands {{{
+command! ToggleBackground if &background ==# 'light' | set background=dark | else | set background=light | endif
+command! VirtualEditing if &virtualedit ==# 'all' | setlocal virtualedit= | else | setlocal virtualedit=all | endif
 command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
 command! ClearLastSearch :let @/=""
-command! ToggleBackground if &background ==# 'light' | set background=dark | else | set background=light | endif
-command! ToggleVirtualedit if &virtualedit ==# 'all' | setlocal virtualedit= | else | setlocal virtualedit=all | endif
 " }}}
 
 
@@ -185,9 +195,10 @@ nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-p> :bprev<CR>
 nnoremap <silent><C-n> :bnext<CR>
-nnoremap <silent>Y y$
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
+nnoremap <silent>Y y$
+nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <leader><space> :edit<space>
 nnoremap <leader><Tab> :buffer<space>
 vnoremap <leader>i :!<space>
