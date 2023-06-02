@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+function _xlayout () {
+    printf "${RED}%s${NC} " "Select keyboard LAYOUT (us/gb/it):"
+    while read response; do
+        case $response in
+            us | gb | it)
+                break
+                ;;
+            *)
+                printf "${RED}%s${NC} " "Select keyboard LAYOUT (us/gb/it):"
+                ;;
+        esac
+    done
+
+    printf "#!/bin/sh\nsetxkbmap -layout $response\n" > ~/.xlayout
+    chmod 755 ~/.xlayout
+    ~/.xlayout
+
+    setxkbmap -option "caps:super"
+    if [[ -x "$(command -v xmodmap)" ]]; then
+        KEYCODE_SUPERL=$(xmodmap -pke | grep Super_L | awk '{print $2}')  # 133
+        echo $KEYCODE_SUPERL | xargs -I{} xmodmap -e 'keycode {} = Escape NoSymbol Escape'
+    fi
+
+    printf "${YLW}%s${NC}\n" "LAYOUT -> $response"
+}
+
+
+_xlayout

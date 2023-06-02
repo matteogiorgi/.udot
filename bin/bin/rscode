@@ -40,6 +40,7 @@ EOF
 
 _default () {
 [[ "$*" == "code" ]] && FOLDER="Code"
+[[ "$*" == "code-insiders" ]] && FOLDER="Code - Insiders"
 [[ "$*" == "codium" ]] && FOLDER="VSCodium"
 [[ -z $FOLDER ]] && exit 1 || CODE="$*"
 
@@ -297,17 +298,12 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
         "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
-        "key": "alt+i",
+        "key": "alt+s",
         "command": "actions.find"
     },
     {
-        "key": "alt+o",
+        "key": "alt+i",
         "command": "workbench.action.togglePanel"
-    },
-    {
-        "key": "alt+f",
-        "command": "editor.action.quickFix",
-        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
     {
         "key": "alt+n",

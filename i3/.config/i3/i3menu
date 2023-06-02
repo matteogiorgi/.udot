@@ -14,13 +14,9 @@ CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | se
     `--margin 0% `
     `--reverse `
     `--info=hidden `
-    `--header-first `
-    `--bind 'change:first' `
     `--bind 'ctrl-h:cancel' `
     `--bind 'ctrl-n:half-page-down' `
-    `--bind 'ctrl-p:half-page-up' `
-    `--bind 'ctrl-d:preview-half-page-down' `
-    `--bind 'ctrl-u:preview-half-page-up')
+    `--bind 'ctrl-p:half-page-up')
 [[ -n "$CMD" ]] || exit 1
 
 id=$(xdo id); xdo hide

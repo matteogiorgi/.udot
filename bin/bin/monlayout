@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+
+[[ -f ~/.bash_functions ]] && . ~/.bash_functions || exit 1
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+function _autorandr_mode () {
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
+    source $HOME/.xinput.bash
+
+    AUTORANDRMODE="$*"
+    [[ -x "$(command -v autorandr)" ]] || return 1
+
+    if [[ "$AUTORANDRMODE" == "" ]]; then
+        printf "${YLW}%s${NC}\n" "You need to specify your monitor mode mate!"
+        return
+    fi
+
+    autorandr --load $AUTORANDRMODE 2>/dev/null
+    [[ -f ~/.fehbg ]] && PIC=$(awk 'FNR==2 {print $4}' ~/.fehbg)
+    [[ -n $PIC && -f ${PIC:1:-1} && -x "$(command -v feh)" ]] && ~/.fehbg
+    sed -i "s/AUTORANDR=.*/AUTORANDR='$AUTORANDRMODE'/g" $HOME/.xinput.bash
+}
+
+
+_autorandr_mode "$*"

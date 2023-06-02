@@ -15,13 +15,9 @@ WINTOGO=$(wmctrl -d | awk '{print $1, $NF}' | while read -r WSNUM WSNAME; do wmc
             `--margin 0% `
             `--reverse `
             `--info=hidden `
-            `--header-first `
-            `--bind 'change:first' `
             `--bind 'ctrl-h:cancel' `
             `--bind 'ctrl-n:half-page-down' `
-            `--bind 'ctrl-p:half-page-up' `
-            `--bind 'ctrl-d:preview-half-page-down' `
-            `--bind 'ctrl-u:preview-half-page-up')
+            `--bind 'ctrl-p:half-page-up')
 [[ -n "$WINTOGO" ]] || exit 1
 
 echo "$WINTOGO" | awk '{print $2}' | xargs -I{} wmctrl -i -a {}

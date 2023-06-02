@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+function _mergepdf () {
+    [[ -x "$(command -v pdfunite)" ]] || return 1
+
+    ARGS="$*"
+    [[ -f "merge.pdf" ]] && rm -f merge.pdf
+    if [[ "$ARGS" == "" ]]; then
+        pdfunite *.pdf merge.pdf
+    else
+        pdfunite "$ARGS" merge.pdf
+    fi
+}
+
+
+_mergepdf

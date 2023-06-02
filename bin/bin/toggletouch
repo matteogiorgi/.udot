@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+
+RED='\033[1;36m'
+YLW='\033[1;35m'
+NC='\033[0m'
+
+
+function _xtouch () {
+    [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
+    source $HOME/.xinput.bash
+
+    if [[ "$TOUCHPADID" == "" ]]; then
+        printf "${YLW}%s${NC}\n" "Touchpad not specified (check ~/.xinput.bash)"
+        return
+    fi
+    if [[ $(xinput | grep "$TOUCHPADID" | wc -l) -eq 0 ]]; then
+        printf "${YLW}%s${NC}\n" "Touchpad not connected"
+        return
+    fi
+
+    TOUCHID=$(xinput | grep "$TOUCHPADID" | awk -v k=id '{for(i=2;i<=NF;i++) {split($i,a,"="); m[a[1]]=a[2]} print m[k]}')
+    if [[ $TOUCHPADST == "on" ]]; then
+        sed -i 's/TOUCHPADST='\''on'\''/TOUCHPADST='\''off'\''/g' $HOME/.xinput.bash
+        xinput set-prop $TOUCHID "Device Enabled" 0
+        printf "${YLW}%s${NC}\n" "TOUCHPAD -> disabled"
+    else
+        sed -i 's/TOUCHPADST='\''off'\''/TOUCHPADST='\''on'\''/g' $HOME/.xinput.bash
+        xinput set-prop $TOUCHID "Device Enabled" 1
+        printf "${YLW}%s${NC}\n" "TOUCHPAD -> enabled"
+    fi
+}
+
+
+_xtouch

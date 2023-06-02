@@ -46,25 +46,28 @@
 !/bin/bin
 
 /bin/bin
-!/bin/bin/drawimg
 !/bin/bin/esxiv
 !/bin/bin/fet
 !/bin/bin/ffind
 !/bin/bin/ffm
 !/bin/bin/fgit
 !/bin/bin/fjump
+!/bin/bin/keylayout
 !/bin/bin/md2html
+!/bin/bin/mergepdf
 !/bin/bin/mess
+!/bin/bin/monlayout
 !/bin/bin/pipes
 !/bin/bin/rmall
 !/bin/bin/rscode
 !/bin/bin/rsmime
+!/bin/bin/setwacom
 !/bin/bin/swallow
 !/bin/bin/tcv
 !/bin/bin/tetris
+!/bin/bin/toggletouch
 !/bin/bin/ufetch
-!/bin/bin/vimv
-!/bin/bin/xmap
+!/bin/bin/xopp2pdf
 
 
 
