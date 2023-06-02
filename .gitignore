@@ -5,21 +5,18 @@
 !/bash
 !/bin
 !/fzf
-!/helix
 !/i3
 !/kitty
-!/media
-!/sxiv
 !/tmux
 !/vim
 !/x11
-!/zathura
 !/bookmarks.html
 !/.gitignore
 !/LICENSE
 !/README.md
 !/restore.sh
 !/setup.sh
+!/wallpaper
 
 
 
@@ -46,7 +43,6 @@
 !/bin/bin
 
 /bin/bin
-!/bin/bin/esxiv
 !/bin/bin/fet
 !/bin/bin/ffind
 !/bin/bin/ffm
@@ -58,7 +54,6 @@
 !/bin/bin/mess
 !/bin/bin/monlayout
 !/bin/bin/pipes
-!/bin/bin/rmall
 !/bin/bin/rscode
 !/bin/bin/rsmime
 !/bin/bin/setwacom
@@ -88,25 +83,6 @@
 
 
 
-### HELIX
-#########
-
-/helix/*
-!/helix/.config
-
-/helix/.config/*
-!/helix/.config/helix
-
-/helix/.config/helix/*
-!/helix/.config/helix/themes
-!/helix/.config/helix/config.toml
-
-/helix/.config/helix/themes/*
-!/helix/.config/helix/themes/hembox.toml
-
-
-
-
 ### I3
 ######
 
@@ -131,25 +107,6 @@
 
 
 
-### KAKOUNE
-###########
-
-/kakoune/*
-!/kakoune/.config
-
-/kakoune/.config/*
-!/kakoune/.config/kak
-
-/kakoune/.config/kak/*
-!/kakoune/.config/kak/colors
-!/kakoune/.config/kak/kakrc
-
-/kakoune/.config/kak/colors/*
-!/kakoune/.config/kak/colors/hembox.kak
-
-
-
-
 ### KITTY
 #########
 
@@ -166,36 +123,6 @@
 /kitty/.config/kitty/colors/*
 !/kitty/.config/kitty/colors/gnome-dark.conf
 !/kitty/.config/kitty/colors/gnome-light.conf
-
-
-
-
-### MEDIA
-#########
-
-/media/*
-!/media/glenda.png
-!/media/ubuntu.png
-!/media/wallpaper
-
-
-
-
-### SXIV
-########
-
-/sxiv/*
-!/sxiv/.config
-
-/sxiv/.config/*
-!/sxiv/.config/sxiv
-
-/sxiv/.config/sxiv/*
-!/sxiv/.config/sxiv/exec
-
-/sxiv/.config/sxiv/exec/*
-!/sxiv/.config/sxiv/exec/key-handler
-
 
 
 
@@ -277,18 +204,3 @@
 !/x11/.xinitrc
 !/x11/.Xresources
 !/x11/.xsettingsd
-
-
-
-
-### ZATHURA
-###########
-
-/zathura/*
-!/zathura/.config
-
-/zathura/.config/*
-!/zathura/.config/zathura
-
-/zathura/.config/zathura/*
-!/zathura/.config/zathura/zathurarc

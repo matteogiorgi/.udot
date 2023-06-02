@@ -224,7 +224,6 @@ for_window [class="Blueman-services"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Software-properties-gtk"] floating enable
 for_window [class="Scp-dbus-service.py"] floating enable
-for_window [class="Input-remapper-gtk"] floating enable
 
 
 

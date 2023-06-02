@@ -58,27 +58,6 @@ _error () {
     exit 1
 }
 
-_ask () {
-    while true; do
-        if [ "${2:-}" = "Y" ]; then
-            prompt="Y/n"
-            default=Y
-        elif [ "${2:-}" = "N" ]; then
-            prompt="y/N"
-            default=N
-        else
-            prompt="y/n"
-            default=
-        fi
-        read -p "$1 [$prompt] " REPLY
-        [[ -z "$REPLY" ]] && REPLY=$default
-        case "$REPLY" in
-            Y*|y*) return 0 ;;
-            N*|n*) return 1 ;;
-        esac
-    done
-}
-
 _restore () {
     # bash
     [[ -f $RESTORE/.bash_aliases ]] && mv $RESTORE/.bash_aliases $HOME
@@ -95,21 +74,12 @@ _restore () {
     # fzf
     [[ -d $RESTORE/fzf ]] && mv $RESTORE/fzf $HOME/.config
 
-    # helix
-    [[ -d $RESTORE/helix ]] && mv $RESTORE/helix $HOME/.config
-
     # i3
     [[ -d $RESTORE/i3 ]] && mv $RESTORE/i3 $HOME/.config
     [[ -d $RESTORE/i3status ]] && mv $RESTORE/i3status $HOME/.config
 
-    # kakoune
-    [[ -d $RESTORE/kak ]] && mv $RESTORE/kak $HOME/.config
-
     # kitty
     [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
-
-    # sxiv
-    [[ -d $RESTORE/sxiv ]] && mv $RESTORE/sxiv $HOME/.config
 
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
@@ -123,9 +93,6 @@ _restore () {
     [[ -f $RESTORE/.xinitrc ]] && mv $RESTORE/.xinitrc $HOME
     [[ -f $RESTORE/.Xresources ]] && mv $RESTORE/.Xresources $HOME
     [[ -f $RESTORE/.xsettingsd ]] && mv $RESTORE/.xsettingsd $HOME
-
-    # zathura
-    [[ -d $RESTORE/zathura ]] && mv $RESTORE/zathura $HOME/.config
 }
 
 
@@ -139,10 +106,8 @@ _banner
 _warning
 
 if ! uname -a | grep Ubuntu &> /dev/null; then
-    if ! _ask "    This is not a Ubuntu distro, continue anyway?" N; then
-        printf "\n"
-        exit 0
-    fi
+    read -p "    WARNING: this is not a Ubuntu distro (enter to continue)"
+    printf "\n"
 fi
 
 if [[ -d $HOME/.udot-restore ]]; then
@@ -153,25 +118,8 @@ else
     exit 1
 fi
 
-if ! _ask "    Confirm to start the '.udot' restore script" Y; then
-    printf "\n"
-    exit 0
-fi
-
-
-
-
-### Disable FTP
-###############
-
+read -p "    Confirm to start the '.udot' restore script (enter to continue)"
 printf "\n"
-read -p "    Disabling FTP (enter to continue)"
-printf "\n"
-
-sudo systemctl stop vsftpd
-sudo systemctl disable vsftpd
-sudo ufw deny 20/tcp
-sudo ufw deny 21/tcp
 
 
 
@@ -182,20 +130,15 @@ sudo ufw deny 21/tcp
 stow -D bash
 stow -D bin
 stow -D fzf
-stow -D helix
 stow -D i3
-stow -D kakoune
 stow -D kitty
-stow -D sxiv
 stow -D tmux
 stow -D vim
 stow -D x11
-stow -D zathura
 
 _restore
 
 [[ -d $RESTORE ]] && rm -rf $RESTORE
-[[ -d $HOME/.tmp ]] && rm -rf $HOME/.tmp
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
 
 
@@ -209,70 +152,47 @@ read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# wmctrl git curl wget make gcc wamerican witalian
-# network-manager adwaita-icon-theme gnome-themes-extra coreutils
-# xdg-utils w3m-img xdotool fbset zenity
+# coreutils, xdg-utils, fbset, bash, bash-completion,
+# network-manager, adwaita-icon-theme gnome-themes-extra.
 
 sudo apt purge -qq -y \
     wmctrl \
-    xtermcontrol \
-    stow \
+    xdotool \
     autorandr \
+    lxpolkit \
+    mesa-utils \
+    git \
+    curl \
+    wget \
+    stow \
+    htop \
     atool \
     trash-cli \
-    htop \
-    tree \
-    lxpolkit \
     xclip \
     fzf \
     ripgrep \
-    mesa-utils \
-    xdo \
-    feh \
-    mediainfo \
-    brightnessctl \
-    texlive-full \
-    pandoc \
-    fonts-firacode \
-    xdotool \
-    gnome-shell-extension-prefs \
-    chrome-gnome-shell \
-    vsftpd \
-    bat \
+    batcat \
     chafa \
+    feh \
+    xdo \
+    fonts-firacode \
+    wamerican \
+    witalian \
     i3-wm \
-    xautolock \
     arandr \
-    kitty \
     xterm \
+    kitty \
     tmux \
-    kak \
     vim \
-    helix \
-    zathura \
-    zathura-djvu \
-    zathura-pdf-poppler \
-    zathura-ps \
-    mpv \
-    sxiv \
     blueman \
-    adwaita-qt \
+    system-config-printer \
+    pavucontrol \
+    diodon \
+    flameshot \
     lxappearance \
     qt5ct \
     xournalpp \
-    cherrytree \
-    sct \
-    flameshot \
-    diodon \
-    pavucontrol \
-    gparted \
-    filezilla \
-    simplescreenrecorder \
-    transmission \
-    vlc \
-    mypaint \
-    input-remapper \
-    google-chrome-stable
+    adwaita-qt
 
 
 
@@ -285,44 +205,9 @@ read -p "    Removing snap packages (enter to continue)"
 printf "\n"
 
 if [[ -x "$(command -v snap)" ]]; then
-    [[ -x "$(command -v slides)" ]] && sudo snap remove --purge slides
-    [[ -x "$(command -v brave)" ]] && sudo snap remove --purge brave
-    [[ -x "$(command -v chromium)" ]] && sudo snap remove --purge chromium
-    [[ -x "$(command -v code)" ]] && sudo snap remove --purge code
-    [[ -x "$(command -v codium)" ]] && sudo snap remove --purge codium
+    sudo snap remove --purge brave
+    sudo snap remove --purge code
 fi
-
-
-
-
-### Remove language support
-###########################
-
-printf "\n"
-read -p "    Removing language support (enter to continue)"
-printf "\n"
-
-# the following packages aren't going to be uninstalled:
-# build-essential, python3, ...
-
-cargo uninstall alacritty
-pip uninstall Pillow
-sudo apt purge -qq -y \
-    valgrind \
-    gdb \
-    default-jdk \
-    default-jdk-doc \
-    ant \
-    maven \
-    gradle \
-    python3-pip \
-    golang-go \
-    golang-golang-x-tools \
-    ocaml-batteries-included \
-    ocaml-man \
-    opam \
-    opam-doc \
-    nodejs
 
 
 

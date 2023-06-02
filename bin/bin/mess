@@ -7,7 +7,10 @@
 ### Check arguments
 ###################
 
-[[ "$*" == "" ]] && exit 1
+if [[ "$*" == "" ]]; then
+    printf "Missing filename\n"
+    exit 1
+fi
 
 
 
@@ -16,26 +19,12 @@
 ######################################
 
 FILE="$*"
-NAME=${FILE%.*}
-NAME=${NAME##*/}
-MESS="/bin/less -R -~"
+LESS="/bin/less -R -~"
+CHAFA="/bin/chafa --dither diffusion --dither-grain 1 --dither-intensity 10"
+BAT="/bin/batcat --style numbers,changes --theme ansi --color=always"
 LIST="/bin/ls -ANgoh --ignore=".git" --group-directories-first --color=always"
 
 [[ -f ~/.bash_functions ]] && . ~/.bash_functions
-
-
-_no_preview () {
-    echo "                                "
-    echo "  ┌──────────────────────────┐  "
-    echo "  │  Sorry mate, can't show  │  "
-    echo "  │  any bloody preview.     │  "
-    echo "  └───┬──────────────────────┘  "
-    echo "      │                         "
-    echo "      │      (\_/)              "
-    echo "      └───── (O.o)              "
-    echo "             (> <)              "
-    echo "                                "
-}
 
 
 
@@ -43,22 +32,28 @@ _no_preview () {
 ### Main body
 #############
 
-[[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${MESS} && exit
-[[ -d "$FILE" ]] && ${LIST} "$FILE" | ${MESS} && exit
+[[ -L "$FILE" && -d "$FILE" ]] && ${LIST} "$(readlink $FILE)" | ${LESS} && exit
+[[ -d "$FILE" ]] && ${LIST} "$FILE" | ${LESS} && exit
 
 case $(file --mime-type "$FILE" -bL) in
-    audio/* | video/*)
-        [[ -x "$(command -v mediainfo)" ]] && mediainfo "$FILE" 2>/dev/null || _no_preview
+    application/pdf | application/postscript | application/djvu)
+        ${LESS} "$FILE" 2>/dev/null
         ;;
     image/*)
-        [[ -x "$(command -v chafa)" ]] && chafa --dither diffusion --dither-grain 1 --dither-intensity 10 "$FILE" 2>/dev/null || _no_preview
-        ;;
-    application/pdf | application/postscript | application/djvu)
-        ${MESS} "$FILE" 2>/dev/null
+        ${CHAFA} "$FILE" 2>/dev/null
         ;;
     text/* | application/json)
-        [[ -x "$(command -v batcat)" ]] && batcat --style numbers,changes --theme ansi --color=always "$FILE" 2>/dev/null || ${MESS} "$FILE" 2>/dev/null
+        ${BAT} "$FILE" 2>/dev/null
         ;;
     *)
-        _no_preview
+        echo "                                "
+        echo "  ┌──────────────────────────┐  "
+        echo "  │  Sorry mate, can't show  │  "
+        echo "  │  any bloody preview.     │  "
+        echo "  └───┬──────────────────────┘  "
+        echo "      │                         "
+        echo "      │      (\_/)              "
+        echo "      └───── (O.o)              "
+        echo "             (> <)              "
+        echo "                                "
 esac
