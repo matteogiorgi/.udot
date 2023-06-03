@@ -40,16 +40,18 @@ EOF
 
 _default () {
 if [[ "$*" == "code" ]]; then
+    CODE="code"
     FOLDER="Code"
 elif [[ "$*" == "code-insiders" ]]; then
+    CODE="code-insiders"
     FOLDER="Code - Insiders"
 elif [[ "$*" == "codium" ]]; then
+    CODE="codium"
     FOLDER="VSCodium"
 else
     exit 1
 fi
 
-CODE="$*"
 _rmextensions "$CODE"
 $CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
@@ -90,7 +92,7 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
     "terminal.integrated.lineHeight": 1,
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Monokai Pro",
+    "workbench.colorTheme": "Quiet Light",
     "workbench.iconTheme": "Monokai Pro Icons",
     "workbench.productIconTheme": "Default",
     "workbench.activityBar.visible": true,
@@ -110,7 +112,7 @@ EOF
 }
 
 
-_vimlike () {
+_loaded () {
 if [[ "$*" == "code" ]]; then
     _rmextensions "code"
     code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
@@ -282,6 +284,11 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "when": "inEditorsPicker && inQuickOpen"
     },
     {
+        "key": "alt+shift+j",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus"
+    },
+    {
         "key": "alt+k",
         "command": "workbench.action.quickOpenLeastRecentlyUsedEditorInGroup",
         "when": "!activeEditorGroupEmpty"
@@ -290,6 +297,11 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "key": "alt+k",
         "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
         "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+shift+k",
+        "command": "editor.action.marker.prev",
+        "when": "editorFocus"
     },
     {
         "key": "alt+l",
@@ -319,14 +331,17 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "command": "workbench.action.togglePanel"
     },
     {
+        "key": "alt+o",
+        "command": "interactiveEditor.start",
+        "when": "interactiveEditorHasProvider && !editorReadonly"
+    },
+    {
         "key": "alt+n",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus"
+        "command": "editor.action.inlineSuggest.showNext"
     },
     {
         "key": "alt+p",
-        "command": "editor.action.marker.prev",
-        "when": "editorFocus"
+        "command": "editor.action.inlineSuggest.showPrevious"
     },
     {
         "key": "alt+space",
@@ -379,7 +394,7 @@ EOF
 
 _addconf () {
     CODE="$*"
-    printf "${RED}%s${NC} " "Choose CONFIG (default/vimlike):"
+    printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
     while read response; do
         case $response in
             "default")
@@ -387,13 +402,13 @@ _addconf () {
                 printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> default"
                 break
                 ;;
-            "vimlike")
-                _vimlike "$CODE"
-                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> vimlike"
+            "loaded")
+                _loaded "$CODE"
+                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> loaded"
                 break
                 ;;
             *)
-                printf "${RED}%s${NC} " "Choose CONFIG (default/vimlike):"
+                printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
                 ;;
         esac
     done
