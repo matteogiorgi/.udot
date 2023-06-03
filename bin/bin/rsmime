@@ -1,5 +1,28 @@
 #!/usr/bin/env bash
 
 
-read -p "Check the relative mime-type at: https://www.iana.org/assignments/media-types/media-types.xhtml (enter to continue)"
-"${EDITOR:=vi}" $HOME/.local/share/applications/mimeapps.list
+read -p "Your are going to edit your personal mime-types (enter to continue)"
+MIMEAPPS="$HOME/.local/share/applications/mimeapps.list"
+
+if [[ ! -f $MIMEAPPS ]]; then
+cat 2>/dev/null > $MIMEAPPS <<-EOF
+# This file stores all personal mime-types for the current user.
+# Check out IANA website for a full list of mime-types at
+# https://www.iana.org/assignments/media-types/media-types.xhtml
+
+# System default lists are stored inside the following files:
+# -> /usr/share/applications/mimeapps.list
+# -> /usr/share/applications/mimeinfo.cache
+# -> /usr/local/share/applications/mimeapps.list
+# -> /usr/local/share/applications/mimeinfo.cache
+
+# User default lists are stored inside the following files:
+# -> ~/local/share/applications/mimeapps.list
+# -> ~/local/share/applications/mimeinfo.cache
+
+
+[Default Applications]
+EOF
+fi
+
+"${EDITOR:=vi}" $MIMEAPPS

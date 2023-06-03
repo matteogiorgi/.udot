@@ -48,11 +48,9 @@
 !/bin/bin/ffm
 !/bin/bin/fgit
 !/bin/bin/fjump
-!/bin/bin/keylayout
 !/bin/bin/md2html
 !/bin/bin/mergepdf
 !/bin/bin/mess
-!/bin/bin/monlayout
 !/bin/bin/pipes
 !/bin/bin/rscode
 !/bin/bin/rsmime
@@ -60,8 +58,10 @@
 !/bin/bin/swallow
 !/bin/bin/tcv
 !/bin/bin/tetris
-!/bin/bin/toggletouch
+!/bin/bin/ttouch
 !/bin/bin/ufetch
+!/bin/bin/xlayout
+!/bin/bin/xmonitor
 !/bin/bin/xopp2pdf
 
 

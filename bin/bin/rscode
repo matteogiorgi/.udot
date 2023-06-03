@@ -39,15 +39,21 @@ EOF
 
 
 _default () {
-[[ "$*" == "code" ]] && FOLDER="Code"
-[[ "$*" == "code-insiders" ]] && FOLDER="Code - Insiders"
-[[ "$*" == "codium" ]] && FOLDER="VSCodium"
-[[ -z $FOLDER ]] && exit 1 || CODE="$*"
+if [[ "$*" == "code" ]]; then
+    FOLDER="Code"
+elif [[ "$*" == "code-insiders" ]]; then
+    FOLDER="Code - Insiders"
+elif [[ "$*" == "codium" ]]; then
+    FOLDER="VSCodium"
+else
+    exit 1
+fi
 
+CODE="$*"
 _rmextensions "$CODE"
 $CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
-cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": false,
@@ -97,7 +103,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 }
 EOF
 
-cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
 [
 ]
 EOF
@@ -107,21 +113,28 @@ EOF
 _vimlike () {
 if [[ "$*" == "code" ]]; then
     _rmextensions "code"
+    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
     code --install-extension vscodevim.vim &>/dev/null
     code --install-extension github.copilot &>/dev/null
-    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
     FOLDER="Code"
+elif [[ "$*" == "code-insiders" ]]; then
+    _rmextensions "code-insiders"
+    code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    code-insiders --install-extension vscodevim.vim &>/dev/null
+    code-insiders --install-extension github.copilot-nightly &>/dev/null
+    code-insiders --install-extension github.copilot-chat &>/dev/null
+    FOLDER="Code - Insiders"
 elif [[ "$*" == "codium" ]]; then
     _rmextensions "codium"
-    codium --install-extension vscodevim.vim &>/dev/null
-    codium --install-extension Codeium.codeium &>/dev/null
     codium --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
+    codium --install-extension vscodevim.vim &>/dev/null
+    codium --install-extension codeium.codeium &>/dev/null
     FOLDER="VSCodium"
 else
     exit 1
 fi
 
-cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
     "keyboard.dispatch": "keyCode",
     "breadcrumbs.enabled": true,
@@ -232,7 +245,7 @@ cat 2>/dev/null > $HOME/.config/$FOLDER/User/settings.json <<-EOF
 }
 EOF
 
-cat 2>/dev/null > $HOME/.config/$FOLDER/User/keybindings.json <<-EOF
+cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
 [
     {
         "key": "alt+shift+q",
@@ -392,7 +405,7 @@ _addconf () {
 ### Main
 ########
 
-printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
+printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
 while read response; do
     case $response in
         "code")
@@ -401,6 +414,14 @@ while read response; do
                 exit 1
             fi
             _addconf "code"
+            break
+            ;;
+        "insiders")
+            if [[ ! -x "$(command -v code-insiders)" ]]; then
+                printf "${YLW}%s${NC}\n" "code-insiders is not installed mate!"
+                exit 1
+            fi
+            _addconf "code-insiders"
             break
             ;;
         "codium")
@@ -413,7 +434,7 @@ while read response; do
             break
             ;;
         *)
-            printf "${RED}%s${NC} " "Choose EDITOR (code/codium):"
+            printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
             ;;
     esac
 done
