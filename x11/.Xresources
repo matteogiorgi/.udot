@@ -78,16 +78,6 @@ UXTerm*cursorColor: #4C7899
 
 
 
-!!! Sxiv config
-!!!!!!!!!!!!!!!
-
-Sxiv.background: #E5E5E5
-Sxiv.foreground: #000000
-Sxiv.font: Fira Code:style=Regular:size=8
-
-
-
-
 !!! Color palette
 !!!!!!!!!!!!!!!!!
 
