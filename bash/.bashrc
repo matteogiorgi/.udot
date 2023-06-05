@@ -209,18 +209,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 set -o vi
 PROMPT=${PS1@P}
 
-bind -m vi-command -x '"\C-h": fgit'
-bind -m vi-command -x '"\C-j": fjump'
-bind -m vi-command -x '"\C-k": ffind'
-bind -m vi-command -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT@P}'
-bind -m vi-command -x '"\C-f": ffm'
-
-bind -m vi-insert -x '"\C-h": fgit'
-bind -m vi-insert -x '"\C-j": fjump'
-bind -m vi-insert -x '"\C-k": ffind'
-bind -m vi-insert -x '"\C-l": PROMPT=${PS1@P}; clear; echo ${PROMPT@P}'
-bind -m vi-insert -x '"\C-f": ffm'
-
 bind 'TAB:menu-complete'
 bind '"\e[Z":menu-complete-backward'
 
@@ -234,3 +222,13 @@ bind 'set colored-stats on'                    # completions using different col
 bind 'set show-mode-in-prompt on'              # show vim-mode inside prompt
 bind 'set vi-ins-mode-string ">>"'             # vi-mode insert
 bind 'set vi-cmd-mode-string "<<"'             # vi-mode command
+
+bind -m vi-command -x '"\C-j": fjump'
+bind -m vi-command -x '"\C-f": ffind'
+bind -m vi-command -x '"\C-g": fgit'
+bind -m vi-command -x '"\C-l": clear; echo ${PROMPT@P}'
+
+bind -m vi-insert -x '"\C-j": fjump'
+bind -m vi-insert -x '"\C-f": ffind'
+bind -m vi-insert -x '"\C-g": fgit'
+bind -m vi-insert -x '"\C-l": clear; echo ${PROMPT@P}'
