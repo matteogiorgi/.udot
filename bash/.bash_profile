@@ -3,9 +3,4 @@
 # To autostart X11 without login-manager, add `exec startx`.
 
 
-
-
-### ~/.bash_profile
-###################
-
 . ~/.profile

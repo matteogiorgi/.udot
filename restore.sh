@@ -78,9 +78,6 @@ _restore () {
     [[ -d $RESTORE/i3 ]] && mv $RESTORE/i3 $HOME/.config
     [[ -d $RESTORE/i3status ]] && mv $RESTORE/i3status $HOME/.config
 
-    # kitty
-    [[ -d $RESTORE/kitty ]] && mv $RESTORE/kitty $HOME/.config
-
     # tmux
     [[ -f $RESTORE/.tmux.conf ]] && mv $RESTORE/.tmux.conf $HOME
 
@@ -131,13 +128,11 @@ stow -D bash
 stow -D bin
 stow -D fzf
 stow -D i3
-stow -D kitty
 stow -D tmux
 stow -D vim
 stow -D x11
 
 _restore
-
 [[ -d $RESTORE ]] && rm -rf $RESTORE
 [[ -f $HOME/.fehbg ]] && rm $HOME/.fehbg
 
@@ -154,7 +149,6 @@ printf "\n"
 # the following packages aren't going to be uninstalled:
 # coreutils, xdg-utils, fbset, bash, bash-completion,
 # network-manager, adwaita-icon-theme gnome-themes-extra.
-
 sudo apt purge -qq -y \
     wmctrl \
     xdotool \
@@ -166,9 +160,8 @@ sudo apt purge -qq -y \
     wget \
     stow \
     htop \
-    atool \
-    trash-cli \
     xclip \
+    trash-cli \
     fzf \
     ripgrep \
     batcat \
@@ -181,7 +174,6 @@ sudo apt purge -qq -y \
     i3-wm \
     arandr \
     xterm \
-    kitty \
     tmux \
     vim \
     blueman \

@@ -10,8 +10,8 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 ## Essential utilities
 
 ```
-wmctrl xdotool autorandr lxpolkit mesa-utils git curl wget stow htop atool
-trash-cli xclip fzf ripgrep batcat chafa feh xdo fonts-firacode wamerican witalian
+wmctrl xdotool autorandr lxpolkit mesa-utils git curl wget stow htop xclip
+trash-cli fzf ripgrep batcat chafa feh xdo fonts-firacode wamerican witalian
 coreutils xdg-utils fbset
 ```
 
@@ -21,7 +21,7 @@ coreutils xdg-utils fbset
 ## Main packages
 
 ```
-i3-wm arandr xterm kitty bash bash-completion tmux vim blueman network-manager
+i3-wm arandr xterm bash bash-completion tmux vim blueman network-manager
 system-config-printer pavucontrol diodon flameshot lxappearance qt5ct xournalpp
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 ```

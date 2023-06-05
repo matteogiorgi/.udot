@@ -2,7 +2,6 @@
 
 # This '.udot' setup script will install a minimal environment complete
 # with all the bells and whistles needed to start working properly.
-
 # There are no worries of losing a potential old configuration: il will be
 # stored in a separate folder in order to be restored on demand apon uninstall.
 
@@ -89,9 +88,6 @@ _backup () {
     [[ -d $HOME/.config/i3 ]] && _clean $HOME/.config/i3
     [[ -d $HOME/.config/i3status ]] && _clean $HOME/.config/i3status
 
-    # kitty
-    [[ -d $HOME/.config/kitty ]] && _clean $HOME/.config/kitty
-
     # tmux
     [[ -f $HOME/.tmux.conf ]] && _clean $HOME/.tmux.conf
 
@@ -165,9 +161,8 @@ sudo apt install -qq -y \
     wget \
     stow \
     htop \
-    atool \
-    trash-cli \
     xclip \
+    trash-cli \
     fzf \
     ripgrep \
     batcat \
@@ -195,7 +190,6 @@ sudo apt install -qq -y \
     i3-wm \
     arandr \
     xterm \
-    kitty \
     bash \
     bash-completion \
     tmux \
@@ -254,7 +248,6 @@ stow bash
 stow bin
 stow fzf
 stow i3
-stow kitty
 stow tmux
 stow vim
 stow x11

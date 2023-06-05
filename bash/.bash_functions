@@ -1,6 +1,5 @@
 # You may want to put all your additions into a separate file like this,
 # instead of adding them directly into ~/.bashrc.
-
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
@@ -18,17 +17,6 @@ NC='\033[0m'
 
 # FUNCTIONS
 ###########
-
-function _fun () {
-    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
-            sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
-            grep -v _fun | grep -v _ask | sort -k1n | \
-            fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
-    [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
-    read -p "$SHFUN: " ARGS
-    "$SHFUN" "$ARGS"
-}
-
 
 # no alias
 function _ask () {
@@ -68,20 +56,6 @@ function _xshow () {
 }
 
 
-function _tmux () {
-    [[ -f "/bin/tmux" ]] || return 1
-    if [[ -n "$TMUX" ]]; then
-        printf "${YLW}%s${NC}\n" "WTF mate, you're already in a tmux session!"
-        return
-    fi
-    if [[ $(ps -p $(ps -p $$ -o ppid=) -o args=) == "/bin/kitty" ]]; then
-        printf "${YLW}%s${NC}\n" "Kitty is already a multiplexer mate!"
-        return
-    fi
-    /bin/tmux 2>/dev/null
-}
-
-
 function _ffm () {
     [[ -f "$HOME/bin/ffm" ]] || return 1
     PROMPT=${PS1@P}
@@ -101,4 +75,15 @@ function _fjump () {
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
     rm -f /tmp/fjump$$
+}
+
+
+function _fun () {
+    SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
+            sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \
+            grep -v _fun | grep -v _ask | sort -k1n | \
+            fzf --prompt='Choose you function mate! > ' --height 100% --margin 0% --reverse --info=hidden --header-first)
+    [[ -n "$SHFUN" && "$(type -t $SHFUN)" == function ]] || return 1
+    read -p "$SHFUN: " ARGS
+    "$SHFUN" "$ARGS"
 }

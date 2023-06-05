@@ -105,9 +105,13 @@
 # GIT_PS1_HIDE_IF_PWD_IGNORED to a nonempty value. Override this on the
 # repository level by setting bash.hideIfPwdIgnored to "false".
 
+
+
+
 # check whether printf supports -v
 __git_printf_supports_v=
 printf -v __git_printf_supports_v -- '%s' yes >/dev/null 2>&1
+
 
 # stores the divergence from upstream in $p
 # used by GIT_PS1_SHOWUPSTREAM
@@ -240,8 +244,8 @@ __git_ps1_show_upstream ()
 			fi
 		fi
 	fi
-
 }
+
 
 # Helper function that is meant to be called from __git_ps1.  It
 # injects color codes into the appropriate gitstring variables used
@@ -291,6 +295,7 @@ __git_ps1_colorize_gitstring ()
 	fi
 }
 
+
 # Helper function to read the first line of a file into a variable.
 # __git_eread requires 2 arguments, the file path and the name of the
 # variable, in that order.
@@ -298,6 +303,7 @@ __git_eread ()
 {
 	test -r "$1" && IFS=$'\r\n' read "$2" <"$1"
 }
+
 
 # see if a cherry-pick or revert is in progress, if the user has committed a
 # conflict resolution with 'git commit' in the middle of a sequence of picks or
@@ -329,6 +335,7 @@ __git_sequencer_status ()
 	fi
 	return 1
 }
+
 
 # __git_ps1 accepts 0 or 1 arguments (i.e., format string)
 # when called from PS1 using command substitution

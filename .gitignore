@@ -6,7 +6,6 @@
 !/bin
 !/fzf
 !/i3
-!/kitty
 !/tmux
 !/vim
 !/x11
@@ -103,26 +102,6 @@
 
 /i3/.config/i3status/*
 !/i3/.config/i3status/config
-
-
-
-
-### KITTY
-#########
-
-/kitty/*
-!/kitty/.config
-
-/kitty/.config/*
-!/kitty/.config/kitty
-
-/kitty/.config/kitty/*
-!/kitty/.config/kitty/kitty.conf
-!/kitty/.config/kitty/colors
-
-/kitty/.config/kitty/colors/*
-!/kitty/.config/kitty/colors/gnome-dark.conf
-!/kitty/.config/kitty/colors/gnome-light.conf
 
 
 
