@@ -336,12 +336,19 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "when": "interactiveEditorHasProvider && !editorReadonly"
     },
     {
+        "key": "alt+b",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    },
+    {
         "key": "alt+n",
-        "command": "editor.action.inlineSuggest.showNext"
+        "command": "editor.action.inlineSuggest.showNext",
+        "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
         "key": "alt+p",
-        "command": "editor.action.inlineSuggest.showPrevious"
+        "command": "editor.action.inlineSuggest.showPrevious",
+        "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
         "key": "alt+space",
