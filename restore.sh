@@ -175,7 +175,7 @@ sudo apt purge -qq -y \
     arandr \
     xterm \
     tmux \
-    vim \
+    vim-gtk3 \
     blueman \
     system-config-printer \
     pavucontrol \

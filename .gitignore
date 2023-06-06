@@ -121,6 +121,7 @@
 /vim/*
 !/vim/.vim
 !/vim/.vimrc
+!/vim/.gvimrc
 
 /vim/.vim/*
 !/vim/.vim/after

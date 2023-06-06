@@ -193,7 +193,7 @@ sudo apt install -qq -y \
     bash \
     bash-completion \
     tmux \
-    vim \
+    vim-gtk3 \
     blueman \
     network-manager \
     system-config-printer \
