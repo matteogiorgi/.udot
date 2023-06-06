@@ -12,7 +12,7 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 ```
 wmctrl xdotool autorandr lxpolkit mesa-utils git curl wget stow htop xclip
 trash-cli fzf ripgrep batcat chafa feh xdo fonts-firacode wamerican witalian
-coreutils xdg-utils fbset
+gnome-keyring coreutils xdg-utils fbset
 ```
 
 
