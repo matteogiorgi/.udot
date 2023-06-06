@@ -30,8 +30,8 @@ endif
 " Syntax and colors {{{
 syntax on
 filetype plugin indent on
-colorscheme hembox
 set background=dark
+colorscheme hembox
 " }}}
 
 
