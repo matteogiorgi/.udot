@@ -49,41 +49,6 @@ fi
 
 
 
-### Add golang binary directory (apt install golang-go)
-#######################################################
-
-[[ -d $HOME/go/bin ]] && PATH="$PATH:$HOME/go/bin"
-
-
-
-
-### Add rustup settings (curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh)
-########################################################################################
-
-[[ -d $HOME/.cargo/bin ]] && PATH="$PATH:$HOME/.cargo/bin"
-
-
-
-
-### Add ghcup settings (curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh)
-################################################################################################
-
-[[ -d $HOME/.ghcup ]] && source $HOME/.ghcup/env
-
-
-
-
-### Add opam configuration (remember to run 'opam init' first)
-##############################################################
-
-if [[ -d $HOME/.opam/opam-init ]]; then
-    eval $(opam env)
-    test -r $HOME/.opam/opam-init/init.sh && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-fi
-
-
-
-
 ### i3-sensible-variables
 #########################
 
