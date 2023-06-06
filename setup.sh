@@ -94,6 +94,7 @@ _backup () {
     # vim
     [[ -d $HOME/.vim ]] && _clean $HOME/.vim
     [[ -f $HOME/.vimrc ]] && _clean $HOME/.vimrc
+    [[ -f $HOME/.gvimrc ]] && _clean $HOME/.gvimrc
 
     # x11
     [[ -f $HOME/.Xdefaults ]] && _clean $HOME/.Xdefaults
