@@ -57,9 +57,9 @@ function _xshow () {
 
 
 function _ffm () {
-    [[ -f "$HOME/bin/ffm" ]] || return 1
+    [[ -f "$HOME/bin/ffinders/ffm" ]] || return 1
     PROMPT=${PS1@P}
-    $HOME/bin/ffm "$@"
+    $HOME/bin/ffinders/ffm "$@"
     cd "$(cat /tmp/ffm)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
@@ -68,9 +68,9 @@ function _ffm () {
 
 
 function _fjump () {
-    [[ -f "$HOME/bin/fjump" ]] || return 1
+    [[ -f "$HOME/bin/ffinders/fjump" ]] || return 1
     PROMPT=${PS1@P}
-    $HOME/bin/fjump $$
+    $HOME/bin/ffinders/fjump $$
     cd "$(cat /tmp/fjump$$)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
