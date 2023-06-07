@@ -282,11 +282,11 @@ bindsym $mod+Shift+BackSpace focus child
 bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
-# floating, fullscreen
-# add `bar mode toggle`
+# floating, fullscreen, bar-toggle
 bindsym $mod+d focus mode_toggle
 bindsym $mod+f floating toggle
-bindsym $mod+g fullscreen toggle
+bindsym $mod+o fullscreen toggle
+bindsym $mod+g bar mode toggle
 
 # modes
 bindsym $mod+r mode "Resize"
