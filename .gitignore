@@ -99,8 +99,7 @@
 !/i3/.config/i3/config
 !/i3/.config/i3/i3autoload
 !/i3/.config/i3/i3menu
-!/i3/.config/i3/i3scratchpad
-!/i3/.config/i3/i3windows
+!/i3/.config/i3/i3scratch
 !/i3/.config/i3/wallpaper
 
 /i3/.config/i3status/*

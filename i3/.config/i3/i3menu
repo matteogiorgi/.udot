@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This script searches all executables inside PATH and uses fzf to select one to run as a command.
-# It is intended to be used as such: i3-sensible-terminal -T __i3menu__ -e i3menu
+# It is intended to be used as such: i3-sensible-terminal -T _i3menu_ -e i3menu.
 
 
 [[ -x "$(command -v xdo)" && -x "$(command -v fzf)" ]] || exit 1
@@ -9,7 +9,7 @@
 CLICOLOR_FORCE=1
 CMD=$(\ls -1 $(echo $PATH | tr ':' ' ') 2>/dev/null | sort -u | sed '/^$/d' | sed '/^\[/d' | sed '/^\//d' | fzf `
     `--ansi `
-    `--prompt='i3menu > ' `
+    `--prompt='i3-menu > ' `
     `--height 100% `
     `--margin 0% `
     `--reverse `

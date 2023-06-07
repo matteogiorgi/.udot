@@ -242,47 +242,27 @@ for_window [class="Scp-dbus-service.py"] floating enable
 ### Scratchpads
 ###############
 
-# scratch_0 window istance and title (only for scratchpad)
-for_window [instance="__scratch_0__"] floating enable
-for_window [instance="__scratch_0__"] resize set 800 600
-for_window [instance="__scratch_0__"] move position center
-for_window [instance="__scratch_0__"] border pixel 2
-for_window [instance="__scratch_0__"] move scratchpad
-for_window [title="__scratch_0__"] floating enable
-for_window [title="__scratch_0__"] resize set 800 600
-for_window [title="__scratch_0__"] move position center
-for_window [title="__scratch_0__"] border pixel 2
-for_window [title="__scratch_0__"] move scratchpad
+# i3scratch istance and title (800x600)
+for_window [instance="_i3scratch_"] floating enable
+for_window [instance="_i3scratch_"] resize set 800 600
+for_window [instance="_i3scratch_"] move position center
+for_window [instance="_i3scratch_"] border pixel 2
+for_window [instance="_i3scratch_"] move scratchpad
+for_window [title="_i3scratch_"] floating enable
+for_window [title="_i3scratch_"] resize set 800 600
+for_window [title="_i3scratch_"] move position center
+for_window [title="_i3scratch_"] border pixel 2
+for_window [title="_i3scratch_"] move scratchpad
 
-# scratch_1 window instance and title (800x600)
-for_window [instance="__scratch_1__"] floating enable
-for_window [instance="__scratch_1__"] resize set 800 600
-for_window [instance="__scratch_1__"] move position center
-for_window [instance="__scratch_1__"] border pixel 2
-for_window [title="__scratch_1__"] floating enable
-for_window [title="__scratch_1__"] resize set 800 600
-for_window [title="__scratch_1__"] move position center
-for_window [title="__scratch_1__"] border pixel 2
-
-# scratch_2 window instance and title (600x200)
-for_window [instance="__scratch_2__"] floating enable
-for_window [instance="__scratch_2__"] resize set 600 200
-for_window [instance="__scratch_2__"] move position center
-for_window [instance="__scratch_2__"] border pixel 2
-for_window [title="__scratch_2__"] floating enable
-for_window [title="__scratch_2__"] resize set 600 200
-for_window [title="__scratch_2__"] move position center
-for_window [title="__scratch_2__"] border pixel 2
-
-# scratch_3 window instance and title (250x400)
-for_window [instance="__scratch_3__"] floating enable
-for_window [instance="__scratch_3__"] resize set 250 400
-for_window [instance="__scratch_3__"] move position center
-for_window [instance="__scratch_3__"] border pixel 2
-for_window [title="__scratch_3__"] floating enable
-for_window [title="__scratch_3__"] resize set 250 400
-for_window [title="__scratch_3__"] move position center
-for_window [title="__scratch_3__"] border pixel 2
+# i3menu instance and title (300x500)
+for_window [instance="_i3menu_"] floating enable
+for_window [instance="_i3menu_"] resize set 300 500
+for_window [instance="_i3menu_"] move position center
+for_window [instance="_i3menu_"] border pixel 2
+for_window [title="_i3menu_"] floating enable
+for_window [title="_i3menu_"] resize set 300 500
+for_window [title="_i3menu_"] move position center
+for_window [title="_i3menu_"] border pixel 2
 
 
 
@@ -292,7 +272,7 @@ for_window [title="__scratch_3__"] border pixel 2
 
 # terminal and menu
 bindsym $mod+Return exec "i3-sensible-terminal"
-bindsym $mod+space exec "i3-sensible-terminal -T __scratch_3__ -e ~/.config/i3/i3menu"
+bindsym $mod+space exec "i3-sensible-terminal -T _i3menu_ -e ~/.config/i3/i3menu"
 
 # focus parent/child
 bindsym $mod+BackSpace focus parent
@@ -312,7 +292,6 @@ bindsym $mod+g fullscreen toggle
 bindsym $mod+r mode "Resize"
 
 # extra
-bindsym $mod+o exec "i3-sensible-terminal -T __scratch_2__ -e ~/.config/i3/i3windows"
 bindsym $mod+t exec "flameshot gui"
 bindsym $mod+y exec "diodon"
 
@@ -323,4 +302,4 @@ bindsym $mod+y exec "diodon"
 ##################
 
 exec --no-startup-id "~/.config/i3/i3autoload"
-exec --no-startup-id "~/.config/i3/i3scratchpad"
+exec --no-startup-id "~/.config/i3/i3scratch"
