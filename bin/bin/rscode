@@ -323,22 +323,27 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
-        "key": "alt+s",
+        "key": "alt+i",
         "command": "actions.find"
     },
     {
-        "key": "alt+i",
-        "command": "workbench.action.togglePanel"
+        "key": "alt+shift+i",
+        "command": "editor.action.inlineSuggest.trigger",
+        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
     },
     {
         "key": "alt+o",
+        "command": "editor.action.inlineSuggest.acceptNextWord",
+        "when": "inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "alt+shift+o",
         "command": "interactiveEditor.start",
         "when": "interactiveEditorHasProvider && !editorReadonly"
     },
     {
-        "key": "alt+b",
-        "command": "editor.action.inlineSuggest.trigger",
-        "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+        "key": "alt+s",
+        "command": "workbench.action.togglePanel"
     },
     {
         "key": "alt+n",
