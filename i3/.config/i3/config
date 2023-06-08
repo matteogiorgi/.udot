@@ -298,7 +298,7 @@ bindsym $mod+r mode "Resize"
 
 # diodon and flameshot
 bindsym $mod+x exec "diodon"
-bindsym $mod+b exec "flameshot gui"
+bindsym $mod+c exec "flameshot gui"
 
 
 
