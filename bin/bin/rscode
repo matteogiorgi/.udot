@@ -241,6 +241,10 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "command": "workbench.action.toggleActivityBarVisibility"
     },
     {
+        "key": "alt+s",
+        "command": "workbench.action.togglePanel"
+    },
+    {
         "key": "alt+t",
         "command": "toggleVim"
     },
@@ -294,19 +298,6 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+shift+l",
-        "command": "workbench.action.closeActiveEditor"
-    },
-    {
-        "key": "alt+shift+l",
-        "command": "workbench.action.closeGroup",
-        "when": "activeEditorGroupEmpty && multipleEditorGroups"
-    },
-    {
-        "key": "alt+s",
-        "command": "workbench.action.togglePanel"
-    },
-    {
-        "key": "alt+i",
         "command": "actions.find"
     },
     {
@@ -317,11 +308,6 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     {
         "key": "alt+p",
         "command": "editor.action.inlineSuggest.showPrevious",
-        "when": "inlineSuggestionVisible && !editorReadonly"
-    },
-    {
-        "key": "alt+o",
-        "command": "editor.action.inlineSuggest.acceptNextWord",
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
