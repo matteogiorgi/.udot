@@ -39,21 +39,13 @@ EOF
 
 
 _default () {
-if [[ "$*" == "code" ]]; then
-    CODE="code"
-    FOLDER="Code"
-elif [[ "$*" == "code-insiders" ]]; then
-    CODE="code-insiders"
-    FOLDER="Code - Insiders"
-elif [[ "$*" == "codium" ]]; then
-    CODE="codium"
-    FOLDER="VSCodium"
-else
-    exit 1
-fi
+CODE="$*"
+[[ "$CODE" == "code" ]] && FOLDER="Code"
+[[ "$CODE" == "code-insiders" ]] && FOLDER="Code - Insiders"
+[[ "$CODE" == "codium" ]] && FOLDER="VSCodium"
+[[ -z $FOLDER ]] && exit 1
 
 _rmextensions "$CODE"
-$CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
 cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
@@ -93,7 +85,7 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
     "workbench.editor.showTabs": true,
     "workbench.startupEditor": "none",
     "workbench.colorTheme": "Quiet Light",
-    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.iconTheme": "vs-seti",
     "workbench.productIconTheme": "Default",
     "workbench.activityBar.visible": true,
     "workbench.sideBar.location": "left",
@@ -113,28 +105,15 @@ EOF
 
 
 _loaded () {
-if [[ "$*" == "code" ]]; then
-    _rmextensions "code"
-    code --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    code --install-extension vscodevim.vim &>/dev/null
-    code --install-extension github.copilot &>/dev/null
-    FOLDER="Code"
-elif [[ "$*" == "code-insiders" ]]; then
-    _rmextensions "code-insiders"
-    code-insiders --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    code-insiders --install-extension vscodevim.vim &>/dev/null
-    code-insiders --install-extension github.copilot-nightly &>/dev/null
-    code-insiders --install-extension github.copilot-chat &>/dev/null
-    FOLDER="Code - Insiders"
-elif [[ "$*" == "codium" ]]; then
-    _rmextensions "codium"
-    codium --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
-    codium --install-extension vscodevim.vim &>/dev/null
-    codium --install-extension codeium.codeium &>/dev/null
-    FOLDER="VSCodium"
-else
-    exit 1
-fi
+CODE="$*"
+[[ "$CODE" == "code" ]] && FOLDER="Code"
+[[ "$CODE" == "code-insiders" ]] && FOLDER="Code - Insiders"
+[[ "$CODE" == "codium" ]] && FOLDER="VSCodium"
+[[ -z $FOLDER ]] && exit 1
+
+_rmextensions "$CODE"
+$CODE --install-extension vscodevim.vim &>/dev/null
+$CODE --install-extension monokai.theme-monokai-pro-vscode &>/dev/null
 
 cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
 {
@@ -323,22 +302,12 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "when": "activeEditorGroupEmpty && multipleEditorGroups"
     },
     {
-        "key": "alt+i",
-        "command": "actions.find"
-    },
-    {
-        "key": "alt+o",
-        "command": "interactiveEditor.start",
-        "when": "interactiveEditorHasProvider && !editorReadonly"
-    },
-    {
-        "key": "alt+b",
-        "command": "editor.action.inlineSuggest.acceptNextWord",
-        "when": "inlineSuggestionVisible && !editorReadonly"
-    },
-    {
         "key": "alt+s",
         "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "alt+i",
+        "command": "actions.find"
     },
     {
         "key": "alt+n",
@@ -348,6 +317,11 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     {
         "key": "alt+p",
         "command": "editor.action.inlineSuggest.showPrevious",
+        "when": "inlineSuggestionVisible && !editorReadonly"
+    },
+    {
+        "key": "alt+o",
+        "command": "editor.action.inlineSuggest.acceptNextWord",
         "when": "inlineSuggestionVisible && !editorReadonly"
     },
     {
@@ -401,17 +375,13 @@ EOF
 
 _addconf () {
     CODE="$*"
+    [[ "$CODE" == "codium" ]] && _addmarketplace
+
     printf "${RED}%s${NC} " "Choose CONFIG (default/loaded):"
     while read response; do
         case $response in
-            "default")
-                _default "$CODE"
-                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> default"
-                break
-                ;;
-            "loaded")
-                _loaded "$CODE"
-                printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> loaded"
+            "default" | "loaded")
+                "_"$response "$CODE"
                 break
                 ;;
             *)
@@ -419,6 +389,8 @@ _addconf () {
                 ;;
         esac
     done
+
+    printf "${YLW}%s\n%s${NC}\n" "EDITOR -> $CODE" "CONFIG -> $response"
 }
 
 
@@ -430,29 +402,12 @@ _addconf () {
 printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
 while read response; do
     case $response in
-        "code")
-            if [[ ! -x "$(command -v code)" ]]; then
-                printf "${YLW}%s${NC}\n" "code is not installed mate!"
+        "code" | "insiders" | "codium")
+            if [[ ! -x "$(command -v $response)" ]]; then
+                printf "${YLW}%s${NC}\n" "$response is not installed mate!"
                 exit 1
             fi
-            _addconf "code"
-            break
-            ;;
-        "insiders")
-            if [[ ! -x "$(command -v code-insiders)" ]]; then
-                printf "${YLW}%s${NC}\n" "code-insiders is not installed mate!"
-                exit 1
-            fi
-            _addconf "code-insiders"
-            break
-            ;;
-        "codium")
-            if [[ ! -x "$(command -v codium)" ]]; then
-                printf "${YLW}%s${NC}\n" "codium is not installed mate!"
-                exit 1
-            fi
-            _addmarketplace
-            _addconf "codium"
+            _addconf "$response"
             break
             ;;
         *)
