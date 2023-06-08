@@ -1,5 +1,6 @@
-!!! A NOnonsens Xresources file
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! A no-nonsense Xresources file, launch
+!!! `xrdb ~/.Xresources` to reload config
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 
@@ -34,8 +35,8 @@ XTerm.vt100.backarrowKey: false
 XTerm.ttyModes: erase ^?
 XTerm.omitTranslation: fullscreen
 XTerm.vt100.translations: #override \n\
-    Ctrl Alt <Key> -: smaller-vt-font() \n\
-    Ctrl Alt <Key> +: larger-vt-font()
+    Alt <Key> -: smaller-vt-font() \n\
+    Alt <Key> +: larger-vt-font()
 
 XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
@@ -67,8 +68,8 @@ UXTerm.vt100.backarrowKey: false
 UXTerm.ttyModes: erase ^?
 UXTerm.omitTranslation: fullscreen
 UXTerm.vt100.translations: #override \n\
-    Ctrl Alt <Key> -: smaller-vt-font() \n\
-    Ctrl Alt <Key> +: larger-vt-font()
+    Alt <Key> -: smaller-vt-font() \n\
+    Alt <Key> +: larger-vt-font()
 
 UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
