@@ -272,11 +272,15 @@ for_window [title="_i3menu_"] border pixel 2
 ### Usefull binds
 #################
 
-# terminal and menu
+# i3-terminal and i3-menu
 bindsym $mod+Return exec "i3-sensible-terminal"
 bindsym $mod+space exec "i3-sensible-terminal -T _i3menu_ -e ~/.config/i3/i3menu"
 
-# focus back & forth
+# i3-scratchpad
+bindsym $mod+BackSpace scratchpad show
+bindsym $mod+Shift+BackSpace move scratchpad
+
+# focus back&forth
 bindsym $mod+i workspace back_and_forth
 bindsym $mod+Shift+i move container to workspace back_and_forth
 
@@ -284,11 +288,7 @@ bindsym $mod+Shift+i move container to workspace back_and_forth
 bindsym $mod+o focus parent
 bindsym $mod+Shift+o focus child
 
-# i3 scratchpad
-bindsym $mod+x scratchpad show
-bindsym $mod+Shift+x move scratchpad
-
-# fullscreen, floating
+# fullscreen and floating
 bindsym $mod+d fullscreen toggle
 bindsym $mod+f floating toggle
 bindsym $mod+g focus mode_toggle
@@ -296,9 +296,9 @@ bindsym $mod+g focus mode_toggle
 # modes
 bindsym $mod+r mode "Resize"
 
-# extra
-bindsym $mod+t exec "flameshot gui"
-bindsym $mod+y exec "diodon"
+# diodon and flameshot
+bindsym $mod+x exec "diodon"
+bindsym $mod+b exec "flameshot gui"
 
 
 
