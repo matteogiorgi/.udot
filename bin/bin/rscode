@@ -399,10 +399,10 @@ _addconf () {
 ### Main
 ########
 
-printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
+printf "${RED}%s${NC} " "Choose EDITOR (code/code-insiders/codium):"
 while read response; do
     case $response in
-        "code" | "insiders" | "codium")
+        "code" | "code-insiders" | "codium")
             if [[ ! -x "$(command -v $response)" ]]; then
                 printf "${YLW}%s${NC}\n" "$response is not installed mate!"
                 exit 1
@@ -411,7 +411,7 @@ while read response; do
             break
             ;;
         *)
-            printf "${RED}%s${NC} " "Choose EDITOR (code/insiders/codium):"
+            printf "${RED}%s${NC} " "Choose EDITOR (code/code-insiders/codium):"
             ;;
     esac
 done
