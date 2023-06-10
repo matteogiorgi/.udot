@@ -15,6 +15,7 @@ Xft.rgba: rgb
 Xft.autohint: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
+XftFont: xft:Fira Code:size=8:antialias=true:style=Regular
 
 XTerm*renderFont: true
 XTerm*faceName: xft:Fira Code Regular
@@ -42,6 +43,18 @@ XTerm*cursorBlink: off
 XTerm*cursorOnTime: 400
 XTerm*cursorOffTime: 250
 XTerm*cursorColor: #4C7899
+
+XTerm*SimpleMenu.font: xft:Fira Code:size=8:antialias=true:style=Regular
+XTerm*SimpleMenu.background: #111111
+XTerm*SimpleMenu.foreground: #FFFFFF
+XTerm*SimpleMenu.*.borderWidth: 1
+XTerm*SimpleMenu.*.borderColor: #FFFFFF
+XTerm*SimpleMenu.*.topMargin: 0
+XTerm*SimpleMenu.*.bottomMargin: 0
+XTerm*SimpleMenu.*.leftMargin: 16
+XTerm*SimpleMenu.*.rightMargin: 16
+XTerm*SimpleMenu.*.leftWhitespace: 16
+XTerm*SimpleMenu.*.rightWhitespace: 8
 
 
 
@@ -75,6 +88,18 @@ UXTerm*cursorBlink: off
 UXTerm*cursorOnTime: 400
 UXTerm*cursorOffTime: 250
 UXTerm*cursorColor: #4C7899
+
+UXTerm*SimpleMenu.font: xft:Fira Code:size=8:antialias=true:style=Regular
+UXTerm*SimpleMenu.background: #111111
+UXTerm*SimpleMenu.foreground: #FFFFFF
+UXTerm*SimpleMenu.*.borderWidth: 1
+UXTerm*SimpleMenu.*.borderColor: #FFFFFF
+UXTerm*SimpleMenu.*.topMargin: 0
+UXTerm*SimpleMenu.*.bottomMargin: 0
+UXTerm*SimpleMenu.*.leftMargin: 16
+UXTerm*SimpleMenu.*.rightMargin: 16
+UXTerm*SimpleMenu.*.leftWhitespace: 16
+UXTerm*SimpleMenu.*.rightWhitespace: 8
 
 
 
