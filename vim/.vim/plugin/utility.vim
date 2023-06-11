@@ -50,21 +50,6 @@ endfunction
 "}}}
 
 
-" Replace{{{
-function! s:ReplaceSearch()
-    call inputsave()
-    let l:replace = input('Replace searched pattern with: ', '', '')
-    call inputrestore()
-    if l:replace != ""
-        exec '%s//'.l:replace.'/gc'
-    else
-        redraw
-        echo 'No substitution done'
-    endif
-endfunction
-"}}}
-
-
 " ToggleAccent{{{
 function! s:ToggleAccent()
     let withAccentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
@@ -87,35 +72,12 @@ endfunction
 "}}}
 
 
-" WinMove{{{
-" UNUSED: remap exampes below
-" nnoremap <leader>h :call <SID>WinMove('h')<CR>
-" nnoremap <leader>j :call <SID>WinMove('j')<CR>
-" nnoremap <leader>k :call <SID>WinMove('k')<CR>
-" nnoremap <leader>l :call <SID>WinMove('l')<CR>
-function! s:WinMove(key)
-    let t:curwin = winnr()
-    exec 'wincmd '.a:key
-    if t:curwin ==? winnr()
-        if match(a:key,'[jk]')
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec 'wincmd '.a:key
-    endif
-    return bufname('%')
-endfunction
-"}}}
-
-
 command! JumpCurrentDir call <SID>JumpCurrentDir()
 command! JumpParentDir call <SID>JumpParentDir()
 command! JumpGitDir call <SID>JumpGitDir()
-command! ReplaceSearch call <SID>ReplaceSearch()
 command! ToggleAccent call <SID>ToggleAccent()
 
-nnoremap <silent>' :ToggleAccent<CR>
-nnoremap <silent>\ :JumpGitDir<CR>
-nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <silent><CR> :JumpCurrentDir<CR>
+nnoremap <silent><Backspace> :JumpParentDir<CR>
+nnoremap <silent>\ :JumpGitDir<CR>
+nnoremap <silent>' :ToggleAccent<CR>

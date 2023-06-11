@@ -167,7 +167,6 @@ augroup END
 " Simple commands {{{
 command! ToggleBackground if &background ==# 'light' | set background=dark | else | set background=light | endif
 command! VirtualEditing if &virtualedit ==# 'all' | setlocal virtualedit= | else | setlocal virtualedit=all | endif
-command! SelectAll execute "normal \ggVG"
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
 command! RemoveSpaces :%s/\s\+$//e
 command! ClearLastSearch :let @/=""
@@ -199,7 +198,9 @@ nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 nnoremap <silent>Y y$
 nnoremap <silent>^ :ToggleBackground<CR>
-nnoremap <leader>a :SelectAll<CR>
+nnoremap <leader>a :execute "normal \ggVG"<CR>
+nnoremap <leader>s :%s///gc<Left><Left><Left>
+xnoremap <leader>s :s///gc<Left><Left><Left>
 nnoremap <leader>w <C-w>
 nnoremap <leader>e :edit ./
 vnoremap <leader>i :!<space>
