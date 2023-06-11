@@ -88,6 +88,11 @@ endfunction
 
 
 " WinMove{{{
+" UNUSED: remap exampes below
+" nnoremap <leader>h :call <SID>WinMove('h')<CR>
+" nnoremap <leader>j :call <SID>WinMove('j')<CR>
+" nnoremap <leader>k :call <SID>WinMove('k')<CR>
+" nnoremap <leader>l :call <SID>WinMove('l')<CR>
 function! s:WinMove(key)
     let t:curwin = winnr()
     exec 'wincmd '.a:key
@@ -114,9 +119,3 @@ nnoremap <silent>' :ToggleAccent<CR>
 nnoremap <silent>\ :JumpGitDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <silent><CR> :JumpCurrentDir<CR>
-
-nnoremap <leader>w <C-w>
-nnoremap <leader>wh :call <SID>WinMove('h')<CR>
-nnoremap <leader>wj :call <SID>WinMove('j')<CR>
-nnoremap <leader>wk :call <SID>WinMove('k')<CR>
-nnoremap <leader>wl :call <SID>WinMove('l')<CR>

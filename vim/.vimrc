@@ -200,6 +200,7 @@ nnoremap <silent><C-k> {
 nnoremap <silent>Y y$
 nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <leader>a :SelectAll<CR>
+nnoremap <leader>w <C-w>
 nnoremap <leader>e :edit ./
 vnoremap <leader>i :!<space>
 nnoremap <leader><Tab> :buffer<space>
