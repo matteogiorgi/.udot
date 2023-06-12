@@ -180,7 +180,7 @@ command! NoteOpenIndex call <SID>NoteOpenIndex()
 "}}}
 
 " Plug{{{
-nnoremap <silent> <Plug>(ScratchBuffer) :call <SID>ScratchBuffer()
+nnoremap <silent> <Plug>(ScratchBuffer) :call <SID>ScratchBuffer()<cr>
 nnoremap <silent> <Plug>(NoteWiki)      :call <SID>NoteWiki()<cr>
 nnoremap <silent> <Plug>(NoteOpen)      :call <SID>NoteOpen()<cr>
 nnoremap <silent> <Plug>(NotePandoc)    :call <SID>NotePandoc()<cr>
@@ -191,5 +191,5 @@ nnoremap <silent> <Plug>(Back)          :call <SID>Back()<cr>
 "}}}
 
 " Global shortcuts{{{
-nnoremap <leader><space> <Plug>(ScratchBuffer)<cr>
+nnoremap <leader><space> <Plug>(ScratchBuffer)
 "}}}
