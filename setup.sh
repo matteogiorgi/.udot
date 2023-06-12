@@ -196,7 +196,6 @@ sudo apt install -qq -y \
     bash-completion \
     tmux \
     vim-gtk3 \
-    kakoune \
     blueman \
     network-manager \
     system-config-printer \
