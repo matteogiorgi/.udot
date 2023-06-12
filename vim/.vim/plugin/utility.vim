@@ -57,6 +57,20 @@ endfunction
 "}}}
 
 
+" Scratch buffer{{{
+function s:ScratchBuffer()
+    execute 'tabnew '
+    file! SCRATCH
+    setlocal buftype=nofile
+    setlocal bufhidden=delete
+    setlocal nobuflisted
+    setlocal noswapfile
+    setlocal filetype=text
+    nnoremap <buffer> <leader><space> :q<CR>
+endfunction
+"}}}
+
+
 " ToggleAccent{{{
 function! s:ToggleAccent()
     let withAccentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
@@ -82,9 +96,11 @@ endfunction
 command! JumpCurrentDir call <SID>JumpCurrentDir()
 command! JumpParentDir call <SID>JumpParentDir()
 command! JumpGitDir call <SID>JumpGitDir()
+command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
 
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <leader><Backspace> :JumpGitDir<CR>
+nnoremap <leader><space> :ScratchBuffer<CR>
 nnoremap <silent>' :ToggleAccent<CR>

@@ -112,19 +112,6 @@ function! s:Back() abort
 endfunction
 "}}}
 
-" Scratch buffer{{{
-function s:ScratchBuffer()
-    execute 'tabnew '
-    file! SCRATCH
-    setlocal buftype=nofile
-    setlocal bufhidden=delete
-    setlocal nobuflisted
-    setlocal noswapfile
-    setlocal filetype=text
-    nnoremap <buffer> <leader><space> :q<CR>
-endfunction
-"}}}
-
 " Edit main notes index{{{
 function s:NoteWikiIndex()
     execute 'edit ' . $wikipages . '/index.md'
@@ -180,7 +167,6 @@ command! NoteOpenIndex call <SID>NoteOpenIndex()
 "}}}
 
 " Plug{{{
-nnoremap <silent> <Plug>(ScratchBuffer) :call <SID>ScratchBuffer()<cr>
 nnoremap <silent> <Plug>(NoteWiki)      :call <SID>NoteWiki()<cr>
 nnoremap <silent> <Plug>(NoteOpen)      :call <SID>NoteOpen()<cr>
 nnoremap <silent> <Plug>(NotePandoc)    :call <SID>NotePandoc()<cr>
