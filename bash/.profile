@@ -52,8 +52,8 @@ fi
 ### i3-sensible-variables
 #########################
 
-export EDITOR="/bin/vim"
-export VISUAL="/bin/vim"
+export EDITOR="/bin/kak"
+export VISUAL="/bin/kak"
 export TERMINAL="/bin/lxterm"
 
 

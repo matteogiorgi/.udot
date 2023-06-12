@@ -108,6 +108,25 @@
 
 
 
+### KAKOUNE
+###########
+
+/kak/*
+!/kak/.config
+
+/kak/.config/*
+!/kak/.config/kak
+
+/kak/.config/kak/*
+!/kak/.config/kak/colors
+!/kak/.config/kak/kakrc
+
+/kak/.config/kak/colors/*
+!/kak/.config/kak/colors/hembox.kak
+
+
+
+
 ### TMUX
 ########
 
