@@ -30,6 +30,7 @@ while true; do
             `--bind 'ctrl-u:preview-half-page-up' `
             `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/ffind.out & disown)' `
             `--bind 'ctrl-i:execute(nohup code {} &>/tmp/ffind.out & disown)' `
+            `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-b:execute(feh --bg-fill {})')"
     [[ -z "$FILE" ]] && exit 1
     "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"

@@ -165,6 +165,7 @@ augroup END
 
 
 " Simple commands {{{
+command! ToggleWordWrap if &wrap | set nowrap | else | set wrap | endif
 command! ToggleBackground if &background ==# 'light' | set background=dark | else | set background=light | endif
 command! VirtualEditing if &virtualedit ==# 'all' | setlocal virtualedit= | else | setlocal virtualedit=all | endif
 command! IndentAll exe 'setl ts=4 sts=0 et sw=4 sta' | exe "norm gg=G"
@@ -197,6 +198,7 @@ nnoremap <silent><C-n> :bnext<CR>
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 nnoremap <silent>Y y$
+nnoremap <silent>\ :ToggleWordWrap<CR>
 nnoremap <silent>^ :ToggleBackground<CR>
 nnoremap <leader>a :execute "normal \ggVG"<CR>
 nnoremap <leader>s :%s///gc<Left><Left><Left>

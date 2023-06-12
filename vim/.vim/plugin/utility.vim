@@ -79,5 +79,5 @@ command! ToggleAccent call <SID>ToggleAccent()
 
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
-nnoremap <silent>\ :JumpGitDir<CR>
+nnoremap <leader><space> :JumpGitDir<CR>
 nnoremap <silent>' :ToggleAccent<CR>
