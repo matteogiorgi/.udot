@@ -189,7 +189,3 @@ nnoremap <silent> <Plug>(PrevLink)      :call <SID>PrevLink()<cr>
 nnoremap <silent> <Plug>(OpenLink)      :call <SID>OpenLink()<cr>
 nnoremap <silent> <Plug>(Back)          :call <SID>Back()<cr>
 "}}}
-
-" Global shortcuts{{{
-nnoremap <leader><space> <Plug>(ScratchBuffer)
-"}}}

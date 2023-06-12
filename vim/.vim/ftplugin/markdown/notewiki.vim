@@ -5,6 +5,7 @@ setlocal conceallevel=2
 nmap <buffer> <leader>i <Plug>(NoteWiki)
 nmap <buffer> <leader>o <Plug>(NoteOpen)
 nmap <buffer> <leader>p <Plug>(NotePandoc)<cr>
+nmap <buffer> <leader><space> <Plug>(ScratchBuffer)
 nmap <buffer> <leader><Backspace> :echo ":("<cr>
 
 nmap <buffer> <tab> <Plug>(NextLink)
