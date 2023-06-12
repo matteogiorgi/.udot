@@ -60,13 +60,12 @@ endfunction
 " Scratch buffer{{{
 function s:ScratchBuffer()
     execute 'tabnew '
-    file! SCRATCH
     setlocal buftype=nofile
     setlocal bufhidden=delete
     setlocal nobuflisted
     setlocal noswapfile
     setlocal filetype=text
-    nnoremap <buffer> <leader><space> :q<CR>
+    nnoremap <buffer> <leader><space> :echo "Already in a scratchbuffer."<cr>
 endfunction
 "}}}
 
