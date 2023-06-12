@@ -27,10 +27,10 @@ while true; do
             `--bind 'ctrl-p:half-page-up' `
             `--bind 'ctrl-d:preview-half-page-down' `
             `--bind 'ctrl-u:preview-half-page-up' `
+            `--bind 'ctrl-b:execute(feh --bg-fill {})' `
+            `--bind 'ctrl-i:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
             `--bind 'ctrl-o:execute(nohup xdg-open {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-i:execute(nohup code {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-v:execute(nohup gvim {} &>/tmp/fjump.out & disown)' `
-            `--bind 'ctrl-b:execute(feh --bg-fill {})')"
+            `--bind 'ctrl-space:execute(nohup code {} &>/tmp/fjump.out & disown)')"
     [[ -z "$FILE" ]] && exit 1
     [[ -d "$FILE" || (-d "$FILE" && -L "$FILE") ]] && cd "${FILE}" || "${OPENER:="${EDITOR:=/bin/vi}"}" "${FILE}"
 done
