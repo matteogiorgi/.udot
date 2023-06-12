@@ -7,6 +7,13 @@
 
 
 
+if exists("g:loaded_vim_utility")
+    finish
+endif
+
+let b:loaded_vim_utility = 1
+
+
 " Jump current directory{{{
 function! s:JumpCurrentDir()
     echon 'CWD: '
@@ -79,5 +86,5 @@ command! ToggleAccent call <SID>ToggleAccent()
 
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
-nnoremap <leader><space> :JumpGitDir<CR>
+nnoremap <leader><Backspace> :JumpGitDir<CR>
 nnoremap <silent>' :ToggleAccent<CR>

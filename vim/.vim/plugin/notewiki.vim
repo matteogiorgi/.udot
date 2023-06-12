@@ -7,6 +7,13 @@
 
 
 
+if exists("b:loaded_vim_notewiki")
+    finish
+endif
+
+let b:loaded_vim_notewiki = 1
+
+
 let $wikipages = fnamemodify('~/notewiki', ':p')
 let $pdfpages = fnamemodify('~/notewiki/pdf', ':p')
 let $beamerpages = fnamemodify('~/notewiki/beamer', ':p')
@@ -113,7 +120,8 @@ function s:ScratchBuffer()
     setlocal bufhidden=delete
     setlocal nobuflisted
     setlocal noswapfile
-    setlocal filetype=markdown.pandoc
+    setlocal filetype=text
+    nnoremap <buffer> <leader><space> :q<CR>
 endfunction
 "}}}
 
@@ -167,17 +175,21 @@ endfunction
 
 
 " Commands{{{
-command! -nargs=0 ScratchBuffer call <SID>ScratchBuffer()
 command! NoteWikiIndex call <SID>NoteWikiIndex()
 command! NoteOpenIndex call <SID>NoteOpenIndex()
 "}}}
 
 " Plug{{{
-nnoremap <silent> <Plug>(NoteWiki)   :call <SID>NoteWiki()<cr>
-nnoremap <silent> <Plug>(NoteOpen)   :call <SID>NoteOpen()<cr>
-nnoremap <silent> <Plug>(NotePandoc) :call <SID>NotePandoc()<cr>
-nnoremap <silent> <Plug>(NextLink)   :call <SID>NextLink()<cr>
-nnoremap <silent> <Plug>(PrevLink)   :call <SID>PrevLink()<cr>
-nnoremap <silent> <Plug>(OpenLink)   :call <SID>OpenLink()<cr>
-nnoremap <silent> <Plug>(Back)       :call <SID>Back()<cr>
+nnoremap <silent> <Plug>(ScratchBuffer) :call <SID>ScratchBuffer()
+nnoremap <silent> <Plug>(NoteWiki)      :call <SID>NoteWiki()<cr>
+nnoremap <silent> <Plug>(NoteOpen)      :call <SID>NoteOpen()<cr>
+nnoremap <silent> <Plug>(NotePandoc)    :call <SID>NotePandoc()<cr>
+nnoremap <silent> <Plug>(NextLink)      :call <SID>NextLink()<cr>
+nnoremap <silent> <Plug>(PrevLink)      :call <SID>PrevLink()<cr>
+nnoremap <silent> <Plug>(OpenLink)      :call <SID>OpenLink()<cr>
+nnoremap <silent> <Plug>(Back)          :call <SID>Back()<cr>
+"}}}
+
+" Global shortcuts{{{
+nnoremap <leader><space> <Plug>(ScratchBuffer)<cr>
 "}}}
