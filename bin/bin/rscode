@@ -170,6 +170,14 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/settings.json <<-EOF
     "vim.insertModeKeyBindings": [],
     "vim.visualModeKeyBindings": [
         {
+            "before": ["<C-j>"],
+            "after": ["}"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["{"]
+        },
+        {
             "before": ["<Tab>"],
             "commands": ["editor.action.indentLines"]
         },
@@ -243,6 +251,10 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     {
         "key": "alt+s",
         "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
     },
     {
         "key": "alt+t",

@@ -197,6 +197,8 @@ nnoremap <silent><C-p> :bprev<CR>
 nnoremap <silent><C-n> :bnext<CR>
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
+vnoremap <silent><C-j> }
+vnoremap <silent><C-k> {
 nnoremap <silent>Y y$
 nnoremap <silent>\ :ToggleWordWrap<CR>
 nnoremap <silent>^ :ToggleBackground<CR>
