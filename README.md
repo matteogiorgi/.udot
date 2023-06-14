@@ -21,7 +21,7 @@ gnome-keyring coreutils xdg-utils fbset
 ## Main packages
 
 ```
-i3-wm arandr xterm bash bash-completion tmux vim-gtk3 blueman network-manager
+i3-wm arandr xterm dash bash bash-completion tmux vim-gtk3 blueman network-manager
 system-config-printer pavucontrol diodon flameshot lxappearance qt5ct xournalpp
 adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 ```

@@ -192,6 +192,7 @@ sudo apt install -qq -y \
     i3-wm \
     arandr \
     xterm \
+    dash \
     bash \
     bash-completion \
     tmux \

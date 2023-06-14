@@ -148,7 +148,7 @@ read -p "    Uninstalling packages (enter to continue)"
 printf "\n"
 
 # the following packages aren't going to be uninstalled:
-# gnome-keyring, coreutils, xdg-utils, fbset, bash, bash-completion,
+# gnome-keyring, coreutils, xdg-utils, fbset, dash, bash, bash-completion,
 # network-manager, adwaita-icon-theme gnome-themes-extra.
 sudo apt purge -qq -y \
     wmctrl \
