@@ -56,14 +56,14 @@ function _xshow () {
 }
 
 
-function _ffm () {
-    [[ -f "$HOME/bin/ffinders/ffm" ]] || return 1
+function _shfm () {
+    [[ -f "$HOME/bin/shfm" ]] || return 1
     PROMPT=${PS1@P}
-    $HOME/bin/ffinders/ffm "$@"
-    cd "$(cat /tmp/ffm)"
+    $HOME/bin/shfm "$@"
+    cd "$(cat /tmp/shfm)"
     NEWPROMPT=${PS1@P}
     [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
-    rm -f /tmp/ffm
+    rm -f /tmp/shfm
 }
 
 

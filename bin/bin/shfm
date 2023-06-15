@@ -10,7 +10,7 @@
 #    -> correctly handles files with funky names (newlines, etc)
 #    -> works with very small terminal sizes.
 #    -> cd on exit
-#    -> works when run in subshell $(ffm)
+#    -> works when run in subshell $(shfm)
 #
 #    *** see portability notes towards bottom of README.
 
@@ -60,28 +60,28 @@
 ##############
 
 #    On exit, the utility will print the path to working directory to <stdout>.
-#    To disable this behavior, run with 'ffm >/dev/null'. Usage of this output
+#    To disable this behavior, run with 'shfm >/dev/null'. Usage of this output
 #    is rather flexible:
-#        cd to directory on exit     -> cd "$(ffm)"
-#        store pwd in var on exit    -> var=$(ffm)
-#        store pwd in a file on exit -> ffm > file
+#        cd to directory on exit     -> cd "$(shfm)"
+#        store pwd in var on exit    -> var=$(shfm)
+#        store pwd in a file on exit -> shfm > file
 #
 #    For ease of use, a wrapper function can be added to your .shellrc (.bashrc):
-#        ffm() { cd "$(command ffm "$@")" }
+#        shfm() { cd "$(command shfm "$@")" }
 
 
 ### OPENER
 ##########
 
 #    Opening files in different applications (based on mime-type or file extension)
-#    can be achieved via an environment variable (FFM_OPENER) set to the location
+#    can be achieved via an environment variable (SHFM_OPENER) set to the location
 #    of a small external script. If unset, the default for all files is '$EDITOR'
 #    (and if that is unset, 'vi').
 #
 #    The script receives a single argument, the full path to the selected file.
 #    The opener script is also useful on the command-line. The environment variable
 #    is set as follows:
-#        export FFM_OPENER=/path/to/script
+#        export SHFM_OPENER=/path/to/script
 #
 #    Example script 1
 #    ----------------
@@ -207,7 +207,7 @@
 #        (I don't really know what to call this, suggestions appreciated)
 #
 #        Rather than using read timeouts (we can't sleep < 1s in POSIX shell anyway)
-#        to handle multi-byte input, ffm tracks location within sequences and handles
+#        to handle multi-byte input, shfm tracks location within sequences and handles
 #        this in a really nice way.
 #
 #        The case statement matches "$char$esc" with "$esc" being an integer holding
@@ -265,7 +265,7 @@
 #        which is utter torture. :)
 
 
-FFM_OPENER="swallow"
+SHFM_OPENER="swallow"
 
 esc() {
     case $1 in
@@ -307,7 +307,7 @@ term_reset() {
     stty "$stty"
 
     # needed for cd-on-exit
-    printf '%s\n' "$PWD" > /tmp/ffm  # >&1
+    printf '%s\n' "$PWD" > /tmp/shfm  # >&1
 }
 
 term_resize() {
@@ -516,12 +516,12 @@ main() {
 
     case $1 in
         -h|--help)
-            printf 'ffm -[hv] <starting dir>\n'
+            printf 'shfm -[hv] <starting dir>\n'
             exit 0
         ;;
 
         -v|--version)
-            printf 'ffm 0.4.2\n'
+            printf 'shfm 0.4.2\n'
             exit 0
         ;;
 
@@ -562,7 +562,7 @@ main() {
                     redraw "$@"
 
                 elif [ -e "$cur" ]; then
-                    cmd_run "${FFM_OPENER:="${EDITOR:=vi}"}" "$cur"
+                    cmd_run "${SHFM_OPENER:="${EDITOR:=vi}"}" "$cur"
                     redraw "$@"
                 fi
             ;;
@@ -652,8 +652,8 @@ main() {
             ;;
 
             \!?)
-                export FFM_LEVEL
-                FFM_LEVEL=$((FFM_LEVEL + 1))
+                export SHFM_LEVEL
+                SHFM_LEVEL=$((SHFM_LEVEL + 1))
                 cmd_run "${SHELL:=/bin/sh}"
                 redraw "$@"
             ;;
