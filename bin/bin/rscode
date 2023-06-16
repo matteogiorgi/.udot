@@ -271,10 +271,6 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
         "command": "-workbench.action.togglePanel"
     },
     {
-        "key": "alt+t",
-        "command": "toggleVim"
-    },
-    {
         "key": "alt+h",
         "command": "workbench.action.quickOpen"
     },
@@ -342,8 +338,7 @@ cat 2>/dev/null > $HOME/.config/"${FOLDER}"/User/keybindings.json <<-EOF
     },
     {
         "key": "alt+o",
-        "command": "workbench.action.terminal.openNativeConsole",
-        "when": "!terminalFocus"
+        "command": "toggleVim"
     },
     {
         "key": "ctrl+j",
