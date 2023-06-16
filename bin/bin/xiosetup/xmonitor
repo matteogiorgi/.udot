@@ -8,7 +8,7 @@ YLW='\033[1;35m'
 NC='\033[0m'
 
 
-function _autorandr_mode () {
+function _xmonitor () {
     [[ -f ~/.xinput.bash ]] || printf "TOUCHPADID=''\nTOUCHPADST='on'\n\nWACOMID=''\nWACOMRO='0'\nWACOMMO='master'\n\nAUTORANDR='master'" > ~/.xinput.bash
     source $HOME/.xinput.bash
 
@@ -27,4 +27,4 @@ function _autorandr_mode () {
 }
 
 
-_autorandr_mode "$*"
+_xmonitor "$*"

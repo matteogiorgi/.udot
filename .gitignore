@@ -41,30 +41,28 @@
 /bin/*
 !/bin/bin
 
-/bin/bin
+/bin/bin/*
 !/bin/bin/ffinders
-!/bin/bin/fet
+!/bin/bin/xiosetup
 !/bin/bin/md2html
 !/bin/bin/mergepdf
-!/bin/bin/pipes
 !/bin/bin/rscode
 !/bin/bin/rsmime
-!/bin/bin/setwacom
-!/bin/bin/shfm
-!/bin/bin/tcv
-!/bin/bin/tetris
-!/bin/bin/ttouch
 !/bin/bin/ufetch
-!/bin/bin/xlayout
-!/bin/bin/xmonitor
 !/bin/bin/xopp2pdf
 
-/bin/bin/ffinders
+/bin/bin/ffinders/*
 !/bin/bin/ffinders/ffind
 !/bin/bin/ffinders/fgit
 !/bin/bin/ffinders/fjump
 !/bin/bin/ffinders/mess
 !/bin/bin/ffinders/swallow
+
+/bin/bin/xiosetup/*
+!/bin/bin/xiosetup/xlayout
+!/bin/bin/xiosetup/xmonitor
+!/bin/bin/xiosetup/xtouch
+!/bin/bin/xiosetup/xwacom
 
 
 
