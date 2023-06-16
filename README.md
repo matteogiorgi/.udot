@@ -40,6 +40,6 @@ adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 
 ## Need more?
 
-- To seek info an any Ubuntu package, check [packages.ubuntu.com](https://packages.ubuntu.com/).
-- To read Ubuntu manpages, check [manpages.ubuntu.com](https://manpages.ubuntu.com/).
+- To seek info an any *Ubuntu* package, check [packages.ubuntu.com](https://packages.ubuntu.com/).
+- To read *Ubuntu* manpages, check [manpages.ubuntu.com](https://manpages.ubuntu.com/).
 - As a minimal-lifestile alternative, check out [.minidot](https://github.com/matteogiorgi/.minidot).
