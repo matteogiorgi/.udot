@@ -56,24 +56,15 @@ function _xshow () {
 }
 
 
-function _shfm () {
-    [[ -f "$HOME/bin/shfm" ]] || return 1
-    PROMPT=${PS1@P}
-    $HOME/bin/shfm "$@"
-    cd "$(cat /tmp/shfm)"
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
-    rm -f /tmp/shfm
-}
-
-
 function _fjump () {
     [[ -f "$HOME/bin/ffinders/fjump" ]] || return 1
     PROMPT=${PS1@P}
     $HOME/bin/ffinders/fjump $$
     cd "$(cat /tmp/fjump$$)"
-    NEWPROMPT=${PS1@P}
-    [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
+    if [[ -n "$TMUX" ]]; then
+        NEWPROMPT=${PS1@P}
+        [[ $NEWPROMPT == $PROMPT ]] || echo ${NEWPROMPT@P}
+    fi
     rm -f /tmp/fjump$$
 }
 
