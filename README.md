@@ -41,5 +41,5 @@ adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 
 - For any other package, check [packages.ubuntu.com](https://packages.ubuntu.com/)
 - To read Ubuntu manpages, check [manpages.ubuntu.com](https://manpages.ubuntu.com/)
-- Need more spice? Install this: `input-remapper`, `gnome-shell-extension-prefs`
+- Need more spice? Install this: `input-remapper`, `gnome-shell-extension-prefs`, `chrome-gnome-shell`
 - Fancy a minimal-lifestile alternative? Check out [.minidot](https://github.com/matteogiorgi/.minidot) then.
