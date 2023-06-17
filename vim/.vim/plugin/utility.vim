@@ -65,7 +65,6 @@ function s:ScratchBuffer()
     setlocal nobuflisted
     setlocal noswapfile
     setlocal filetype=text
-    nnoremap <buffer> <leader><space> :echo "Already in a scratchbuffer."<cr>
 endfunction
 "}}}
 
@@ -101,5 +100,4 @@ command! ToggleAccent call <SID>ToggleAccent()
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <leader><Backspace> :JumpGitDir<CR>
-nnoremap <leader><space> :ScratchBuffer<CR>
 nnoremap <silent>' :ToggleAccent<CR>

@@ -4,10 +4,23 @@
 "   \ V / | | | | | | |
 "    \_/  |_|_| |_| |_|
 "
-"
-" Vim editor - no plugin configuration
-" For full documentation and other stuff
-" visit https://www.vim.org
+" Vim editor - https://www.vim.org.
+
+
+
+
+" Install vim-plug if not found {{{
+augroup vimenter
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    endif
+    autocmd! VimEnter *
+                \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) |
+                \     PlugInstall --sync | source ~/.vimrc |
+                \ endif
+augroup end
+" }}}
 
 
 
@@ -126,10 +139,9 @@ let &t_EI = "\e[2 q"
 
 " Linenumber behaviour {{{
 augroup numbertoggle
-    autocmd!
-    autocmd WinEnter,BufEnter,FocusGained,InsertLeave *
+    autocmd! WinEnter,BufEnter,FocusGained,InsertLeave *
                 \ if &number ==? 1 | set relativenumber | endif | set cursorline
-    autocmd WinLeave,BufLeave,FocusLost,InsertEnter *
+    autocmd! WinLeave,BufLeave,FocusLost,InsertEnter *
                 \ if &number ==? 1 | set norelativenumber | endif | set nocursorline
 augroup end
 " }}}
@@ -139,12 +151,11 @@ augroup end
 
 " Overlength behaviour {{{
 augroup overlengthtoggle
-    autocmd!
-    autocmd InsertEnter *
+    autocmd! InsertEnter *
                 \ if &filetype !=? 'markdown' && &filetype !=? 'markdown.pandoc' && &filetype !=? 'pandoc' && &filetype !=? 'tex' |
                 \     let &colorcolumn = '121,'.join(range(121,999),',') |
                 \ endif
-    autocmd InsertLeave *
+    autocmd! InsertLeave *
                 \ if &filetype !=? 'markdown' && &filetype !=? 'markdown.pandoc' && &filetype !=? 'pandoc' && &filetype !=? 'tex' |
                 \     set colorcolumn= |
                 \ endif
@@ -156,8 +167,7 @@ augroup end
 
 " Netrw auto-start {{{
 augroup initnetrw
-    autocmd!
-    autocmd VimEnter * if expand("%") == "" | edit . | endif
+    autocmd! VimEnter * if expand("%") == "" | edit . | endif
 augroup END
 " }}}
 
@@ -220,3 +230,24 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 " }}}
+
+
+
+
+" Load plugins if vim-plug is detected
+" -- github.com/junegunn/vim-plug --
+if filereadable(expand("~/.vim/autoload/plug.vim"))
+    call plug#begin('~/.vim/plugged')
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-fugitive'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'wellle/context.vim'
+    call plug#end()
+
+    " simple plugin-maps; for any other plugin configuration,
+    " create a separate configuration file inside ~/.vim/plugin/
+    nmap <silent><leader><space> gcc
+    vmap <silent><leader><space> gc
+endif
