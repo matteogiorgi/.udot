@@ -113,7 +113,7 @@ set belloff+=ctrlg
 
 " Variables to load early {{{
 let g:mapleader = "\<space>"
-let g:maplocalleader = "\\"
+let g:maplocalleader = ","
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
 endif
@@ -217,7 +217,7 @@ nnoremap <leader>s :%s///gc<Left><Left><Left>
 xnoremap <leader>s :s///gc<Left><Left><Left>
 nnoremap <leader>w <C-w>
 nnoremap <leader>e :edit ./
-vnoremap <leader>i :!<space>
+vnoremap <leader>e :!<space>
 nnoremap <leader><Tab> :buffer<space>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
