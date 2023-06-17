@@ -157,6 +157,7 @@ sudo apt install -qq -y \
     autorandr \
     lxpolkit \
     mesa-utils \
+    poppler-utils \
     git \
     curl \
     wget \

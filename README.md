@@ -10,9 +10,9 @@ This repo contains a minimal configuration of my *dotfiles*, I keep them organiz
 ## Essential utilities
 
 ```
-wmctrl xdotool autorandr lxpolkit mesa-utils git curl wget stow htop xclip
-trash-cli fzf ripgrep bat chafa feh xdo fonts-firacode wamerican witalian
-gnome-keyring coreutils xdg-utils fbset
+wmctrl xdotool autorandr lxpolkit mesa-utils poppler-utils git curl wget
+stow htop xclip trash-cli fzf ripgrep bat chafa feh xdo fonts-firacode
+wamerican witalian gnome-keyring coreutils xdg-utils fbset
 ```
 
 
