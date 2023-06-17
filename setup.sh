@@ -156,8 +156,6 @@ sudo apt install -qq -y \
     xdotool \
     autorandr \
     lxpolkit \
-    mesa-utils \
-    poppler-utils \
     git \
     curl \
     wget \
@@ -171,6 +169,7 @@ sudo apt install -qq -y \
     chafa \
     feh \
     xdo \
+    poppler-utils \
     fonts-firacode \
     wamerican \
     witalian \

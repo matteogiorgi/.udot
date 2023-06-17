@@ -155,8 +155,6 @@ sudo apt purge -qq -y \
     xdotool \
     autorandr \
     lxpolkit \
-    mesa-utils \
-    poppler-utils \
     git \
     curl \
     wget \
@@ -170,6 +168,7 @@ sudo apt purge -qq -y \
     chafa \
     feh \
     xdo \
+    poppler-utils \
     fonts-firacode \
     wamerican \
     witalian \
