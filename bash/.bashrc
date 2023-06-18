@@ -4,6 +4,8 @@
 # | |_) | (_| \__ \ | | |
 # |____/ \__,_|___/_| |_|
 #
+# Bourne again shell - https://www.gnu.org/software/bash/
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # See /usr/share/doc/bash/examples/startup-files in the
 # bash-doc package for examples.

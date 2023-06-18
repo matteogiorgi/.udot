@@ -1,6 +1,14 @@
-!!! A no-nonsense Xresources file, launch
-!!! `xrdb ~/.Xresources` to reload config
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! __  __
+! \ \/ /___  _ __ __ _
+!  \  // _ \| '__/ _` |
+!  /  \ (_) | | | (_| |
+! /_/\_\___/|_|  \__, |
+!                |___/
+!
+! X window manager - https://www.x.org/wiki/
+
+! A no-nonsense Xresources file.
+! Execute `xrdb ~/.Xresources` to reload X.
 
 
 

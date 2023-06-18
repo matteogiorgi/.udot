@@ -1,6 +1,14 @@
-!!! A no-nonsense Xdefaults file, launch
-!!! `xrdb ~/.Xdefaults` to reload config
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! __  __
+! \ \/ /___  _ __ __ _
+!  \  // _ \| '__/ _` |
+!  /  \ (_) | | | (_| |
+! /_/\_\___/|_|  \__, |
+!                |___/
+!
+! X window manager - https://www.x.org/wiki/
+
+! A no-nonsense Xdefaults file.
+! Execute `xrdb ~/.Xdefaults` to reload X.
 
 
 
