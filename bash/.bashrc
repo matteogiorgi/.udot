@@ -1,5 +1,12 @@
+#  ____            _
+# | __ )  __ _ ___| |__
+# |  _ \ / _` / __| '_ \
+# | |_) | (_| \__ \ | | |
+# |____/ \__,_|___/_| |_|
+#
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# See /usr/share/doc/bash/examples/startup-files (in the package bash-doc) for examples.
+# See /usr/share/doc/bash/examples/startup-files in the
+# bash-doc package for examples.
 
 
 

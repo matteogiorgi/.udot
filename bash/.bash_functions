@@ -3,20 +3,11 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 
-
-
-# COLORS
-########
-
+# colors
 RED='\033[1;36m'
 YLW='\033[1;35m'
 NC='\033[0m'
 
-
-
-
-# FUNCTIONS
-###########
 
 # no alias
 function _ask () {
@@ -56,6 +47,7 @@ function _xshow () {
 }
 
 
+# cd on exit
 function _fjump () {
     [[ -f "$HOME/bin/ffinders/fjump" ]] || return 1
     PROMPT=${PS1@P}
@@ -69,6 +61,7 @@ function _fjump () {
 }
 
 
+# list functions
 function _fun () {
     SHFUN=$(grep -E '^function [a-z0-9_]+ \(\) \{$' ~/.bash_functions | \
             sed -E 's/function ([a-z0-9_]+) \(\) \{/\1/g' | \

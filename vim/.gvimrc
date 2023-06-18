@@ -16,4 +16,4 @@ set guicursor+=a:blinkon0
 
 " gui colors
 set background=dark
-colorscheme hemisu
+colorscheme hembox
