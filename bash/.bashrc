@@ -206,6 +206,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
+[[ -f $HOME/.bash_extras ]] && source $HOME/.bash_extras
 
 
 
