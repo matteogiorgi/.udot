@@ -112,26 +112,26 @@ UXTerm*SimpleMenu.*.rightWhitespace: 8
 
 
 
-!!! Color palette
-!!!!!!!!!!!!!!!!!
+!!! Color palette (Tango)
+!!!!!!!!!!!!!!!!!!!!!!!!!
 
-*.color0:  #171421
-*.color1:  #C01C28
-*.color2:  #26A269
-*.color3:  #A2734C
-*.color4:  #12488B
-*.color5:  #A347BA
-*.color6:  #2AA1B3
-*.color7:  #D0CFCC
+*.color0:  #2E3436
+*.color1:  #CC0000
+*.color2:  #4E9A06
+*.color3:  #C4A000
+*.color4:  #3465A4
+*.color5:  #75507B
+*.color6:  #06989A
+*.color7:  #D3D7CF
 
-*.color8:  #5E5C64
-*.color9:  #F66151
-*.color10: #33D17A
-*.color11: #E9AD0C
-*.color12: #2A7BDE
-*.color13: #C061CB
-*.color14: #33C7DE
-*.color15: #FFFFFF
+*.color8:  #555753
+*.color9:  #EF2929
+*.color10: #8AE234
+*.color11: #FCE94F
+*.color12: #729FCF
+*.color13: #AD7FA8
+*.color14: #34E2E2
+*.color15: #EEEEEC
 
 *.background: #000000
 *.foreground: #FFFFFF
