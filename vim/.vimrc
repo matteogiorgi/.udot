@@ -10,6 +10,7 @@
 
 
 " Install vim-plug if not found {{{
+" -- github.com/junegunn/vim-plug --
 augroup vimenter
     if empty(glob('~/.vim/autoload/plug.vim'))
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -234,8 +235,9 @@ nnoremap <leader>9 9gt
 
 
 
-" Load plugins if vim-plug is detected
-" -- github.com/junegunn/vim-plug --
+" Load plugins if vim-plug is detected.
+" To install more plugins just clone the git repo inside
+" ~/.vim/pack/plugins/start/ or ~/.vim/pack/plugins/opt/
 if filereadable(expand("~/.vim/autoload/plug.vim"))
     call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-surround'
