@@ -175,6 +175,7 @@ fi
 export TERM="xterm-256color"
 export SHELL="/bin/bash"
 export PAGER="/bin/less -~"
+export BAT_THEME="base16"
 
 
 
