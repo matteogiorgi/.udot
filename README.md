@@ -38,6 +38,24 @@ adwaita-icon-theme-full gnome-themes-extra adwaita-qt
 
 
 
+## Vim9 and Copilot
+
+- Add the [unofficial Vim PPA repository](https://launchpad.net/~jonathonf/+archive/ubuntu/vim?ref=itsfoss.com)
+- Upgrade `vim-gtk3` package
+- Install [Node.js](https://nodejs.org)
+- Clone [Copilot git repository](https://github.com/github/copilot.vim) inside `~/.vim/pack/plugins/start/`
+
+```bash
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install --only-upgrade vim-gtk3
+sudo apt install nodejs
+git clone https://github.com/github/copilot.vim.git ~/.vim/pack/github/start/copilot.vim
+```
+
+
+
+
 ## Need more?
 
 - To seek info an any *Ubuntu* package, check [packages.ubuntu.com](https://packages.ubuntu.com/).

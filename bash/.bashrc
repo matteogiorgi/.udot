@@ -211,12 +211,18 @@ export LESS_TERMCAP_ue=$'\e[0m'         # end underline
 ### Source stuff
 ################
 
-[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
-[[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
+# fzf config
 [[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
 [[ -f $HOME/.config/fzf/completion.bash ]] && source $HOME/.config/fzf/completion.bash
 [[ -f $HOME/.config/fzf/key-bindings.bash ]] && source $HOME/.config/fzf/key-bindings.bash
+
+# use .xinput.bash to set xinput devices and
+# .bash_extras to write any other extra config
+[[ -f $HOME/.xinput.bash ]] && source $HOME/.xinput.bash
 [[ -f $HOME/.bash_extras ]] && source $HOME/.bash_extras
+
+# launch system fetcher
+[[ -f $HOME/bin/ufetch ]] && $HOME/bin/ufetch
 
 
 
