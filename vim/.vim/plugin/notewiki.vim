@@ -167,11 +167,11 @@ command! NoteOpenIndex call <SID>NoteOpenIndex()
 "}}}
 
 " Plug{{{
-nnoremap <silent> <Plug>(NoteWiki)      :call <SID>NoteWiki()<cr>
-nnoremap <silent> <Plug>(NoteOpen)      :call <SID>NoteOpen()<cr>
-nnoremap <silent> <Plug>(NotePandoc)    :call <SID>NotePandoc()<cr>
-nnoremap <silent> <Plug>(NextLink)      :call <SID>NextLink()<cr>
-nnoremap <silent> <Plug>(PrevLink)      :call <SID>PrevLink()<cr>
-nnoremap <silent> <Plug>(OpenLink)      :call <SID>OpenLink()<cr>
-nnoremap <silent> <Plug>(Back)          :call <SID>Back()<cr>
+nnoremap <silent> <Plug>(NoteWiki)   :call <SID>NoteWiki()<cr>
+nnoremap <silent> <Plug>(NoteOpen)   :call <SID>NoteOpen()<cr>
+nnoremap <silent> <Plug>(NotePandoc) :call <SID>NotePandoc()<cr>
+nnoremap <silent> <Plug>(NextLink)   :call <SID>NextLink()<cr>
+nnoremap <silent> <Plug>(PrevLink)   :call <SID>PrevLink()<cr>
+nnoremap <silent> <Plug>(OpenLink)   :call <SID>OpenLink()<cr>
+nnoremap <silent> <Plug>(Back)       :call <SID>Back()<cr>
 "}}}
