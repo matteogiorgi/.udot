@@ -246,10 +246,12 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
     Plug 'tpope/vim-fugitive'
     Plug 'jiangmiao/auto-pairs'
     Plug 'wellle/context.vim'
+    Plug 'mbbill/undotree'
     call plug#end()
 
     " simple plugin-maps; for any other plugin configuration,
     " create a separate configuration file inside ~/.vim/plugin/
-    nmap <silent><leader><space> gcc
-    vmap <silent><leader><space> gc
+    vmap <leader><space> gc
+    nmap <leader><space> gcc
+    nmap <silent><S-u> :UndotreeToggle<CR>
 endif
