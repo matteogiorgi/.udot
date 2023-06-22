@@ -126,9 +126,6 @@
 /vim/.vim/*
 !/vim/.vim/after
 !/vim/.vim/colors
-!/vim/.vim/ftplugin
-!/vim/.vim/plugin
-!/vim/.vim/pandoc
 
 /vim/.vim/after/*
 !/vim/.vim/after/ftplugin
@@ -138,40 +135,11 @@
 !/vim/.vim/colors/hembox.vim
 !/vim/.vim/colors/hemisu.vim
 
-/vim/.vim/ftplugin/*
-!/vim/.vim/ftplugin/markdown
-!/vim/.vim/ftplugin/markdown.pandoc
-!/vim/.vim/ftplugin/pandoc
-!/vim/.vim/ftplugin/tex
-!/vim/.vim/ftplugin/text
-
-/vim/.vim/plugin/*
-!/vim/.vim/plugin/complete.vim
-!/vim/.vim/plugin/notewiki.vim
-!/vim/.vim/plugin/utility.vim
-
 /vim/.vim/after/ftplugin/*
 !/vim/.vim/after/ftplugin/netrw.vim
 
 /vim/.vim/after/plugin/*
 !/vim/.vim/after/plugin/netrw.vim
-
-/vim/.vim/ftplugin/markdown/*
-!/vim/.vim/ftplugin/markdown/notewiki.vim
-
-/vim/.vim/ftplugin/tex/*
-!/vim/.vim/ftplugin/tex/writing-mode.vim
-
-/vim/.vim/pandoc/*
-!/vim/.vim/pandoc/assets
-
-/vim/.vim/pandoc/assets/*
-!/vim/.vim/pandoc/assets/before.html
-!/vim/.vim/pandoc/assets/footer.html
-!/vim/.vim/pandoc/assets/header.html
-!/vim/.vim/pandoc/assets/link2html.lua
-!/vim/.vim/pandoc/assets/link2html.py
-!/vim/.vim/pandoc/assets/makenote
 
 
 
