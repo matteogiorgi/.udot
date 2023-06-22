@@ -1,17 +1,14 @@
-" Utility functions
-" -----------------
+" UTILITY
+" -------
 
-" List of utility function to simplify your
-" vimmer life.
-
-
+" List of utility function to simplify
+" your vimmer life.
 
 
-if exists("g:loaded_vim_utility")
-    finish
-endif
 
-let b:loaded_vim_utility = 1
+
+if exists("g:loaded_utility") | finish | endif
+let g:loaded_utility = 1
 
 
 " Jump current directory{{{

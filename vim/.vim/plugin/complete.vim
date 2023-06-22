@@ -1,20 +1,16 @@
-" Simple-Complete
-" ---------------
+" COMPLETE
+" --------
 
-" Simple as-you-type keyword completion and tab complete
-" in less than 100 lines of code. Add the following lines
-" to your vimrc to include files and tag complete:
-" set complete-=t
-" set complete-=i
-
+" Simple as-you-type keyword completion and
+" tab complete in less than 100 lines of code.
+" Add `set complete-=i,t` to your vimrc to
+" include files and tag complete.
 
 
 
-if exists("g:loaded_vim_simple_complete")
-    finish
-endif
 
-let g:loaded_vim_simple_complete = 1
+if exists("g:loaded_complete") | finish | endif
+let g:loaded_complete = 1
 
 
 let g:vsc_completion_command = get(g:, 'vsc_completion_command', "\<C-N>")

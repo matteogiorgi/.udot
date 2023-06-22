@@ -1,4 +1,4 @@
-" Notewiki
+" NOTEWIKI
 " --------
 
 " Note plugin system useful to create
@@ -7,11 +7,8 @@
 
 
 
-if exists("b:loaded_vim_notewiki")
-    finish
-endif
-
-let b:loaded_vim_notewiki = 1
+if exists("b:loaded_notewiki") | finish | endif
+let b:loaded_notewiki = 1
 
 
 let $wikipages = fnamemodify('~/notewiki', ':p')

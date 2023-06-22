@@ -146,8 +146,8 @@
 !/vim/.vim/ftplugin/text
 
 /vim/.vim/plugin/*
+!/vim/.vim/plugin/complete.vim
 !/vim/.vim/plugin/notewiki.vim
-!/vim/.vim/plugin/simple-complete.vim
 !/vim/.vim/plugin/utility.vim
 
 /vim/.vim/after/ftplugin/*
