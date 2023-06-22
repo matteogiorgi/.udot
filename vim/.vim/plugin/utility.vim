@@ -91,13 +91,35 @@ endfunction
 "}}}
 
 
+" ToggleUndoTree {{{
+function! s:ToggleUT()
+    if &filetype ==? 'netrw' || &filetype ==? '' | return | endif
+    if !exists('g:toggleUT') | let g:toggleUT = 0 | endif
+
+    if g:toggleUT ==? 0
+        let g:toggleUT = 1
+        let g:tabn = tabpagenr()
+        execute 'tabnew % | UndotreeShow'
+    else
+        let g:toggleUT = 0
+        execute 'UndotreeHide | tabclose |  normal ' . g:tabn . 'gt'
+    endif
+endfunction
+
+let g:undotree_WindowLayout = 2
+let g:undotree_SetFocusWhenToggle = 1
+" }}}
+
+
 command! JumpCurrentDir call <SID>JumpCurrentDir()
 command! JumpParentDir call <SID>JumpParentDir()
 command! JumpGitDir call <SID>JumpGitDir()
 command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
+command! ToggleUndoTree call <SID>ToggleUT()
 
 nnoremap <silent><CR> :JumpCurrentDir<CR>
 nnoremap <silent><Backspace> :JumpParentDir<CR>
 nnoremap <leader><Backspace> :JumpGitDir<CR>
 nnoremap <silent>' :ToggleAccent<CR>
+nnoremap <silent>U :ToggleUndoTree<CR>

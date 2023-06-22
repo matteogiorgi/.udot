@@ -249,11 +249,8 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
     Plug 'mbbill/undotree'
     call plug#end()
 
-    " simple plugin-config; for any other plugin configuration,
+    " simple plugin-maps; for any other plugin configuration,
     " create a separate configuration file inside ~/.vim/plugin/
-    let g:undotree_WindowLayout = 2
-    let g:undotree_SetFocusWhenToggle = 1
-    nmap <silent><S-u> :UndotreeToggle<CR>
     nmap <leader><space> gcc
     vmap <leader><space> gc
 endif
