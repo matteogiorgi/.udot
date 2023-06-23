@@ -42,6 +42,11 @@ function! s:ScratchBuffer()
         setlocal nobuflisted
         setlocal noswapfile
         setlocal filetype=text
+        nmap <buffer> <localleader>\ :echo "No map for LOCALLEADER+\\."<CR>
+        nmap <buffer> <leader><space> :echo "No map for LEADER+SPACE."<CR>
+        nmap <buffer> <silent><CR> :echo "No map for RETURN."<CR>
+        nmap <buffer> <silent><Backspace> :echo "No map for BACKSPACE."<CR>
+        nmap <buffer> <leader><Backspace> :echo "No map for LEADER+BACKSPACE."<CR>
     endif
 endfunction
 "}}}
@@ -78,4 +83,5 @@ command! VimNote call <SID>VimNote()
 command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
 
+nnoremap <localleader>\ :ScratchBuffer<CR>
 nnoremap <silent>' :ToggleAccent<CR>
