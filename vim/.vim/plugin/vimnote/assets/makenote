@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+
+### convert current note to plain html
+######################################
+
+md2html $currfile > $vimnote/$1.html
+
+
+
+
+### convert current note to html
+################################
+
+# pandoc $currfile -s --to=html5 -o $vimnote/$1.html \
+#             --mathjax \
+#             -H $vimnote/assets/header.html \
+#             -B $vimnote/assets/before.html \
+#             -A $vimnote/assets/footer.html \
+#             -T $prefixtail
+
+
+
+
+### convert all notes to html 
+#############################
+
+# for note in *.md; do
+#     [[ $note == "README.md" ]] && continue
+#     name="${note%.*}"
+#     pandoc $note -s --to=html5 -o $vimnote/$name.html \
+#                 --mathjax \
+#                 -H $vimnote/assets/header.html \
+#                 -B $vimnote/assets/before.html \
+#                 -A $vimnote/assets/footer.html \
+#                 -T $prefixtail
+# done
+
+
+
+
+### convert current note to pdf
+###############################
+
+# pandoc $currfile --to=pdf -o $vimnote/$1.pdf
+
+
+
+
+### convert all notes to pdf
+############################
+
+# for note in *.md; do
+#     [[ $note == "README.md" ]] && continue
+#     name="${note%.*}"
+#     pandoc $note --to=pdf -o $vimnote/$name.pdf
+# done
+
+
+
+
+### convert current note to slides presentation
+###############################################
+
+# pandoc $currfile --to=beamer -o $vimnote/$1.pdf

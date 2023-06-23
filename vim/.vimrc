@@ -96,7 +96,7 @@ set belloff+=ctrlg
 
 
 " Variables to load early {{{
-let g:mapleader = "\<space>"
+let g:mapleader = "\<Space>"
 let g:maplocalleader = "\\"
 if has('python3')
     let g:python3_host_prog = '/usr/bin/python3'
@@ -127,7 +127,7 @@ augroup numbertoggle
                 \ if &number ==? 1 | set relativenumber | endif | set cursorline
     autocmd! WinLeave,BufLeave,FocusLost,InsertEnter *
                 \ if &number ==? 1 | set norelativenumber | endif | set nocursorline
-augroup end
+augroup END
 " }}}
 
 
@@ -143,7 +143,7 @@ augroup overlengthtoggle
                 \ if &filetype !=? 'text' && &filetype !=? 'markdown' && &filetype !=? 'tex' |
                 \     set colorcolumn= |
                 \ endif
-augroup end
+augroup END
 " }}}
 
 
@@ -180,6 +180,8 @@ command! Pasta execute 'normal "+p'
 
 
 " Keymaps {{{
+nnoremap <silent>_ :ToggleWordWrap<CR>
+nnoremap <silent>^ :ToggleBackground<CR>
 xnoremap <silent>K :move '<-2<CR>gv=gv
 xnoremap <silent>J :move '>+1<CR>gv=gv
 vnoremap <silent><Tab> >gv
@@ -189,7 +191,6 @@ nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-n> :bnext<CR>
 nnoremap <silent><C-p> :bprev<CR>
 nnoremap <silent><Tab> :buffer#<CR>
-nnoremap <silent><CR> :echo getcwd()<CR>
 nnoremap <silent><C-j> }
 nnoremap <silent><C-k> {
 vnoremap <silent><C-j> }
@@ -198,8 +199,9 @@ nnoremap <silent>Y y$
 nnoremap <leader>w <C-w>
 nnoremap <leader>a :execute "normal \ggVG"<CR>
 xnoremap <leader>s :s///gc<Left><Left><Left>
-vnoremap <leader>e :!<space>
-nnoremap <leader><space> :Explore<CR>
+vnoremap <leader>e :!<Space>
+nnoremap <leader><Space> :edit .<CR>
+nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt

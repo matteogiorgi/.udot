@@ -126,6 +126,7 @@
 /vim/.vim/*
 !/vim/.vim/after
 !/vim/.vim/colors
+!/vim/.vim/plugin
 
 /vim/.vim/after/*
 !/vim/.vim/after/ftplugin
@@ -135,11 +136,25 @@
 !/vim/.vim/colors/hembox.vim
 !/vim/.vim/colors/hemisu.vim
 
+/vim/.vim/plugin/*
+!/vim/.vim/plugin/vimnote
+!/vim/.vim/plugin/jumper.vim
+!/vim/.vim/plugin/writer.vim
+
 /vim/.vim/after/ftplugin/*
 !/vim/.vim/after/ftplugin/netrw.vim
 
 /vim/.vim/after/plugin/*
 !/vim/.vim/after/plugin/netrw.vim
+
+/vim/.vim/plugin/vimnote/*
+!/vim/.vim/plugin/vimnote/assets
+
+/vim/.vim/plugin/vimnote/assets/*
+!/vim/.vim/plugin/vimnote/assets/before.html
+!/vim/.vim/plugin/vimnote/assets/footer.html
+!/vim/.vim/plugin/vimnote/assets/header.html
+!/vim/.vim/plugin/vimnote/assets/makenote
 
 
 
