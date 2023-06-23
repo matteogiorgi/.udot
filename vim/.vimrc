@@ -200,7 +200,7 @@ nnoremap <leader>w <C-w>
 nnoremap <leader>a :execute "normal \ggVG"<CR>
 xnoremap <leader>s :s///gc<Left><Left><Left>
 vnoremap <leader>e :!<Space>
-nnoremap <leader><Space> :edit .<CR>
+nnoremap <leader><Space> :edit ./<Right>
 nnoremap <leader><Tab> :buffers<CR>:buffer<Space>
 nnoremap <leader>0 0gt
 nnoremap <leader>1 1gt

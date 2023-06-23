@@ -38,10 +38,3 @@ nmap <buffer> D D
 nmap <buffer> c mtmc
 nmap <buffer> m mtmm
 nmap <buffer> x mx
-
-" neutralize some maps
-nmap <buffer> <localleader>\ :echo "No map for LOCALLEADER+\\."<CR>
-nmap <buffer> <leader><space> :echo "No map for LEADER+SPACE."<CR>
-nmap <buffer> <silent><CR> :echo "No map for RETURN."<CR>
-nmap <buffer> <silent><Backspace> :echo "No map for BACKSPACE."<CR>
-nmap <buffer> <leader><Backspace> :echo "No map for LEADER+BACKSPACE."<CR>
