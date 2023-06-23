@@ -53,6 +53,6 @@ sudo apt update && sudo apt install vim-gtk3
 
 ## Need more?
 
-- To seek info an any *Ubuntu* package, check [packages.ubuntu.com](https://packages.ubuntu.com/).
+- To seek info on any *Ubuntu* package, check [packages.ubuntu.com](https://packages.ubuntu.com/).
 - To read *Ubuntu* manpages, check [manpages.ubuntu.com](https://manpages.ubuntu.com/).
 - As a minimal-lifestile alternative, check out [.minidot](https://github.com/matteogiorgi/.minidot).
