@@ -1,6 +1,6 @@
 # .UDOT IS NO LONGER MANTEINED
 
-This repo is obsolite and no longer in use: I have decided to switch to a full fledged desktop environment like Gnome that support both Xorg and Wayland and coupled it with a more minimal version of this repo like [.minidot](https://github.com/matteogiorgi/.minidot).
+This repo is obsolite and no longer in use: I have decided to switch to a full fledged desktop environment like [Gnome](https://www.gnome.org/) that support both Xorg and Wayland and coupled it with a more minimal version of this repo like [.minidot](https://github.com/matteogiorgi/.minidot).
 
 
 
