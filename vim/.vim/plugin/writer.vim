@@ -15,17 +15,19 @@ let g:writer = 1
 
 " VimNote{{{
 function! s:VimNote()
-    let l:currfile = expand('%:p')
-    let l:prefix = expand('%:p:h')
-    let l:vimnote = l:prefix . '/vimnote'
-    let $currfile = fnamemodify(l:currfile, ':p')
-    let $prefix = fnamemodify(l:prefix, ':p')
-    let $prefixtail = fnamemodify(l:prefix, ':t')
-    let $vimnote = fnamemodify(l:vimnote, ':p')
-    if !isdirectory($vimnote)
-        !cp -R $HOME/.vim/plugin/vimnote $prefix
+    let l:pathFile    = expand('%:p')
+    let l:pathParent  = expand('%:p:h')
+    let l:pathNote    = l:pathParent . '/vimnote'
+
+    let $FILE   = fnamemodify(l:pathFile, ':p')
+    let $PARENT = fnamemodify(l:pathParent, ':p')
+    let $PREFIX = fnamemodify(l:pathParent, ':t')
+    let $NOTES  = fnamemodify(l:pathNote, ':p')
+
+    if !isdirectory($NOTES)
+        !cp -R $HOME/.vim/plugin/vimnote $PARENT
     endif
-    !$vimnote/assets/makenote %:t:r
+    !$NOTES/assets/makenote %:t:r
 endfunction
 "}}}
 
@@ -34,6 +36,7 @@ endfunction
 function! s:ScratchBuffer()
     let target_buffer = bufnr('/tmp/scratchbuffer')
     let target_window = bufwinnr(target_buffer)
+
     if target_buffer != -1 && target_window != -1
         execute target_window . 'wincmd w'
     else
@@ -49,21 +52,23 @@ endfunction
 
 " ToggleAccent{{{
 function! s:ToggleAccent()
-    let listNoAccent    = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-    let listAccentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
-    let listAccentAcute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
+    let accentNone  = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    let accentGrave = ['à', 'è', 'ì', 'ò', 'ù', 'À', 'È', 'Ì', 'Ò', 'Ù']
+    let accentAcute = ['á', 'é', 'í', 'ó', 'ú', 'Á', 'É', 'Í', 'Ó', 'Ú']
+
     let character = matchstr(getline('.'), '\%' . col('.') . 'c.')
-    let positionNoAccent = match(listNoAccent, character)
-    let positionAccentGrave = match(listAccentGrave, character)
-    let positionAccentAcute = match(listAccentAcute, character)
-    if positionNoAccent != -1
-        execute ':normal! r' . listAccentGrave[positionNoAccent]
+    let positionNone  = match(accentNone, character)
+    let positionGrave = match(accentGrave, character)
+    let positionAcute = match(accentAcute, character)
+
+    if positionNone != -1
+        execute ':normal! r' . accentGrave[positionNone]
     endif
-    if positionAccentGrave != -1
-        execute ':normal! r' . listAccentAcute[positionAccentGrave]
+    if positionGrave != -1
+        execute ':normal! r' . accentAcute[positionGrave]
     endif
-    if positionAccentAcute != -1
-        execute ':normal! r' . listNoAccent[positionAccentAcute]
+    if positionAcute != -1
+        execute ':normal! r' . accentNone[positionAcute]
     endif
 endfunction
 "}}}

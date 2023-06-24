@@ -154,6 +154,8 @@
 !/vim/.vim/plugin/vimnote/assets/before.html
 !/vim/.vim/plugin/vimnote/assets/footer.html
 !/vim/.vim/plugin/vimnote/assets/header.html
+!/vim/.vim/plugin/vimnote/assets/link2html.lua
+!/vim/.vim/plugin/vimnote/assets/link2html.py
 !/vim/.vim/plugin/vimnote/assets/makenote
 
 
