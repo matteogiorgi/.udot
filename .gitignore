@@ -137,7 +137,7 @@
 !/vim/.vim/colors/hemisu.vim
 
 /vim/.vim/plugin/*
-!/vim/.vim/plugin/vimnote
+!/vim/.vim/plugin/notevi
 !/vim/.vim/plugin/jumper.vim
 !/vim/.vim/plugin/writer.vim
 
@@ -147,15 +147,15 @@
 /vim/.vim/after/plugin/*
 !/vim/.vim/after/plugin/netrw.vim
 
-/vim/.vim/plugin/vimnote/*
-!/vim/.vim/plugin/vimnote/assets
+/vim/.vim/plugin/notevi/*
+!/vim/.vim/plugin/notevi/assets
 
-/vim/.vim/plugin/vimnote/assets/*
-!/vim/.vim/plugin/vimnote/assets/before.html
-!/vim/.vim/plugin/vimnote/assets/footer.html
-!/vim/.vim/plugin/vimnote/assets/header.html
-!/vim/.vim/plugin/vimnote/assets/link2html.lua
-!/vim/.vim/plugin/vimnote/assets/makenote
+/vim/.vim/plugin/notevi/assets/*
+!/vim/.vim/plugin/notevi/assets/before.html
+!/vim/.vim/plugin/notevi/assets/footer.html
+!/vim/.vim/plugin/notevi/assets/header.html
+!/vim/.vim/plugin/notevi/assets/link2html.lua
+!/vim/.vim/plugin/notevi/assets/makenote
 
 
 

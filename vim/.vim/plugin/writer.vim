@@ -13,21 +13,21 @@ if exists("g:writer") | finish | endif
 let g:writer = 1
 
 
-" VimNote{{{
-function! s:VimNote()
+" NoteVI{{{
+function! s:NoteVI()
     let l:pathFile    = expand('%:p')
     let l:pathParent  = expand('%:p:h')
-    let l:pathNote    = l:pathParent . '/vimnote'
+    let l:pathNoteVI  = l:pathParent . '/notevi'
 
     let $FILE   = fnamemodify(l:pathFile, ':p')
     let $PARENT = fnamemodify(l:pathParent, ':p')
     let $PREFIX = fnamemodify(l:pathParent, ':t')
-    let $NOTES  = fnamemodify(l:pathNote, ':p')
+    let $NOTEVI = fnamemodify(l:pathNoteVI, ':p')
 
-    if !isdirectory($NOTES)
-        !cp -R $HOME/.vim/plugin/vimnote $PARENT
+    if !isdirectory($NOTEVI)
+        !cp -R $HOME/.vim/plugin/notevi $PARENT
     endif
-    !$NOTES/assets/makenote %:t:r
+    !$NOTEVI/assets/makenote %:t:r
 endfunction
 "}}}
 
@@ -79,7 +79,7 @@ augroup AutoWriteScratchBuffer
 augroup END
 
 
-command! VimNote call <SID>VimNote()
+command! NoteVI call <SID>NoteVI()
 command! ScratchBuffer call <SID>ScratchBuffer()
 command! ToggleAccent call <SID>ToggleAccent()
 

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# This script is used by VimNote function to convert *.md files
+# inside the current directory into html notes linked as a wiki.
+# As alternative `pandoc $FILE --to=pdf -o $NOTEVI/$1.pdf` can
+# be used to convert current markdown file into pdf with LaTeX.
+
+
+# $FILE   -> current file path
+# $PARENT -> current directory path
+# $PREFIX -> prefix name (titlepage)
+# $NOTEVI -> notevi directory path
+
+for NOTE in *.md; do
+    NAME="${NOTE%.*}"
+    pandoc $NOTE -s --to=html5 -o $NOTEVI/$NAME.html \
+                --mathjax \
+                --lua-filter=$NOTEVI/assets/link2html.lua \
+                -H $NOTEVI/assets/header.html \
+                -B $NOTEVI/assets/before.html \
+                -A $NOTEVI/assets/footer.html \
+                -T $PREFIX
+done
