@@ -176,7 +176,8 @@ sudo apt install -qq -y \
     gnome-keyring \
     coreutils \
     xdg-utils \
-    fbset
+    fbset \
+    pandoc
 
 
 

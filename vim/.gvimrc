@@ -14,6 +14,7 @@ set guifont=Fira\ Code\ 7.8
 set guioptions=i
 set guicursor+=a:blinkon0
 set columns=120 lines=60
+set vb t_vb=
 
 " gui colors
 set background=dark

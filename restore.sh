@@ -185,7 +185,8 @@ sudo apt purge -qq -y \
     lxappearance \
     qt5ct \
     xournalpp \
-    adwaita-qt
+    adwaita-qt \
+    pandoc
 
 
 

@@ -1,73 +1,23 @@
 #!/usr/bin/env bash
 
+# This script is used by VimNote function to convert *.md files
+# inside the current directory into html notes linked as a wiki.
+# As alternative `pandoc $FILE --to=pdf -o $NOTES/$1.pdf` can
+# be used to convert current markdown file into pdf with LaTeX.
+
 
 # $FILE   -> current file path
 # $PARENT -> current directory path
 # $PREFIX -> prefix name (titlepage)
 # $NOTES  -> vimnote directory
 
-
-
-
-### CONVERT CURRENT MD-NOTE TO PLAIN HTML
-#########################################
-
-md2html $FILE > $NOTES/$1.html
-
-
-
-
-### CONVERT CURRENT MD-NOTE TO HTML
-###################################
-
-# pandoc $FILE -s --to=html5 -o $NOTES/$1.html \
-#             --mathjax \
-#             --lua-filter=$NOTES/assets/link2html.lua \
-#             -H $NOTES/assets/header.html \
-#             -B $NOTES/assets/before.html \
-#             -A $NOTES/assets/footer.html \
-#             -T $PREFIX
-
-
-
-
-### CONVERT ALL MD-NOTES TO HTML
-################################
-
-# for note in *.md; do
-#     name="${note%.*}"
-#     pandoc $note -s --to=html5 -o $NOTES/$name.html \
-#                 --mathjax \
-#                 --lua-filter=$NOTES/assets/link2html.lua \
-#                 -H $NOTES/assets/header.html \
-#                 -B $NOTES/assets/before.html \
-#                 -A $NOTES/assets/footer.html \
-#                 -T $PREFIX
-# done
-
-
-
-
-### CONVERT CURRENT MD-NOTE TO PDF
-##################################
-
-# pandoc $FILE --to=pdf -o $NOTES/$1.pdf
-
-
-
-
-### CONVERT ALL MD-NOTES TO PDF
-###############################
-
-# for note in *.md; do
-#     name="${note%.*}"
-#     pandoc $note --to=pdf -o $NOTES/$name.pdf
-# done
-
-
-
-
-### CONVERT CURRENT MD-NOTE TO SLIDES PRESENTATION
-##################################################
-
-# pandoc $FILE --to=beamer -o $NOTES/$1.pdf
+for note in *.md; do
+    name="${note%.*}"
+    pandoc $note -s --to=html5 -o $NOTES/$name.html \
+                --mathjax \
+                --lua-filter=$NOTES/assets/link2html.lua \
+                -H $NOTES/assets/header.html \
+                -B $NOTES/assets/before.html \
+                -A $NOTES/assets/footer.html \
+                -T $PREFIX
+done
