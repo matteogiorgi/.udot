@@ -1,3 +1,10 @@
+# .UDOT IS NO LONGER MANTEINED
+
+This repo is obsolite and no longer in use: I have decided to switch to a full fledged desktop environment like Gnome that support both Xorg and Wayland and coupled it with a more minimal version of this repo like [.minidot](https://github.com/matteogiorgi/.minidot).
+
+
+
+
 # A very effective GNU/Linux config
 
 This repo contains a minimal configuration of my *dotfiles*, I keep them organized using [GNU Stow](https://www.gnu.org/software/stow/) and they are meant to be used alongside a vanilla install of [Ubuntu](https://ubuntu.com/#download). The scripts are in good order and well readable but there wont be no more than the bare essentials.
